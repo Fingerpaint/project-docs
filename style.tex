@@ -10,6 +10,7 @@
 
 %Nodig om een bibliography midden in het artikel te zetten, ipv aan het einde zoals eigenlijk gebruikelijk is
 \renewcommand{\bibsection}{}
+\bibliographystyle{ieeetr}
 
 % TODO command
 \newcommand{\todo}[1]{
@@ -19,8 +20,9 @@
 % The things that should be filled in by each group, depending on their situation, are written in a todo command, \todo{like this text}. All text in normal the normal font, is applicable for any group. However, everyone is free to adapt any text, and it is even suggested to look at all text critically and make changes if needed.
 
 % Project specific commands
-\author{Group 1}
-\newcommand{\projectname}{\todo{Project Name}\ }
-
+\newcommand{\projectauthor}{Group Fingerpaint\ }
+\author{\projectauthor}
+\newcommand{\projectname}{Fingerpaint\ }
+\newcommand{\applicationname}{Fingerpaint application\ }
 
 \newcommand{\aanpassen}[1]{ {\sethlcolor{green} \hl{#1}} }
