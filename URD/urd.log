@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.7.19)  24 APR 2013 08:51
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.7.19)  24 APR 2013 09:24
 entering extended mode
 **urd.tex
 (D:\Documents\GitHub\project-docs\URD\urd.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
 rman, ngerman, french, dutch, loaded.
-(D:\Documents\GitHub\project-docs\URD\style.tex
+(D:\Documents\GitHub\project-docs\style.tex
 ("C:\Program Files\MiKTeX 2.8\tex\latex\base\report.cls"
 Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
 ("C:\Program Files\MiKTeX 2.8\tex\latex\base\size11.clo"
@@ -92,6 +92,14 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ("C:\Program Files\MiKTeX 2.8\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2009/06/22 v3.00
 )
+("C:\Program Files\MiKTeX 2.8\tex\latex\tools\array.sty"
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen112
+\extrarowheight=\dimen113
+\NC@list=\toks19
+\extratabsurround=\skip46
+\backup@length=\skip47
+)
 ("C:\Program Files\MiKTeX 2.8\tex\latex\a4wide\a4wide.sty"
 Package: a4wide 1994/08/30
 
@@ -99,31 +107,31 @@ Package: a4wide 1994/08/30
 Package: a4 2004/04/15 v1.2g A4 based page layout
 ))
 ("C:\Program Files\MiKTeX 2.8\tex\latex\fancyhdr\fancyhdr.sty"
-\fancy@headwidth=\skip46
-\f@ncyO@elh=\skip47
-\f@ncyO@erh=\skip48
-\f@ncyO@olh=\skip49
-\f@ncyO@orh=\skip50
-\f@ncyO@elf=\skip51
-\f@ncyO@erf=\skip52
-\f@ncyO@olf=\skip53
-\f@ncyO@orf=\skip54
+\fancy@headwidth=\skip48
+\f@ncyO@elh=\skip49
+\f@ncyO@erh=\skip50
+\f@ncyO@olh=\skip51
+\f@ncyO@orh=\skip52
+\f@ncyO@elf=\skip53
+\f@ncyO@erf=\skip54
+\f@ncyO@olf=\skip55
+\f@ncyO@orf=\skip56
 )
 ("C:\Program Files\MiKTeX 2.8\tex\latex\lineno\lineno.sty"
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
 \linenopenalty=\count100
-\output=\toks19
+\output=\toks20
 \linenoprevgraf=\count101
-\linenumbersep=\dimen112
-\linenumberwidth=\dimen113
+\linenumbersep=\dimen114
+\linenumberwidth=\dimen115
 \c@linenumber=\count102
 \c@pagewiselinenumber=\count103
 \c@LN@truepage=\count104
 \c@internallinenumber=\count105
 \c@internallinenumbers=\count106
-\quotelinenumbersep=\dimen114
-\bframerule=\dimen115
-\bframesep=\dimen116
+\quotelinenumbersep=\dimen116
+\bframerule=\dimen117
+\bframesep=\dimen118
 \bframebox=\box28
 LaTeX Info: Redefining \\ on input line 3056.
 )
@@ -132,7 +140,7 @@ Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files\MiKTeX 2.8\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
-\KV@toks@=\toks20
+\KV@toks@=\toks21
 )
 ("C:\Program Files\MiKTeX 2.8\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
@@ -149,25 +157,25 @@ Package graphics Info: Driver file: pdftex.def on input line 91.
 File: pdftex.def 2010/02/14 v0.04n Graphics/color for pdfTeX
 \Gread@gobject=\count107
 ))
-\Gin@req@height=\dimen117
-\Gin@req@width=\dimen118
+\Gin@req@height=\dimen119
+\Gin@req@width=\dimen120
 )
 ("C:\Program Files\MiKTeX 2.8\tex\latex\graphics\epsfig.sty"
 Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
-\epsfxsize=\dimen119
-\epsfysize=\dimen120
+\epsfxsize=\dimen121
+\epsfysize=\dimen122
 )
 ("C:\Program Files\MiKTeX 2.8\tex\latex\soul\soul.sty"
 Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
-\SOUL@word=\toks21
-\SOUL@lasttoken=\toks22
-\SOUL@cmds=\toks23
-\SOUL@buffer=\toks24
-\SOUL@token=\toks25
-\SOUL@spaceskip=\skip55
-\SOUL@ttwidth=\dimen121
-\SOUL@uldp=\dimen122
-\SOUL@ulht=\dimen123
+\SOUL@word=\toks22
+\SOUL@lasttoken=\toks23
+\SOUL@cmds=\toks24
+\SOUL@buffer=\toks25
+\SOUL@token=\toks26
+\SOUL@spaceskip=\skip57
+\SOUL@ttwidth=\dimen123
+\SOUL@uldp=\dimen124
+\SOUL@ulht=\dimen125
 )
 ("C:\Program Files\MiKTeX 2.8\tex\latex\graphics\color.sty"
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
@@ -232,7 +240,7 @@ Package: xcolor-patch 2009/12/12 xcolor patch
 ("C:\Program Files\MiKTeX 2.8\tex\latex\oberdiek\letltxmacro.sty"
 Package: letltxmacro 2008/06/24 v1.3 Let assignment for LaTeX macros (HO)
 )
-\@linkdim=\dimen124
+\@linkdim=\dimen126
 \Hy@linkcounter=\count108
 \Hy@pagecounter=\count109
 
@@ -269,9 +277,9 @@ Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
 Package: bigintcalc 2007/11/11 v1.1 Expandable big integer calculations (HO)
 ))
 \Fld@menulength=\count110
-\Field@Width=\dimen125
-\Fld@charsize=\dimen126
-\Field@toks=\toks26
+\Field@Width=\dimen127
+\Fld@charsize=\dimen128
+\Field@toks=\toks27
 Package hyperref Info: Hyper figures OFF on input line 5137.
 Package hyperref Info: Link nesting OFF on input line 5142.
 Package hyperref Info: Hyper index ON on input line 5145.
@@ -309,16 +317,16 @@ Package: uniquecounter 2009/12/18 v1.1 Provides unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 71.
 )
-\Hy@SectionHShift=\skip56
+\Hy@SectionHShift=\skip58
 )
 ("C:\Program Files\MiKTeX 2.8\tex\latex\natbib\natbib.sty"
 Package: natbib 2009/11/07 8.31a (PWD, AO)
-\bibhang=\skip57
-\bibsep=\skip58
+\bibhang=\skip59
+\bibsep=\skip60
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count116
 ))
-No file urd.aux.
+(D:\Documents\GitHub\project-docs\URD\urd.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
@@ -333,18 +341,19 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
+
 ("C:\Program Files\MiKTeX 2.8\tex\context\base\supp-pdf.tex"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count117
-\scratchdimen=\dimen127
+\scratchdimen=\dimen129
 \scratchbox=\box29
 \nofMPsegments=\count118
 \nofMParguments=\count119
-\everyMPshowfont=\toks27
+\everyMPshowfont=\toks28
 \MPscratchCnt=\count120
-\MPscratchDim=\dimen128
+\MPscratchDim=\dimen130
 \MPnumerator=\count121
-\everyMPtoPDFconversion=\toks28
+\everyMPtoPDFconversion=\toks29
 )
 \AtBeginShipoutBox=\box30
 Package hyperref Info: Link coloring OFF on input line 9.
@@ -362,6 +371,9 @@ Package: gettitlestring 2009/12/18 v1.3 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 9.
 LaTeX Info: Redefining \pageref on input line 9.
 LaTeX Info: Redefining \nameref on input line 9.
+
+(D:\Documents\GitHub\project-docs\URD\urd.out)
+(D:\Documents\GitHub\project-docs\URD\urd.out)
 \@outlinefile=\write3
 LaTeX Font Info:    Try loading font information for U+msa on input line 12.
 
@@ -380,7 +392,7 @@ dy used, duplicate ignored
 <to be read again> 
                    \relax 
 l.15 \end{abstract}
-                    [1]
+                    [1] (D:\Documents\GitHub\project-docs\URD\urd.toc)
 \tf@toc=\write4
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
@@ -441,21 +453,14 @@ Package atveryend Info: Empty hook `BeforeClearDocument' on input line 256.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 256.
  (D:\Documents\GitHub\project-docs\URD\urd.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 256.
-
-
-Package rerunfilecheck Warning: File `urd.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `urd.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  680ECA2C056CA3C54AB2A4B3DEB636F6;1168.
+Package rerunfilecheck Info: File `urd.out' has not changed.
+(rerunfilecheck)             Checksum: 680ECA2C056CA3C54AB2A4B3DEB636F6;1168.
  ) 
 Here is how much of TeX's memory you used:
- 6396 strings out of 495285
- 90354 string characters out of 3181821
- 176845 words of memory out of 3000000
- 9430 multiletter control sequences out of 15000+200000
+ 6468 strings out of 495285
+ 91493 string characters out of 3181821
+ 177641 words of memory out of 3000000
+ 9489 multiletter control sequences out of 15000+200000
  13691 words of font info for 51 fonts, out of 3000000 for 9000
  54 hyphenation exceptions out of 8191
  33i,11n,43p,621b,390s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -467,9 +472,9 @@ ts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/
 public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/am
 sfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/c
 m/cmtt10.pfb>
-Output written on urd.pdf (12 pages, 120838 bytes).
+Output written on urd.pdf (12 pages, 137017 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
+ 195 PDF objects out of 1000 (max. 8388607)
  37 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 145 words of extra memory for PDF output out of 10000 (max. 10000000)
 
