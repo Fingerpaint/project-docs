@@ -8,6 +8,52 @@ In this section, general conventions that ensure the code is \emph{readable} in 
 	\item Use a consistent writing style, namely British-English spelling where applicable.
 	\item Use a consistent naming scheme, namely the one described in the Oracle Java coding conventions. For clarity, we quote those conventions here.
 		\begin{itemize}
-			\item Class names should be nouns, in mixed case with the first letter of each internal word capitalized. Try to keep your class names simple and descriptive. Use whole words - avoid acronyms and abbreviations (unless the abbreviation is much more widely used than the long form, such as URL or HTML).
+			\item ``Class names should be nouns, in mixed case with the first letter of each internal word capitalized. Try to keep your class names simple and descriptive. Use whole words - avoid acronyms and abbreviations (unless the abbreviation is much more widely used than the long form, such as URL or HTML).''
+			\item ``Interface names should be capitalized like class names.''
+			\item ``Methods should be verbs, in mixed case with the first letter lowercase, with the first letter of each internal word capitalized.'' We want to clarify here that a method name should not \emph{be} a verb, but \emph{start with} a verb. For example, \texttt{getBackground} is a correct method name. Furthermore, names of getters should start with \texttt{get} and names of setters likewise with \texttt{set}.
+			\item Like methods, variables should be in mixed case with the first letter lowercase, with the first letter of each internal word capitalized. However, constants should be in upper case.
+			
+			``Variable names should be short yet meaningful. The choice of a variable name should be mnemonic - that is, designed to indicate to the casual observer the intent of its use. One-character variable names should be avoided except for temporary “throwaway” variables. Common names for temporary variables are \texttt{i}, \texttt{j}, \texttt{k}, \texttt{m}, and \texttt{n} for integers; \texttt{c}, \texttt{d}, and \texttt{e} for characters.''
 		\end{itemize}
+	\item Write all reserved words (\texttt{class}, \texttt{public}, \dots) in lower case.
+	\item Not use very long identifiers in general. Preferably, all identifiers should have a length of at most 15 characters. Class names can however get quite long, so for class names a name of at most 30 characters is acceptable.
+	\item Be concise and prevent unused code from appearing in the program as good as we can.
+	\item Write no more than one statement per line (except for writing \texttt{for} and \texttt{while} loops).
+	\item Write lines of at most 80 characters wide.
+	\item Use no tabs for indentation, or at least a tab size of a fixed size, namely 4 spaces.
+	\item Group related constructs and separate different groups of related statements by blank lines.
+	\item Vertically align comments and identifiers where applicable. In particular, some form of alignment in JavaDoc will be preferred:
+		\begin{center}\begin{verbatim}
+			/**
+			 * Concise description of a method in one line.
+			 * Some more explanation. This goes into details.
+			 *
+			 * @param param1Name Description of this parameter, that is
+			 *                   pretty long and aligned with the previous
+			 *                   line of description.
+			 * @param foo This parameter also has a length description that
+			 *            is aligned with the rest of the description, but
+			 *            NOT with the previous description.
+			 * @return Description of what is returned that - what a coincidence
+			 *         - is also pretty length and aligned with only its own
+			 *         description, not others.
+			 */
+			public static DataType solveProblem(param1Name, foo) { ... }
+		\end{verbatim}\end{center}
 \end{itemize}
+
+\section{Naming Conventions}
+We want the code to be easily readable and thus, want to have easy-to-understand names for classes, methods and variables. Therefore, we will:
+
+\begin{itemize}
+	\item Document each class, method and global variable with JavaDoc. Also, we will document local variables that are not temporary variables when needed. Variable names should be self-explanatory as much as possible.
+	\item Use only the Latin alphabet as far as applicable, that is, refrain from using special characters and/or Chinese characters for example. Digits in identifiers can be used, but it is not recommended to do so normally.
+	\item Make sure that identifiers indicate the purpose of a method/variable, not the (return)type.
+\end{itemize}
+
+\section{Comments}
+As described in the ESA coding standards, we want comments to be explanatory, not a restatement of the code. Also, when an identifier is self-explanatory, no further comments are needed there. Thus, something like the following is undesirable:
+\begin{center}\begin{verbatim}
+	int childCount; // count of number of children
+\end{verbatim}\end{center}
+In general, comments should be as close to the code as possible. JavaDoc can be written in the lines directly preceding the line with the identifier that is documented, while explanatory comments for local variables can be on the preceding line or even on the same line after the identifier that is documented.
