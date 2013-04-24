@@ -5,79 +5,84 @@ A list of all capability requirements (what should the system do).
 \begin{center}
 \begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
 
-01 & could have \\
+CPR01 & could have \\
 \multicolumn{2}{p{\textwidth}}{Users can set a geometry for the canvas} \\
 \hline
 
-02 & must have \\
+CPR02 & must have \\
 \multicolumn{2}{p{\textwidth}}{Users can define a initial concentration distribution with black and white} \\
 \hline
 
-03 & could have \\
-\multicolumn{2}{p{\textwidth}}{Users can choose which two colors are used for the initial concentration distribution} \\
-\hline
-
-04 & should have? \\
+CPR04 & should have? \\
 \multicolumn{2}{p{\textwidth}}{Users can define a initial concentration distribution with more than two different colors} \\
 \hline
 
-05 & must have \\
+CPR03 & could have \\
+\multicolumn{2}{p{\textwidth}}{Users can choose which colors are used for the initial concentration distribution} \\
+\hline
+
+CPR05 & must have \\
 \multicolumn{2}{p{\textwidth}}{Users can define a mixing protocol for a rectangular geometry as a sequence of movements of the upper and lower walls}\\
 \hline
 
-06 & could have \\
+CPR06 & could have \\
 \multicolumn{2}{p{\textwidth}}{Users can define a mixing protocol for a non-rectangular geometry as a sequence of movements that are applicable to the geometry}\\
 \hline
 
-07 & must have \\
+CPR07 & must have \\
 \multicolumn{2}{p{\textwidth}}{Users can define a step to indicate the timeperiod that each movement from the mixing protocol is applied}\\
 \hline
 
-08 & could have \\
+CPR08 & could have \\
 \multicolumn{2}{p{\textwidth}}{Users can define a different step for each separate movement in the mixing protocol}\\
 \hline
 
-09 & must have \\
+CPR09 & must have \\
 \multicolumn{2}{p{\textwidth}}{Users can view an image of the endresult of applying the mixing protocol on the initial concentration distribution} \\
 \hline
 
-10 & should have \\
+CPR10 & should have \\
 \multicolumn{2}{p{\textwidth}}{Users can save the image from 06 locally to their device, without losing transparency (i.e. PNG or GIF format)} \\
 \hline
 
-11 & should have \\
+CPR11 & should have \\
 \multicolumn{2}{p{\textwidth}}{Users can remove previously stored images from their device} \\
 \hline
 
-12 & should have \\
+CPR12 & could have \\
 \multicolumn{2}{p{\textwidth}}{Users can view an animation of applying the mixing protocol on the initial concentration distribution} \\
 \hline
 
-13 & should have \\
+CPR13 & could have \\
 \multicolumn{2}{p{\textwidth}}{Users can save the animation from 09 locally to their device, without losing transparency (i.e. APNG or AGIF format} \\
 \hline
 
-14 & should have \\
+CPR14 & could have \\
 \multicolumn{2}{p{\textwidth}}{Users can remove previously stored animations from their device} \\
 \hline
 
-15 & should have \\
+CPR15 & should have \\
 \multicolumn{2}{p{\textwidth}}{Users can view the mixing performance of the mixing protocol in a graph} \\
 \hline
 
-16 & should have \\
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
+
+CPR16 & should have \\
 \multicolumn{2}{p{\textwidth}}{Users can save the performance results locally on their device} \\
 \hline
 
-17 & should have \\
+CPR17 & should have \\
 \multicolumn{2}{p{\textwidth}}{Users can retrieve the performance results that are stored locally on their device} \\
 \hline
 
-18 & should have \\
+CPR18 & should have \\
 \multicolumn{2}{p{\textwidth}}{Users can retrieve performance results from multiple mixing protocols simultaneously, after which they are depicted in one graph} \\
 \hline
 
-19 & should have \\
+CPR19 & should have \\
 \multicolumn{2}{p{\textwidth}}{Users can remove performance results that are stored on their device} \\
 \hline
 
@@ -90,32 +95,72 @@ A list of all constraint requirements (interfaces, portability, adaptability ava
 \begin{center}
 \begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
 
-01 & must have \\
-\multicolumn{2}{p{\textwidth}}{The interface contains a canvas which represents the mixing area} \\
+CNR01 & must have \\
+\multicolumn{2}{p{\textwidth}}{The application has input interface and an output interface} \\
 \hline
 
-02 & should have \\
-\multicolumn{2}{p{\textwidth}}{The user can define the initial concentration distribution by painting on the canvas with his/her finger} \\
+CNR02 & could have \\
+\multicolumn{2}{p{\textwidth}}{The application has a history interface} \\
 \hline
 
-03 & must have \\
-\multicolumn{2}{p{\textwidth}}{The interface contains an easy to use input element to define the sequence of movements of the mixing protocol (i.e. a button or by swiping over the screen)} \\
+CNR03 & could have \\
+\multicolumn{2}{p{\textwidth}}{The application has a settings interface} \\
 \hline
 
-04 & must have \\
-\multicolumn{2}{p{\textwidth}}{The interface contains a numberfield to set the step parameter of the mixing protocol} \\
+CNR04 & must have \\
+\multicolumn{2}{p{\textwidth}}{The input interface provides the functionality described in requirements CPR02, CPR05, CPR07.} \\
 \hline
 
-05 & must have \\
-\multicolumn{2}{p{\textwidth}}{Waiting time between submitting input and receiving output should not be more than 5 seconds} \\
+CNR05 & should have \\
+\multicolumn{2}{p{\textwidth}}{The input interface provides the functionality described in requirements CPR04.} \\
 \hline
 
-06 & should have \\
-\multicolumn{2}{p{\textwidth}}{Waiting time between submitting input and receiving output should not be more than 3 seconds} \\
+CNR06 & could have \\
+\multicolumn{2}{p{\textwidth}}{The input interface provides the functionality described in requirements CPR01, CPR03, CPR06, CPR08.} \\
 \hline
 
-07 & could have \\
-\multicolumn{2}{p{\textwidth}}{Waiting time between submitting input and receiving output should not be more than 1 seconds} \\
+CNR07 & must have \\
+\multicolumn{2}{p{\textwidth}}{The output interface provides the functionality described in requirement CPR09.} \\
+\hline
+
+CNR08 & should have \\
+\multicolumn{2}{p{\textwidth}}{The output interface provides the functionality described in requirements CPR10, CPR15, CPR16.} \\
+\hline
+
+CNR09 & could have \\
+\multicolumn{2}{p{\textwidth}}{The output interface provides the functionality described in requirements CPR12, CPR13.} \\
+\hline
+
+CNR10 & should have \\
+\multicolumn{2}{p{\textwidth}}{The history interface provides the functionality described in requirements CPR11, CPR17, CPR18, CPR19.} \\
+\hline
+
+CNR11 & could have \\
+\multicolumn{2}{p{\textwidth}}{The history interface provides the functionality described in requirement CPR14.} \\
+\hline
+
+CNR12 & must have \\
+\multicolumn{2}{p{\textwidth}}{The application runs on devices runnning on iOS \textcolor{red}{--TODO: versions...}} \\
+\hline
+
+CNR13 & should have \\
+\multicolumn{2}{p{\textwidth}}{The application runs on devices runnning on Android \textcolor{red}{--TODO: versions...}} \\
+\hline
+
+CNR13 & could have \\
+\multicolumn{2}{p{\textwidth}}{The application runs on devices runnning on \textcolor{red}{--TODO: something else... versions...}} \\
+\hline
+
+CNR14 & must have \\
+\multicolumn{2}{p{\textwidth}}{Waiting time between submitting input and receiving output is not longer than 5 seconds} \\
+\hline
+
+CNR15 & should have \\
+\multicolumn{2}{p{\textwidth}}{Waiting time between submitting input and receiving output is not longer than 3 seconds} \\
+\hline
+
+CNR16 & could have \\
+\multicolumn{2}{p{\textwidth}}{Waiting time between submitting input and receiving output is not longer than 1 second} \\
 \hline
 
 \end{tabular}
