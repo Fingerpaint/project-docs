@@ -33,4 +33,6 @@
 *.tdo
 *.tex.bak
 *.synctex
-
+*.kate-swp
+*.backup
+*~
