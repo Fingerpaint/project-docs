@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.7.19)  24 APR 2013 09:24
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.7.19)  24 APR 2013 09:49
 entering extended mode
 **urd.tex
 (D:\Documents\GitHub\project-docs\URD\urd.tex
@@ -394,39 +394,43 @@ dy used, duplicate ignored
 l.15 \end{abstract}
                     [1] (D:\Documents\GitHub\project-docs\URD\urd.toc)
 \tf@toc=\write4
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
+
+(D:\Documents\GitHub\project-docs\URD\history.texpdfTeX warning (ext4): destina
+tion with the same identifier (name{page.1}) has been already used, duplicate i
+gnored
 <to be read again> 
                    \relax 
-l.18 \chapter
-             *{Document Status Sheet} [1
+l.1 \chapter
+            *{Document Status Sheet} [1
 
 ] [2
 
-] [3
+])
+(D:\Documents\GitHub\project-docs\URD\chapter1.tex [3
+
 
 ]
 Chapter 1.
 
-Package natbib Warning: Citation `spmp' on page 4 undefined on input line 59.
+Package natbib Warning: Citation `spmp' on page 4 undefined on input line 4.
 
 [4
 
 ]
 No file urd.bbl.
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--100
+Underfull \hbox (badness 10000) in paragraph at lines 43--45
 
  []
 
-[5]
+) (D:\Documents\GitHub\project-docs\URD\chapter2.tex [5]
 Chapter 2.
-[6
+) (D:\Documents\GitHub\project-docs\URD\chapter3.tex [6
 
 ]
 Chapter 3.
 
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 131--210
+Overfull \hbox (23.99998pt too wide) in paragraph at lines 6--85
  [] 
  []
 
@@ -437,33 +441,30 @@ Overfull \vbox (3.0993pt too high) has occurred while \output is active []
 
 
 [8]
-Overfull \hbox (23.99998pt too wide) in paragraph at lines 216--247
+Overfull \hbox (23.99998pt too wide) in paragraph at lines 91--122
  [] 
  []
 
-[9]
-Chapter 4.
+)
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 256.
-[10
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 256.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 32.
+[9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 32.
  (D:\Documents\GitHub\project-docs\URD\urd.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 256.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 32.
 Package rerunfilecheck Info: File `urd.out' has not changed.
-(rerunfilecheck)             Checksum: 680ECA2C056CA3C54AB2A4B3DEB636F6;1168.
+(rerunfilecheck)             Checksum: 24076301E6953616EE4E5BA7C462CF1E;1010.
  ) 
 Here is how much of TeX's memory you used:
- 6468 strings out of 495285
- 91493 string characters out of 3181821
+ 6473 strings out of 495285
+ 91838 string characters out of 3181821
  177641 words of memory out of 3000000
- 9489 multiletter control sequences out of 15000+200000
- 13691 words of font info for 51 fonts, out of 3000000 for 9000
+ 9486 multiletter control sequences out of 15000+200000
+ 13384 words of font info for 50 fonts, out of 3000000 for 9000
  54 hyphenation exceptions out of 8191
- 33i,11n,43p,621b,390s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 33i,11n,43p,642b,390s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.8/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
@@ -472,9 +473,9 @@ ts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/
 public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/am
 sfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.8/fonts/type1/public/amsfonts/c
 m/cmtt10.pfb>
-Output written on urd.pdf (12 pages, 137017 bytes).
+Output written on urd.pdf (11 pages, 131705 bytes).
 PDF statistics:
- 195 PDF objects out of 1000 (max. 8388607)
- 37 named destinations out of 1000 (max. 500000)
- 145 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 177 PDF objects out of 1000 (max. 8388607)
+ 33 named destinations out of 1000 (max. 500000)
+ 129 words of extra memory for PDF output out of 10000 (max. 10000000)
 
