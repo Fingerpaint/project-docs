@@ -1,15 +1,14 @@
 \input{../style.tex}
+\renewcommand{\pathtobase}[1]{../#1}
 
 %Variables
-\newcommand{\TitelFull}{Conventions about Coding Style and Software}
-\newcommand{\TitelAbbr}{CaCSaS}
-\newcommand{\Version}{0.1}
-
-\title{\TitelFull}
+\renewcommand{\TitelFull}{Conventions about Coding Style and Software}
+\renewcommand{\TitelAbbr}{CaCSaS}
+\renewcommand{\Version}{0.1}
 
 \begin{document}
 
-\maketitle
+\fingerpainttitlepage{}
 
 \begin{abstract}
 This document describes conventions about coding style, as well as the software we used in the \applicationname. Note that in general, we followed the ESA coding style recommendations \cite{esa-coding-style} in general and the Oracle Java coding conventions \cite{oracle-java-coding-style} in particular. Also, we used a couple of frameworks/libraries. These are described in this document, as well as their use and the reason(s) we have decided to work with those libraries. Finally, some rules about committing to the various repositories are included in this document.
@@ -19,7 +18,21 @@ This document describes conventions about coding style, as well as the software 
 
 \input{changes}
 
+\chapter{Coding Style}
+\label{chap:coding-style}
 \input{codingstyle}
+
+\chapter{Software Used}
+\label{chap:software-used}
+\input{software}
+
+\chapter{Committing Conventions}
+\label{chap:commit-conventions}
+\input{commits}
+
+\chapter{Reviewing Conventions}
+\label{chap:review-conventions}
+\input{reviews}
 
 \chapter{References}
 \bibliography{../ref.bib}
