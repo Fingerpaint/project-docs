@@ -5,32 +5,31 @@
   \textbf{Preconditions}: At least one mixing run must have been executed and saved.\\
   \textbf{Summary}: The performance of the selected mixing run is shown, accompanied by a picture of the final result.\\
   \textbf{Priority}: Should have.\\
-  \textbf{Steps}:
-  \begin{enumerate}
-    \item The user taps the \emph{View history} button.
-    \item The user taps one of the runs shown in the list.
-    \item The performance result of the selected run and the final mixing result are shown.
-  \end{enumerate}
+  \textbf{Steps}: \\
+    \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{FingerPaint response:} \\
+    1. The user taps the \emph{View history} button. & 2. A list with previously saved runs is displayed. \\
+    3. The user taps one of the runs shown in the list. & 4. The performance result of the selected run and the final mixing result are shown. \\
+    \end{tabular}
   
 \section{Remove mixing run from history}
   \textbf{Goals}: To remove the result of a mixing run.\\
   \textbf{Preconditions}: At least one mixing run must have been executed and saved.\\
   \textbf{Summary}: The details of the selected run (image and performance result) are removed from the history.\\
   \textbf{Priority}: Should have.\\
-  \textbf{Steps}:
-  \begin{enumerate}
-    \item The user taps the \emph{View history} button.
-    \item The user taps one of the runs shown in the list.
-    \item The performance result of the selected run and the final mixing result are shown.
-    \item The user taps the \emph{Delete} button.
-    \item The details of the selected run are deleted from storage.
-  \end{enumerate}
+  \textbf{Steps}: \\
+    \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{FingerPaint response:} \\
+    1. The user taps the \emph{View history} button. & 2. A list with previously saved runs is displayed. \\
+    3. The user taps one of the runs shown in the list. & 4. The performance result of the selected run and the final mixing result are shown. \\
+    5. The user taps the \emph{Delete} button. & 6. The details of the selected run are deleted from storage. \\
+    \end{tabular}
   
-\section{Save mixing run image to history}
+\section{Save mixing run image}
   \textbf{Goals}: To save the resulting image of a mixing run.\\
   \textbf{Preconditions}: The user has defined an initial concentration distribution and a mixing protocol, and has pressed the submit button.\\
-  \textbf{Summary}: The image of the executed mixing run is stored locally on the user's device\\
-  \textbf{Priority}: Should have\\
+  \textbf{Summary}: The image of the executed mixing run is stored locally on the user's device.\\
+  \textbf{Priority}: Should have.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{FingerPaint response:} \\
@@ -38,15 +37,15 @@
 	 2. The user selects the \emph{Save Image} option. & 3. The save interface is displayed.\\
 	 4. The user selects a location on his/her device to save the image. & \\
 	 5. The user chooses a name for the image. & \\
-	 6. The user taps the \emph{Save} button & 7. A confirmation message is shown \\
-	 8. The user taps the \emph{OK} button & 9. The ouput interface is displayed again. \\
+	 6. The user taps the \emph{Save} button. & 7. A confirmation message is shown. \\
+	 8. The user taps the \emph{OK} button. & 9. The ouput interface is displayed again. \\
   \end{tabular}
   
-  \section{Save mixing run performance graph to history}
+  \section{Save mixing run performance graph}
   \textbf{Goals}: To save the performance graph of a mixing run.\\
   \textbf{Preconditions}: The user has defined an initial concentration distribution and a mixing protocol, and has pressed the submit button.\\
-  \textbf{Summary}: The performance graph of the executed mixing run is stored locally on the user's device\\
-  \textbf{Priority}: Should have\\
+  \textbf{Summary}: The performance graph of the executed mixing run is stored locally on the user's device.\\
+  \textbf{Priority}: Should have.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{FingerPaint response:} \\
@@ -54,15 +53,15 @@
 	 2. The user selects the \emph{Save Performance} option. & 3. The save interface is displayed.\\
 	 4. The user selects a location on his/her device to save the performance graph. & \\
 	 5. The user chooses a name for the performance graph. & \\
-	 6. The user taps the \emph{Save} button & 7. A confirmation message is shown \\
-	 8. The user taps the \emph{OK} button & 9. The ouput interface is displayed again. \\
+	 6. The user taps the \emph{Save} button. & 7. A confirmation message is shown. \\
+	 8. The user taps the \emph{OK} button. & 9. The ouput interface is displayed again. \\
   \end{tabular}
   
-  \section{Save mixing run animation to history}
+  \section{Save mixing run animation}
   \textbf{Goals}: To save the resulting animation of a mixing run.\\
   \textbf{Preconditions}: The user has defined an initial concentration distribution and a mixing protocol, and has pressed the submit button.\\
-  \textbf{Summary}: The animation of the executed mixing run is stored locally on the user's device\\
-  \textbf{Priority}: Could have\\
+  \textbf{Summary}: The animation of the executed mixing run is stored locally on the user's device.\\
+  \textbf{Priority}: Could have.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{FingerPaint response:} \\
@@ -70,19 +69,19 @@
 	 2. The user selects the \emph{Save Animation} option. & 3. The save interface is displayed.\\
 	 4. The user selects a location on his/her device to save the animation. & \\
 	 5. The user chooses a name for the animation. & \\
-	 6. The user taps the \emph{Save} button & 7. A confirmation message is shown \\
-	 8. The user taps the \emph{OK} button & 9. The ouput interface is displayed again. \\
+	 6. The user taps the \emph{Save} button. & 7. A confirmation message is shown. \\
+	 8. The user taps the \emph{OK} button. & 9. The ouput interface is displayed again. \\
   \end{tabular}
   
-    \section{View mixing performance results from multiple runs from history}
+    \section{View multiple mixing performance results from previous runs}
   \textbf{Goals}: To view the mixing performance of multiple runs in the same graph.\\
   \textbf{Preconditions}: At least two mixing runs must have been executed and saved.\\
   \textbf{Summary}: The performance of the selected runs are shown in the same graph.\\
-  \textbf{Priority}: Should have\\
+  \textbf{Priority}: Should have.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{FingerPaint response:} \\
-	   1. The user taps the \emph{View history} button & 2. The history interface is displayed \\
+	   1. The user taps the \emph{View history} button. & 2. The history interface is displayed. \\
 	 3. The user selects the \emph{View performance} option. & 4. A list of previously saved runs is displayed.\\
 	 5. The user selects two or more runs from the list. & \\
 	 6. The user taps the \emph{Submit} button. & 7. The mixing performances of the selected runs are displayed in one graph.\\
