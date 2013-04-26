@@ -4,8 +4,8 @@ This chapter describes general aspects of the application to be created as reque
 \section{Product perspective}
 The aim of this project is to deliver an application that allows the user to easily visualize the mixing of fluids. A user interface should be created which can be used to specify initial parameters, after which output should be shown on the screen. All of this should be possible using an easy to use, attractive interface on a mobile device.
 
-A similar project was initiated around eleven years ago. The result of this project was a \textsc{Matlab} implementation that achieved a similar goal as our project. However, its user interface is outdated by now, and it is impossible to comfortably use this solution on a mobile device. Part of this original solution was a \textsc{Fortran} implementation for computing the necessary matrices. This implementation is still available, and we are to use it as a black box to compute the matrices we need for our solution. The client has several matrices, all denoting various kinds of mixers, which we can use for our implementation.
-%%% Na een run OF verder gaan OF opnieuw beginnen
+A similar project was initiated around eleven years ago. The result of this project was a \textsc{Matlab} implementation that achieved a similar goal as our project. However, its user interface is outdated by now, and it is impossible to comfortably use this solution on a mobile device. Part of this original solution was a \textsc{Fortran} implementation for the flow of the fluids. This implementation is still available, and we are to use it as a black box to which we can send constraints and a vector, after which the server will compute the flow. The resulting concentration distribution and its performance results are then sent back to the mobile device.
+
 \section{General capabilities}
 \subsection{Mixing constraints}
 The system should be able to simulate the flow and mixing of a number of fluids, given some constraints. There are a number of constraints to be specified. The first constraint is the geometry of the mixer. There are four kinds of geometries in total: rectangle, square, circle, and \emph{journal bearing}. We will start by implementing support for rectangular geometries, and will implement more geometries if time permits.
@@ -35,4 +35,5 @@ The main device for the user interface is the mobile device. We are planning to 
 As mobile devices typically do not have the power (both processing power and battery capacity) to perform intensive computations, the hard work of computing the mixing will be offloaded to a server. The starting parameters described above will be sent to the server, which has an efficient FORTRAN implementation to solve the problem. While solving, intermediate results are sent back to the mobile device for displaying.
 
 \section{Assumptions and dependencies}
-\todo{Assumptions and dependencies.}
+This section contains some assumptions for the application to function properly.\\
+As a mentioned in the previous section, the application uses the \textsc{Fortran} implementation on the server to perform all the calculations. Therefore, we assume this server always answers requests within a few seconds.
