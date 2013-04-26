@@ -1,4 +1,5 @@
 \begin{appendices}
+
 \chapter{Use cases}
 \section{View mixing history}
   \textbf{Goals}: To view the result of a mixing run.\\
@@ -11,7 +12,7 @@
     1. The user taps the \emph{View history} button. & 2. A list with previously saved runs is displayed. \\
     3. The user taps one of the runs shown in the list. & 4. The performance result of the selected run and the final mixing result are shown. \\
     \end{tabular}
-  
+
 \section{Remove mixing run from history}
   \textbf{Goals}: To remove the result of a mixing run.\\
   \textbf{Preconditions}: At least one mixing run must have been executed and saved.\\
@@ -24,7 +25,7 @@
     3. The user taps one of the runs shown in the list. & 4. The performance result of the selected run and the final mixing result are shown. \\
     5. The user taps the \emph{Delete} button. & 6. The details of the selected run are deleted from storage. \\
     \end{tabular}
-  
+
 \section{Save mixing run image}
   \textbf{Goals}: To save the resulting image of a mixing run.\\
   \textbf{Preconditions}: The user has defined an initial concentration distribution and a mixing protocol, and has pressed the submit button.\\
@@ -40,7 +41,7 @@
 	 6. The user taps the \emph{Save} button. & 7. A confirmation message is shown. \\
 	 8. The user taps the \emph{OK} button. & 9. The ouput interface is displayed again. \\
   \end{tabular}
-  
+
   \section{Save mixing run performance graph}
   \textbf{Goals}: To save the performance graph of a mixing run.\\
   \textbf{Preconditions}: The user has defined an initial concentration distribution and a mixing protocol, and has pressed the submit button.\\
@@ -56,7 +57,7 @@
 	 6. The user taps the \emph{Save} button. & 7. A confirmation message is shown. \\
 	 8. The user taps the \emph{OK} button. & 9. The ouput interface is displayed again. \\
   \end{tabular}
-  
+
   \section{Save mixing run animation}
   \textbf{Goals}: To save the resulting animation of a mixing run.\\
   \textbf{Preconditions}: The user has defined an initial concentration distribution and a mixing protocol, and has pressed the submit button.\\
@@ -72,7 +73,7 @@
 	 6. The user taps the \emph{Save} button. & 7. A confirmation message is shown. \\
 	 8. The user taps the \emph{OK} button. & 9. The ouput interface is displayed again. \\
   \end{tabular}
-  
+
     \section{View multiple mixing performance results from previous runs}
   \textbf{Goals}: To view the mixing performance of multiple runs in the same graph.\\
   \textbf{Preconditions}: At least two mixing runs must have been executed and saved.\\
@@ -86,5 +87,89 @@
 	 5. The user selects two or more runs from the list. & \\
 	 6. The user taps the \emph{Submit} button. & 7. The mixing performances of the selected runs are displayed in one graph.\\
   \end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Start use cases Hugo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Define a mixing geometry and mixer}
+  \textbf{Goals}: To define a mixing geometry and mixer.\\
+  \textbf{Preconditions}: none.\\
+  \textbf{Summary}: The user selects the geometry used for the mixing process.\\
+  \textbf{Priority}: Could have.\\
+  \textbf{Steps}: \\
+  \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{FingerPaint response:} \\
+	1. The user taps the \emph{start mixing} button. & 2. Go to the the mixing interface. \\
+	3. The user selects mixing geometry of choice from pop-up menu (rectangle, square, circle or journal bearing). & 4. Closes menu, opens new menu with possible mixers associated with the mixing geometry\\
+	5. The user selects mixer of choice from select/pop-up menu. & 6.	Display blank initial distribution menu, conform chosen mixing geometry and mixer\\
+  \end{tabular}
   
+  \section{Load a predefined distribution}
+  \textbf{Goals}: To load a predefined distribution.\\
+  \textbf{Preconditions}: none.\\
+  \textbf{Summary}: The user loads a predefined distribution.\\
+  \textbf{Priority}: Could have.\\
+  \textbf{Steps}: \\
+  \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{FingerPaint response:} \\
+	1. The user taps the \emph{Load $C_0$} button. & 2. Display select/pop-up -menu with predefined distributions for selected geometry. \\
+	3. The user on the predefined distribution of choice & 4.	Display canvas with selected distribution. \\
+  \end{tabular}
+  
+  \section{Define an initial distribution}
+  \textbf{Goals}: To define an initial distribution.\\
+  \textbf{Preconditions}: Mixing geometry + mixer have been chosen.\\
+  \textbf{Summary}: The user defines the initial concentration distribution\\
+  \textbf{Priority}: Must have.\\
+  \textbf{Steps}: \\
+  \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{FingerPaint response:} \\
+	1. The user taps the \emph{Color button} (white or black). & 2. Gives visual feedback on selected colour. \\
+	3. The user moves finger on screen to define initial distribution. & 4. Gives real-time visual feedback of selected area in the selected colour.\\
+    5. Repeat 1 \& 3 until satisfied & 6.	Repeat 2 \& 4 accordingly. \\
+    7.	Optional: The user taps the \emph{save as predefined distribution} button  & 8.	Saves the current distribution as a predefined distribution for the selected geometry \& mixer.\\
+    9.	The user does or does not tick the \emph{Intermediate steps} tickbox & 10. Saves preference
+  \end{tabular}
+
+  \section{Define mixing protocol (1)}
+  \textbf{Goals}: To define the mixing protocol\\
+  \textbf{Preconditions}: Initial concentration distribution has been defined.\\
+  \textbf{Summary}: The user defines the mixing protocol\\
+  \textbf{Priority}: Must have.\\
+  \textbf{Steps}: \\
+  \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{FingerPaint response:} \\
+    & 0.     Disables “Intermediate steps” checkbox. It cannot be edited anymore.\\
+    1. The user taps on \emph{stepsize display} (D) & 2.	Gives visual feedback stepsize has been selected\\
+    3. The user taps the adjacent increment/decrement buttons (with 0.1 accuracy) & 4.	Increments/decrements value in the display (with 0.1 accuracy). \\
+    5. The user moves his/her finger (left(L) to right(R) or right to left) adjacent to geometry to indicate movement & 6.	* Case Rectangle/square : Interprets it as L to R or R to L movement of top or bottom wall based on proximity. Gives feedback about which movement has been selected. * Case Circle / Journal bearing: Interprets as clockwise/anti-clickwise movement of (1st or 2nd ) circle based on proximity. Gives feedback about which movement has been selected.\\
+    7.	Repeat 1-3-5 until satisfactory parameters have been selected & 8.	Repeat 2-4-6 accordingly. The most recent parameter value is applied.\\
+  \end{tabular}
+\\Remark: 1-2-3-4 and 5-6 can also be executed in vice-versa order.
+
+  \section{Define mixing protocol (2)}
+  \textbf{Goals}: To define the mixing protocol\\
+  \textbf{Preconditions}: Define mixing protocol(1) and \emph{Intermediate steps} has been ticked.\\
+  \textbf{Summary}: The user defines the mixing protocol\\
+  \textbf{Priority}: Must have.\\
+  \textbf{Steps}: \\
+  \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{FingerPaint response:} \\
+    1. The user taps the \emph{Mix now!} button & 2.	Adds movement to protocol-log . Computes result of applying given movement to the distribution and displays it on the canvas.\\
+    3.	Repeat \textbf{Define mixing protocol (0)} + (1) until satisfied & 4.	Give according responses\\
+    5.	(optional): Click on “Save protocol” & 6.	Saves the protocol-log and (intermediate) visualisation on local storage.\\
+  \end{tabular}
+
+ \section{Define mixing protocol (3)}
+  \textbf{Goals}: To define the mixing protocol\\
+  \textbf{Preconditions}: Define mixing protocol(1) and \emph{Intermediate steps} has NOT been ticked.\\
+  \textbf{Summary}: The user defines the mixing protocol\\
+  \textbf{Priority}: Must have.\\
+  \textbf{Steps}: \\
+  \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{FingerPaint response:} \\
+    1.	The user taps on  the \emph{Add to protocol!} button	& 2.	Adds selected movement to protocol-log . \\
+    3.	Repeat \textbf{Define mixing protocol (1)} + (1) until satisfied	& 4.	Give according responses\\
+    5.	The user taps on the emph{Show mixture!} button	& 6.	Computes result of applying all movement in the protocol-log to the initial concentration distribution and displays it on the canvas.\\
+    7.	(optional): The user taps on the \emph{save protocol} button & 8.	Saves the protocol-log and (intermediate) visualisation on local storage.\\
+  \end{tabular}
 \end{appendices}
