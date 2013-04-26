@@ -9,17 +9,18 @@ A similar project was initiated around eleven years ago. The result of this proj
 \section{General capabilities}
 \subsection{Mixing constraints}
 The system should be able to simulate the flow and mixing of a number of fluids, given some constraints. There are a number of constraints to be specified. The first constraint is the geometry of the mixer. There are four kinds of geometries in total: rectangle, square, circle, and \emph{journal bearing}. We will start by implementing support for rectangular geometries, and will implement more geometries if time permits.
- 
+
 The second constraint concerns the characteristics of the mixer, which will be specified by different matrices. These matrices are located on the server and are pre-computed. Each geometry has its own set of possible characteristics and hence its own set of matrices. These characteristics influence the flow of the fluids.
 
-The third constraint concerns parameters applicable to the mixing protocol. Available parameters are determined by the type of mixer defined in the second constraint. For example, a rectangular mixing geometry has two walls that can be moved. The step parameter $D$ indicates the amount of time the wall should move. Possible values for $D$ are 4, 2, 1, 0.5, 0.25 and 0.1. It is possible to both specify an entire protocol consisting of multiple wall movements, and to only execute one step at a time.
- 
+The third constraint concerns parameters applicable to the mixing protocol. Available parameters are determined by the type of mixer defined in the second constraint. For example, a rectangular mixing geometry has two walls that can be moved. The step parameter $D$ indicates the amount of time the wall should move. Possible values for $D$ are 4, 2, 1, 0.5, 0.25 and 0.1. It is possible to both specify an entire protocol consisting of multiple wall movements, and to only execute one step at a time. % 0.1 gevoeligheid, dit is implementatiedetail
+
 The fourth parameter is the initial concentration of the fluids, which can be specified by tapping on and dragging over the screen. If desired, it is also possible to load an existing initial distribution.
 
 \subsection{Additional capabilities}
-The main user interface should be run on a mobile device, such as an iPhone. On this device, the constraints mentioned above should be specified. When the initial parameters have been set, the computation is offloaded to a server, which computes the flow of the fluids. After each iteration of the movement protocol, intermediate results are sent back to the mobile device to be shown to the user in a graphical way (i.e. a two-dimensional image of the current distribution of the fluids). When the final result has been computed, this result is of course sent back to the mobile device, where it can be saved.
+The main user interface should be run on a mobile device, such as an iPhone. On this device, the constraints mentioned above should be specified. When the initial parameters have been set, the computation is offloaded to a server, which computes the flow of the fluids. %After each iteration of the movement protocol, intermediate results are sent back to the mobile device to be shown to the user in a graphical way (i.e. a two-dimensional image of the current distribution of the fluids). % Niet zeker
+When the final result has been computed, this result is of course sent back to the mobile device, where it can be saved.
 
-A history of past simulations is stored on the device, to compare previous runs with the current. The result of runs should also be exportable to easily sharable formats, such as .png or .pdf, with support for an alpha channel (to realize transparency). For more interactive results, entire runs should be exportable to animated .png or .gif files.
+A history of past simulations is stored on the device, to compare previous runs with the current. The result of runs should also be exportable to easily sharable formats, such as .png or .pdf, with support for an alpha channel (to realize transparency). For more interactive results, entire runs should be exportable to animated .png or .gif files. % geen png maar svg; en animated svg indien mogelijk (extended vector animation eva)
 
 After each intermediate result is received by the mobile device, the user has the choice of continuing with the received concentration distribution, or to start over with the original initial concentration distribution.
 
@@ -32,7 +33,7 @@ As mentioned before, the user of the application should be able to specify initi
 \section{Environment description}
 The main device for the user interface is the mobile device. We are planning to create a cross-platform solution, which means it will be possible to use the application on various kinds of devices. Examples of supported devices are Apple iPhones, Android phones or tablets. The initial concentration of the fluids, the mixing protocol and the shape of the mixer will be specified on such a device.
 
-As mobile devices typically do not have the power (both processing power and battery capacity) to perform intensive computations, the hard work of computing the mixing will be offloaded to a server. The starting parameters described above will be sent to the server, which has an efficient FORTRAN implementation to solve the problem. While solving, intermediate results are sent back to the mobile device for displaying.
+As mobile devices typically do not have the power (both processing power and battery capacity) to perform intensive computations, the hard work of computing the mixing will be offloaded to a server. The starting parameters described above will be sent to the server, which has an efficient \textsc{Fortran} implementation to solve the problem. While solving, intermediate results are sent back to the mobile device for displaying.
 
 \section{Assumptions and dependencies}
 This section contains some assumptions for the application to function properly.\\
