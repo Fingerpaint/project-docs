@@ -1,15 +1,14 @@
 \input{../style.tex}
-
-\title{User Requirements Document}
+\renewcommand{\pathtobase}[1]{../#1}
 
 %Variables
-\newcommand{\TitleFull}{User Requirements Document}
-\newcommand{\TitelAbbr}{URD}
-\newcommand{\Version}{0.1}
+\renewcommand{\TitelFull}{User Requirements Document}
+\renewcommand{\TitelAbbr}{URD}
+\renewcommand{\Version}{0.1}
 
 \begin{document}
 
-\maketitle
+\fingerpainttitlepage{}
 
 \begin{abstract}
 This document describes the User Requirements of \projectname. The User Requirements Document (URD) is based on the ESA standard for software development, as set by the European Space Agency (ESA) \cite{esa}.
@@ -24,6 +23,8 @@ This document describes the User Requirements of \projectname. The User Requirem
 \input{chapter2.tex}
 
 \input{chapter3.tex}
+
+\input{usecases.tex}
 
 
 % ============================================================
