@@ -36,4 +36,5 @@ The main device for the user interface is the mobile device. We are planning to 
 As mobile devices typically do not have the power (both processing power and battery capacity) to perform intensive computations, the hard work of computing the mixing will be offloaded to a server. The starting parameters described above will be sent to the server, which has an efficient \textsc{Fortran} implementation to solve the problem. While solving, intermediate results are sent back to the mobile device for displaying.
 
 \section{Assumptions and dependencies}
-\todo{Assumptions and dependencies.}
+This section contains some assumptions for the application to function properly.\\
+As a mentioned in the previous section, the application uses the \textsc{Fortran} implementation on the server to perform all the calculations. Therefore, we assume this server always answers requests within a few seconds.
