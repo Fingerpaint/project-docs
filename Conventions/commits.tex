@@ -1,1 +1,12 @@
-Committing is cool.
+In this chapter, we will define a couple of conventions for committing and commmit messages. Developers should stick to these conventions as good as possible, to keep the history of the repositories easy-to-read and version management simple.
+
+Committing changes is something that developers do a lot, so the conventions are simple: a developer does not want to do something complex a lot. Nobody does. Therefore, we have come to the following list of recommendations:
+
+\begin{itemize}
+	\item Make every relevant change to a repository a single commit. Do not combine multiple changes in a commit. This makes reverting changes easier.
+	\paragraph{Example} A commit wherein both a document and the general layout are changed, is not okay. These should be two separate commits.
+	
+	\item Always write a concise yet descriptive commit message for every commit. This makes it easier to read through the commit history and find relevant commits.
+	
+	\item Refrain from committing binary files. These files will change a lot (probably) with every change, which does not work well in general. A separate folder should be created containing the latest stable version of all documentation in PDF-form. The actual versioning and committing should be done in textual files. We use \LaTeX\ to generate all \projectname documentation.
+\end{itemize}
