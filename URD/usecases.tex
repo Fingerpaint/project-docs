@@ -1,6 +1,7 @@
 \begin{appendices}
 
 % Voor elke sectie is er een \label aangemaakt zodat je er naar kan refereren met \ref.
+TODO: uitleggen dat we aannemen dat de user toestemming gegeven heeft om de app in het geheugen van het device te laten zooien. Als dit niet zo is, hebben de use cases ... als alternatief dat er geen toestemming gegeven is en dat het resultaat daardoor niet opgeslagen/geladen/verwijderd kan worden.
 
 \chapter{Use cases}
 \section{View mixing history}
@@ -20,14 +21,14 @@
  \label{removemixrun}
   \textbf{Goals}: To remove the result of a mixing run.\\
   \textbf{Preconditions}: At least one mixing run must have been executed and saved.\\
-  \textbf{Summary}: The details of the selected run (image and performance result) are removed from the history.\\
+  \textbf{Summary}: The details of the selected run (\todo{image} and performance result) are removed from the history.\\
   \textbf{Priority}: Should have.\\
   \textbf{Steps}: \\
     \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{FingerPaint response:} \\
     1. The user taps the \emph{View history} button. & 2. A list with previously saved runs is displayed. \\
     3. The user taps one of the runs shown in the list. & 4. The performance result of the selected run and the final mixing result are shown. \\
-    5. The user taps the \emph{Delete} button. & 6. The details of the selected run are deleted from storage. \\
+    5. The user taps the \emph{Delete} button. & 6. The \todo{details} of the selected run are deleted from storage. \\
     \end{tabular}
 
 \section{Save mixing run image}
@@ -96,9 +97,6 @@
 	 6. The user taps the \emph{Submit} button. & 7. The mixing performances of the selected runs are displayed in one graph.\\
   \end{tabular}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Start use cases Hugo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %Let op: A.9 en A.10 zijn hardcoded!! Pas op met aanpassen
-
 \section{Define a mixing geometry and mixer}
   \label{geomixer}
   \textbf{Goals}: To define a mixing geometry and mixer.\\
@@ -110,8 +108,10 @@
   	\emph{Actor actions:} & \emph{FingerPaint response:} \\
 	1. The user taps the \emph{start mixing} button. & 2. Opens the the mixing interface. \\
 	3. The user selects a mixing geometry of choice from the mixing interface (rectangle, square, circle or journal bearing). & 4. Closes menu, opens new menu with mixers associated with the mixing geometry\\
-	5. The user selects a mixer of choice from the menu. & 6.	Display blank initial distribution menu, conform chosen mixing geometry and mixer\\
+	5. The user selects a mixer of choice from the menu. & 6.	Display blank initial distribution menu, conform chosen mixing geometry and mixer.\\
   \end{tabular}
+
+Alternatief: niks geselecteerd, dan een error-message!
 
   \section{Load a predefined distribution}
   \label{loadpreddist}
@@ -174,7 +174,6 @@
   	\emph{Actor actions:} & \emph{FingerPaint response:} \\
     1. The user taps the \emph{Mix now!} button & 2.	Adds the movement to the protocol-log. Computes the result of applying the given movement to the distribution and displays it on the canvas.\\
     3.	Repeats steps at \textbf{\ref{initdist}} (only 1-3-5), \textbf{\ref{mixprot1}} (1) and (2) until satisfied & 4.	Give according responses\\
-    %Let op: A.9 en A.10 zijn hardcoded!! Pas op met aanpassen
     5. Optional: Clicks on the \emph{save protocol} button & \\
     6. Optional (cont.): The user selects a location on the device to save the protocol & \\
     7. Optional (cont.): The user chooses a name for the protocol & \\
@@ -193,7 +192,6 @@
   	\emph{Actor actions:} & \emph{FingerPaint response:} \\
     1.	The user taps the \emph{Add to protocol!} button	& 2.	Adds the selected movement to protocol-log . \\
     3.	Repeats steps at \textbf{\ref{mixprot1}} (all) and (1) until satisfied	& 4.	Gives according responses\\
-        %Let op: A.9 en A.10 zijn hardcoded!! Pas op met aanpassen
     5.	The user taps on the \emph{Show mixture!} button	& 6.	Computes the result of applying all movements in the protocol-log to the initial concentration distribution and displays it on the canvas.\\
     7.	Optional: The user taps on the \emph{save protocol} button & \\
     8. Optional (cont.): The user selects a location on the device to save the protocol & \\
