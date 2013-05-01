@@ -89,6 +89,7 @@
   \end{tabular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Start use cases Hugo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %Let op: A.9 en A.10 zijn hardcoded!! Pas op met aanpassen
 
 \section{Define a mixing geometry and mixer}
   \textbf{Goals}: To define a mixing geometry and mixer.\\
@@ -98,11 +99,11 @@
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{FingerPaint response:} \\
-	1. The user taps the \emph{start mixing} button. & 2. Go to the the mixing interface. \\
-	3. The user selects mixing geometry of choice from pop-up menu (rectangle, square, circle or journal bearing). & 4. Closes menu, opens new menu with possible mixers associated with the mixing geometry\\
-	5. The user selects mixer of choice from select/pop-up menu. & 6.	Display blank initial distribution menu, conform chosen mixing geometry and mixer\\
+	1. The user taps the \emph{start mixing} button. & 2. Opens the the mixing interface. \\
+	3. The user selects a mixing geometry of choice from the mixing interface (rectangle, square, circle or journal bearing). & 4. Closes menu, opens new menu with mixers associated with the mixing geometry\\
+	5. The user selects a mixer of choice from the menu. & 6.	Display blank initial distribution menu, conform chosen mixing geometry and mixer\\
   \end{tabular}
-  
+
   \section{Load a predefined distribution}
   \textbf{Goals}: To load a predefined distribution.\\
   \textbf{Preconditions}: none.\\
@@ -111,23 +112,26 @@
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{FingerPaint response:} \\
-	1. The user taps the \emph{Load $C_0$} button. & 2. Display select/pop-up -menu with predefined distributions for selected geometry. \\
-	3. The user on the predefined distribution of choice & 4.	Display canvas with selected distribution. \\
+	1. The user taps the \emph{Load $C_0$} button. & 2. Display a menu with the predefined distributions for the selected geometry. \\
+	3. The user taps on the predefined distribution of choice & 4.	Displays the canvas with the selected distribution. \\
   \end{tabular}
-  
+
   \section{Define an initial distribution}
   \textbf{Goals}: To define an initial distribution.\\
-  \textbf{Preconditions}: Mixing geometry + mixer have been chosen.\\
+  \textbf{Preconditions}: Mixing geometry and mixer have been chosen.\\
   \textbf{Summary}: The user defines the initial concentration distribution\\
   \textbf{Priority}: Must have.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{FingerPaint response:} \\
-	1. The user taps the \emph{Color button} (white or black). & 2. Gives visual feedback on selected colour. \\
-	3. The user moves finger on screen to define initial distribution. & 4. Gives real-time visual feedback of selected area in the selected colour.\\
-    5. Repeat 1 \& 3 until satisfied & 6.	Repeat 2 \& 4 accordingly. \\
-    7.	Optional: The user taps the \emph{save as predefined distribution} button  & 8.	Saves the current distribution as a predefined distribution for the selected geometry \& mixer.\\
-    9.	The user does or does not tick the \emph{Intermediate steps} tickbox & 10. Saves preference
+	1. The user taps the \emph{Color button} (white or black). & 2. Gives visual feedback on the selected colour. \\
+	3. The user moves their finger on the screen to define the initial distribution. & 4. Gives real-time visual feedback of the selected area in the selected colour.\\
+    5. Repeats step 1 \& 3 until satisfied & 6.	Repeats step 2 \& 4 accordingly. \\
+    7.	Optional: The user taps the \emph{save as predefined distribution} button  & \\
+    8. Optional (cont.): The user selects a location on the device to save the distribution & \\
+    9. Optional (cont.): The user chooses a name for the distribution & \\
+    10. Optional (cont.): The user taps the \emph{save} button & 11. Saves the current distribution as a predefined distribution for the selected geometry and mixer at the chosen location.\\
+    12.	The user does or does not tick the \emph{Intermediate steps} tickbox & 13. Saves preference
   \end{tabular}
 
   \section{Define mixing protocol (1)}
@@ -138,12 +142,13 @@
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{FingerPaint response:} \\
-    & 0.     Disables “Intermediate steps” checkbox. It cannot be edited anymore.\\
-    1. The user taps on \emph{stepsize display} (D) & 2.	Gives visual feedback stepsize has been selected\\
-    3. The user taps the adjacent increment/decrement buttons (with 0.1 accuracy) & 4.	Increments/decrements value in the display (with 0.1 accuracy). \\
-    5. The user moves his/her finger (left(L) to right(R) or right to left) adjacent to geometry to indicate movement & 6.	* Case Rectangle/square : Interprets it as L to R or R to L movement of top or bottom wall based on proximity. Gives feedback about which movement has been selected. * Case Circle / Journal bearing: Interprets as clockwise/anti-clickwise movement of (1st or 2nd ) circle based on proximity. Gives feedback about which movement has been selected.\\
-    7.	Repeat 1-3-5 until satisfactory parameters have been selected & 8.	Repeat 2-4-6 accordingly. The most recent parameter value is applied.\\
+    & 0.     Disables the \emph{Intermediate steps} checkbox. It cannot be edited anymore.\\
+    1. The user taps on the \emph{stepsize display} (D) button & 2.	Gives visual feedback on the stepsize that has been selected\\
+    3. The user taps the adjacent increment/decrement buttons & 4.	Increments/decrements the value in the display (with 0.1 accuracy). \\
+    5. The user moves his/her finger (left(L) to right(R) or right to left) adjacent to the geometry to indicate the movement of the geometry & 6.	* Case Rectangle/square : Interprets it as L to R or R to L movement of the top or bottom wall based on proximity. Displays which movement has been selected. * Case Circle / Journal bearing: Interprets it as clockwise/anti-clickwise movement of the (1st or 2nd ) circle based on proximity. Displays which movement has been selected.\\
+    7.	Repeats step 1-3-5 until satisfactory parameters have been selected & 8.	Repeats step 2-4-6 accordingly. The most recent parameter value is applied.\\
   \end{tabular}
+  \\
 \\Remark: 1-2-3-4 and 5-6 can also be executed in vice-versa order.
 
   \section{Define mixing protocol (2)}
@@ -154,9 +159,14 @@
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{FingerPaint response:} \\
-    1. The user taps the \emph{Mix now!} button & 2.	Adds movement to protocol-log . Computes result of applying given movement to the distribution and displays it on the canvas.\\
-    3.	Repeat \textbf{Define mixing protocol (0)} + (1) until satisfied & 4.	Give according responses\\
-    5.	(optional): Click on “Save protocol” & 6.	Saves the protocol-log and (intermediate) visualisation on local storage.\\
+    1. The user taps the \emph{Mix now!} button & 2.	Adds the movement to the protocol-log. Computes the result of applying the given movement to the distribution and displays it on the canvas.\\
+    3.	Repeats steps at \textbf{A.9} (only 1-3-5), \textbf{A.10} (all) and (1) until satisfied & 4.	Give according responses\\
+    %Let op: A.9 en A.10 zijn hardcoded!! Pas op met aanpassen
+    5. Optional: Clicks on the \emph{save protocol} button & \\
+    6. Optional (cont.): The user selects a location on the device to save the protocol & \\
+    7. Optional (cont.): The user chooses a name for the protocol & \\
+    8. Optional (cont.): The user taps the \emph{save} button & 9. Saves the protocol-log and (intermediate) visualisation(s) at the chosen location. \\
+
   \end{tabular}
 
  \section{Define mixing protocol (3)}
@@ -167,9 +177,13 @@
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{FingerPaint response:} \\
-    1.	The user taps on  the \emph{Add to protocol!} button	& 2.	Adds selected movement to protocol-log . \\
-    3.	Repeat \textbf{Define mixing protocol (1)} + (1) until satisfied	& 4.	Give according responses\\
-    5.	The user taps on the emph{Show mixture!} button	& 6.	Computes result of applying all movement in the protocol-log to the initial concentration distribution and displays it on the canvas.\\
-    7.	(optional): The user taps on the \emph{save protocol} button & 8.	Saves the protocol-log and (intermediate) visualisation on local storage.\\
+    1.	The user taps the \emph{Add to protocol!} button	& 2.	Adds the selected movement to protocol-log . \\
+    3.	Repeats steps at \textbf{A.10} (all) and (1) until satisfied	& 4.	Gives according responses\\
+        %Let op: A.9 en A.10 zijn hardcoded!! Pas op met aanpassen
+    5.	The user taps on the \emph{Show mixture!} button	& 6.	Computes the result of applying all movements in the protocol-log to the initial concentration distribution and displays it on the canvas.\\
+    7.	Optional: The user taps on the \emph{save protocol} button & \\
+    8. Optional (cont.): The user selects a location on the device to save the protocol & \\
+    9. Optional (cont.): The user chooses a name for the protocol & \\
+    10. Optional (cont.): The user taps the \emph{save} button &  11. Saves the protocol-log and resulting distribution at the chosen location. \\
   \end{tabular}
 \end{appendices}
