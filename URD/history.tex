@@ -35,71 +35,49 @@
 For each of the document changes listed here, we will refer to the pages and paragraphs in the previous version of this document, to clarify what exactly has been changed. \\
 
 
-\begin{longtable}{|l|l|l|p{11cm}|}
+\begin{longtable}{|l|l|p{11cm}|}
     \hline
-    \emph{Version} & \emph{Page} &   \emph{Paragraph}    &   \emph{Reason to change}\\
+    \emph{Page} &   \emph{Paragraph}    &   \emph{Reason to change}\\
     \hline
     \endhead
     \hline
     \endfoot
-     0.1 & 6 & 2.1 & Clarified that we do not compute any matrices. \\
-     0.1 & 6 & 2.2 & Further divided this section into two sections: \emph{Mixing constraints} and \emph{Additional capabilities}. \\
-     0.1 & 6 & 2.2 & Added two new constraints and reworded the original two. \\
-     0.1 & 6 & 2.2 & Clarified the possible geometries. \\
-     0.1 & 6 & 2.2 & Clarified user input. \\
-     0.1 & 6 & 2.2 & Added that the user should be able to decide to reset, or re-use a received concentration distribution after each iteration of the protocol. \\
-     0.1 & 8 & 3.1 & Split requirement CPR01 from URD0.1 in CPR01, CPR02 and CPR03, as prompted by the client meeting on 25-04. \\
-     0.1 & 8 & 3.1 & Split requirement CPR02 from URD0.1 in CPR04, CPR05 and CPR06, as prompted by the client meeting on 25-04. \\
-     0.1 & 8 & 3.1 & Changed the priority from requirements CPR03 and CPR04 in URD0.1 to \emph{won't have}, as prompted by the client meeting on 25-04. \\
-     0.1 & 8 & 3.1 & Renamed requirement CPR05 to CPR11, because of the change in order of the previous requirements in URD0.2. \\
-     0.1 & 8 & 3.1 & Split requirement CPR06 from URD0.1 in CPR12, CPR13 and CPR14, as prompted by the client meeting on 25-04. \\
-     0.1 & 8 & 3.1 & Added new requirements CPR09, CPR10, CPR15 in URD0.2, as prompted by the client meeting on 25-04.  \\
-     0.1 & 9 & 3.1 & Added new requirements CPR15, CPR16, CPR17, CPR18 and CPR20 in URD0.2, as prompted by the client meeting on 25-04.\\
-     0.1 & 9 & 3.1 & Merged requirements CPR07 and CPR08 into requirement CPR19, as prompted by the client meeting on 25-04 and performed the rename because of change of the previous requirements in URD0.2. \\
-    0.1 & 9 & 3.1 & Renamed requirements CPR09 to CPR19 from URD0.1 to CPR21 to CPR31, because of the change in order of the previous requirements in URD0.2. \\
-   0.1 & 9 & 3.1 & Changed the format in CPR22 from URD0.2 to SVG instead of PNG$/$GIF. \\
-   0.1 & 9 & 3.1 & Changed the format in CPR25 from URD0.2 to EVA instead of APNG$/$AGIF. \\
-  0.1 & 10 & 3.2 & Removed constraint requirements CNR01 to CNR11, to lessen the restrictions on the (amount of) interfaces that will be used in the application. \\
-   0.1 & 10 & 3.2 & Renamed requirements CNR12 to CNR17 from URD0.1 to CNR4 to CNR9, because of the change in order of the previous requirements in URD0.2. \\
-  0.1 & 10 & 3.2 & Changed the iOS version from CNR4 in URD0.2 from 5 to 6, as prompted by the client meeting on 25-04. \\
-  0.2 & 10 & 3.1 & Explanation about capability requirements added. \\
-    0.2 & 13 & 3.1 & Explanation about constraint requirements added. \\
-    0.2 & - & Abstract & Added that the project is a SEP project from the TUE, and described document content \\
-    0.2 & - & Abstract & Changed 'project' to 'application', as the application should be able to do something, not the project. \\
-    0.2 & 5 & 1.1 & Changed 'the URD' to 'this document' in the first sentence \\
-    0.2 & 5 & 1.3 & Added URD to the definitions \\
-    0.2 & 5 & 1.5 & Replaced 'remainder chapters' with 'remaining chapters' \\
-    0.2 & 6 & 1.5 & Moved the paragraph references to the end of each line. \\
-    0.3 & - & Abstract & Replaced `how it should function and in what environment it should function' to `how and in what environment it should function'.\\
-    0.3 & 7 & 2.1 & Reworded the first paragraph to remove ambiguity. \\
-    0.3 & 7 & 2.1 & Removed implementation detail: constraints and a vector. \\
-    0.3 & 8 & 2.2 & Added general description to section head. \\
-    0.3 & 8 & 2.2.1 & Reworded first paragraph to clarify that the client device does not do simulation and to remove some ambiguity. \\
-    0.3 & 9 & 2.2.1 & Clarified the second constraint to explain what the characteristics mean. \\
-    0.3 & 9 & 2.2.1 & Extended the paragraph for the third constraint by giving an example protocol. \\
-    0.3 & 9 & 2.2.1 & Reworded last paragraph to clarify how and where the user can draw the fluids. \\
-    0.3 & 9 & 2.2.2 & Clarified that the application will also probably run on desktop PCs, but this is not actively supported. \\
-    0.3 & 9 & 2.2.2 & Clarified that multiple runs can be compared, not just previous runs and the current.\\
-    0.3 & 9 & 2.2.2 & Clarified what is meant by intermediate results. \\
-    0.3 & 9 & 2.2.2 & Listed .svg as an example file format instead of a requirement, so it can be changed in the future if we desire. \\
-    0.3 & 9 & 2.2.2 & Clarified that the result is also visualised on the client device. \\
-    0.3 & 9 & 2.3 & Reworded the paragraph to make it easier to read. \\
-    0.3 & 9 & 2.3 & Specified what we will save. \\
-    0.3 & 9 & 2.4 & Added description of the target audience. \\
-    0.3 & 9 & 2.4 & Added that it is possible to compare mixers using their performance results. \\
-    0.3 & 9 & 2.5 & Clarified when intermediate results are visualised. \\
-    0.3 & 11 & 3 & Changed formulation of sentence `Any requirements following from further request will be added here'.\\
-    0.3 & 11-15 & 3.1/3.2 & Grouped requirements into smaller blocks.\\
-    0.3 & 11-12 & 3.1 & Split CPR03 in CPR3 and CPR4.\\
-    0.3 & 12-13 & 3.1 & Changed formulation of CPR5, CPR11, CPR17, CPR18 and CPR19.\\
-    0.3 & 14 & 3.2 & Split CNR02 in CNR2 and CNR3. Split CNR03 in CNR4, CNR5 and CNR6.\\
-    0.3 & 14 & 3.2 & Changed CNR10, CNR11 and CNR12 to `average waiting time', instead of `waiting time'.\\
-    0.3 & 15 & 3.2 & Changed formulation of CNR13.\\
-    0.3 & 18-21 & Appendix & Improved the readability. Inserted "the" a lot. The old version had more of a mechanical summation rather than fluent text.\\
-    0.3 & 19 & Appendix & "Define an initial distribution"; Inserted intermediate steps of saving file (choose location/name). Added `at the chosen location' for safe step at system side.\\
-    0.3 & 21 & Appendix & "Define mixing protocol(2)"; Inserted intermediate steps of saving file (choose location/name). Added `at the chosen location' for safe step at system side. Changed reference from \emph{Define mixing protocol (0)} to \emph{A.10} (also fixing the erroneous (0) (should be (1))). Inserted steps from A.9 (user can do paint actions at intermediate steps) \\
-    0.3 & 19 & Appendix & "Define an initial distribution"; Inserted intermediate steps of saving file (choose location/name). Added 'at the chosen location' for safe step at system side.\\
-    0.3 & 21 & Appendix & "Define mixing protocol(2)"; Inserted intermediate steps of saving file (choose location/name). Added 'at the chosen location' for safe step at system side. Changed reference from \emph{Define mixing protocol (0)} to \emph{A.10} (also fixing the erroneous (0) (should be (1))). Inserted steps from A.9 (user can do paint actions at intermediate steps) \\
-    0.3 & 21 & Appendix & "Define mixing protocol(2)"; Inserted intermediate steps of saving file (choose location/name). Added 'at the chosen location' for safe step at system side. Changed reference from \emph{Define mixing protocol (1)} to \emph{A.10}.\\
-    0.3 & 18-25 & Appendix & Changed preconditions of use cases to includes at step 1.
+    - & Abstract & Replaced `how it should function and in what environment it should function' to `how and in what environment it should function'.\\
+    5 & 1 & Added an introductionary sentence.\\
+    5 & 1.3 & Added definitions, and made a seperate list with abbreviations. \\
+    8 & 2.1 & Reworded the first paragraph to remove ambiguity. \\
+    8 & 2.1 & Removed implementation detail: constraints and a vector. \\
+    8 & 2.2 & Added general description to section head. \\
+    8 & 2.2.1 & Reworded first paragraph to clarify that the client device does not do simulation and to remove some ambiguity. \\
+    9 & 2.2.1 & Clarified the second constraint to explain what the characteristics mean. \\
+    9 & 2.2.1 & Extended the paragraph for the third constraint by giving an example protocol. \\
+    9 & 2.2.1 & Reworded last paragraph to clarify how and where the user can draw the fluids. \\
+    9 & 2.2.2 & Clarified that the application will also probably run on desktop PCs, but this is not actively supported. \\
+    9 & 2.2.2 & Clarified that multiple runs can be compared, not just previous runs and the current.\\
+    9 & 2.2.2 & Clarified what is meant by intermediate results. \\
+    9 & 2.2.2 & Listed .svg as an example file format instead of a requirement, so it can be changed in the future if we desire. \\
+    9 & 2.2.2 & Clarified that the result is also visualised on the client device. \\
+    9 & 2.3 & Reworded the paragraph to make it easier to read. \\
+    9 & 2.3 & Specified what we will save. \\
+    9 & 2.4 & Added description of the target audience. \\
+    9 & 2.4 & Added that it is possible to compare mixers using their performance results. \\
+    9 & 2.5 & Clarified when intermediate results are visualised. \\
+    11 & 3 & Added reference to Appendix A.\\
+    11 & 3 & Changed formulation of sentence `Any requirements following from further request will be added here'.\\
+    11-15 & 3.1/3.2 & Grouped requirements into smaller blocks.\\
+    11-12 & 3.1 & Split CPR03 in CPR3 and CPR4.\\
+    12-13 & 3.1 & Changed formulation of CPR5, CPR11, CPR17, CPR18 and CPR19.\\
+    13 & 3.1 & Added CPR22.\\
+    14 & 3.2 & Split CNR02 in CNR2 and CNR3. Split CNR03 in CNR4, CNR5 and CNR6.\\
+    14 & 3.2 & Changed priority of CNR6 to won't have, because Opera isn't compatible with the testing environment.\\
+    14 & 3.2 & Changed CNR10, CNR11 and CNR12 to `average waiting time', instead of `waiting time'.\\
+    15 & 3.2 & Changed formulation of CNR13.\\
+    - & Appendix & Added alternatives to all use cases, where applicable.\\
+    18-21 & Appendix & Improved the readability. Inserted "the" a lot. The old version had more of a mechanical summation rather than fluent text.\\
+    19 & Appendix & "Define an initial distribution"; Inserted intermediate steps of saving file (choose location/name). Added `at the chosen location' for safe step at system side.\\
+    21 & Appendix & "Define mixing protocol(2)"; Inserted intermediate steps of saving file (choose location/name). Added `at the chosen location' for safe step at system side. Changed reference from \emph{Define mixing protocol (0)} to \emph{A.10} (also fixing the erroneous (0) (should be (1))). Inserted steps from A.9 (user can do paint actions at intermediate steps) \\
+    19 & Appendix & "Define an initial distribution"; Inserted intermediate steps of saving file (choose location/name). Added 'at the chosen location' for safe step at system side.\\
+    21 & Appendix & "Define mixing protocol(2)"; Inserted intermediate steps of saving file (choose location/name). Added 'at the chosen location' for safe step at system side. Changed reference from \emph{Define mixing protocol (0)} to \emph{A.10} (also fixing the erroneous (0) (should be (1))). Inserted steps from A.9 (user can do paint actions at intermediate steps) \\
+    21 & Appendix & "Define mixing protocol(2)"; Inserted intermediate steps of saving file (choose location/name). Added 'at the chosen location' for safe step at system side. Changed reference from \emph{Define mixing protocol (1)} to \emph{A.10}.\\
+    18-25 & Appendix & Changed preconditions of use cases to includes at step 1.
 \end{longtable}
