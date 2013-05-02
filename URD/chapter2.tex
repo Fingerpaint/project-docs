@@ -27,9 +27,9 @@ After each result is received and visualised by the client device, the user has 
 
 \section{General constraints}
 The user interface should be suitable for mobile devices, so it will be easy to share the visualised results with other people, and to quickly try out new ideas for mixers wherever the user may be.
- 
-We assume that the server can compute the flow of fluids reasonably fast, so the visualisation of results can be handled quickly. When the flow has been computed, this flow is sent back to the client device along with a metric to indicate the performance of the mixer. 
- 
+
+We assume that the server can compute the flow of fluids reasonably fast, so the visualisation of results can be handled quickly. When the flow has been computed, this flow is sent back to the client device along with a metric to indicate the performance of the mixer.
+
 As we do not want to be locked to one specific type of device, we have chosen to design a cross-platform solution. While this means that desktop PCs should also be able to run the application, we do not actively support such devices. We will concentrate on mobile devices.
 
 As mentioned before, it should be possible to export runs and save them for later reference. For each saved run, we store the initial distribution, the mixer and protocol used, the resulting fluid distribution and the resulting performance metric.
@@ -38,9 +38,12 @@ As mentioned before, it should be possible to export runs and save them for late
 \projectname\ is intended to be used by people who want to quickly try out ideas for mixers and see how well they perform. For this reason the application should be reasonably fast. The user can change the shape and characteristics of the mixer to test a different idea for a mixer, and the initial concentration distribution and the mixing protocol to determine how the mixer will be evaluated. To compare different mixers and their performance, the user can save runs to an image file or an animation, or simply make a plot of the performance levels of mixers.
 
 \section{Environment description}
-The main device for the user interface is the mobile device. We are planning to create a cross-platform solution, which means it will be possible to use the application on various kinds of devices. Examples of supported devices are Apple iPhones, Android phones or tablets. The initial concentration of the fluids, the mixing protocol and the shape of the mixer will be specified on such a device.
+The main device for the user interface is the mobile device. We are planning to create a cross-platform solution, which means it will be possible to use the application on various kinds of devices. Examples of supported devices are Apple iPhones, Android phones or tablets. The initial concentration of the fluids, the mixing protocol and the shape of the mixer will be specified on such a device. As mentioned before, the user specifies initial parameters on the client device. These parameters are sent to the server, which computes the flow. The resulting flow is sent back to the client device to display (see Figure \ref{system-actor_diagram}).
 
 As mobile devices typically do not have the power (both processing power and battery capacity) to perform intensive computations, the hard work of computing the mixing will be offloaded to a server. The starting parameters described in Section \ref{mixingconstraints} will be sent to the server, which has an efficient \textsc{Fortran} implementation to solve the problem. After each iteration of the mixing protocol, intermediate results are sent back to the client device for visualisation purposes.
+
+\includegraphics[width=\textwidth]{system-actor_diagram}\captionof{figure}{Domain model.\label{system-actor_diagram}}
+
 
 \section{Assumptions and dependencies}
 This section contains some assumptions for the application to function properly.
