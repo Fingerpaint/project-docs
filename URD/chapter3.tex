@@ -1,7 +1,7 @@
 \chapter{Specific requirements}
 
-This chapter explicitely states all requirements and constraints of the application to be developed. The final product will be delivered confirm these requirements. Any requirements following from further request will be added here. \\
-The requirements are prioritized using the MoSCoW model \cite{moscow}. This model assigns one out of four priorities to each requirement: \\
+This chapter explicitly states all requirements and constraints of the application to be developed. The final product will be delivered conform these requirements. Any requirements following from further requests can only be added after consultance with, and being granted permission by, the technical advisor and senior management.\\
+The requirements are prioritised using the MoSCoW model \cite{moscow}. This model assigns one out of four priorities to each requirement: \\
 \\
 \emph{Must have}; requirements with this priority are essential for the product, and must be implemented. \\
 \emph{Should have}; requirements with this priority are not essential for the product to work. However, they are nearly as important as the \emph{must have}'s and are therefore expected to be implemented. \\
@@ -10,194 +10,260 @@ The requirements are prioritized using the MoSCoW model \cite{moscow}. This mode
 
 \section{Capability requirements}
 %A list of all capability requirements (what should the system do).
-This section lists all capability requirements for the product. These requirements explicitely state what the system should do. \\
+This section lists all capability requirements for the product. These requirements explicitly state what the system should do. \\
+
+\newcounter{count}
+\stepcounter{count}
+
+\noindent Requirements regarding the mixer geometry input:
 
 \begin{center}
 \begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
-
-CPR01 & must have \\
+CPR\arabic{count} & must have \\
 \multicolumn{2}{p{\textwidth}}{The user can select a rectangular mixer geometry} \\
 \hline
-
-CPR02 & should have \\
+\stepcounter{count}
+CPR\arabic{count} & should have \\
 \multicolumn{2}{p{\textwidth}}{The user can select a square mixer geometry} \\
 \hline
-
-CPR03 & could have \\
-\multicolumn{2}{p{\textwidth}}{The user can select a circle or `Journal Bearing' mixer geometry} \\
+\stepcounter{count}
+CPR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{The user can select a circle mixer geometry} \\
 \hline
+\stepcounter{count}
+\end{tabular}
+\end{center}
 
-CPR04 & must have \\
+\begin{center}
+\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
+CPR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{The user can select a `Journal Bearing' mixer geometry} \\
+\hline
+\stepcounter{count}
+\end{tabular}
+\end{center}
+
+\noindent Requirements regarding the initial concentration distribution input:
+
+\begin{center}
+\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
+CPR\arabic{count} & must have \\
 \multicolumn{2}{p{\textwidth}}{The user can define an initial concentration distribution with black and white by drawing on the touchscreen with his/her finger.} \\
 \hline
-
-\end{tabular}
-\end{center}
-\begin{center}
-\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
-
-CPR05 & should have \\
+\stepcounter{count}
+CPR\arabic{count} & should have \\
 \multicolumn{2}{p{\textwidth}}{The user can select an initial concentration distribution from a list of previously saved distributions.} \\
 \hline
-
-CPR06 & could have \\
-\multicolumn{2}{p{\textwidth}}{The user can select a predifined initial concentration distribution from a list.} \\
+\stepcounter{count}
+CPR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{The user can select a predefined initial concentration distribution.} \\
 \hline
-
-CPR07 & won't have \\
-\multicolumn{2}{p{\textwidth}}{The user can define a initial concentration distribution with more than two different colours.} \\
+\stepcounter{count}
+CPR\arabic{count} & won't have \\
+\multicolumn{2}{p{\textwidth}}{The user can define an initial concentration distribution with more than two different colours.} \\
 \hline
-
-CPR08 & won't have \\
+\stepcounter{count}
+CPR\arabic{count} & won't have \\
 \multicolumn{2}{p{\textwidth}}{The user can choose which colours are used for the initial concentration distribution.} \\
 \hline
-
-CPR09 & must have \\
-\multicolumn{2}{p{\textwidth}}{The user can reset the current concentration distribution.}\\
+\stepcounter{count}
+CPR\arabic{count} & must have \\
+\multicolumn{2}{p{\textwidth}}{The user can reset the current concentration distribution to a completely white concentration distribution.}\\
 \hline
-
-CPR10 & should have \\
-\multicolumn{2}{p{\textwidth}}{The user can save an initial concentration distribution he/she has specified by drawing on the touchscreen.} \\
+\stepcounter{count}
+CPR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{The user can save an initial concentration distribution.} \\
 \hline
+\stepcounter{count}
+\end{tabular}
+\end{center}
 
-CPR11 & must have \\
+\noindent Requirements regarding the mixing protocol input:
+
+\begin{center}
+\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
+CPR\arabic{count} & must have \\
 \multicolumn{2}{p{\textwidth}}{The user can define a mixing protocol for a rectangular geometry as a sequence of movements of the upper and lower walls.}\\
 \hline
-
-CPR12 & should have \\
+\stepcounter{count}
+CPR\arabic{count} & should have \\
 \multicolumn{2}{p{\textwidth}}{The user can define a mixing protocol for a square geometry as a sequence of movements of the upper and lower walls.}\\
 \hline
-
-CPR13 & could have \\
-\multicolumn{2}{p{\textwidth}}{The user can define a mixing protocol for a circle geometry as a sequence of rotation of the circle.}\\
+\stepcounter{count}
+CPR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{The user can define a mixing protocol for a circle geometry as a sequence of circle rotations.}\\
 \hline
-
-CPR14 & could have \\
+\stepcounter{count}
+CPR\arabic{count} & could have \\
 \multicolumn{2}{p{\textwidth}}{The user can define a mixing protocol for a `Journal Bearing' geometry as a sequence of rotations of inner and outer circles.}\\
 \hline
-
-CPR15 & must have \\
+\stepcounter{count}
+CPR\arabic{count} & must have \\
 \multicolumn{2}{p{\textwidth}}{The user can define a single movement and step (\emph{D}) to be executed directly on the current concentration distribution.}\\
 \hline
-
-CPR16 & should have \\
-\multicolumn{2}{p{\textwidth}}{The user can select a mixing protocol for the specified geometry from a list of previously saved mixing protocols.}\\
+\stepcounter{count}
+CPR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{The user can select one of the previously saved mixing protocols for the specified geometry as a mixing protocol.}\\
 \hline
+\end{tabular}
+\end{center}
 
-CPR17 & could have \\
-\multicolumn{2}{p{\textwidth}}{The user can select a predifined mixing protocol for the specified geometry from a list.}\\
+\begin{center}
+\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
+\stepcounter{count}
+CPR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{The user can select a predefined mixing protocol for the specified geometry.}\\
 \hline
-
-CPR18 & must have \\
-\multicolumn{2}{p{\textwidth}}{The user can reset the current settings for the mixing protocol.}\\
+\stepcounter{count}
+CPR\arabic{count} & must have \\
+\multicolumn{2}{p{\textwidth}}{The user can clear the current settings for the mixing protocol.}\\
 \hline
-
-CPR19 & must have \\
+\stepcounter{count}
+CPR\arabic{count} & must have \\
 \multicolumn{2}{p{\textwidth}}{The user can define a step (\emph{D}) for each movement from the mixing protocol, to indicate the time that this movement is applied.}\\
 \hline
-
-CPR20 & must have \\
+\stepcounter{count}
+CPR\arabic{count} & must have \\
 \multicolumn{2}{p{\textwidth}}{The user can define how many times the mixing protocol is applied (\emph{\#steps}).}\\
 \hline
+\stepcounter{count}
+\end{tabular}
+\end{center}
 
-CPR21 & must have \\
+\noindent Requirements regarding the application's output:
+
+\begin{center}
+\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
+CPR\arabic{count} & must have \\
 \multicolumn{2}{p{\textwidth}}{Users can view an image of the endresult of applying the mixing protocol on the initial concentration distribution.} \\
 \hline
-
-CPR22 & should have \\
+\stepcounter{count}
+CPR\arabic{count} & should have \\
 \multicolumn{2}{p{\textwidth}}{The user can save the image from CPR21 locally to their device in a vector format (e.g. SVG format).} \\
 \hline
-
-\end{tabular}
-\end{center}
-\begin{center}
-\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
-
-CPR23 & should have \\
+\stepcounter{count}
+CPR\arabic{count} & should have \\
 \multicolumn{2}{p{\textwidth}}{Users can remove previously stored images from their device.} \\
 \hline
-
-CPR24 & could have \\
+\stepcounter{count}
+CPR\arabic{count} & could have \\
 \multicolumn{2}{p{\textwidth}}{Users can view an animation of applying the mixing protocol on the initial concentration distribution.} \\
 \hline
-
-CPR25 & could have \\
-\multicolumn{2}{p{\textwidth}}{Users can save the animation from CPR24 locally to their device, using a animated vector format (e.g. EVA format).} \\
+\stepcounter{count}
+CPR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{Users can save the animation from CPR24 locally to their device, using an animated vector format (e.g. EVA format).} \\
 \hline
-
-CPR26 & could have \\
+\stepcounter{count}
+CPR\arabic{count} & could have \\
 \multicolumn{2}{p{\textwidth}}{Users can remove previously stored animations from their device.} \\
 \hline
-
-CPR27 & should have \\
+\stepcounter{count}
+CPR\arabic{count} & should have \\
 \multicolumn{2}{p{\textwidth}}{Users can view the mixing performance of the mixing protocol in a graph.} \\
 \hline
-
-CPR28 & should have \\
+\stepcounter{count}
+CPR\arabic{count} & should have \\
 \multicolumn{2}{p{\textwidth}}{Users can save the mixing performance results locally on their device.} \\
 \hline
-
-CPR29 & should have \\
+\stepcounter{count}
+CPR\arabic{count} & should have \\
 \multicolumn{2}{p{\textwidth}}{Users can retrieve the mixing performance results that are stored locally on their device.} \\
 \hline
-
-CPR30 & should have \\
+\stepcounter{count}
+CPR\arabic{count} & should have \\
 \multicolumn{2}{p{\textwidth}}{Users can retrieve mixing performance results from multiple mixing protocols simultaneously, after which they are depicted in one graph.} \\
 \hline
-
-CPR31 & should have \\
+\stepcounter{count}
+CPR\arabic{count} & should have \\
 \multicolumn{2}{p{\textwidth}}{Users can remove mixing performance results that are stored on their device.} \\
 \hline
-
+\stepcounter{count}
 \end{tabular}
 \end{center}
-\newpage
+
 \section{Constraint requirements}
 %A list of all constraint requirements (interfaces, portability, adaptability availability, security, safety, standards, resources, time scales, ...).
-This section contains all constraint requirements for the application. These requirements state all demands with regard to interfaces, portability, adaptability availability, security, safety, standards, resources and time scales. \\
+This section contains all constraint requirements for the application. These requirements state all demands with regard to interfaces, portability, adaptability, availability, security, safety, standards, resources and time scales. \\
+
+\setcounter{count}{1}
+
+\noindent Requirements regarding web browsers:
 
 \begin{center}
 \begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
-
-CNR01 & must have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on iOS Safari versions 6.0 and higher.} \\
+CNR\arabic{count} & must have \\
+\multicolumn{2}{p{\textwidth}}{The application runs on iOS Safari version 6.0 and higher.} \\
 \hline
-
-CNR02 & should have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on Firefox versions 20 and higher, and Google Chrome versions 26 and higher.} \\
+\stepcounter{count}
+CNR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{The application runs on Firefox version 20 and higher.} \\
 \hline
-
-CNR03 & could have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on Internet Explorer version 10 and higher, Opera versions 12.1 and higher and Safari versions 6.0 and higher.} \\
+\stepcounter{count}
+CNR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{The application runs on Google Chrome version 26 and higher.} \\
 \hline
-
-CNR04 & must have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on devices runnning on iOS versions 6 and higher.} \\
+\stepcounter{count}
+CNR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{The application runs on Internet Explorer version 10 and higher.} \\
 \hline
-
-CNR05 & should have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on devices runnning on Android version 4.0 and higher.} \\
+\stepcounter{count}
+CNR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{The application runs on Opera version 12.1 and higher.} \\
 \hline
-
-CNR06 & could have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on devices runnning on Windows 8.} \\
+\stepcounter{count}
+CNR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{The application runs on Safari version 6.0 and higher.} \\
 \hline
+\stepcounter{count}
+\end{tabular}
+\end{center}
 
-CNR07 & must have \\
-\multicolumn{2}{p{\textwidth}}{Waiting time between submitting input and receiving output is not longer than 5 seconds.} \\
+\noindent Requirements regarding operating systems:
+
+\begin{center}
+\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
+CNR\arabic{count} & must have \\
+\multicolumn{2}{p{\textwidth}}{The application runs on devices running on iOS version 6 and higher.} \\
 \hline
-
-CNR08 & should have \\
-\multicolumn{2}{p{\textwidth}}{Waiting time between submitting input and receiving output is not longer than 3 seconds.} \\
+\stepcounter{count}
+CNR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{The application runs on devices running on Android version 4.0 and higher.} \\
 \hline
-
-CNR09 & could have \\
-\multicolumn{2}{p{\textwidth}}{Waiting time between submitting input and receiving output is not longer than 1 second.} \\
+\stepcounter{count}
+CNR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{The application runs on devices running on Windows 8.} \\
 \hline
+\stepcounter{count}
+\end{tabular}
+\end{center}
 
-CNR10 & must have \\
-\multicolumn{2}{p{\textwidth}}{The application should be easily extendable with new mixers.} \\
+\noindent Requirements regarding performance:
+
+\begin{center}
+\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
+CNR\arabic{count} & must have \\
+\multicolumn{2}{p{\textwidth}}{Average waiting time between submitting input and receiving output is no longer than 5 seconds.} \\
 \hline
+\stepcounter{count}
+CNR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{Average waiting time between submitting input and receiving output is no longer than 3 seconds.} \\
+\hline
+\stepcounter{count}
+CNR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{Average waiting time between submitting input and receiving output is no longer than 1 second.} \\
+\hline
+\stepcounter{count}
+\end{tabular}
+\end{center}
 
+\newpage
+\noindent Requirements regarding extendability:
+
+\begin{center}
+\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
+CNR\arabic{count} & must have \\
+\multicolumn{2}{p{\textwidth}}{The product should be extendable with new mixers.} \\
+\hline
+\stepcounter{count}
 \end{tabular}
 \end{center}
