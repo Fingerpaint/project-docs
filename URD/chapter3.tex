@@ -48,7 +48,15 @@ CPR\arabic{count} & could have \\
 \begin{center}
 \begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
 CPR\arabic{count} & must have \\
-\multicolumn{2}{p{\textwidth}}{The user can define an initial concentration distribution with black and white by drawing on the touchscreen with his/her finger.} \\
+\multicolumn{2}{p{\textwidth}}{The user can define an initial concentration distribution with black and white by drawing on the touchscreen with their finger.} \\
+\hline
+\stepcounter{count}
+CPR\arabic{count} & must have \\
+\multicolumn{2}{p{\textwidth}}{The user can reset the current concentration distribution to a completely white concentration distribution.}\\
+\hline
+\stepcounter{count}
+CPR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{The user can save an initial concentration distribution.} \\
 \hline
 \stepcounter{count}
 CPR\arabic{count} & should have \\
@@ -67,14 +75,6 @@ CPR\arabic{count} & won't have \\
 \multicolumn{2}{p{\textwidth}}{The user can choose which colours are used for the initial concentration distribution.} \\
 \hline
 \stepcounter{count}
-CPR\arabic{count} & must have \\
-\multicolumn{2}{p{\textwidth}}{The user can reset the current concentration distribution to a completely white concentration distribution.}\\
-\hline
-\stepcounter{count}
-CPR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{The user can save an initial concentration distribution.} \\
-\hline
-\stepcounter{count}
 \end{tabular}
 \end{center}
 
@@ -86,33 +86,8 @@ CPR\arabic{count} & must have \\
 \multicolumn{2}{p{\textwidth}}{The user can define a mixing protocol for a rectangular geometry as a sequence of movements of the upper and lower walls.}\\
 \hline
 \stepcounter{count}
-CPR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{The user can define a mixing protocol for a square geometry as a sequence of movements of the upper and lower walls.}\\
-\hline
-\stepcounter{count}
-CPR\arabic{count} & could have \\
-\multicolumn{2}{p{\textwidth}}{The user can define a mixing protocol for a circle geometry as a sequence of circle rotations.}\\
-\hline
-\stepcounter{count}
-CPR\arabic{count} & could have \\
-\multicolumn{2}{p{\textwidth}}{The user can define a mixing protocol for a `Journal Bearing' geometry as a sequence of rotations of inner and outer circles.}\\
-\hline
-\stepcounter{count}
 CPR\arabic{count} & must have \\
 \multicolumn{2}{p{\textwidth}}{The user can define a single movement and step (\emph{D}) to be executed directly on the current concentration distribution.}\\
-\hline
-\stepcounter{count}
-CPR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{The user can select one of the previously saved mixing protocols for the specified geometry as a mixing protocol.}\\
-\hline
-\end{tabular}
-\end{center}
-
-\begin{center}
-\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
-\stepcounter{count}
-CPR\arabic{count} & could have \\
-\multicolumn{2}{p{\textwidth}}{The user can select a predefined mixing protocol for the specified geometry.}\\
 \hline
 \stepcounter{count}
 CPR\arabic{count} & must have \\
@@ -134,49 +109,83 @@ CPR\arabic{count} & should have \\
 \end{tabular}
 \end{center}
 
-\noindent Requirements regarding the application's output:
-
 \begin{center}
 \begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
-CPR\arabic{count} & must have \\
-\multicolumn{2}{p{\textwidth}}{Users can view an image of the end result, after the mixing protocol has been applied on the initial concentration distribution.} \\
+CPR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{The user can select one of the previously saved mixing protocols for the specified geometry as a mixing protocol.}\\
 \hline
 \stepcounter{count}
 CPR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{The user can export the image from CPR23 in a vector format (e.g. SVG format) locally to their device.} \\
+\multicolumn{2}{p{\textwidth}}{The user can define a mixing protocol for a square geometry as a sequence of movements of the upper and lower walls.}\\
 \hline
 \stepcounter{count}
 CPR\arabic{count} & could have \\
-\multicolumn{2}{p{\textwidth}}{Users can view an animation of applying the mixing protocol on the initial concentration distribution.} \\
+\multicolumn{2}{p{\textwidth}}{The user can define a mixing protocol for a circle geometry as a sequence of circle rotations.}\\
 \hline
 \stepcounter{count}
 CPR\arabic{count} & could have \\
-\multicolumn{2}{p{\textwidth}}{Users can export the animation from CPR25 using an animated vector format (e.g. EVA format) locally to their device.} \\
+\multicolumn{2}{p{\textwidth}}{The user can define a mixing protocol for a `Journal Bearing' geometry as a sequence of rotations of inner and outer circles.}\\
 \hline
 \stepcounter{count}
-CPR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{Users can view the mixing performance of the mixing protocol in a graph.} \\
-\hline
-\stepcounter{count}
-CPR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{Users can save the mixing performance results locally on their device.} \\
-\hline
-\stepcounter{count}
-CPR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{Users can retrieve mixing performance results that are stored locally on their device.} \\
-\hline
-\stepcounter{count}
-CPR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{Users can retrieve mixing performance results from multiple mixing protocols simultaneously, to depict them in one graph.} \\
-\hline
-\stepcounter{count}
-CPR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{Users can remove mixing performance results that are stored on their device.} \\
+CPR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{The user can select a predefined mixing protocol for the specified geometry.}\\
 \hline
 \stepcounter{count}
 \end{tabular}
 \end{center}
 
+\noindent Requirements regarding the application's output:
+
+\begin{center}
+\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
+CPR\arabic{count} & must have \\
+\multicolumn{2}{p{\textwidth}}{The user can execute a mixing run.} \\
+\hline
+\stepcounter{count}
+CPR\arabic{count} & must have \\
+\multicolumn{2}{p{\textwidth}}{The user can save the results of an executed mixing run locally on their device.} \\
+\hline
+\stepcounter{count}
+\end{tabular}
+\end{center}
+
+
+\noindent Requirements regarding the exportation of results:
+
+\begin{center}
+\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
+CPR\arabic{count} & must have \\
+\multicolumn{2}{p{\textwidth}}{The user can view an image of the end result of a mixing run.} \\
+\hline
+\stepcounter{count}
+CPR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{The user can export the image from CPR25 locally to their device.} \\
+\hline
+\stepcounter{count}
+CPR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{The user can view the mixing performance of a mixing run in a graph.} \\
+\hline
+\stepcounter{count}
+CPR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{The user can export the mixing performance graph locally to their device.} \\
+\hline
+\stepcounter{count}
+CPR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{Users can view mixing performance results from multiple mixing runs simultaneously in one graph.} \\
+\hline
+\stepcounter{count}
+CPR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{The user can view an animation of the end result of a mixing run.} \\
+\hline
+\stepcounter{count}
+CPR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{The user can export the animation from CPR27 locally to their device.} \\
+\hline
+\stepcounter{count}
+\end{tabular}
+\end{center}
+
+\newpage
 \section{Constraint requirements}
 %A list of all constraint requirements (interfaces, portability, adaptability availability, security, safety, standards, resources, time scales, ...).
 This section contains all constraint requirements for the application. These requirements state all demands with regard to interfaces, portability, adaptability, availability, security, safety, standards, resources and time scales. \\
