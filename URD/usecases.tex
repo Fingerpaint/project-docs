@@ -4,27 +4,33 @@ Aanname toetsenbord conform input ding paneel tekstveld enz.}
 
 \chapter{Use cases}
 
-%View mixing history
-\section{View mixing history}
+%View previously saved mixing run
+\section{View previously saved mixing run}
   \label{mixhist}
-  \textbf{Goals}: To view the result of a mixing run.\\
+  \textbf{Goals}: To view the details of a previously saved mixing run.\\
   \textbf{Preconditions}: None.\\
-  \textbf{Summary}: The performance of the selected mixing run is shown, accompanied by a picture of the final result.\\
+  \textbf{Summary}: The performance of the selected mixing run is shown, accompanied by an image of the final result.\\
   \textbf{Priority}: Should have.\\
   \textbf{Steps}: \\
     \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
-    1. Actor actions of \textbf{\ref{saverun}}. &  2. \projectname\ responses of \textbf{\ref{saverun}}.\\
-    3. Taps the \emph{View history} button. & 4. Displays the history interface.\\
-    5. Selects the \emph{View mixing run details}. & 6. Displays all previously saved runs.\\
+    1. Taps the \emph{View history} button. & 2. Displays the history interface.\\
+    3. Selects the \emph{View mixing run details}. & 4. Displays all previously saved runs.\\
     5. Taps one of the runs shown. & 6. Displays the performance result of the selected run and an image of the final mixing result. \\
     \end{tabular}
     \\
-     \\\textbf{Alternative}: \\
+     \\\textbf{Alternative 1}: \\
     \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
-            & 6. Displays a \emph{Insufficient access rights} error message. \\
-    7. Taps the \emph{Ok} button. & 8. Displays the history interface again. \\
+            & 4. Displays an \emph{Insufficient access rights} error message. \\
+    5. Taps the \emph{Ok} button. & 6. Displays the history interface again. \\
+    \end{tabular}
+        \\
+     \\\textbf{Alternative 2}: \\
+    \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{\projectname\ response:} \\
+            & 4. Displays a \emph{No Saved Runs} message. \\
+    5. Taps the \emph{Ok} button. & 6. Displays the history interface again. \\
     \end{tabular}
 
 %Remove mixing run from history
@@ -37,33 +43,39 @@ Aanname toetsenbord conform input ding paneel tekstveld enz.}
   \textbf{Steps}: \\
     \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
-    1. Actor actions of \textbf{\ref{saverun}}. &  2. \projectname\ responses of \textbf{\ref{saverun}}.\\
-    3. Taps the \emph{View history} button. & 4. Displays the history interface.\\
-    5. Selects the \emph{View mixing run details}. & 6. Displays all previously saved runs.\\
+    1. Taps the \emph{View history} button. & 2. Displays the history interface.\\
+    3. Selects the \emph{View mixing run details}. & 4. Displays all previously saved runs.\\
     5. Presses and holds one of the runs shown. & 6. Displays an options menu. \\
     7. Taps the \emph{Remove file} option. & 8. Displays an \emph{Are you sure?} message.\\
     9. Taps the \emph{Yes} button. & 10. Deletes the details of the selected run (\todo{image} and performance result) from storage. \\
      & 11. Displays all previously saved runs.
     \end{tabular}
-    \\
+            \\
      \\\textbf{Alternative 1}: \\
     \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
-            & 6. Displays a \emph{Insufficient access rights} error message. \\
+            & 4. Displays a \emph{No Saved Runs} message. \\
+    5. Taps the \emph{Ok} button. & 6. Displays the history interface again. \\
+    \end{tabular}
+    \\
+     \\\textbf{Alternative R.1}: \\
+    \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{\projectname\ response:} \\
+            & 6. Displays an \emph{Insufficient access rights} error message. \\
     7. Taps the \emph{Ok} button. & 8. Displays the history interface again. \\
     \end{tabular}
     \\
-         \\\textbf{Alternative 2}: \\
+         \\\textbf{Alternative R.2}: \\
         \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
     9. Taps the \emph{No} button. & 10. Displays all previously saved runs. \\
     \end{tabular}
+    
 
-%Save mixing run image
-\section{Save mixing run image}
+%Export mixing run image
+\section{Export mixing run image}
   \label{savemiximage}
-  \todo{Change to export mixing run image}\\
-  \textbf{Goals}: To save the resulting image of a mixing run.\\
+  \textbf{Goals}: To export the resulting image of a mixing run.\\
   \textbf{Preconditions}: None.\\
   \textbf{Summary}: The image of the executed mixing run is stored locally on the user's device.\\
   \textbf{Priority}: Should have.\\
@@ -71,7 +83,7 @@ Aanname toetsenbord conform input ding paneel tekstveld enz.}
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
       1. Actor actions of \textbf{\ref{mixprot2}} or \textbf{\ref{mixprot3}} or \textbf{\ref{mixhist}}. &  2. \projectname\ responses of \textbf{\ref{mixprot2}} or \textbf{\ref{mixprot3}} or \textbf{\ref{mixhist}}.\\
-	 3. Selects the \emph{Save Image} option. & 4. Displays the \emph{Save} interface.\\
+	 3. Selects the \emph{Export Image} option. & 4. Displays the \emph{Save} interface.\\
 	 5. Selects a location on his/her device to save the image. & \\
 	 6. Chooses a name for the image. & \\
 	 7. Taps the \emph{Save} button. & 8. Displays a \emph{Save was succesfull} message. \\
@@ -81,14 +93,14 @@ Aanname toetsenbord conform input ding paneel tekstveld enz.}
     \\\textbf{Alternative S.1}: \\
     \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
-           &  8. Displays a \emph{Insufficient access rights} message. \\
+           &  8. Displays an \emph{Insufficient access rights} message. \\
 	 9. Taps the \emph{OK} button. & 10. Displays the mixing interface again. \\
     \end{tabular}
     \\
     \\\textbf{Alternative S.2}: \\
     \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
-           &  8. Displays a \emph{Insufficient memory} message. \\
+           &  8. Displays an \emph{Insufficient memory} message. \\
 	 9. Taps the \emph{OK} button. & 10. Displays the mixing interface again. \\
     \end{tabular}
     \\
@@ -107,11 +119,10 @@ Aanname toetsenbord conform input ding paneel tekstveld enz.}
 	 9. Taps the \emph{Cancel} button. & 10. Displays the mixing interface again. \\
     \end{tabular}
    
-%Save mixing run performance graph
-  \section{Save mixing run performance graph}
+%Export mixing run performance graph
+  \section{Export mixing run performance graph}
   \label{savemixgraph}
-    \todo{Change to export mixing run image}\\
-  \textbf{Goals}: To save the performance graph of a mixing run.\\
+  \textbf{Goals}: To export the performance graph of a mixing run.\\
   \textbf{Preconditions}: None.\\
   \textbf{Summary}: The performance graph of the executed mixing run is stored locally on the user's device.\\
   \textbf{Priority}: Should have.\\
@@ -119,7 +130,7 @@ Aanname toetsenbord conform input ding paneel tekstveld enz.}
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
       1. Actor actions of \textbf{\ref{mixprot2}} or \textbf{\ref{mixprot3}} or \textbf{\ref{mixhist}}. &  2. \projectname\ responses of \textbf{\ref{mixprot2}} or \textbf{\ref{mixprot3}} or \textbf{\ref{mixhist}}.\\
-      	 3. Selects the \emph{Save Performance} option. & 4. Displays the \emph{Save} interface.\\
+      	 3. Selects the \emph{Export Performance} option. & 4. Displays the \emph{Save} interface.\\
 	 5. Selects a location on his/her device to save the performance graph. & \\
 	 6. Chooses a name for the performance graph. & \\
 	 7. Taps the \emph{Save} button. & 8. Displays a \emph{Save was succesfull} message. \\
@@ -128,11 +139,10 @@ Aanname toetsenbord conform input ding paneel tekstveld enz.}
   \\
   \\\textbf{Alternatives}: Alternatives \textbf{S.1, S.2, S.3.1 and S.3.2} are applicable here.
   
-%Save mixing run animation
-  \section{Save mixing run animation}
+%Export mixing run animation
+  \section{Export mixing run animation}
    \label{savemixanim}
-     \todo{Change to export mixing run image}\\
-  \textbf{Goals}: To save the resulting animation of a mixing run.\\
+  \textbf{Goals}: To export the resulting animation of a mixing run.\\
   \textbf{Preconditions}: None.\\
   \textbf{Summary}: The animation of the executed mixing run is stored locally on the user's device.\\
   \textbf{Priority}: Could have.\\
@@ -140,7 +150,7 @@ Aanname toetsenbord conform input ding paneel tekstveld enz.}
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
       1. Actor actions of \textbf{\ref{mixprot2}} or \textbf{\ref{mixprot3}} or \textbf{\ref{mixhist}}. &  2. \projectname\ responses of \textbf{\ref{mixprot2}} or \textbf{\ref{mixprot3}} or \textbf{\ref{mixhist}}.\\
-        	 3. Selects the \emph{Save Animation} option. & 4. Displays the \emph{Save} interface.\\
+        	 3. Selects the \emph{Export Animation} option. & 4. Displays the \emph{Save} interface.\\
 	 5. Selects a location on his/her device to save the animation. & \\
 	 6. Chooses a name for the animation. & \\
 	 7. Taps the \emph{Save} button. & 8. Displays a \emph{Save was succesfull} message. \\
@@ -159,20 +169,46 @@ Aanname toetsenbord conform input ding paneel tekstveld enz.}
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
-      1. Actor actions of \textbf{\ref{saverun}}. &  2. \projectname\ responses of \textbf{\ref{saverun}}.\\
-    3. Repeats step (1) at least one time. & 4. Repeats step (2) the same amount of times. (At least 2 runs are now saved).\\
-	5. Taps the \emph{View history} button. & 6. Displays the history interface. \\
-	 7. Selects the \emph{View performance} option. & 8. Displays all previously saved runs.\\
-	 9. Selects two or more runs from the list. & \\
-	 10. The user taps the \emph{Submit} button. & 11. Displays the mixing performances of the selected runs in one graph.\\
+	1. Taps the \emph{View history} button. & 2. Displays the history interface. \\
+	3. Selects the \emph{View performance} option. & 4. Displays all previously saved runs.\\
+	 5. Selects two or more runs from the list. & \\
+	 6. The user taps the \emph{Submit} button. & 7. Displays the mixing performances of the selected runs in one graph.\\
   \end{tabular}
   \\
      \\\textbf{Alternative 1}: \\
     \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
-            & 8. Displays a \emph{Insufficient access rights} error message. \\
-    9. Taps the \emph{Ok} button. & 10. Displays the history interface again. \\
+            & 4. Displays an \emph{Insufficient access rights} error message. \\
+    5. Taps the \emph{Ok} button. & 6. Displays the history interface again. \\
     \end{tabular}
+            \\
+     \\\textbf{Alternative 2}: \\
+    \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{\projectname\ response:} \\
+            & 4. Displays a \emph{No Saved Runs} message. \\
+    5. Taps the \emph{Ok} button. & 6. Displays the history interface again. \\
+    \end{tabular}
+    
+    
+    %Export mixing run performance graph with multiple runs
+  \section{Export performance graph of multiple mixing runs}
+  \label{savemulrunsgraph}
+  \textbf{Goals}: To export the performance graph of multiple mixing runs.\\
+  \textbf{Preconditions}: None.\\
+  \textbf{Summary}: The performance graph of multiple mixing runs is stored locally on the user's device.\\
+  \textbf{Priority}: Should have.\\
+  \textbf{Steps}: \\
+  \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{\projectname\ response:} \\
+      1. Actor actions of \textbf{\ref{viewmulruns}}. &  2. \projectname\ responses of \textbf{\ref{viewmulruns}}.\\
+      	 3. Selects the \emph{Export Graph} option. & 4. Displays the \emph{Save} interface.\\
+	 5. Selects a location on his/her device to save the performance graph. & \\
+	 6. Chooses a name for the performance graph. & \\
+	 7. Taps the \emph{Save} button. & 8. Displays a \emph{Save was succesfull} message. \\
+	 9. Taps the \emph{OK} button. & 10. Displays the mixing interface again. \\
+  \end{tabular}
+  \\
+  \\\textbf{Alternatives}: Alternatives \textbf{S.1, S.2, S.3.1 and S.3.2} are applicable here.
 
 %Define a mixing geometry and mixer
 \section{Define a mixing geometry and mixer}
@@ -199,10 +235,16 @@ Aanname toetsenbord conform input ding paneel tekstveld enz.}
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
-  	1. Actor actions of \textbf{\ref{savedist}}. & 2. \projectname\ responses of \textbf{\ref{savedist}}. \\
-  	3. Actor actions of \textbf{\ref{geomixer}}. & 4. \projectname\ responses of \textbf{\ref{geomixer}}. \\
-	5. Taps the \emph{Load Saved Distribution} button. & 6. Displays the previously saved distributions for the selected geometry. \\
-	7. Taps on the distribution of choice & 8. Displays the canvas with the selected distribution. \\
+  	1. Actor actions of \textbf{\ref{geomixer}}. & 2. \projectname\ responses of \textbf{\ref{geomixer}}. \\
+	3. Taps the \emph{Load Saved Distribution} button. & 4. Displays the previously saved distributions for the selected geometry. \\
+	5. Taps on the distribution of choice & 6. Displays the canvas with the selected distribution. \\
+	\end{tabular}
+	        \\
+     \\\textbf{Alternative}: \\
+    \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{\projectname\ response:} \\
+            & 4. Displays a \emph{No Saved Distributions} message. \\
+    5. Taps the \emph{Ok} button. & 6. Displays the mixng interface again. \\
   \end{tabular}
   
   %Load a predefined distribution
@@ -248,13 +290,38 @@ Aanname toetsenbord conform input ding paneel tekstveld enz.}
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
   	1. Actor actions of \textbf{\ref{initdist}}. & 2. \projectname\ responses of \textbf{\ref{initdist}}. \\
     3. Taps the \emph{Save Distribution} button.  & \\
-    4. Selects a location on the device to save the distribution. & \\
-    5. Chooses a name for the distribution. & \\
-    6. Taps the \emph{Save} button. & 7. Displays a \emph{Save was succesfull} message.\\
-    8. Taps the \emph{OK} button. & 9. Displays the mixing interface again. \\
+    4. Chooses a name for the distribution. & \\
+    5. Taps the \emph{Save} button. & 6. Displays a \emph{Save was succesfull} message.\\
+    7. Taps the \emph{OK} button. & 8. Displays the mixing interface again. \\
     \end{tabular}
     	 \\
     \\\textbf{Alternatives}: Alternatives \textbf{S.1, S.2, S.3.1 and S.3.2} are applicable here.
+    
+    %Remove initial concentration distribution
+\section{Remove initial concentration distribution}
+ \label{removedist}
+  \textbf{Goals}: To remove an initial concentration distribution.\\
+  \textbf{Preconditions}: None.\\
+  \textbf{Summary}: The selected initial concentration distribution is removed from local storage.\\
+  \textbf{Priority}: Should have.\\
+  \textbf{Steps}: \\
+    \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{\projectname\ response:} \\
+    1. Taps the \emph{View Distributions} button. & 2. Displays all previously saved concentration distributions.\\
+    3. Presses and holds one of the concentration distributions shown. & 4. Displays an options menu. \\
+    5. Taps the \emph{Remove file} option. & 6. Displays an \emph{Are you sure?} message.\\
+    7. Taps the \emph{Yes} button. & 8. Deletes the selected concentration distribution from local storage. \\
+     & 9. Displays all previously concentration distributions.\\
+    \end{tabular}
+                \\
+     \\\textbf{Alternative 1}: \\
+    \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{\projectname\ response:} \\
+            & 4. Displays a \emph{No Saved Distributions} message. \\
+    5. Taps the \emph{Ok} button. & 6. Displays the history interface again. \\
+    \end{tabular}
+    \\
+    \\\textbf{Alternatives}: Alternatives \textbf{R.1 and R.2} are applicable here.
 
    %Define mixing protocol (1)
   \section{Define mixing protocol (1)}
@@ -266,7 +333,7 @@ Aanname toetsenbord conform input ding paneel tekstveld enz.}
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
-    1. Actor actions of \textbf{\ref{initdist}} or  \textbf{\ref{savedist}}. & 2. \projectname\ responses of \textbf{\ref{initdist}} or  \textbf{\ref{savedist}}. \\
+    1. Actor actions of \textbf{\ref{initdist}} or  \textbf{\ref{savedist}} or \textbf{\ref{loadsaveprot}} or \textbf{\ref{loadpredprot}}. & 2. \projectname\ responses of \textbf{\ref{initdist}} or  \textbf{\ref{savedist}} or  \textbf{\ref{loadsaveprot}} or \textbf{\ref{loadpredprot}}. \\
     3. Selects a value for step ($D$). & 4.	Gives visual feedback on the step ($D$) that has been selected\\
     5. Swipes his/her finger across the screen to indicate the movement of the geometry. & 6. Displays which movement has been selected. \\
     7.The user does or does not tick the \emph{Intermediate steps} tickbox. & 8. Displays result in checkbox.\\
@@ -332,13 +399,82 @@ Aanname toetsenbord conform input ding paneel tekstveld enz.}
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
   	1. Actor actions of \textbf{\ref{mixprot2}} or \textbf{\ref{mixprot3}}. & 2. \projectname\ responses of \textbf{\ref{mixprot2}} or \textbf{\ref{mixprot3}}. \\
     3. Taps the \emph{Save Protocol} button.  & \\
-    4. Selects a location on the device to save the protocol. & \\
-    5. Chooses a name for the protocol. & \\
-    6. Taps the \emph{Save} button. & 7. Displays a \emph{Save was succesfull} message.\\
-    8. Taps the \emph{OK} button. & 9. Displays the mixing interface again. \\
+    4. Chooses a name for the protocol. & \\
+    5. Taps the \emph{Save} button. & 6. Displays a \emph{Save was succesfull} message.\\
+    7. Taps the \emph{OK} button. & 8. Displays the mixing interface again. \\
       \end{tabular}
     	 \\
     \\\textbf{Alternatives}: Alternatives \textbf{S.1, S.2, S.3.1 and S.3.2} are applicable here.
+    
+      %Load a previously saved mixing protocol
+  \section{Load a previously saved mixing protocol}
+  \label{loadsaveprot}
+  \textbf{Goals}: To load a previously saved mixing protocol.\\
+  \textbf{Preconditions}: \emph{Intermediate Steps} has \textbf{not} been ticked.\\
+  \textbf{Summary}: The user loads a previously saved mixing protocol.\\
+  \textbf{Priority}: Should have.\\
+  \textbf{Steps}: \\
+  \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{\projectname\ response:} \\
+  	1. Actor actions of \textbf{\ref{initdist}} or  \textbf{\ref{savedist}}. & 2. \projectname\ responses of \textbf{\ref{initdist}} or  \textbf{\ref{savedist}}. \\
+	3. Taps the \emph{Load Saved Protocol} button. & 4. Displays the previously saved mixing protocols for the selected geometry. \\
+	5. Taps on the mixing protocol of choice. & 6. Displays the selected mixing protocol.\\
+	\end{tabular}
+	        \\
+     \\\textbf{Alternative}: \\
+    \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{\projectname\ response:} \\
+            & 4. Displays a \emph{No Saved Protocols} message. \\
+    5. Taps the \emph{Ok} button. & 6. Displays the mixing interface again. \\
+  \end{tabular}
+  
+  %Load a predefined mixing protocol
+  \section{Load a predefined mixing protocol}
+  \label{loadpredprot}
+  \textbf{Goals}: To load a predefined mixing protocol.\\
+  \textbf{Preconditions}: none.\\
+  \textbf{Summary}: The user loads a predefined mixing protocol.\\
+  \textbf{Priority}: Could have.\\
+  \textbf{Steps}: \\
+  \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{\projectname\ response:} \\
+  	1. Actor actions of \textbf{\ref{initdist}} or  \textbf{\ref{savedist}}. & 2. \projectname\ responses of \textbf{\ref{initdist}} or  \textbf{\ref{savedist}}. \\
+	3. Taps the \emph{Load Predefined Distribution} button. & 4. Displays the predefined mixing protocols for the selected geometry. \\
+	5. Taps on the predefined mixing protocol of choice & 6. Displays the selected mixing protocol. \\
+  \end{tabular}
+  	 \\
+     \\\textbf{Alternative}: \\
+    \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{\projectname\ response:} \\
+            & 4. Displays a \emph{No Saved Protocols} message. \\
+    5. Taps the \emph{Ok} button. & 6. Displays the mixing interface again. \\
+  \end{tabular}
+    
+        %Remove mixing protocol
+\section{Remove mixing protocol}
+ \label{removedist}
+  \textbf{Goals}: To remove a mixing protocol.\\
+  \textbf{Preconditions}: None.\\
+  \textbf{Summary}: The selected mixing protocol is removed from local storage.\\
+  \textbf{Priority}: Should have.\\
+  \textbf{Steps}: \\
+    \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{\projectname\ response:} \\
+    1. Taps the \emph{View Protocols} button. & 2. Displays all previously saved mixing protocols.\\
+    3. Presses and holds one of the mixing protocol shown. & 4. Displays an options menu. \\
+    5. Taps the \emph{Remove file} option. & 6. Displays an \emph{Are you sure?} message.\\
+    7. Taps the \emph{Yes} button. & 8. Deletes the selected mixing protocol from local storage. \\
+     & 9. Displays all previously mixing protocols.\\
+    \end{tabular}
+                \\
+     \\\textbf{Alternative 1}: \\
+    \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{\projectname\ response:} \\
+            & 4. Displays a \emph{No Saved Protocols} message. \\
+    5. Taps the \emph{Ok} button. & 6. Displays the history interface again. \\
+    \end{tabular}
+    \\
+    \\\textbf{Alternatives}: Alternatives \textbf{R.1 and R.2} are applicable here.
     
     %Save mixing run
      \section{Save mixing run}
@@ -352,10 +488,9 @@ Aanname toetsenbord conform input ding paneel tekstveld enz.}
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
   	1. Actor actions of \textbf{\ref{mixprot2}} or \textbf{\ref{mixprot3}}. & 2. \projectname\ responses of \textbf{\ref{mixprot2}} or \textbf{\ref{mixprot3}}. \\
     3. Taps the \emph{Save Run} button.  & \\
-    4. Selects a location on the device to save the run. & \\
-    5. Chooses a name for the run. & \\
-    6. Taps the \emph{Save} button. & 7. Displays a \emph{Save was succesfull} message.\\
-    8. Taps the \emph{OK} button. & 9. Displays the mixing interface again. \\
+    4. Chooses a name for the run. & \\
+    5. Taps the \emph{Save} button. & 6. Displays a \emph{Save was succesfull} message.\\
+    7. Taps the \emph{OK} button. & 8. Displays the mixing interface again. \\
       \end{tabular}
     	 \\
     \\\textbf{Alternatives}: Alternatives \textbf{S.1, S.2, S.3.1 and S.3.2} are applicable here.
