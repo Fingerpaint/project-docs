@@ -23,12 +23,12 @@ CPR\arabic{count} & must have \\
 \multicolumn{2}{p{\textwidth}}{The user can select a rectangular mixer geometry} \\
 \hline
 \stepcounter{count}
-CPR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{The user can select a square mixer geometry} \\
+CPR\arabic{count} & must have \\
+\multicolumn{2}{p{\textwidth}}{The user can select a mixer for the selected geometry} \\
 \hline
 \stepcounter{count}
-CPR\arabic{count} & could have \\
-\multicolumn{2}{p{\textwidth}}{The user can select a circle mixer geometry} \\
+CPR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{The user can select a square mixer geometry} \\
 \hline
 \stepcounter{count}
 \end{tabular}
@@ -36,6 +36,10 @@ CPR\arabic{count} & could have \\
 
 \begin{center}
 \begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
+CPR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{The user can select a circle mixer geometry} \\
+\hline
+\stepcounter{count}
 CPR\arabic{count} & could have \\
 \multicolumn{2}{p{\textwidth}}{The user can select a \emph{Journal Bearing} mixer geometry} \\
 \hline
@@ -52,11 +56,27 @@ CPR\arabic{count} & must have \\
 \hline
 \stepcounter{count}
 CPR\arabic{count} & must have \\
+\multicolumn{2}{p{\textwidth}}{The user can draw with a circle-shaped drawing tool.} \\
+\hline
+\stepcounter{count}
+CPR\arabic{count} & must have \\
 \multicolumn{2}{p{\textwidth}}{The user can reset the current concentration distribution to a completely white concentration distribution.}\\
 \hline
 \stepcounter{count}
 CPR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{The user can save an initial concentration distribution.} \\
+\multicolumn{2}{p{\textwidth}}{The user can draw with a square-shaped drawing tool.} \\
+\hline
+\stepcounter{count}
+CPR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{The user can adjust the size of the drawing tool.} \\
+\hline
+\stepcounter{count}
+CPR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{The user can save an initial concentration distribution locally on their device.} \\
+\hline
+\stepcounter{count}
+CPR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{The user can remove a previously saved initial concentration distribution.} \\
 \hline
 \stepcounter{count}
 CPR\arabic{count} & should have \\
@@ -94,6 +114,11 @@ CPR\arabic{count} & must have \\
 \multicolumn{2}{p{\textwidth}}{The user can clear the current settings for the mixing protocol.}\\
 \hline
 \stepcounter{count}
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
 CPR\arabic{count} & must have \\
 \multicolumn{2}{p{\textwidth}}{The user can define a step (\emph{D}) for each movement from the mixing protocol, to indicate the time that this movement is applied.}\\
 \hline
@@ -103,14 +128,13 @@ CPR\arabic{count} & must have \\
 \hline
 \stepcounter{count}
 CPR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{The user can save a mixing protocol.} \\
+\multicolumn{2}{p{\textwidth}}{The user can save a mixing protocol locally on their device.} \\
 \hline
 \stepcounter{count}
-\end{tabular}
-\end{center}
-
-\begin{center}
-\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
+CPR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{The user can remove a previously saved mixing protocol.} \\
+\hline
+\stepcounter{count}
 CPR\arabic{count} & should have \\
 \multicolumn{2}{p{\textwidth}}{The user can select one of the previously saved mixing protocols for the specified geometry as a mixing protocol.}\\
 \hline
@@ -124,7 +148,7 @@ CPR\arabic{count} & could have \\
 \hline
 \stepcounter{count}
 CPR\arabic{count} & could have \\
-\multicolumn{2}{p{\textwidth}}{The user can define a mixing protocol for a `Journal Bearing' geometry as a sequence of rotations of inner and outer circles.}\\
+\multicolumn{2}{p{\textwidth}}{The user can define a mixing protocol for a \emph{Journal Bearing} geometry as a sequence of rotations of inner and outer circles.}\\
 \hline
 \stepcounter{count}
 CPR\arabic{count} & could have \\
@@ -146,9 +170,12 @@ CPR\arabic{count} & must have \\
 \multicolumn{2}{p{\textwidth}}{The user can save the results of an executed mixing run locally on their device.} \\
 \hline
 \stepcounter{count}
+CPR\arabic{count} & must have \\
+\multicolumn{2}{p{\textwidth}}{The user can remove previously saved results of an executed mixing run.} \\
+\hline
+\stepcounter{count}
 \end{tabular}
 \end{center}
-
 
 \noindent Requirements regarding the exportation of results:
 
@@ -159,7 +186,7 @@ CPR\arabic{count} & must have \\
 \hline
 \stepcounter{count}
 CPR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{The user can export the image from CPR25 locally to their device.} \\
+\multicolumn{2}{p{\textwidth}}{The user can export the image from CPR32 locally to their device.} \\
 \hline
 \stepcounter{count}
 CPR\arabic{count} & should have \\
@@ -167,23 +194,48 @@ CPR\arabic{count} & should have \\
 \hline
 \stepcounter{count}
 CPR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{The user can export the mixing performance graph locally to their device.} \\
-\hline
-\stepcounter{count}
-CPR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{Users can view mixing performance results from multiple mixing runs simultaneously in one graph.} \\
-\hline
-\stepcounter{count}
-CPR\arabic{count} & could have \\
-\multicolumn{2}{p{\textwidth}}{The user can view an animation of the end result of a mixing run.} \\
-\hline
-\stepcounter{count}
-CPR\arabic{count} & could have \\
-\multicolumn{2}{p{\textwidth}}{The user can export the animation from CPR27 locally to their device.} \\
+\multicolumn{2}{p{\textwidth}}{The user can export the graph from CPR34 locally to their device.} \\
 \hline
 \stepcounter{count}
 \end{tabular}
 \end{center}
+
+\begin{center}
+\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
+CPR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{Users can view mixing performance results from multiple mixing runs simultaneously in one graph.} \\
+\hline
+\stepcounter{count}
+CPR\arabic{count} & should have \\
+\multicolumn{2}{p{\textwidth}}{The user can export the graph from CPR36 locally to their device.} \\
+\hline
+\stepcounter{count}
+CPR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{The user can view an animation an entire mixing run.} \\
+\hline
+\stepcounter{count}
+CPR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{The user can export the animation from CPR38 locally to their device.} \\
+\hline
+\stepcounter{count}
+\end{tabular}
+\end{center}
+
+\noindent Requirements regarding language options:
+
+\begin{center}
+\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
+CPR\arabic{count} & must have \\
+\multicolumn{2}{p{\textwidth}}{There is an English version of the application.} \\
+\hline
+\stepcounter{count}
+CPR\arabic{count} & could have \\
+\multicolumn{2}{p{\textwidth}}{There is a Dutch version of the application.} \\
+\hline
+\stepcounter{count}
+\end{tabular}
+\end{center}
+
 
 \newpage
 \section{Constraint requirements}\label{sec_constrReq}
@@ -217,7 +269,7 @@ CNR\arabic{count} & could have \\
 \hline
 \stepcounter{count}
 CNR\arabic{count} & won't have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on Opera version 12.1 and higher.} \\
+\multicolumn{2}{p{\textwidth}}{The application runs on Opera.} \\
 \hline
 \stepcounter{count}
 \end{tabular}
@@ -242,7 +294,8 @@ CNR\arabic{count} & could have \\
 \end{tabular}
 \end{center}
 
-\noindent Requirements regarding performance:
+\noindent Requirements regarding performance: \\
+\emph{Note: The following three requirements only hold if the assumptions of section 2.6 are met.}
 
 \begin{center}
 \begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}

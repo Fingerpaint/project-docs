@@ -8,6 +8,7 @@ This appendix lists all use cases for the \applicationname.
   \textbf{Goals}: To define a mixing geometry and mixer.\\
   \textbf{Preconditions}: none.\\
   \textbf{Summary}: The user selects the geometry used for the mixing process.\\
+  \textbf{Requirements}: \textbf{CPR1}, \textbf{CPR2}, \textbf{CPR3}, \textbf{CPR4} and \textbf{CPR5}.\\
   \textbf{Priority}: \emph{Must have} for rectangle, \emph{should have} for square and \emph{could have} for circle and \emph{Journal Bearing}.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
@@ -23,13 +24,14 @@ This appendix lists all use cases for the \applicationname.
   \textbf{Goals}: To load a previously saved concentration distribution.\\
   \textbf{Preconditions}: none.\\
   \textbf{Summary}: The user loads a previously saved concentration distribution.\\
+  \textbf{Requirements}: \textbf{CPR13}.\\
   \textbf{Priority}: \emph{Should have}.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
   	1. Actor actions of \textbf{\ref{geomixer}}. & 2. \projectname\ responses of \textbf{\ref{geomixer}}. \\
 	3. Taps the \emph{Load Saved Distribution} button. & 4. Displays the previously saved concentration distributions for the selected geometry. \\
-	5. Taps on the concentration distribution of choice & 6. Displays the canvas with the selected concentration distribution. \\
+	5. Taps on the concentration distribution of choice. & 6. Displays the canvas with the selected concentration distribution. \\
 	\end{tabular}
 	        \\
      \\\textbf{Alternative}: \\
@@ -45,13 +47,14 @@ This appendix lists all use cases for the \applicationname.
   \textbf{Goals}: To load a predefined concentration distribution.\\
   \textbf{Preconditions}: none.\\
   \textbf{Summary}: The user loads a predefined concentration distribution.\\
+  \textbf{Requirements}: \textbf{CPR14}.\\
   \textbf{Priority}: \emph{Could have}.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
   	1. Actor actions of \textbf{\ref{geomixer}}. & 2. \projectname\ responses of \textbf{\ref{geomixer}}. \\
 	3. Taps the \emph{Load Predefined Distribution} button. & 4. Displays the predefined concentration distributions for the selected geometry. \\
-	5. Taps on the predefined concentration distribution of choice & 6. Displays the canvas with the selected concentration distribution. \\
+	5. Taps on the predefined concentration distribution of choice. & 6. Displays the canvas with the selected concentration distribution. \\
   \end{tabular}
 
   %Define an initial concentration distribution
@@ -60,15 +63,22 @@ This appendix lists all use cases for the \applicationname.
   \textbf{Goals}: To define an initial concentration distribution.\\
   \textbf{Preconditions}: None. \\ %Mixing geometry and mixer have been chosen.
   \textbf{Summary}: The user defines the initial concentration distribution\\
-  \textbf{Priority}: \emph{Must have}.\\
+  \textbf{Requirements}: \textbf{CPR6}, \textbf{CPR7}, \textbf{CPR8}, \textbf{CPR9} and \textbf{CPR10}.\\
+  \textbf{Priority}: \emph{Must have}, \emph{Should have} for Optional$_2$ and Optional$_3$.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
   	1. Actor actions of \textbf{\ref{geomixer}} or \textbf{\ref{loadsavedist}} or \textbf{\ref{loadpreddist}}. & 2. \projectname\ responses of \textbf{\ref{geomixer}} or \textbf{\ref{loadsavedist}} or  \textbf{\ref{loadpreddist}}.\\
 	3. Selects black or white as color. & 4. Gives visual feedback on the selected colour. \\
-	5. Moves their finger across the screen to define the initial concentration distribution. & 6. Gives real-time visual feedback of the selected area in the selected colour.\\
-      7. Repeats step 3 \& 5 until satisfied. & 8. Repeats step 4 \& 6 accordingly. \\
+	5. (Optional$_1$) Taps the \emph{Change shape} button. & 6. (Optional$_1$) Toggles the drawing tool shape between circular and square.\\
+	7. (Optional$_2$) Uses the \emph{Change size} input element. & 8. (Optional$_2$) Changes the size of the drawing tool according to user input. \\
+	9. Moves their finger across the screen to define the initial concentration distribution. & 10. Gives real-time visual feedback of the selected area in the selected colour.\\
+	11. (Optional$_3$) Taps the \emph{Reset} button. & 12. (Optional$_3$) Displays an entirely white drawing canvas.\\
+
+      13. Repeats step 3, 5, 7, 9 \& 11 until satisfied. & 14. Repeats step 4, 6, 8, 10 \& 12 accordingly. \\
       \end{tabular}
+      \\
+      \\\textbf{Remark}: Steps 3-4, 5-6, 7-8, 9-10 and 11-12 can be executed in any order.
 
         % Save initial concentration distribution
   \section{Save concentration distribution}
@@ -76,6 +86,7 @@ This appendix lists all use cases for the \applicationname.
   \textbf{Goals}: To save a concentration distribution.\\
   \textbf{Preconditions}: None. \\ %Mixing geometry and mixer have been chosen.
   \textbf{Summary}: The user saves the concentration distribution\\
+  \textbf{Requirements}: \textbf{CPR11}.\\
   \textbf{Priority}: \emph{Should have}.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
@@ -122,6 +133,7 @@ This appendix lists all use cases for the \applicationname.
   \textbf{Goals}: To load a previously saved mixing protocol.\\
   \textbf{Preconditions}: \emph{Intermediate Steps} has \textbf{not} been ticked.\\
   \textbf{Summary}: The user loads a previously saved mixing protocol.\\
+  \textbf{Requirements}: \textbf{CPR24}.\\
   \textbf{Priority}: \emph{Should have}.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
@@ -144,13 +156,14 @@ This appendix lists all use cases for the \applicationname.
   \textbf{Goals}: To load a predefined mixing protocol.\\
   \textbf{Preconditions}: none.\\
   \textbf{Summary}: The user loads a predefined mixing protocol.\\
+  \textbf{Requirements}: \textbf{CPR28}.\\
   \textbf{Priority}: \emph{Could have}.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
   	1. Actor actions of \textbf{\ref{initdist}} or  \textbf{\ref{savedist}}. & 2. \projectname\ responses of \textbf{\ref{initdist}} or  \textbf{\ref{savedist}}. \\
 	3. Taps the \emph{Load Predefined Distribution} button. & 4. Displays the predefined mixing protocols for the selected geometry. \\
-	5. Taps on the predefined mixing protocol of choice & 6. Displays the selected mixing protocol. \\
+	5. Taps on the predefined mixing protocol of choice. & 6. Displays the selected mixing protocol. \\
   \end{tabular}
   	 \\
      \\\textbf{Alternative}: \\
@@ -163,35 +176,38 @@ This appendix lists all use cases for the \applicationname.
      %Define mixing protocol (1)
   \section{Define mixing protocol (1)}
   \label{mixprot1}
-  \textbf{Goals}: To define the mixing protocol\\
+  \textbf{Goals}: To define the mixing protocol.\\
   \textbf{Preconditions}: None. \\%Initial concentration distribution has been defined.
-  \textbf{Summary}: The user defines the mixing protocol\\
+  \textbf{Summary}: The user defines the mixing protocol.\\
+  \textbf{Requirements}: \textbf{CPR17}, \textbf{CPR18}, \textbf{CPR20}, \textbf{CPR25}, \textbf{CPR26} and \textbf{CPR27}.\\
   \textbf{Priority}: \emph{Must have}.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
     1. Actor actions of \textbf{\ref{initdist}} or  \textbf{\ref{savedist}} or \textbf{\ref{loadsaveprot}} or \textbf{\ref{loadpredprot}}. & 2. \projectname\ responses of \textbf{\ref{initdist}} or  \textbf{\ref{savedist}} or  \textbf{\ref{loadsaveprot}} or \textbf{\ref{loadpredprot}}. \\
-    3. Selects a value for step ($D$). & 4.	Gives visual feedback on the step ($D$) that has been selected\\
+    3. Selects a value for step ($D$). & 4.	Gives visual feedback on the step ($D$) that has been selected.\\
     5. Swipes his/her finger across the screen to indicate the movement of the geometry. & 6. Displays which movement has been selected. \\
     7.The user does or does not tick the \emph{Intermediate Steps} tickbox. & 8. Displays result in checkbox.\\
-    9. Repeats step 3, 5 \& 7 until satisfactory parameters have been selected & 10. Repeats step 4, 6 \& 8 accordingly. The most recent parameter value is applied.\\
+    9. Repeats step 3, 5 \& 7 until satisfactory parameters have been selected. & 10. Repeats step 4, 6 \& 8 accordingly. The most recent parameter value is applied.\\
   \end{tabular}
   \\
-  \\\textbf{Remark}: Steps 3-4 , 5-6 and 7-8 can also be executed in reverse order.
+  \\\textbf{Remark}: Steps 3-4 , 5-6 and 7-8 can be executed in any order.
+  \\\textbf{Remark}: Steps 5 and 6 are skipped if the circle geometry has been selected.
 
 %Define mixing protocol (2)
   \section{Define mixing protocol (2)}
   \label{mixprot2}
-  \textbf{Goals}: To define the mixing protocol\\
+  \textbf{Goals}: To define the mixing protocol.\\
   \textbf{Preconditions}: \emph{Intermediate Steps} has been ticked.\\
-  \textbf{Summary}: The user defines the mixing protocol\\
+  \textbf{Summary}: The user defines the mixing protoco.l\\
+  \textbf{Requirements}: \textbf{CPR18}.\\
   \textbf{Priority}: \emph{Must have}.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
     1. Actor actions of \textbf{\ref{mixprot1}}. & 2. \projectname\ responses of \textbf{\ref{mixprot1}}. \\
-    3. Taps the \emph{Mix Now} button & 4. Disables the \emph{Intermediate Steps} checkbox (it can not be edited anymore). Adds the movement to the protocol-log. Computes the result of applying the given movement to the distribution and displays it on the canvas.\\
-    5. Repeats steps at \textbf{\ref{initdist}} (only 3, 5 \& 7), \textbf{\ref{mixprot1}} (only 3, 5, 7 \& 9) and (3) until satisfied. & 6. Repeats steps at \textbf{\ref{initdist}} (only 4, 6 \& 8), \textbf{\ref{mixprot1}} (only 4, 6, 8 \& 10) and (4). \\
+    3. Taps the \emph{Mix Now} button. & 4. Disables the \emph{Intermediate Steps} checkbox (it can not be edited anymore). Adds the movement to the protocol-log. Computes the result of applying the given movement to the distribution and displays it on the canvas.\\
+    5. Repeats steps at \textbf{\ref{initdist}} (only 3, 5, 7, 9, 11 \& 13), \textbf{\ref{mixprot1}} (only 3, 5, 7 \& 9) and (3) until satisfied. & 6. Repeats steps at \textbf{\ref{initdist}} (only 4, 6, 8, 10, 12 \& 14), \textbf{\ref{mixprot1}} (only 4, 6, 8 \& 10) and (4). \\
     \end{tabular}
     \\
     \\\textbf{Alternative}:\\
@@ -204,17 +220,22 @@ This appendix lists all use cases for the \applicationname.
 %Define mixing protocol (3)
  \section{Define mixing protocol (3)}
   \label{mixprot3}
-  \textbf{Goals}: To define the mixing protocol\\
+  \textbf{Goals}: To define the mixing protocol.\\
   \textbf{Preconditions}: \emph{Intermediate Steps} has \textbf{not} been ticked.\\
-  \textbf{Summary}: The user defines the mixing protocol\\
+  \textbf{Summary}: The user defines the mixing protocol.\\
+  \textbf{Requirements}: \textbf{CPR19}, \textbf{CPR21}, \textbf{CPR29}.\\
   \textbf{Priority}: Must have.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
     1. Actor actions of \textbf{\ref{mixprot1}}. & 2. \projectname\ responses of \textbf{\ref{mixprot1}}. \\
-    3. Taps the \emph{Add To Protocol} button & 4. Disables the \emph{Intermediate Steps} checkbox (it can not be edited anymore). Adds the selected movement to protocol-log. \\
-    5. Repeats steps at \textbf{\ref{mixprot1}} (3, 5, 7 \& 9) and (3) until satisfied & 6. Repeats steps at \textbf{\ref{mixprot1}} (4, 6, 8 \& 10) and (4). \\
-    7. Taps on the \emph{Mix Now} button & 8. Computes the result of applying all movements in the protocol-log to the initial concentration distribution, and displays it on the canvas.\\
+    3. Taps the \emph{Add To Protocol} button. & 4. Disables the \emph{Intermediate Steps} checkbox (it can not be edited anymore). Adds the selected movement to protocol-log. \\
+    5. Repeats steps at \textbf{\ref{mixprot1}} (3, 5, 7 \& 9) and (3) until satisfied. & 6. Repeats steps at \textbf{\ref{mixprot1}} (4, 6, 8 \& 10) and (4). \\
+    7. (Optional) Taps the \emph{Reset protocol}. & 8. (Optional) Displays an \emph{Are you sure?} message. \\
+    9. (Optional) Taps the \emph{Yes} button. & 10. (Optional) Clears the protocol-log. Gives visual feedback on this. \\
+    11. Taps on the \emph{Mix Now} button. & 12. Displays a \emph{How many times do you want to execute the protocol?} message.\\
+    13. Selects a value for the number of iterations. & \\
+    14. Taps the \emph{Confirm} button. & 15. Computes the result of applying all movements in the protocol-log to the initial concentration distribution for the specified number of times, and displays it on the canvas.\\
   \end{tabular}
   \\
       \\\textbf{Alternative}:\\
@@ -223,13 +244,16 @@ This appendix lists all use cases for the \applicationname.
  & 8. Fails to connect to server. Displays a \emph{Connection Failed} message.\\
     5. Taps the \emph{OK} button. & 6. Displays the mixing interface again. \\
     \end{tabular}
-
+     \\
+    \\\textbf{Alternatives}: If the optional steps are followed, alternative \textbf{R.2} is applicable here.
+    
         %Save mixing run
      \section{Save mixing run}
   \label{saverun}
   \textbf{Goals}: To save a mixing run.\\
   \textbf{Preconditions}: None. \\
   \textbf{Summary}: The user saves the mixing run.\\
+  \textbf{Requirements}: \textbf{CPR30}.\\
   \textbf{Priority}: \emph{Should have}.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
@@ -249,6 +273,7 @@ This appendix lists all use cases for the \applicationname.
   \textbf{Goals}: To save a mixing protocol.\\
   \textbf{Preconditions}: None. \\
   \textbf{Summary}: The user saves the mixing protocol.\\
+  \textbf{Requirements}: \textbf{CPR22}.\\
   \textbf{Priority}: Should have.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
@@ -267,14 +292,15 @@ This appendix lists all use cases for the \applicationname.
   \label{mixhist}
   \textbf{Goals}: To view the details of a previously saved mixing run.\\
   \textbf{Preconditions}: None.\\
-  \textbf{Summary}: The performance of the selected mixing run is shown, accompanied by an image of the final result.\\
-  \textbf{Priority}: \emph{Should have}.\\
+  \textbf{Summary}: The performance of the selected mixing run is shown, accompanied by an image of the final result, and an animations of the entire mixing run.\\
+  \textbf{Requirements}: \textbf{CPR32}, \textbf{CPR34}, \textbf{CPR38}.\\
+  \textbf{Priority}: \emph{Should have}, \emph{Could have} for animations.\\
   \textbf{Steps}: \\
     \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
     1. Taps the \emph{View history} button. & 2. Displays the history interface.\\
     3. Selects the \emph{View mixing run details}. & 4. Displays all previously saved runs.\\
-    5. Taps one of the runs shown. & 6. Displays the performance result of the selected run and an image of the final mixing result. \\
+    5. Taps one of the runs shown. & 6. Displays the performance result of the selected run, an image of the final mixing result and an animation of the entire mixing run. \\
     \end{tabular}
     \\
      \\\textbf{Alternative 1}: \\
@@ -297,6 +323,7 @@ This appendix lists all use cases for the \applicationname.
   \textbf{Goals}: To export the resulting image of a mixing run.\\
   \textbf{Preconditions}: None.\\
   \textbf{Summary}: The image of the executed mixing run is stored locally on the user's device.\\
+  \textbf{Requirements}: \textbf{CPR33}.\\
   \textbf{Priority}: \emph{Should have}.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
@@ -317,6 +344,7 @@ This appendix lists all use cases for the \applicationname.
   \textbf{Goals}: To export the performance graph of a mixing run.\\
   \textbf{Preconditions}: None.\\
   \textbf{Summary}: The performance graph of the executed mixing run is stored locally on the user's device.\\
+  \textbf{Requirements}: \textbf{CPR35}.\\
   \textbf{Priority}: \emph{Should have}.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
@@ -337,6 +365,7 @@ This appendix lists all use cases for the \applicationname.
   \textbf{Goals}: To export the resulting animation of a mixing run.\\
   \textbf{Preconditions}: None.\\
   \textbf{Summary}: The animation of the executed mixing run is stored locally on the user's device.\\
+  \textbf{Requirements}: \textbf{CPR39}.\\
   \textbf{Priority}: \emph{Could have}.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
@@ -357,6 +386,7 @@ This appendix lists all use cases for the \applicationname.
   \textbf{Goals}: To view the mixing performance of multiple mixing runs in the same graph.\\
   \textbf{Preconditions}: None.\\
   \textbf{Summary}: The performance of the selected mixing runs are shown in the same graph.\\
+  \textbf{Requirements}: \textbf{CPR36}.\\
   \textbf{Priority}: \emph{Should have}.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
@@ -387,6 +417,7 @@ This appendix lists all use cases for the \applicationname.
   \textbf{Goals}: To export the performance graph of multiple mixing runs.\\
   \textbf{Preconditions}: None.\\
   \textbf{Summary}: The performance graph of multiple mixing runs is stored locally on the user's device.\\
+  \textbf{Requirements}: \textbf{CPR37}.\\
   \textbf{Priority}: \emph{Should have}.\\
   \textbf{Steps}: \\
   \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
@@ -407,6 +438,7 @@ This appendix lists all use cases for the \applicationname.
   \textbf{Goals}: To remove the result of a mixing run.\\
   \textbf{Preconditions}: None.\\
   \textbf{Summary}: The selected mixing run is removed from the history.\\
+  \textbf{Requirements}: \textbf{CPR31}.\\
   \textbf{Priority}: \emph{Should have}.\\
   \textbf{Steps}: \\
     \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
@@ -445,6 +477,7 @@ This appendix lists all use cases for the \applicationname.
   \textbf{Goals}: To remove a concentration distribution.\\
   \textbf{Preconditions}: None.\\
   \textbf{Summary}: The selected concentration distribution is removed from local storage.\\
+  \textbf{Requirements}: \textbf{CPR12}.\\
   \textbf{Priority}: \emph{Should have}.\\
   \textbf{Steps}: \\
     \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
@@ -472,6 +505,7 @@ This appendix lists all use cases for the \applicationname.
   \textbf{Goals}: To remove a mixing protocol.\\
   \textbf{Preconditions}: None.\\
   \textbf{Summary}: The selected mixing protocol is removed from local storage.\\
+  \textbf{Requirements}: \textbf{CPR23}.\\
   \textbf{Priority}: \emph{Should have}.\\
   \textbf{Steps}: \\
     \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
@@ -492,3 +526,19 @@ This appendix lists all use cases for the \applicationname.
     \end{tabular}
     \\
     \\\textbf{Alternatives}: Alternatives \textbf{R.1 and R.2} are applicable here.
+    
+    %Change language settings
+\section{Change language settings}
+ \label{changelang}
+  \textbf{Goals}: To change the language of the application.\\
+  \textbf{Preconditions}: None.\\
+  \textbf{Summary}: All texts in the applications are displayed in the selected language.\\
+  \textbf{Requirements}: \textbf{CPR40} and \textbf{CPR41}.\\
+  \textbf{Priority}: \emph{Could have}.\\
+  \textbf{Steps}: \\
+    \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{\projectname\ response:} \\
+  	1. Taps the \emph{Change language} button. & 2. Displays a menu with available languages. \\
+  	3. Taps the language of choice. & 4. Displays a \emph{Language setting has been changed} message. \\
+  	5. Taps the \emph{OK} button. & 6. Displays the main interface.\\
+    \end{tabular}
