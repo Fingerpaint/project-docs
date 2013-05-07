@@ -44,51 +44,63 @@ For each of the document changes listed here, we will refer to the pages and par
     \endhead
     \hline
     \endfoot
-    - & Abstract & Replaced `how it should function and in what environment it should function' to `how and in what environment it should function'.\\
-    5 & 1 & Added an introductionary sentence.\\
-    5 & 1.3 & Added definitions, and made a seperate list with abbreviations. \\
-    8 & 1.3.1 & Added Mixing Protocol, concentration Distribution, and Mixing run to definition list. \\
-    8 & 2.1 & Reworded the first paragraph to remove ambiguity. \\
-    8 & 2.1 & Removed implementation detail: constraints and a vector. \\
-    8 & 2.2 & Added general description to section head. \\
-    8 & 2.2.1 & Reworded first paragraph to clarify that the client device does not do simulation and to remove some ambiguity. \\
-    9 & 2.2.1 & Clarified the second constraint to explain what the characteristics mean. \\
-    9 & 2.2.1 & Extended the paragraph for the third constraint by giving an example protocol. \\
-    9 & 2.2.1 & Reworded last paragraph to clarify how and where the user can draw the fluids. \\
-    9 & 2.2.2 & Clarified that the application will also probably run on desktop PCs, but this is not actively supported. \\
-    9 & 2.2.2 & Clarified that multiple runs can be compared, not just previous runs and the current.\\
-    9 & 2.2.2 & Clarified what is meant by intermediate results. \\
-    9 & 2.2.2 & Listed .svg as an example file format instead of a requirement, so it can be changed in the future if we desire. \\
-    9 & 2.2.2 & Clarified that the result is also visualised on the client device. \\
-    9 & 2.3 & Reworded the paragraph to make it easier to read. \\
-    9 & 2.3 & Specified what we will save. \\
-    9 & 2.4 & Added description of the target audience. \\
-    9 & 2.4 & Added that it is possible to compare mixers using their performance results. \\
-    9 & 2.5 & Clarified when intermediate results are visualised. \\
-    11 & 3 & Added reference to Appendix A.\\
-    11 & 3 & Changed formulation of sentence `Any requirements following from further request will be added here'.\\
-    11-15 & 3.1/3.2 & Grouped requirements into smaller blocks.\\
-    11-12 & 3.1 & Split CPR03 in CPR3 and CPR4.\\
-    14-16 & 3.1 & Changed formulation of CPR5, CPR11, CPR17, CPR18, CPR19 and CPR25 - CPR31.\\
-    13 & 3.1 & Added CPR22.\\
-    16 & 3.1 & Added CPR23 and CPR24.\\
-    14 & 3.2 & Split CNR02 in CNR2 and CNR3. Split CNR03 in CNR4, CNR5 and CNR6.\\
-    14 & 3.2 & Changed priority of CNR6 to won't have, because Opera isn't compatible with the testing environment.\\
-    14 & 3.2 & Changed CNR10, CNR11 and CNR12 to `average waiting time', instead of `waiting time'.\\
-    15 & 3.2 & Changed formulation of CNR13.\\
-    17 & 3.1 & Rephrased requirements to clarify that images/animations are exported, also removed the corresponding delete requirements. \\
-    - & Appendix & Added alternatives to all use cases, where applicable.\\
-    - & Appendix & Improved the readability. Inserted "the" a lot. The old version had more of a mechanical summation rather than fluent text.\\
-    - & Appendix & Changed preconditions of use cases to includes at step 1. \\
-    - & Appendix & Added 'safe mixing run', 'remove initial concentration distribution', 'safe graph of multiple runs', 'remove mixing protocol', `load saved mixing protocol' and `load predefined mixing protocol' use cases.\\
-    - & Appendix & Replaced included preconditions of all `Load' and `Remove' usecases by alternatives for when the history is empty. \\
-    - & Appendix & Updated format, inserted UCD, changed order of use cases to match UCD.\\
-    19 & Appendix & "Define an initial distribution"; Inserted intermediate steps of saving file (choose location/name). Added `at the chosen location' for safe step at system side.\\
-    21 & Appendix & "Define mixing protocol(2)"; Inserted intermediate steps of saving file (choose location/name). Added `at the chosen location' for safe step at system side. Changed reference from \emph{Define mixing protocol (0)} to \emph{A.10} (also fixing the erroneous (0) (should be (1))). Inserted steps from A.9 (user can do paint actions at intermediate steps) \\
-    19 & Appendix & "Define an initial distribution"; Inserted intermediate steps of saving file (choose location/name). Added 'at the chosen location' for safe step at system side.\\
-    21 & Appendix & "Define mixing protocol(2)"; Inserted intermediate steps of saving file (choose location/name). Added 'at the chosen location' for safe step at system side. Changed reference from \emph{Define mixing protocol (0)} to \emph{A.10} (also fixing the erroneous (0) (should be (1))). Inserted steps from A.9 (user can do paint actions at intermediate steps) \\
-    21 & Appendix & "Define mixing protocol(2)"; Inserted intermediate steps of saving file (choose location/name). Added 'at the chosen location' for safe step at system side. Changed reference from \emph{Define mixing protocol (1)} to \emph{A.10}.\\
-    32 & Appendix & For use case Remove mixing protocol and Remove concentration distribution; Changed step 1 to "Taps \emph{View Saved Files} button", and step 3 to 'open folder that contains the files you need'. Now the startpoint of the alternative matches the use cases (e.g. at step 4). 
-
+%    - & Abstract & Replaced `how it should function and in what environment it should function' to `how and in what environment it should function'.\\
+%    5 & 1 & Added an introductionary sentence.\\
+%    5 & 1.3 & Added definitions, and made a seperate list with abbreviations. \\
+%    8 & 1.3.1 & Added Mixing Protocol, concentration Distribution, and Mixing run to definition list. \\
+%    8 & 2.1 & Reworded the first paragraph to remove ambiguity. \\
+%    8 & 2.1 & Removed implementation detail: constraints and a vector. \\
+%    8 & 2.2 & Added general description to section head. \\
+%    8 & 2.2.1 & Reworded first paragraph to clarify that the client device does not do simulation and to remove some ambiguity. \\
+%    9 & 2.2.1 & Clarified the second constraint to explain what the characteristics mean. \\
+%    9 & 2.2.1 & Extended the paragraph for the third constraint by giving an example protocol. \\
+%    9 & 2.2.1 & Reworded last paragraph to clarify how and where the user can draw the fluids. \\
+%    9 & 2.2.2 & Clarified that the application will also probably run on desktop PCs, but this is not actively supported. \\
+%    9 & 2.2.2 & Clarified that multiple runs can be compared, not just previous runs and the current.\\
+%    9 & 2.2.2 & Clarified what is meant by intermediate results. \\
+%    9 & 2.2.2 & Listed .svg as an example file format instead of a requirement, so it can be changed in the future if we desire. \\
+%    9 & 2.2.2 & Clarified that the result is also visualised on the client device. \\
+%    9 & 2.3 & Reworded the paragraph to make it easier to read. \\
+%    9 & 2.3 & Specified what we will save. \\
+%    9 & 2.4 & Added description of the target audience. \\
+%    9 & 2.4 & Added that it is possible to compare mixers using their performance results. \\
+%    9 & 2.5 & Clarified when intermediate results are visualised. \\
+%    11 & 3 & Added reference to Appendix A.\\
+%    11 & 3 & Changed formulation of sentence `Any requirements following from further request will be added here'.\\
+%    11-15 & 3.1/3.2 & Grouped requirements into smaller blocks.\\
+%    11-12 & 3.1 & Split CPR03 in CPR3 and CPR4.\\
+%    14-16 & 3.1 & Changed formulation of CPR5, CPR11, CPR17, CPR18, CPR19 and CPR25 - CPR31.\\
+%    13 & 3.1 & Added CPR22.\\
+%    16 & 3.1 & Added CPR23 and CPR24.\\
+%    14 & 3.2 & Split CNR02 in CNR2 and CNR3. Split CNR03 in CNR4, CNR5 and CNR6.\\
+%    14 & 3.2 & Changed priority of CNR6 to won't have, because Opera isn't compatible with the testing environment.\\
+%    14 & 3.2 & Changed CNR10, CNR11 and CNR12 to `average waiting time', instead of `waiting time'.\\
+%    15 & 3.2 & Changed formulation of CNR13.\\
+%    17 & 3.1 & Rephrased requirements to clarify that images/animations are exported, also removed the corresponding delete requirements. \\
+%    - & Appendix & Added alternatives to all use cases, where applicable.\\
+%    - & Appendix & Improved the readability. Inserted "the" a lot. The old version had more of a mechanical summation rather than fluent text.\\
+%    - & Appendix & Changed preconditions of use cases to includes at step 1. \\
+%    - & Appendix & Added 'safe mixing run', 'remove initial concentration distribution', 'safe graph of multiple runs', 'remove mixing protocol', `load saved mixing protocol' and `load predefined mixing protocol' use cases.\\
+%    - & Appendix & Replaced included preconditions of all `Load' and `Remove' usecases by alternatives for when the history is empty. \\
+%    - & Appendix & Updated format, inserted UCD, changed order of use cases to match UCD.\\
+%    19 & Appendix & "Define an initial distribution"; Inserted intermediate steps of saving file (choose location/name). Added `at the chosen location' for safe step at system side.\\
+%    21 & Appendix & "Define mixing protocol(2)"; Inserted intermediate steps of saving file (choose location/name). Added `at the chosen location' for safe step at system side. Changed reference from \emph{Define mixing protocol (0)} to \emph{A.10} (also fixing the erroneous (0) (should be (1))). Inserted steps from A.9 (user can do paint actions at intermediate steps) \\
+%    19 & Appendix & "Define an initial distribution"; Inserted intermediate steps of saving file (choose location/name). Added 'at the chosen location' for safe step at system side.\\
+%    21 & Appendix & "Define mixing protocol(2)"; Inserted intermediate steps of saving file (choose location/name). Added 'at the chosen location' for safe step at system side. Changed reference from \emph{Define mixing protocol (0)} to \emph{A.10} (also fixing the erroneous (0) (should be (1))). Inserted steps from A.9 (user can do paint actions at intermediate steps) \\
+%    21 & Appendix & "Define mixing protocol(2)"; Inserted intermediate steps of saving file (choose location/name). Added 'at the chosen location' for safe step at system side. Changed reference from \emph{Define mixing protocol (1)} to \emph{A.10}.\\
+%    32 & Appendix & For use case Remove mixing protocol and Remove concentration distribution; Changed step 1 to "Taps \emph{View Saved Files} button", and step 3 to 'open folder that contains the files you need'. Now the startpoint of the alternative matches the use cases (e.g. at step 4).\\
+    
+    %
+    % Changes for URD-0.4 start below
+    %
+    
+    11 & 2.2.1 & Properly indented the four constraints so it is clear that we are actually describing four constraints.\\
+    11 & 2.2.1 & Clarified that the user can choose between drawing using free-form drawing \emph{and} loading an initial distribution.\\
+    11 & 2.2.1 & Added that the user can select either a circle or a square for drawing on the canvas, and with varying size.\\
+    11 & 2.2.2 & Changed \emph{desktop PCs} to \emph{other devices, such as PCs and laptops}.\\
+    12 & 2.3   & Clarified that runs can be stored on the client device.\\ 
+    \todo{page} & 2.6   & Removed the assumption that the server correctly sends the results to the client device, as we ourselves should make sure it does.\\
+    \todo{page} & 2.6   & Added assumptions about the time it takes to transfer data back and forth, and to perform the distribution computations.\\
+    
 \end{longtable}
 
