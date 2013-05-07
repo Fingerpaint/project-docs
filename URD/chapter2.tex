@@ -11,7 +11,7 @@ This chapter describes the general properties our application should have. First
 
 \subsection{Mixing constraints}\label{mixingconstraints}
 As mentioned before, the application should be able to visualise the mixing of fluids. There are a number of constraints to be specified on the client device to accomplish this.
- 
+
 The first constraint is the geometry of the mixer. There are four kinds of geometries in total: rectangle, square, circle, and \emph{Journal Bearing}. We will start by implementing support for rectangular geometries, and we will implement more geometries if time permits.
 
 The second constraint concerns the characteristics of the mixer. These influence the flow of the fluids. Stored in the server are multiple pre-computed matrices which each specify one set of mixer characteristics. Whenever these characteristics are changed, a different matrix must be used. Each geometry has its own set of possible characteristics and hence its own set of matrices.
@@ -55,9 +55,9 @@ This section contains assumptions for the application to function properly.
   \item As mentioned in the previous section, the application uses the \textsc{Fortran} implementation on the server to perform all the calculations. Therefore, we assume this server can compute the new concentration distribution correctly.
 \end{itemize}
 
-\noindent The following assumptions are in place to achieve our desired average time goals (see Section \ref{sec_constrReq} -- Requirements regarding performance). % TODO: Make a proper reference
+\noindent The following assumptions are in place to achieve our desired average time goals (see Section \ref{sec_constrReq} -- Requirements regarding performance).
 
-\begin{itemize}      
+\begin{itemize}
   \item We assume that the server can compute the calculations to compute the new concentration distribution within half a second.
   \item We assume that the communication between the client and the server can be handled within one second.
 \end{itemize}
