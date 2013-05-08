@@ -238,14 +238,22 @@ This appendix lists all use cases for the \applicationname.
     14. Taps the \emph{Confirm} button. & 15. Computes the result of applying all movements in the protocol-log to the initial concentration distribution for the specified number of times, and displays it on the canvas.\\
   \end{tabular}
   \\
-      \\\textbf{Alternative}:\\
+      \\\textbf{Alternative 1}:\\
       \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
   	\emph{Actor actions:} & \emph{\projectname\ response:} \\
  & 15. Fails to connect to server. Displays a \emph{Connection Failed} message.\\
     16. Taps the \emph{OK} button. & 17. Displays the mixing interface again. \\
     \end{tabular}
      \\
-    \\\textbf{Alternatives}: If the optional steps are followed, alternative \textbf{R.2} is applicable here.
+    \\If the optional steps are followed, the following alternative is applicable:
+           \\\textbf{Alternative 2}: \\
+        \begin{tabular}{ p{0.5\textwidth} p{0.5\textwidth} }
+  	\emph{Actor actions:} & \emph{\projectname\ response:} \\
+    9. (Optional) Taps the \emph{No} button. & 10. (Optional) Displays the mixing interface. \\
+    11. Taps on the \emph{Mix Now} button. & 12. Displays a \emph{How many times do you want to execute the protocol?} message.\\
+    13. Selects a value for the number of iterations. & \\
+    14. Taps the \emph{Confirm} button. & 15. Computes the result of applying all movements in the protocol-log to the initial concentration distribution for the specified number of times, and displays it on the canvas.
+    \end{tabular}
 
         %Save mixing run
      \section{Save mixing run}
@@ -501,7 +509,7 @@ This appendix lists all use cases for the \applicationname.
 
 %Remove mixing protocol
 \section{Remove mixing protocol}
- \label{removedist}
+ \label{removeprot}
   \textbf{Goals}: To remove a mixing protocol.\\
   \textbf{Preconditions}: None.\\
   \textbf{Summary}: The selected mixing protocol is removed from local storage.\\
