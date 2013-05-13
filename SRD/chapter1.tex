@@ -1,16 +1,24 @@
 \chapter{Introduction}
+%\label{chap:intro}
+This chapter lists general information about this document.
 
 \section{Purpose}
-The software requirements document provides a translation of all the user requirements listed in section 3 of \todo{URD ref}. Although the URD describes the wishes of the client, the goal of the SRD is to represent the developers\' view of what the \applicationname must be able to do. \\
-Note that the software requirements listed in this document are implementation-independent: that is, the requirements describe \emph{what} \projectname must do, but not \emph{how} the requirements will be realized. The requirements are modelled in a logical model, which provides a simplified view of the content and behaviour of the application.
+%\label{sec:purpose}
+This document provides a translation of all the user requirements listed in section 3 of the URD \cite{urd}. Although the URD describes the wishes of the client, the goal of the SRD is to represent the developers' view of what the \applicationname\ must be able to do. \\
+Note that the software requirements listed in this document are implementation-independent: that is, the requirements describe \emph{what} \projectname\ must do, but not \emph{how} the requirements will be realized. The requirements are modelled in a logical model, which provides a simplified view of the content and behaviour of the application.
 
 \section{Scope}
-\todo{Scope of the software. Identifies the product by name, explains what the software will do}
+%\label{sec:scope}
+\projectname\ is an application designed and developed by \projectauthor\ for prof. dr. ir. P.D. Anderson. The application provides a cross-platform tool to visualise fluid mixing. Users can define the initial concentration distribution, as well as manipulate the mixing protocol. The resulting fluid distribution can be stored and analysed by the user for comparison purposes. \\
 
 \section{List of definitions and abbreviations}
+%\label{sec:listofdef}
+
 \subsection{Definitions}
+%\label{subsec:def}
 
 \begin{description}
+%TODO: checken of deze begrippen daadwerkelijk gebruikt worden en aanvullen met nieuwe begrippen.
 \item[Client] Prof.dr.ir. P.D. Anderson.
 \item[Firefox] A web browser developed by Mozilla.
 \item[Google Chrome] A web browser developed by Google.
@@ -24,16 +32,16 @@ Note that the software requirements listed in this document are implementation-i
 \end{description}
 
 \subsection{Abbreviations}
+%\label{subsec:abbrev}
+%TODO: checken of al deze afkortingen daadwerkelijk gebruikt worden en aanvullen met nieuwe afkortingen.
 \begin{tabular}{l|l}
-2IP35 & The Software Engineering Course \\
+2IP35 & The Software Engineering Project \\
 CM    &Configuration Manager \\
 TU/e  &Eindhoven University of Technology \\
 SEP   &Software Engineering Project \\
 SR    &Software Requirements \\
 SRD & Software Requirements Document \\
 URD   &User Requirements Document \\
-%TBC & To Be Confirmed \\
-%TBD & To Be Defined \\
 \end{tabular}
 
 \section{List of references}
@@ -43,19 +51,15 @@ URD   &User Requirements Document \\
 \bibliography{../ref}
 
 \section{Overview}
-
-\todo{Short description of the rest of the SRD and how it is organized.}
-
-%The remaining chapters describe the system requirements in more detail. Chapter 2 gives a general description of 
-%\begin{itemize}
-%\item 2.1 - The relation to other systems,
-%\item 2.2 - The main capabilities,
-%\item 2.3 - Constraint information and justification,
-%\item 2.4 - User charactaristics,
-%\item 2.5 - The operational environment, and
-%\item 2.6 - Assumptions and dependencies.
-%\end{itemize}
-
-%Chapter 3 gives a detailed list of the system's capabilitiy requirements in section 3.1, and a list of the constraint requirements is given in section 3.2.
-
-
+%\label{sec:overview}
+The remainder of this document describe the software requirements in more detail. Chapter \ref{chap:gendesc} gives a general description of:
+\begin{itemize}
+\item relation to current projects (\ref{sec:curproj});
+\item relation to predecessor and successor projects (\ref{sec:predsuc});
+\item function and purpose (\ref{sec:functpurp});
+\item environment (\ref{sec:env});
+\item relation to other systems (\ref{sec:othersys});
+\item general constraints (\ref{sec:genconst});
+\item model description (\ref{sec:moddesc}).
+\end{itemize}
+Chapter \ref{chap:specreq} gives a detailed description of the functional requirements of the system in \ref{sec:funcreq} and a list of non-functional requirements is given in \ref{sec:nonfuncreq}. The requirements traceability matrix is described in chapter \ref{chap:reqtracematrix}.
