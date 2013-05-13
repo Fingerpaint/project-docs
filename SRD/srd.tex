@@ -4,6 +4,14 @@
 		titleabbr=SRD,%
 		version=0.0]{fingerpaint}
 
+\newcommand{\SRQ}[2]{
+    \noindent\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
+      SRQ\arabic{count}\stepcounter{count} & #1\\
+      \multicolumn{2}{p{\textwidth}}{#2}\\
+      \hline
+    \end{tabular}
+}
+
 \begin{document}
 
 \maketitle{}
