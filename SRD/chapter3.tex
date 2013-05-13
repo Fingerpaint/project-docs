@@ -2,28 +2,38 @@
 \label{chap:specreq}
 \todo{chapter description}
 The structure of the software requirements in this section are conform the user requirements described in chapter 3 of the URD \cite{urd}. \\
-Note that as \applicationname\ is developed using GWT, some of the software requirements listed in this chapter are described in terms of specific GWT widgets or panels \footnote{The website for the GWT widgetlist can be found at https://developers.google.com/web-toolkit/doc/latest/RefWidgetGallery.}.
+Note that as \applicationname\ is developed using GWT, some of the software requirements listed in this chapter are described in terms of specific GWT widgets or panels\footnote{The website for the GWT widgetlist can be found at \url{https://developers.google.com/web-toolkit/doc/latest/RefWidgetGallery}.}.
+
+\todo{Nog even vermelden dat we de won't haves uit het URD niet beschrijven in dit SRD.}
 
 \section{Functional requirements}
 \label{sec:funcreq}
 
-Requirements regarding the mixer geometry input:
-\begin{center}
-\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
-\SRQ & must have \\ % CPR01
-\multicolumn{2}{p{\textwidth}}{The user can select ``rectangle" as a geometry, via the first column in a Cell Browser.} \\
-\hline
-\SRQ & must have \\ % CPR01
-\multicolumn{2}{p{\textwidth}}{The user can select a rectangular mixer, via the second column in a Cell Browser.} \\
-\hline
-\SRQ & must have \\ % CPR02
-\multicolumn{2}{p{\textwidth}}{The user can select a rectangular mixer, via the second column in a Cell Browser.} \\
-\hline
-\SRQ & must have \\ % CPR01
-\multicolumn{2}{p{\textwidth}}{The user can select a rectangular mixer, via the second column in a Cell Browser.} \\
-\hline
-\end{tabular}
-\end{center}
+Requirements regarding the mixer geometry input: \\
+\SRQ{must have}{The user can select ``rectangle" as a geometry, via the first column in a Cell Browser.} % CPR1
+\SRQ{must have}{After having selected a geometry, the user can select a mixer that fits the selected geometry. The mixer can be selected via a second column in a Cell Browser.} % CPR2
+\SRQ{should have}{The user can select ``square" as a geometry, via the first column in a Cell Browser.}  % CPR3
+\SRQ{could have}{The user can select ``circle" as a geometry, via the first column in a Cell Browser.}  % CPR4
+\SRQ{could have}{The user can select ``\emph{Journal Bearing}" as a geometry, via the first column in a Cell Browser.}  % CPR5
+
+Requirements regarding the initial concentration distribution input: \\
+
+%VRAAG: moeten we er een losse requirement van maken dat de user op een canvas tekent? Ik vind het uit onderstaande
+% requirements nu niet geheel duidelijk dat het om exact hetzelfde canvas gaat iedere keer.
+
+\SRQ{must have}{The user can select a colour (black or white) to paint with for the initial concentration distribution, via a Toggle Button.} % CPR6
+\SRQ{must have}{The user can define an initial concentration distribution with the selected colour on the canvas, by drawing with their finger.} % CPR6
+\SRQ{must have}{The user can select a circle-shaped drawing tool via a pop-up panel.} % CPR7
+\label{srq:circleshaped}
+\SRQ{must have}{The user can draw with a circle-shaped drawing tool on the canvas.} % CPR7, los omdat de square een lagere prioriteit heeft in het URD
+\SRQ{must have}{The user can reset the current concentration distribution to a completely white concentration distribution, by clicking on the ``Reset" button.} % CPR8
+\SRQ{should have}{The user can select a square-shaped drawing tool via a pop-up panel.} % CPR9
+\label{srq:squareshaped}
+\SRQ{should have}{The user can draw with a square-shaped drawing tool on the canvas.} % CPR9
+\SRQ{should have}{The user can adjust the size of the drawing tool, using a slider in the Popup Panel from \ref{srq:circleshaped} and \ref{srq:squareshaped}. % CPR10
+\SRQ{should have}{The user can save an initial concentration distribution locally on their device, using a Button and Popup Panel.} % CPR11
+\SRQ{should have}{The user can remove a previously saved initial concentration distribution.} % CPR12
+% Hetzelfde als Roel hier, een button met ``Remove", dan een lijst met checkboxes en dan met dezelfde knop Removen?
 
 \section{Non-functional requirements}
 \label{sec:nonfuncreq}
@@ -47,6 +57,8 @@ SCR & could have \\
 \end{tabular}
 \end{center}
 \subsection{Interface}
+\todo{Hier zegguh dat wij Fortran servertje gebruikuh.}
+
 \subsection{Operational}
 \subsection{Resource}
 \subsection{Verification and testing}
