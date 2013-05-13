@@ -25,6 +25,21 @@ Requirements regarding the mixer geometry input:
 \end{tabular}
 \end{center}
 
+
+
+Requirements regarding the presentation and exportation of results: \\
+\SRQ{should have}{The user can use a 'load' button to open a popup. In this popup he can select the files he wants to load. The 'load' button changes to 'load selected' and now loads all the selected files. The loaded data is then depicted in one graph.} \\
+%CPR36
+
+\SRQ{should have}{The user can use a 'export graph' button`to export the current result graph as a picture. If this button is used, the graph is exported as an SVG using the browser's native exporting support.} \\
+%CPR37
+
+\SRQ{could have}{After the  user has defined a mixing run, he can press the button 'visualise mixing'. After this button is pressed, the application processes the mixing run, together with the mixer data and responds by showing an animation of this mixing simulation to the user.} \\
+%CPR38
+
+\SRQ{could have}{After the user has visualised his mixing run (as described above), he can press the 'export animation' button. When this button is pressed, the animation is exported as an AVG using the browser's native exporting support.} \\
+%CPR39
+
 \section{Non-functional requirements}
 \label{sec:nonfuncreq}
 \todo{individual sections for non-functional requirements}
@@ -47,6 +62,10 @@ SCR & could have \\
 \end{tabular}
 \end{center}
 \subsection{Interface}
+
+\SRQ{could have}{In the menu bar a flag of the currently selected language is visible. When clicked, a popup appears containing several language options, each symbolised by the flag of their country. These flags can be clicked to change the language to that specific language.} \\
+%CPR40&41
+
 \subsection{Operational}
 \subsection{Resource}
 \subsection{Verification and testing}
