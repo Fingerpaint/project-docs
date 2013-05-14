@@ -1,6 +1,6 @@
 \chapter{General Description}
 \label{chap:gendesc}
-In this chapter we discuss the relation of this project to the ``outside world'': if there are any related projects running currently and if there were related projects in the past. Then, the purpose of the \applicationname{} and the environment in which it operates are discussed. After that, its relation to other systems is covered.
+In this chapter we discuss the relation of this project to the ``outside world'': if there are any related projects running currently and if there were related projects in the past. Then, the purpose of the \applicationname{} and the environment in which it operates are discussed. After that, its relation to other systems is covered. Finally, some general constraints are described and a description of the logical model is given.
 
 \section{Relation to current projects}
 \label{sec:curproj}
@@ -10,28 +10,45 @@ No other current projects are related to \projectname{}.
 \section{Relation to predecessor and successor projects}
 \label{sec:predsuc}
 %The context of this project in relation to past and future projects
-\projectname{} has multiple predecessor projects. These projects resulted in multiple Matlab\footnote{\url{http://www.mathworks.nl/products/matlab/}} tools that are available on the client's web page \cite{clientpage}. \projectname{} will combine some of the functionality of these tools into a mobile web application. \projectname{} will be developed in such a way that the client can easily extend the application with new mixers. When the development of \projectname{} is complete, the client will be responsible for maintaining the application. The client may change, add or remove the application's functionality. Finally, some general constraints are described and a description of the logical model is given.
+\projectname{} has multiple predecessor projects. These projects resulted in multiple Matlab\footnote{\url{http://www.mathworks.nl/products/matlab/}} tools that are available on the client's web page \cite{clientpage}. \projectname{} will combine some of the functionality of these tools into a mobile web application. \projectname{} will be developed in such a way that the client can easily extend the application with new mixers. When the development of \projectname{} is complete, the client will be responsible for maintaining the application. The client may change, add or remove the application's functionality.
 
 \section{Function and purpose}
 \label{sec:functpurp}
 %A general overview of the function and purpose of the product
-\projectname{} is an application that serves as an education tool for anyone who wants to gain a deeper understanding of the process of mixing in general, and in particular for students at the TU/e. By `playing' with the application, users can quickly and easily find out what the effects of a certain mixer and mixing protocol on an initial distribution are. This leads to a better understanding of the user about the way this mixer functions. \projectname{} may also be used as a quick and convenient way to observe whether a recently thought of mixing protocol renders good or bad mixing results. 
+\projectname{} is an application that serves as an educational tool for anyone who wants to gain a deeper understanding of the process of mixing in general, and in particular for students at the TU/e. By `playing' with the application, users can quickly and easily find out what the effects of a certain mixer and mixing protocol on an initial distribution are. This leads to a better understanding of the user about the way this mixer functions. \projectname{} may also be used as a quick and convenient way to observe whether a recently thought of mixing protocol renders good or bad mixing results. 
 
 \section{Environment}
 \label{sec:env}
 %Hardware and operating system of target system and development system
-\projectname{} is a web application that is developed primarily for use on mobile devices. This means the application will mostly be accessed through web browsers on smartphones and tablets. It is expected that the application will mostly be used on iPhones and iPads. Therefore, \projectname{} must support iOS Safari version 6.0 and above. Furthermore, \projectname{} should support Firefox versions 20 and above, and Google Chrome versions 26 and above. Lastly, if time permits, \projectname{} could also support Internet Explorer versions 10 and above, Opera versions 12.1 and above, and Safari versions 6.0 and above. \\
-Since it is expected that the application will mostly be used on iPhones and iPads, the \applicationname must run on devices running on iOS versions 6 and higher. Furthermore, since a significant share of smartphones and tablets run on Android, \projectname{} should run on devices running on Android versions 4.0 and higher. Lastly, if time permits, \projectname{} could also run on devices running on Windows 8.\\
-The hardware used by the users must be able to run at least one of the supported operating systems and browsers.\\
-\todo{Moeten we hier nog iets zeggen over de screensize/resolution van de smartphones? Ik kan me voorstellen dat de applicatie niet prettig zal werken op zeer kleine schermen...}
+\projectname{} is a web application that is developed primarily for use on mobile devices. This means the application will mostly be accessed through web browsers on smartphones and tablets. It is expected that the application will mostly be used on iPhones and iPads. Therefore, \projectname{} must support iOS Safari version 6.0 and above. Furthermore, \projectname{} should support Firefox versions 20 and above, and Google Chrome versions 26 and above. Lastly, if time permits, \projectname{} could also support Internet Explorer versions 10 and above, Opera versions 12.1 and above, and Safari versions 6.0 and above.
+
+To support the significant share of smartphones and tablets that run on Android, \projectname{} should run on devices running on Android versions 4.0 and higher. Lastly, if time permits, \projectname{} could also run on devices running on Windows 8.
+
+The hardware used by the users must be able to run at least one of the supported operating systems and browsers. Also, the application obviously works better on screens that have a diagonal of at least about 4 inches and a resolution of at least about 540x960 pixels - the larger the screen, the easier it is to draw on it (up to a certain maximum, about the size of a desktop monitor with a diagonal of 20 inches). This is because the user draws with their finger and since fingers have a certain size, the screen should be large enough to comfortably draw and see what has been drawn at the same time. On the other hand, when the screen is too big, it costs too much effort to fill up large parts of the mixer.
+
+We will test the application on the following screen resolutions:
+\begin{itemize}
+	\item ``Phone portrait'': 540x960 pixels;
+	\item ``Phone landscape'': 960x540 pixels;
+	\item ``Tablet portrait'': 800x1280 pixels;
+	\item ``Tablet landscape'': 1280x800 pixels;
+	\item ``Desktop'': 1600x900 pixels.
+\end{itemize}
 
 \section{Relation to other systems}
 \label{sec:othersys}
-\todo{Is the product an independent system, part of a larger system, replacing another system? The essential characteristics of these other systems}
+The \applicationname{} on itself is an independent system. However, just like every other web application, it is dependent in some way on the browser. That is, the correct (correct as in: how the HTML standard\footnote{\url{http://www.whatwg.org/}} prescribes it) rendering of the web page is (should be) done by the browser. Of course, the application is tested in multiple browsers and built in such a way that it displays correctly in as many browsers as possible.
 
 \section{General constraints}
 \label{sec:genconst}
-\todo{Reasons why constraints exist: background information and justification(analogous to URD)}
+The user interface should be suitable for mobile devices, so it will be easy to share the visualised results with other people, and to quickly try out new ideas for mixers wherever the user may be.
+
+We assume that the server can compute the displacement of fluids reasonably fast, so the visualisation of results can be handled quickly. When the new concentration distribution has been computed, this concentration distribution is sent back to the client device along with a metric to indicate the performance of the mixer.
+
+As we do not want to be locked to one specific type of device, we have chosen to design a cross-platform solution. While this means that desktop PCs should also be able to run the application, we do not actively support such devices. We will instead concentrate on mobile devices.
+
+It should be possible to save mixing runs on the client device for later reference. For each saved run, we store the initial distribution, the mixer and protocol
+used, the resulting fluid distribution and the resulting performance metric.
 
 \section{Model description}
 On a very high level, the architecture of \applicationname can be divided into different tiers communicating through communication channels. A graphical representation of these relation between those tiers and channels can be found in figure \ref{fig:tierchannel}.
