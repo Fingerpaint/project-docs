@@ -37,34 +37,38 @@ Requirements regarding the initial concentration distribution input: \\
 
 
 
-Requirements regarding the presentation and exportation of results: \\
+Requirements regarding the presentation of results: \\
+The user is able to visualise his mixing protocol, as well as able to save and export these results. To this end a results window is available. In the results window there is a `show statistics' button. When pressed, the performance of the mixing run is shown in a graph. The results window is reached by pressing the `start mixing' button in the mixing protocol window. The mixing protocol window is the window where the user can define his mixing protocol. In the mixing protocol window there is a `animate mixing' checkbox. If this checkbox was checked when the `start mixing' button is pressed, an animation of the mixing procedure is shown in the results window.
 
-\SRQ{must have}{After the user has defined a mixing run, he can press the button `start mixing'. When this button is pressed, the result of the user's mixing protocol is shown.}
+\SRQ{must have}{In the results window the result of the user's mixing protocol is shown.}
 %CPR32
 
-\SRQ{should have}{After the user pressed the `start mixing' button and the result is shown, he can press the `export picture' button. When this button is pressed, the result picture is exported as an SVG using the browser's native exporting support.}
-%CPR33
-
-\SRQ{must have}{After the user has defined a mixing run, he can press the button `start mixing'. When this button is pressed, the result of the user's mixing protocol is shown. Now the user can press a `show statistics' button. When pressed, a graph containing the mixing performance is shown.}
+\SRQ{must have}{The user can use the `show performance' button to get visual information of the performance of the mixing run.}
 %CPR34
 
-\SRQ{should have}{After the user has pressed the `show statistics' button and the mixing performance is shown, he can press the `export picture' button. When this button is pressed, the result picture is exported as an SVG using the browser's native exporting support.}
-%CPR35
-
-\SRQ{should have}{The user can use a `load' button to open a popup. In this popup he can select the files he wants to load. The `load' button changes to `load selected' and now loads all the selected files. The loaded data is then depicted in one graph.} 
-%CPR36
-
-\SRQ{should have}{The user can use a `export graph' button`to export the current result graph as a picture. If this button is used, the graph is exported as an SVG using the browser's native exporting support.}
-%CPR37
-
-\SRQ{could have}{After the  user has defined a mixing run, he can tick a box titled `visualise mixing'. When this box is checked and he presses `start mixing', the application processes the mixing run, together with the mixer data and responds by showing an animation of this mixing simulation to the user.}
+\SRQ{could have}{An animation of the mixing run is shown in the results window if the `animate mixing' checkbox is checked.}
 %CPR38
 
-\SRQ{could have}{After the user has visualised his mixing run (as described above), he can press the `export animation' button. When this button is pressed, the animation is exported as an AVG using the browser's native exporting support.}
+Requirements regarding saving and exporting results: \\
+In the results window a `save' button, an `export' button and a `load results' button are available. If the `export' button is pressed, a popup with several available export options is shown: `export performance', `export picture' and `export animation'. `export animation' is only available if the `animate mixing' checkbox was checked. Additionally, a `load performance' button. The user can use this button to open a popup. In this popup he can select the files he wants to load. The button changes to `load selected' and now loads all the selected files.
+
+\SRQ{should have}{The `export picture' option can be used to export an image of the mixing result somewhere on the device.}
+%CPR33
+
+\SRQ{should have}{The `export performance' option can be used to export an image of the current performance graph somewhere on the device.}
+%CPR35&37
+
+\SRQ{should have}{Data loaded with the `load performance' button is depicted in a single performance graph.} 
+%CPR36
+
+\SRQ{could have}{The `export animation' button can be used to export an animation of the mixing procedure somewhere on the device.}
 %CPR39
 
-\SRQ{could have}{In the menu bar a flag of the currently selected language is visible. When clicked, a popup appears containing several language options, each symbolised by the flag of their country. These flags can be clicked to change the language to that specific language. Standard language is English.}
-%CPR40&41
+Language selection: \\
+In the menu bar a flag of the currently selected language is visible. When clicked, a popup appears containing several language options, each symbolised by the flag of their country. These flags can be clicked to change the language to that specific language. Standard language is English.
+
+\SRQ{should have}{It should be possible to switch to Dutch langage with the language menu.}
+%CPR41
 
 \section{Non-functional requirements}
 \label{sec:nonfuncreq}
@@ -84,6 +88,9 @@ Requirements regarding the presentation and exportation of results: \\
 \subsection{Interface}
 
 \todo{Hier zegguh dat wij Fortran servertje gebruikuh.}
+
+\SRQ{must have}{An English interface is available}
+%CPR40
 
 \subsection{Operational}
 \subsection{Resource}
