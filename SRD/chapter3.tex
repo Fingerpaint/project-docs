@@ -76,17 +76,16 @@ The user is able to visualise his mixing protocol, as well as able to save and e
 The user can select a rectangular mixer geometry. To this end, a cell browser is available that lists all the available geometries in the first column. This first column will contain several geometries, including ``rectangle", `` square", ``circle" or ``\emph{Journal Bearing}". After clicking on a certain geometry, the available mixers for this geometry are displayed in the second column of the cell browser. The user can now select a mixer of choice and then, the third column in the cell browser lists all the available starting concentration distributions for the selected mixer. There are three types of starting concentration distributions that the user can choose from. The first type is a ``blank" concentration distribution, which simply means that the user will be presented with a clean canvas when this option is selected. The second type is a ``load" option, so the user can load previously saved concentration distributions that are stored on their device. The third type of concentration distribution is a ``predefined" distribution, meaning that the user can choose from a few predefined distributions that are already present in the application. In case of the second and third option, there will be a third column in the cell browser that lists all the available concentration distributions that can be loaded. When the user clicks on an item in the third column, the required distribution is immediately loaded on an appropriate canvas. For the first option, a blank canvas is displayed on the screen when the user clicks on ``blank". \\
 This user requirement can then be described with the following software requirements:
 
-\SRQ{must have}{The user can select ``rectangle" as a geometry, via the first column in the cell browser.} % CPR1
-\SRQ{must have}{After having selected a geometry, the user can select a mixer that fits the selected geometry. The mixer can be selected via a second column in the cell browser.} % CPR2
-\SRQ{should have}{The user can select ``square" as a geometry, via the first column in the cell browser.}  % CPR3
-\SRQ{could have}{The user can select ``circle" as a geometry, via the first column in the cell browser.}  % CPR4
-\SRQ{could have}{The user can select ``\emph{Journal Bearing}" as a geometry, via the first column in the cell browser.}  % CPR5
+\SRQ[srq:selgeomrec]{must have}{The user can select ``rectangle" as a geometry, via the first column in a cell browser.} % CPR1
+\SRQ[srq:selmixer]{must have}{After having selected a geometry, the user can select a mixer that fits the selected geometry. The mixer can be selected via a second column in a cell browser.} % CPR2
+\SRQ[srq:selgeomsq]{should have}{The user can select ``square" as a geometry, via the first column in a cell browser.}  % CPR3
+\SRQ[srq:selgeomcir]{could have}{The user can select ``circle" as a geometry, via the first column in a cell browser.}  % CPR4
+\SRQ[srq:selgeomjb]{could have}{The user can select ``\emph{Journal Bearing}" as a geometry, via the first column in the cell browser.}  % CPR5
 \SRQ{must have}{The user can select a blank canvas, by choosing the ``blank" option in the third column in the cell browser.} % CPR6\
 \SRQ[prevsaved]{should have}{The user can view a list of all previously saved concentration distributions, by choosing the ``load" option in the third column in the cell browser.} % CPR13
 \SRQ{should have}{After selecting the ``load" option from \srqref{prevsaved}, the user can select a previously saved distribution by clicking on one distribution in the fourth column in the cell browser.} % CPR13
 \SRQ[predef]{should have}{The user can view a list of all predefined concentration distributions, by choosing the ``predefined" option in the third column in the cell browser.} % CPR14
 \SRQ{should have}{After selecting the ``predefined" option from \srqref{predef}, the user can select a predefined initial concentration distribution by clicking on one distribution in the fourth column in the cell browser.} % CPR14
-
 
 % TODO: hier nog alle requirements van het loaden van distributies en de pre-defined shit
 
@@ -121,12 +120,15 @@ This user requirement can then be described with the following software requirem
 \subsubsection{Define a mixing protocol}
 A wall movement is defined by either $T$ or $B$, denoting a movement of the top or bottom wall, respectively. Looking directly at the screen, a $T$ movement indicates that the top wall should move to the right, and a $B$ movement indicates that the bottom wall should move to the left. Each of these wall movements can be combined with a `$-$' sign, to indicate that the direction of movement should be reversed. This means $-T$, for example, indicates that the top wall should move to the \emph{left}. A duration can be any value that can be created by combining the possible values for $D$ (the step size), namely 4, 2, 1, 0.5, 0.25 and 0.1.
 
-\SRQ{must have}{ % CPR20
-    The user can enter a step size in a text area. If the user enters a value that cannot be created by combining possible values for $D$, the user should enter a different value.
-}
+\subsubsection{Set options for a mixing protocol}
+A duration can be any value that can be created by combining the possible values for $D$ (the step size), namely 4, 2, 1, 0.5, 0.25 and 0.1. Such a value $D$ can be entered in a text box near the drawing canvas. If an invalid value is entered -- i.e. a value that cannot be created by combining the mentioned values -- the user is prompted to enter a different value.
 
-\SRQ{must have}{ % CPR18
-    The \emph{Step} class contains a wall movement and a duration.
+To indicate how many times the protocol created using the above items is executed, the user can enter a number in a spinner. We use a spinner because the number it contains can easily be incremented or decremented by using the arrow keys, and a value that is not near the original value can easily be entered using its text box.
+
+To manage mixing protocols, the user can save and load the mixing protocols they have created. It is also possible to load a predefined mixing protocol.
+
+\SRQ[srq:stepsize]{must have}{ % CPR20
+    The user can enter the step size in a text box.
 }
 
 \SRQ{must have}{ % CPR21
@@ -142,39 +144,23 @@ A wall movement is defined by either $T$ or $B$, denoting a movement of the top 
 }
 
 \SRQ{should have}{ % CPR24
-    After the user has selected the geometry and the mixer as in SRQ\todo{insert correct SRQ here}, they can choose to load a previously saved mixing protocol by choosing the \emph{Load} option. This spawns a fourth menu column with the names of all applicable saved protocols. Clicking one such protocol loads it.
-}
-
-\SRQ{should have}{ % CPR25
-    Similar to SRQ\todo{insert SRQ for CPR18 here}, the user can create a protocol for a square geometry as a sequence of wall movements and their durations.
-}
-
-\SRQ{could have}{ % CPR26
-    Using SRQ\todo{insert select a mixer SRQ here}, the user selects a circular geometry and a mixer. The mixing protocol is now defined, as there are no explicit mixer movements for the circular geometry.
-}
-
-\SRQ{must have}{ % CPR select a mixer
-    After the user has selected a geometry using SRQ\todo{insert Mix of various CPRs SRQ here}, a new menu pops up, containing the list of all suitable mixers for the selected geometry.
-}
-
-\SRQ{could have}{ % CPR27
-    Using SRQ\todo{insert mixer geometry SRQ here}, the user selects the \emph{Journal bearing} geometry and a mixer. A step size $D$ is selected using SRQ\todo{insert step size SRQ here}. The user can then swipe across the screen to indicate movements. Swiping to the right near the top of the outer circle means the outer circle rotates clockwise for $D$ time units, and swiping to the right near the top of the inner circle means the inner circle rotates clockwise for $D$ time units.
+    After the user has selected the geometry and the mixer using \srqref{srq:selgeomrec}, \srqref{srq:selgeomsq}, \srqref{srq:selgeomcir} or \srqref{srq:selgeomjb} and \srqref{srq:selmixer}, they can choose to load a previously saved mixing protocol by choosing the \emph{Load} option in the third level of the menu. This spawns a fourth menu level with the names of all applicable saved protocols. Clicking one such protocol loads it.
 }
 
 \SRQ{could have}{ % CPR28
-    After SRQ\todo{insert mixer geometry SRQ here}, the user selects the \emph{Predefined} option in the third level of the \emph{Mixer} menu. This spawns a fourth level of the menu containing all suitable predefined mixing protocols for the selected geometry. Clicking one such protocol selects it, which means it will be used once the mixing is executed.
+    After \srqref{srq:selgeomrec}, \srqref{srq:selgeomsq}, \srqref{srq:selgeomcir} or \srqref{srq:selgeomjb} and \srqref{srq:selmixer}, the user selects the \emph{Predefined} option in the third level of the \emph{Mixer} menu. This spawns a fourth level of the menu containing all suitable predefined mixing protocols for the selected geometry. Clicking one such protocol selects it, which means it will be used once the mixing is executed.
 }
 
-\SRQ{must have}{ % CPR30
-    After the mixing has been executed, the user can save the results on their device by pressing the \emph{Save} button. This opens a pop-up using which the user can enter a name for the results.
-}
+\subsubsection{Define mixing protocol for specific geometries}
+For the rectangular or square geometries, a wall movement is defined by either $T$ or $B$, denoting a movement of the top or bottom wall, respectively. Each movement is performed for $D$ time units, which can be set using \srqref{srq:stepsize}. Looking directly at the screen, a $T$ movement indicates that the top wall should move to the right, and a $B$ movement indicates that the bottom wall should move to the left. Each of these wall movements can be combined with a `$-$' sign, to indicate that the direction of movement should be reversed. This means $-T$, for example, indicates that the top wall should move to the \emph{left}.
 
-\SRQ{must have}{ % CPR31
-    In the menu with previously saved mixing runs, the user can press the \emph{Remove} button to remove this saved run from storage.
-}
+The circular geometry does not support movements, and as such a mixing protocol is immediately defined after selecting a mixer.
 
-\subsubsection{Define mixing protocol for a rectangular geometry}
-This class allows the user to define a mixing protocol as a sequence of wall movements for a rectangular mixer geometry.
+For the \emph{Journal bearing} geometry, the user can swipe across the screen to indicate movements. Swiping to the right near the top of the outer circle means the outer circle rotates clockwise for $D$ time units, and swiping to the right near the top of the inner circle means the inner circle rotates clockwise for $D$ time units.
+
+\SRQ{must have}{ % CPR17
+    The \emph{Step} class contains a movement and a duration for this movement.
+}
 
 \SRQ{must have}{ % CPR17
     The \emph{Protocol} class contains a list of \emph{Step}s.
@@ -186,24 +172,33 @@ This class allows the user to define a mixing protocol as a sequence of wall mov
 }
 
 \subsection{Client-Server communication}
-\SRQ{must have}{ % CPR29
-    After \todo{loads of SRQs which still have to be linked and as this linking functionality has not been implemented yet I will wait with choosing all correct SRQs and instead leave this notice here}, the user can press the \emph{Mix} button to execute the actual mixing.
+\SRQ{must have}{ % CPR29a
+    After defining a mixer, a mixing protocol and an initial distribution, the user can press the \emph{Mix} button to execute the actual mixing.
 }
 
-\SRQ{must have}{ % CPR29cont1
+\SRQ{must have}{ % CPR29b
     The parameters are JSON'ed and sent to the server using a socket. The server un-JSON's the parameters and executes the mixing using the \textsc{Fortran} implementation.
 }
 
-\SRQ{must have}{ % CPR29cont2
+\SRQ{must have}{ % CPR29c
     The server un-JSON's the parameters and executes the mixing using the \textsc{Fortran} implementation.
 }
 
-\SRQ{must have}{ % CPR29cont3
+\SRQ{must have}{ % CPR29d
     The server JSON's the resulting concentration distribution and the performance result and sends this JSON object back to the client.
 }
 
-\SRQ{must have}{ % CPR29cont4
+\SRQ{must have}{ % CPR29e
     The client un-JSON's the concentration distribution and the performance result. This concentration distribution is visualised on the client's screen, using the canvas that was originally used to draw the initial concentration distribution. The performance result is visualised on the screen at the same time using a number.
+}
+
+\subsubsection{Mixing runs}
+\SRQ{must have}{ % CPR30
+    After the mixing has been executed, the user can save the results on their device by pressing the \emph{Save} button. This opens a pop-up using which the user can enter a name for the results.
+}
+
+\SRQ{must have}{ % CPR31
+    In the menu with previously saved mixing runs, the user can press the \emph{Remove} button to remove this saved run from storage.
 }
 
 \section{Non-functional requirements}
