@@ -34,7 +34,7 @@ This section lists the functional requirements for the \projectname app.
 \subsection{ClientPersistence}
 
 \subsubsection{saving and exporting results}
-In the results window a `save' button, an `export' button and a `load results' button are available. If the `export' button is pressed, a popup with several available export options is shown: `export performance', `export picture' and `export animation'. `export animation' is only available if the `animate mixing' checkbox was checked. Additionally, a `load performance' button. The user can use this button to open a popup. In this popup he can select the files he wants to load. The button changes to `load selected' and now loads all the selected files.
+In the results window a `save' button, an `export' button and a `load results' button are available. If the `export' button is pressed, a popup with several available export options is shown: `export performance', `export picture' and `export animation'. `export animation' is only available if the `animate mixing' checkbox was checked. The user can then name the file and browse to a desirable storage location. If during saving the specified name for saving/exporting is already in use, the application returns a \emph{name already in use} message. Additionally, a `load performance' button. The user can use this button to open a popup. In this popup he can select the files he wants to load. The button changes to `load selected' and now loads all the selected files. If no files are selected, the button is named `cancel' and will simply cancel without loading. An alternative way to cancel loading is to click somewhere not on the popup.
 
 \SRQ{should have}{The `export picture' option can be used to export an image of the mixing result somewhere on the device.}
 %CPR33
@@ -44,6 +44,21 @@ In the results window a `save' button, an `export' button and a `load results' b
 
 \SRQ{should have}{Data loaded with the `load performance' button is depicted in a single performance graph.} 
 %CPR36
+
+\SRQ{should have}{The user should be able to cancel loading files by clicking somewhere not on the loading popup.}
+%NEW
+
+\SRQ{should have}{If there are no access rights to store the exported/saved data at the selected location, the application returns a \emph{no access rights} message.}
+%Use case alternative S.1
+
+\SRQ{should have}{If there is no memory space to store exported/saved data, the application returns an \emph{out of memory} message.}
+%Use case alternative S.2
+
+\SRQ{should have}{The user can overwrite the old file if a saved file already exists.}
+%Use case alternative S.3.1
+
+\SRQ{should have}{The user can cancel overwriting the old file if a saved file already exists.}
+%Use case alternative S.3.2
 
 \SRQ{could have}{The `export animation' button can be used to export an animation of the mixing procedure somewhere on the device.}
 %CPR39
