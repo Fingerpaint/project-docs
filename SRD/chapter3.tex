@@ -30,11 +30,7 @@ Requirements regarding the initial concentration distribution input: \\
 \SRQ{should have}{The user can select a square-shaped drawing tool via a pop-up panel.} % CPR9
 \label{srq:squareshaped}
 \SRQ{should have}{The user can draw with a square-shaped drawing tool on the canvas.} % CPR9
-<<<<<<< HEAD
 \SRQ{should have}{The user can adjust the size of the drawing tool, using a slider in the Popup Panel from \ref{srq:circleshaped} and \ref{srq:squareshaped}.} % CPR10
-=======
-\SRQ{should have}{The user can adjust the size of the drawing tool, using a slider in the Popup Panel from \ref{srq:circleshaped} and \ref{srq:squareshaped}}. % CPR10
->>>>>>> 2b2dd580f8795789e9b5ba7f6d0c96ba83787231
 \SRQ{should have}{The user can save an initial concentration distribution locally on their device, using a Button and Popup Panel.} % CPR11
 \SRQ{should have}{The user can remove a previously saved initial concentration distribution.} % CPR12
 % Hetzelfde als Roel hier, een button met ``Remove", dan een lijst met checkboxes en dan met dezelfde knop Removen?
@@ -75,22 +71,16 @@ Requirements regarding the presentation and exportation of results: \\
 \todo{individual sections for non-functional requirements}
 
 \subsection{Performance}
-\begin{center}
-\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
-SCR & must have \\
-\multicolumn{2}{p{\textwidth}}{Waiting time between submitting input and receiving output is no longer than 5 seconds.} \\
-\hline
 
-SCR & should have \\
-\multicolumn{2}{p{\textwidth}}{Waiting time between submitting input and receiving output is no longer than 3 seconds.} \\
-\hline
+\SRQ{must have}{Waiting time between submitting input and receiving output is no longer than 5 seconds.}
+%CNR10
 
-SCR & could have \\
-\multicolumn{2}{p{\textwidth}}{Waiting time between submitting input and receiving output is no longer than 1 seconds.} \\
-\hline
+\SRQ{should have}{Waiting time between submitting input and receiving output is no longer than 3 seconds.}
+%CNR11
 
-\end{tabular}
-\end{center}
+\SRQ{could have}{Waiting time between submitting input and receiving output is no longer than 1 seconds.}
+%CNR12
+
 \subsection{Interface}
 
 \todo{Hier zegguh dat wij Fortran servertje gebruikuh.}
@@ -99,46 +89,38 @@ SCR & could have \\
 \subsection{Resource}
 \subsection{Verification and testing}
 \subsection{Portability}
-\begin{center}
-\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
-SCR & must have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on iOS Safari version 6.0 and higher.} \\
-\hline
+\SRQ{must have}{The application runs on iOS Safari version 6.0 and higher.}
+%CNR1
 
-SCR & should have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on Firefox version 20 and higher, and Google Chrome version 26 and
-higher.} \\
-\hline
+\SRQ{should have}{The application runs on Firefox version 20 and higher.}
+%CNR2
 
-SCR & could have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on Internet Explorer version 10 and higher, Opera version 12.1 and
-higher and Safari version 6.0 and higher.} \\
-\hline
+\SRQ{should have}{The application runs on Google Chrome version 26 and
+higher.}
+%CNR3
 
-SCR & must have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on devices running on iOS version 6 and higher.} \\
-\hline
+\SRQ{could have}{The application runs on Internet Explorer version 10 and higher.}
+%CNR4
 
-SCR & should have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on devices running on Android version 4.0 and higher.} \\
-\hline
+\SRQ{could have}{The application runs on Safari version 6.0 and higher.}
+%CNR5
 
-SCR & could have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on devices running on Windows 8.} \\
-\hline
+\SRQ{must have}{The application runs on devices running on iOS version 6 and higher.}
+%CNR7
 
-\end{tabular}
-\end{center}
+\SRQ{should have}{The application runs on devices running on Android version 4.0 and higher.}
+%CNR8
+
+\SRQ{could have}{The application runs on devices running on Windows 8.}
+%CNR9
+
 \subsection{Maintainability}
 \subsection{Reliability}
 \subsection{Security}
 \subsection{Safety}
 \subsection{Documentation}
 \subsection{Extensibility}
-\begin{center}
-\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
-SCR & must have \\
-\multicolumn{2}{p{\textwidth}}{The application should be easily extendable with new mixers.} \\
-\hline
-\end{tabular}
-\end{center}
+
+\SRQ{must have}{The application should be easily extendable with new mixers.}
+%CNR13
+
