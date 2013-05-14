@@ -1,25 +1,53 @@
 \chapter{Specific requirements}
 \label{chap:specreq}
-\todo{chapter description}
-The structure of the software requirements in this section are conform the user requirements described in chapter 3 of the URD \cite{urd}. \\
+This chapter lists all specific software requirements of the application to be developed, both functional and non-functional requirements. The requirements are categorised according to the interface they belong to, as described in section \ref{sec:moddesc}. Only those user requirements from the URD \cite{urd} with a priority higher then \emph{won't have} will be translated to software requirements in this chapter.
+
+\todo{Moeten we dit inderdaad zo doen met die GWT verwijzing, of noemen we het juist niet zo specifiek?}
 Note that as \applicationname\ is developed using GWT, some of the software requirements listed in this chapter are described in terms of specific GWT widgets or panels\footnote{The website for the GWT widgetlist can be found at \url{https://developers.google.com/web-toolkit/doc/latest/RefWidgetGallery}.}.
 
-\todo{Nog even vermelden dat we de won't haves uit het URD niet beschrijven in dit SRD.}
 \todo{Requirements groeperen naar: MixerProvider, MiserPersistance, Client, ClientPersistence, SimulatorServer}
 
 \section{Functional requirements}
 \label{sec:funcreq}
 
-The user can select a rectangular mixer geometry. To this end, a cell browser is available that lists all the available geometries in the first column. This first column will contain several geometries, including ``rectangle", `` square", ``circle" or ``\emph{Journal Bearing}". After clicking on a certain geometry, the available mixers for this geometry are displayed in the second column of the cell browser. The user can now select a mixer of choice and then, the third column in the cell browser lists all the available starting concentration distributions for the selected mixer. There are three types of starting concentration distributions that the user can choose from. The first type is a ``blank" concentration distribution, which simply means that the user will be presented with a clean canvas when this option is selected. The second type is a ``load" option, so the user can load previously saved concentration distributions that are stored on their device. The third type of concentration distribution is a ``predefined" distribution, meaning that the user can choose from a few predefined distributions that are already present in the application. In case of the second and third option, there will be a third column in the cell browser that lists all the available concentration distributions that can be loaded. When the user clicks on an item in the third column, the required distribution is immediately loaded on an appropriate canvas. For the first option, a blank canvas is displayed on the screen. \\
+\subsection{MixerProvider}
+
+\subsection{MixerPeristenceCommunication}
+
+\subsection{MixerPersistence}
+
+\subsection{MixerProviderCommunication}
+
+\subsection{Client}
+
+\subsection{ClientPersistence}
+
+\subsection{SimulatorServerCommunication}
+
+\subsection{SimulatorServer}
+
+The user can select a rectangular mixer geometry. To this end, a cell browser is available that lists all the available geometries in the first column. This first column will contain several geometries, including ``rectangle", `` square", ``circle" or ``\emph{Journal Bearing}". After clicking on a certain geometry, the available mixers for this geometry are displayed in the second column of the cell browser. The user can now select a mixer of choice and then, the third column in the cell browser lists all the available starting concentration distributions for the selected mixer. There are three types of starting concentration distributions that the user can choose from. The first type is a ``blank" concentration distribution, which simply means that the user will be presented with a clean canvas when this option is selected. The second type is a ``load" option, so the user can load previously saved concentration distributions that are stored on their device. The third type of concentration distribution is a ``predefined" distribution, meaning that the user can choose from a few predefined distributions that are already present in the application. In case of the second and third option, there will be a third column in the cell browser that lists all the available concentration distributions that can be loaded. When the user clicks on an item in the third column, the required distribution is immediately loaded on an appropriate canvas. For the first option, a blank canvas is displayed on the screen when the user clicks on ``blank". \\
 This user requirement can then be described with the following software requirements:
 
-\SRQ{must have}{The user can select ``rectangle" as a geometry, via the first column in a cell browser.} % CPR1
-\SRQ{must have}{After having selected a geometry, the user can select a mixer that fits the selected geometry. The mixer can be selected via a second column in a cell browser.} % CPR2
-\SRQ{should have}{The user can select ``square" as a geometry, via the first column in a cell browser.}  % CPR3
-\SRQ{could have}{The user can select ``circle" as a geometry, via the first column in a cell browser.}  % CPR4
-\SRQ{could have}{The user can select ``\emph{Journal Bearing}" as a geometry, via the first column in a cell browser.}  % CPR5
+\SRQ{must have}{The user can select ``rectangle" as a geometry, via the first column in the cell browser.} % CPR1
+\SRQ{must have}{After having selected a geometry, the user can select a mixer that fits the selected geometry. The mixer can be selected via a second column in the cell browser.} % CPR2
+\SRQ{should have}{The user can select ``square" as a geometry, via the first column in the cell browser.}  % CPR3
+\SRQ{could have}{The user can select ``circle" as a geometry, via the first column in the cell browser.}  % CPR4
+\SRQ{could have}{The user can select ``\emph{Journal Bearing}" as a geometry, via the first column in the cell browser.}  % CPR5
+\SRQ{must have}{The user can select a blank canvas, by choosing the ``blank" option in the third column in the cell browser.} % CPR6\
+\SRQ[prevsaved]{should have}{The user can view a list of all previously saved concentration distributions, by choosing the ``load" option in the third column in the cell browser.} % CPR13
+\SRQ{should have}{After selecting the ``load" option from \srqref{prevsaved}, the user can select a previously saved distribution by clicking on one distribution in the fourth column in the cell browser.} % CPR13
+\SRQ[predef]{should have}{The user can view a list of all predefined concentration distributions, by choosing the ``predefined" option in the third column in the cell browser.} % CPR14
+\SRQ{should have}{After selecting the ``predefined" option from \srqref{predef}, the user can select a predefined initial concentration distribution by clicking on one distribution in the fourth column in the cell browser.} % CPR14
 
-Requirements regarding the initial concentration distribution input: \\
+
+% TODO: hier nog alle requirements van het loaden van distributies en de pre-defined shit
+
+Requirements regarding the initial concentration distribution input:
+
+MixerProvider/SimulatorService Communication+MixdrPersistence requirements:
+Zorg dat alle functionaliteit van de SimulatieServer beschikbaar is (stel de volledige API/data bloot)
+snel genoeg, etcetera
 
 \todo{VRAAG: moeten we er een losse requirement van maken dat de user op een canvas tekent? Ik vind het uit onderstaande
  requirements nu niet geheel duidelijk dat het om exact hetzelfde canvas gaat iedere keer.}
@@ -33,7 +61,7 @@ Requirements regarding the initial concentration distribution input: \\
 \SRQ[squareshaped]{should have}{The user can select a square-shaped drawing tool via a pop-up panel.} % CPR9
 \SRQ{should have}{The user can draw with a square-shaped drawing tool on the canvas.} % CPR9
 \SRQ{should have}{The user can adjust the size of the drawing tool, using a slider in the popup panel from \srqref{circleshaped} and \srqref{squareshaped}}. % CPR10
-\SRQ{should have}{The user can save an initial concentration distribution locally on their device, using a button and popup panel.} \\ % CPR11
+\SRQ{should have}{The user can save an initial concentration distribution locally on their device, using a button and popup panel.} % CPR11
 
 The user can remove a previously saved initial concentration distribution. To this end, a ``Remove saved distributions" button is available. When the user clicks this button, a new screen opens with a cell list that shows all the available saved concentration distributions, along with a check box next to each item. The ``Remove saved distributions" button will remain visible in this new screen. The user can then select one or more items to be removed using the check boxes. When the remove button is pressed, all the selected items from the cell list will be removed and the user returns to the previous screen. \todo{Moet ik hier al iets zeggen over de verschillende schermen?} \\
 This user requirement can then be described with the following software requirements:
@@ -42,10 +70,6 @@ This user requirement can then be described with the following software requirem
 \SRQ{should have}{After clicking the ``Remove saved distributions" button, a cell list is shown that provides all the previously saved concentration distributions.} % CPR12
 \SRQ{should have}{Each item from in the cell list of PREVIOUS contains a check box that can be selected or deselected, to indicate which distributions should be removed.} % CPR12
 \SRQ{should have}{After selecting at least one item from PREVIOUS, the user can press the ``Remove saved distributions" button and the selected items are removed from the device.} % CPR12
-
-The user can select an initial concentration distribution from a list of previously saved distributions.
-
-\SRQ{should have}{} % CPR13
 
 Requirements regarding the presentation and exportation of results: \\
 \SRQ{should have}{The user can use a 'load' button to open a popup. In this popup he can select the files he wants to load. The 'load' button changes to 'load selected' and now loads all the selected files. The loaded data is then depicted in one graph.}
