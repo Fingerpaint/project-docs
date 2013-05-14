@@ -9,11 +9,66 @@ This chapter lists the requirements the \projectname application should fulfill 
     \item \emph{won't have}; requirements with this priority will not be implemented in this version of the product, but may be nice to implement in future versions.
 \end{itemize}
 
+The structure of the software requirements in this section are conform the user requirements described in chapter 3 of the URD \cite{urd}. \\
+Note that as \applicationname\ is developed using GWT, some of the software requirements listed in this chapter are described in terms of specific GWT widgets or panels\footnote{The website for the GWT widgetlist can be found at \url{https://developers.google.com/web-toolkit/doc/latest/RefWidgetGallery}.}.
+
+\todo{Nog even vermelden dat we de won't haves uit het URD niet beschrijven in dit SRD.}
+
 \section{Functional requirements}
 This section lists the functional requirements for the \projectname app.
-% TODO: Remove these two lines
-\newcounter{count}
-\stepcounter{count}
+
+Requirements regarding the mixer geometry input: \\
+\SRQ{must have}{The user can select ``rectangle" as a geometry, via the first column in a Cell Browser.} % CPR1
+\SRQ{must have}{After having selected a geometry, the user can select a mixer that fits the selected geometry. The mixer can be selected via a second column in a Cell Browser.} % CPR2
+\SRQ{should have}{The user can select ``square" as a geometry, via the first column in a Cell Browser.}  % CPR3
+\SRQ{could have}{The user can select ``circle" as a geometry, via the first column in a Cell Browser.}  % CPR4
+\SRQ{could have}{The user can select ``\emph{Journal Bearing}" as a geometry, via the first column in a Cell Browser.}  % CPR5
+
+Requirements regarding the initial concentration distribution input: \\
+
+\todo{VRAAG: moeten we er een losse requirement van maken dat de user op een canvas tekent? Ik vind het uit onderstaande
+ requirements nu niet geheel duidelijk dat het om exact hetzelfde canvas gaat iedere keer.}
+
+\SRQ{must have}{The user can select a colour (black or white) to paint with for the initial concentration distribution, via a Toggle Button.} % CPR6
+\SRQ{must have}{The user can define an initial concentration distribution with the selected colour on the canvas, by drawing with their finger.} % CPR6
+\SRQ[circleshaped]{must have}{The user can select a circle-shaped drawing tool via a pop-up panel.} % CPR7
+\SRQ{must have}{The user can draw with a circle-shaped drawing tool on the canvas.} % CPR7, los omdat de square een lagere prioriteit heeft in het URD
+\SRQ{must have}{The user can reset the current concentration distribution to a completely white concentration distribution, by clicking on the ``Reset" button.} % CPR8
+\SRQ[squareshaped]{should have}{The user can select a square-shaped drawing tool via a pop-up panel.} % CPR9
+\SRQ{should have}{The user can draw with a square-shaped drawing tool on the canvas.} % CPR9
+\SRQ{should have}{The user can adjust the size of the drawing tool, using a slider in the Popup Panel from \srqref{circleshaped} and \srqref{squareshaped}.}
+\SRQ{should have}{The user can save an initial concentration distribution locally on their device, using a Button and Popup Panel.} % CPR11
+\SRQ{should have}{The user can remove a previously saved initial concentration distribution.} % CPR12
+% Hetzelfde als Roel hier, een button met ``Remove", dan een lijst met checkboxes en dan met dezelfde knop Removen?
+
+Requirements regarding the presentation and exportation of results: \\
+
+\SRQ{must have}{After the user has defined a mixing run, he can press the button `start mixing'. When this button is pressed, the result of the user's mixing protocol is shown.}
+%CPR32
+
+\SRQ{should have}{After the user pressed the `start mixing' button and the result is shown, he can press the `export picture' button. When this button is pressed, the result picture is exported as an SVG using the browser's native exporting support.}
+%CPR33
+
+\SRQ{must have}{After the user has defined a mixing run, he can press the button `start mixing'. When this button is pressed, the result of the user's mixing protocol is shown. Now the user can press a `show statistics' button. When pressed, a graph containing the mixing performance is shown.}
+%CPR34
+
+\SRQ{should have}{After the user has pressed the `show statistics' button and the mixing performance is shown, he can press the `export picture' button. When this button is pressed, the result picture is exported as an SVG using the browser's native exporting support.}
+%CPR35
+
+\SRQ{should have}{The user can use a `load' button to open a popup. In this popup he can select the files he wants to load. The `load' button changes to `load selected' and now loads all the selected files. The loaded data is then depicted in one graph.}
+%CPR36
+
+\SRQ{should have}{The user can use a `export graph' button`to export the current result graph as a picture. If this button is used, the graph is exported as an SVG using the browser's native exporting support.}
+%CPR37
+
+\SRQ{could have}{After the  user has defined a mixing run, he can tick a box titled `visualise mixing'. When this box is checked and he presses `start mixing', the application processes the mixing run, together with the mixer data and responds by showing an animation of this mixing simulation to the user.}
+%CPR38
+
+\SRQ{could have}{After the user has visualised his mixing run (as described above), he can press the `export animation' button. When this button is pressed, the animation is exported as an AVG using the browser's native exporting support.}
+%CPR39
+
+\SRQ{could have}{In the menu bar a flag of the currently selected language is visible. When clicked, a popup appears containing several language options, each symbolised by the flag of their country. These flags can be clicked to change the language to that specific language. Standard language is English.}
+%CPR40&41
 
 \subsubsection{Define a mixing protocol}
 A wall movement is defined by either $T$ or $B$, denoting a movement of the top or bottom wall, respectively. Looking directly at the screen, a $T$ movement indicates that the top wall should move to the right, and a $B$ movement indicates that the bottom wall should move to the left. Each of these wall movements can be combined with a `$-$' sign, to indicate that the direction of movement should be reversed. This means $-T$, for example, indicates that the top wall should move to the \emph{left}. A duration can be any value that can be created by combining the possible values for $D$ (the step size), namely 4, 2, 1, 0.5, 0.25 and 0.1.
@@ -84,7 +139,7 @@ This class allows the user to define a mixing protocol as a sequence of wall mov
 
 \subsection{Client-Server communication}
 \SRQ{must have}{ % CPR29
-    After \todo{loads of SRQs which still have to be linked and as this linking functionality has not been implemented yet I will wait with choosing all correct SRQs and instead leave this notice here}, the user can press the \emph{Mix} button to execute the actual mixing. 
+    After \todo{loads of SRQs which still have to be linked and as this linking functionality has not been implemented yet I will wait with choosing all correct SRQs and instead leave this notice here}, the user can press the \emph{Mix} button to execute the actual mixing.
 }
 
 \SRQ{must have}{ % CPR29cont1
@@ -103,85 +158,59 @@ This class allows the user to define a mixing protocol as a sequence of wall mov
     The client un-JSON's the concentration distribution and the performance result. This concentration distribution is visualised on the client's screen, using the canvas that was originally used to draw the initial concentration distribution. The performance result is visualised on the screen at the same time using a number.
 }
 
-
 \section{Non-functional requirements}
 \label{sec:nonfuncreq}
 \todo{individual sections for non-functional requirements}
 
-\todo{Add numbers to SCR}
 \subsection{Performance}
-\begin{center}
-\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
-SCR\arabic{count} & must have \\
-\multicolumn{2}{p{\textwidth}}{Waiting time between submitting input and receiving output is no longer than 5 seconds.} \\
-\hline
-\stepcounter{count}
+\SRQ{must have}{Waiting time between submitting input and receiving output is no longer than 5 seconds.}
+%CNR10
 
-SCR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{Waiting time between submitting input and receiving output is no longer than 3 seconds.} \\
-\hline
-\stepcounter{count}
+\SRQ{should have}{Waiting time between submitting input and receiving output is no longer than 3 seconds.}
+%CNR11
 
-SCR\arabic{count} & could have \\
-\multicolumn{2}{p{\textwidth}}{Waiting time between submitting input and receiving output is no longer than 1 seconds.} \\
-\hline
-\stepcounter{count}
+\SRQ{could have}{Waiting time between submitting input and receiving output is no longer than 1 seconds.}
+%CNR12
 
-\end{tabular}
-\end{center}
 \subsection{Interface}
+
+\todo{Hier zegguh dat wij Fortran servertje gebruikuh.}
+
 \subsection{Operational}
 \subsection{Resource}
 \subsection{Verification and testing}
 \subsection{Portability}
-\begin{center}
-\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
-SCR\arabic{count} & must have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on iOS Safari version 6.0 and higher.} \\
-\hline
-\stepcounter{count}
+\SRQ{must have}{The application runs on iOS Safari version 6.0 and higher.}
+%CNR1
 
-SCR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on Firefox version 20 and higher, and Google Chrome version 26 and
-higher.} \\
-\hline
-\stepcounter{count}
+\SRQ{should have}{The application runs on Firefox version 20 and higher.}
+%CNR2
 
-SCR\arabic{count} & could have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on Internet Explorer version 10 and higher, Opera version 12.1 and
-higher and Safari version 6.0 and higher.} \\
-\hline
-\stepcounter{count}
+\SRQ{should have}{The application runs on Google Chrome version 26 and
+higher.}
+%CNR3
 
-SCR\arabic{count} & must have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on devices running on iOS version 6 and higher.} \\
-\hline
-\stepcounter{count}
+\SRQ{could have}{The application runs on Internet Explorer version 10 and higher.}
+%CNR4
 
-SCR\arabic{count} & should have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on devices running on Android version 4.0 and higher.} \\
-\hline
-\stepcounter{count}
+\SRQ{could have}{The application runs on Safari version 6.0 and higher.}
+%CNR5
 
-SCR\arabic{count} & could have \\
-\multicolumn{2}{p{\textwidth}}{The application runs on devices running on Windows 8.} \\
-\hline
-\stepcounter{count}
+\SRQ{must have}{The application runs on devices running on iOS version 6 and higher.}
+%CNR7
 
-\end{tabular}
-\end{center}
+\SRQ{should have}{The application runs on devices running on Android version 4.0 and higher.}
+%CNR8
+
+\SRQ{could have}{The application runs on devices running on Windows 8.}
+%CNR9
+
 \subsection{Maintainability}
 \subsection{Reliability}
 \subsection{Security}
 \subsection{Safety}
 \subsection{Documentation}
 \subsection{Extensibility}
-\begin{center}
-\begin{tabular}{ >{\bfseries}p{0.84\textwidth} >{\itshape}p{0.16\textwidth}}
-SCR\arabic{count} & must have \\
-\multicolumn{2}{p{\textwidth}}{The application should be easily extendable with new mixers.} \\
-\hline
-\stepcounter{count}
 
-\end{tabular}
-\end{center}
+\SRQ{must have}{The application should be easily extendable with new mixers.}
+%CNR13
