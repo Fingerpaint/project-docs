@@ -64,7 +64,7 @@ For the \emph{Journal bearing} geometry, the user can swipe across the screen to
 }
 
 \SRQ[srq:visResults]{must have}{ % CPR29e
-    After the client receives the JSON object containing the concentration distribution and the performance result from the server, the client un-JSON's these items. The concentration distribution is visualised on the client's screen, using the canvas that was originally used to draw the initial concentration distribution. The performance result is visualised on the screen at the same time using a number. % TODO: If multiple runs are being received one after another, plot the performance.
+    After the client receives the JSON object containing the concentration distribution and the performance result from the server, the client un-JSON's these items. The concentration distribution is visualised on the client's screen, using the canvas that was originally used to draw the initial concentration distribution. The performance result is visualised on the screen at the same time using a number. If previous performance results have been received for this particular run as a result of previous executions, all performance results are plotted in a graph.
 }
 
 \SRQ{must have}{ % CPR19
@@ -115,7 +115,7 @@ In the results window a \texttt{save} button, an \texttt{export} button and a \t
 \SRQ{should have}{The \texttt{export performance} option can be used to export an image of the current performance graph somewhere on the device.}
 %CPR35&37
 
-\SRQ{should have}{Data loaded with the \texttt{load performance} button is depicted in a single performance graph.} 
+\SRQ{should have}{Data loaded with the \texttt{load performance} button is depicted in a single performance graph.}
 %CPR36
 
 \SRQ{should have}{The user should be able to cancel loading files by clicking somewhere not on the loading popup.}
