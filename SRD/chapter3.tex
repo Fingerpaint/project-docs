@@ -1,6 +1,7 @@
 \chapter{Specific requirements}
 \label{chap:specreq}
-This chapter lists the requirements the \projectname application should fulfill once it has been completed. Each requirement has a specific priority, based on the MoSCoW model \cite{moscow}:
+This chapter lists all specific software requirements of the application to be developed, both functional and non-functional requirements. The requirements are categorised according to the interface they belong to, as described in section \ref{sec:moddesc}. \\
+Each requirement has a specific priority, based on the MoSCoW model \cite{moscow}:
 
 \begin{itemize}
     \item \emph{must have}; requirements with this priority are essential for the product, and must be implemented.
@@ -9,25 +10,54 @@ This chapter lists the requirements the \projectname application should fulfill 
     \item \emph{won't have}; requirements with this priority will not be implemented in this version of the product, but may be nice to implement in future versions.
 \end{itemize}
 
-The structure of the software requirements in this section are conform the user requirements described in chapter 3 of the URD \cite{urd}. \\
+Only those user requirements from the URD \cite{urd} with a priority higher then \emph{won't have} will be translated to software requirements in this chapter.
+
+\todo{Moeten we dit inderdaad zo doen met die GWT verwijzing, of noemen we het juist niet zo specifiek?}
 Note that as \applicationname\ is developed using GWT, some of the software requirements listed in this chapter are described in terms of specific GWT widgets or panels\footnote{The website for the GWT widgetlist can be found at \url{https://developers.google.com/web-toolkit/doc/latest/RefWidgetGallery}.}.
 
-\todo{Nog even vermelden dat we de won't haves uit het URD niet beschrijven in dit SRD.}
 \todo{Requirements groeperen naar: MixerProvider, MiserPersistance, Client, ClientPersistence, SimulatorServer}
 
 \section{Functional requirements}
+\label{sec:funcreq}
 This section lists the functional requirements for the \projectname app.
 
-The user can select a rectangular mixer geometry. To this end, a cell browser is available that lists all the available geometries in the first column. This first column will contain several geometries, including ``rectangle", `` square", ``circle" or ``\emph{Journal Bearing}". After clicking on a certain geometry, the available mixers for this geometry are displayed in the second column of the cell browser. The user can now select a mixer of choice and then, the third column in the cell browser lists all the available starting concentration distributions for the selected mixer. There are three types of starting concentration distributions that the user can choose from. The first type is a ``blank" concentration distribution, which simply means that the user will be presented with a clean canvas when this option is selected. The second type is a ``load" option, so the user can load previously saved concentration distributions that are stored on their device. The third type of concentration distribution is a ``predefined" distribution, meaning that the user can choose from a few predefined distributions that are already present in the application. In case of the second and third option, there will be a third column in the cell browser that lists all the available concentration distributions that can be loaded. When the user clicks on an item in the third column, the required distribution is immediately loaded on an appropriate canvas. For the first option, a blank canvas is displayed on the screen. \\
+\subsection{MixerProvider}
+
+\subsection{MixerPeristenceCommunication}
+
+\subsection{MixerPersistence}
+
+\subsection{MixerProviderCommunication}
+
+\subsection{Client}
+
+\subsection{ClientPersistence}
+
+\subsection{SimulatorServerCommunication}
+
+\subsection{SimulatorServer}
+
+The user can select a rectangular mixer geometry. To this end, a cell browser is available that lists all the available geometries in the first column. This first column will contain several geometries, including ``rectangle", `` square", ``circle" or ``\emph{Journal Bearing}". After clicking on a certain geometry, the available mixers for this geometry are displayed in the second column of the cell browser. The user can now select a mixer of choice and then, the third column in the cell browser lists all the available starting concentration distributions for the selected mixer. There are three types of starting concentration distributions that the user can choose from. The first type is a ``blank" concentration distribution, which simply means that the user will be presented with a clean canvas when this option is selected. The second type is a ``load" option, so the user can load previously saved concentration distributions that are stored on their device. The third type of concentration distribution is a ``predefined" distribution, meaning that the user can choose from a few predefined distributions that are already present in the application. In case of the second and third option, there will be a third column in the cell browser that lists all the available concentration distributions that can be loaded. When the user clicks on an item in the third column, the required distribution is immediately loaded on an appropriate canvas. For the first option, a blank canvas is displayed on the screen when the user clicks on ``blank". \\
 This user requirement can then be described with the following software requirements:
 
 \SRQ[srq:selgeomrec]{must have}{The user can select ``rectangle" as a geometry, via the first column in a cell browser.} % CPR1
 \SRQ[srq:selmixer]{must have}{After having selected a geometry, the user can select a mixer that fits the selected geometry. The mixer can be selected via a second column in a cell browser.} % CPR2
 \SRQ[srq:selgeomsq]{should have}{The user can select ``square" as a geometry, via the first column in a cell browser.}  % CPR3
 \SRQ[srq:selgeomcir]{could have}{The user can select ``circle" as a geometry, via the first column in a cell browser.}  % CPR4
-\SRQ[srq:selgeomjb]{could have}{The user can select ``\emph{Journal Bearing}" as a geometry, via the first column in a cell browser.}  % CPR5
+\SRQ[srq:selgeomjb]{could have}{The user can select ``\emph{Journal Bearing}" as a geometry, via the first column in the cell browser.}  % CPR5
+\SRQ{must have}{The user can select a blank canvas, by choosing the ``blank" option in the third column in the cell browser.} % CPR6\
+\SRQ[prevsaved]{should have}{The user can view a list of all previously saved concentration distributions, by choosing the ``load" option in the third column in the cell browser.} % CPR13
+\SRQ{should have}{After selecting the ``load" option from \srqref{prevsaved}, the user can select a previously saved distribution by clicking on one distribution in the fourth column in the cell browser.} % CPR13
+\SRQ[predef]{should have}{The user can view a list of all predefined concentration distributions, by choosing the ``predefined" option in the third column in the cell browser.} % CPR14
+\SRQ{should have}{After selecting the ``predefined" option from \srqref{predef}, the user can select a predefined initial concentration distribution by clicking on one distribution in the fourth column in the cell browser.} % CPR14
 
-Requirements regarding the initial concentration distribution input: \\
+% TODO: hier nog alle requirements van het loaden van distributies en de pre-defined shit
+
+Requirements regarding the initial concentration distribution input:
+
+MixerProvider/SimulatorService Communication+MixdrPersistence requirements:
+Zorg dat alle functionaliteit van de SimulatieServer beschikbaar is (stel de volledige API/data bloot)
+snel genoeg, et cetera.
 
 \todo{VRAAG: moeten we er een losse requirement van maken dat de user op een canvas tekent? Ik vind het uit onderstaande
  requirements nu niet geheel duidelijk dat het om exact hetzelfde canvas gaat iedere keer.}
@@ -51,48 +81,38 @@ This user requirement can then be described with the following software requirem
 \SRQ{should have}{Each item from in the cell list of PREVIOUS contains a check box that can be selected or deselected, to indicate which distributions should be removed.} % CPR12
 \SRQ{should have}{After selecting at least one item from PREVIOUS, the user can press the ``Remove saved distributions" button and the selected items are removed from the device.} % CPR12
 
-The user can select an initial concentration distribution from a list of previously saved distributions.
+Requirements regarding the presentation of results: \\
+The user is able to visualise his mixing protocol, as well as able to save and export these results. To this end a results window is available. In the results window there is a `show statistics' button. When pressed, the performance of the mixing run is shown in a graph. The results window is reached by pressing the `start mixing' button in the mixing protocol window. The mixing protocol window is the window where the user can define his mixing protocol. In the mixing protocol window there is a `animate mixing' checkbox. If this checkbox was checked when the `start mixing' button is pressed, an animation of the mixing procedure is shown in the results window.
 
-\SRQ{should have}{} % CPR13
-
-Requirements regarding the presentation and exportation of results: \\
-\SRQ{should have}{The user can use a 'load' button to open a popup. In this popup he can select the files he wants to load. The 'load' button changes to 'load selected' and now loads all the selected files. The loaded data is then depicted in one graph.}
-%CPR36
-
-\SRQ{should have}{The user can use a 'export graph' button`to export the current result graph as a picture. If this button is used, the graph is exported as an SVG using the browser's native exporting support.}
-%CPR37
-
-\SRQ{could have}{After the  user has defined a mixing run, he can press the button 'visualise mixing'. After this button is pressed, the application processes the mixing run, together with the mixer data and responds by showing an animation of this mixing simulation to the user.}
-%CPR38
-
-\SRQ{could have}{After the user has visualised his mixing run (as described above), he can press the 'export animation' button. When this button is pressed, the animation is exported as an AVG using the browser's native exporting support.}
-
-\SRQ{must have}{After the user has defined a mixing run, he can press the button `start mixing'. When this button is pressed, the result of the user's mixing protocol is shown.}
+\SRQ{must have}{In the results window the result of the user's mixing protocol is shown.}
 %CPR32
 
-\SRQ{should have}{After the user pressed the `start mixing' button and the result is shown, he can press the `export picture' button. When this button is pressed, the result picture is exported as an SVG using the browser's native exporting support.}
-%CPR33
-
-\SRQ{must have}{After the user has defined a mixing run, he can press the button `start mixing'. When this button is pressed, the result of the user's mixing protocol is shown. Now the user can press a `show statistics' button. When pressed, a graph containing the mixing performance is shown.}
+\SRQ{must have}{The user can use the `show performance' button to get visual information of the performance of the mixing run.}
 %CPR34
 
-\SRQ{should have}{After the user has pressed the `show statistics' button and the mixing performance is shown, he can press the `export picture' button. When this button is pressed, the result picture is exported as an SVG using the browser's native exporting support.}
-%CPR35
-
-\SRQ{should have}{The user can use a `load' button to open a popup. In this popup he can select the files he wants to load. The `load' button changes to `load selected' and now loads all the selected files. The loaded data is then depicted in one graph.}
-%CPR36
-
-\SRQ{should have}{The user can use a `export graph' button`to export the current result graph as a picture. If this button is used, the graph is exported as an SVG using the browser's native exporting support.}
-%CPR37
-
-\SRQ{could have}{After the  user has defined a mixing run, he can tick a box titled `visualise mixing'. When this box is checked and he presses `start mixing', the application processes the mixing run, together with the mixer data and responds by showing an animation of this mixing simulation to the user.}
+\SRQ{could have}{An animation of the mixing run is shown in the results window if the `animate mixing' checkbox is checked.}
 %CPR38
 
-\SRQ{could have}{After the user has visualised his mixing run (as described above), he can press the `export animation' button. When this button is pressed, the animation is exported as an AVG using the browser's native exporting support.}
+Requirements regarding saving and exporting results: \\
+In the results window a `save' button, an `export' button and a `load results' button are available. If the `export' button is pressed, a popup with several available export options is shown: `export performance', `export picture' and `export animation'. `export animation' is only available if the `animate mixing' checkbox was checked. Additionally, a `load performance' button. The user can use this button to open a popup. In this popup he can select the files he wants to load. The button changes to `load selected' and now loads all the selected files.
+
+\SRQ{should have}{The `export picture' option can be used to export an image of the mixing result somewhere on the device.}
+%CPR33
+
+\SRQ{should have}{The `export performance' option can be used to export an image of the current performance graph somewhere on the device.}
+%CPR35&37
+
+\SRQ{should have}{Data loaded with the `load performance' button is depicted in a single performance graph.}
+%CPR36
+
+\SRQ{could have}{The `export animation' button can be used to export an animation of the mixing procedure somewhere on the device.}
 %CPR39
 
-\SRQ{could have}{In the menu bar a flag of the currently selected language is visible. When clicked, a popup appears containing several language options, each symbolised by the flag of their country. These flags can be clicked to change the language to that specific language. Standard language is English.}
-%CPR40&41
+Language selection: \\
+In the menu bar a flag of the currently selected language is visible. When clicked, a popup appears containing several language options, each symbolised by the flag of their country. These flags can be clicked to change the language to that specific language. Standard language is English.
+
+\SRQ{should have}{It should be possible to switch to Dutch langage with the language menu.}
+%CPR41
 
 \subsubsection{Set options for a mixing protocol}
 A duration can be any value that can be created by combining the possible values for $D$ (the step size), namely 4, 2, 1, 0.5, 0.25 and 0.1. Such a value $D$ can be entered in a text box near the drawing canvas. If an invalid value is entered -- i.e. a value that cannot be created by combining the mentioned values -- the user is prompted to enter a different value.
@@ -192,6 +212,9 @@ For the \emph{Journal bearing} geometry, the user can swipe across the screen to
 \subsection{Interface}
 
 \todo{Hier zegguh dat wij Fortran servertje gebruikuh.}
+
+\SRQ{must have}{An English interface is available}
+%CPR40
 
 \subsection{Operational}
 \subsection{Resource}
