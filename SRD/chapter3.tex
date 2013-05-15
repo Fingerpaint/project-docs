@@ -48,13 +48,9 @@ To indicate how many times the protocol created using the above items is execute
 \subsubsection{Defining an initial concentration distribution}
 \SRQ{must have}{The user can select a colour (black or white) to paint with for the initial concentration distribution, via a toggle button.} % CPR6
 \SRQ{must have}{The user can define an initial concentration distribution with the selected colour on the canvas, by drawing with their finger.} % CPR6
-\SRQ[circleshaped]{must have}{The user can select a circle-shaped drawing tool via a pop-up panel.} % CPR7
-\SRQ{must have}{The user can draw with a circle-shaped drawing tool on the canvas.} % CPR7, los omdat de square een lagere prioriteit heeft in het URD
+\SRQ{must have}{After selecting the circle-shaped drawing tool in \srqref{circleshaped}, the user can draw with this tool on the canvas.} % CPR7, los omdat de square een lagere prioriteit heeft in het URD
 \SRQ{must have}{The user can reset the current concentration distribution to a completely white concentration distribution, by clicking on the ``Reset" button.} % CPR8
-\SRQ[squareshaped]{should have}{The user can select a square-shaped drawing tool via a pop-up panel.} % CPR9
-\SRQ{should have}{The user can draw with a square-shaped drawing tool on the canvas.} % CPR9
-\SRQ{should have}{The user can adjust the size of the drawing tool, using a slider in the popup panel from \srqref{circleshaped} and \srqref{squareshaped}}. % CPR10
-\SRQ{should have}{The user can save an initial concentration distribution locally on their device, using a button and popup panel.} % CPR11
+\SRQ{should have}{After selecting the square-shaped drawing tool in \srqref{squareshaped}, the user can draw this tool on the canvas.} % CPR9
 
 \subsubsection{Select a geometry, mixer and initial concentration distribution}
 %The user can select a rectangular mixer geometry. To this end, a cell browser is available that lists all the available geometries in the first column. This first column will contain several geometries, including \texttt{rectangle}, \texttt{square}, \texttt{circle} or \texttt{Journal Bearing}. After clicking on a certain geometry, the available mixers for this geometry are displayed in the second column of the cell browser. The user can now select a mixer of choice and then, the third column in the cell browser lists all the available starting concentration distributions for the selected mixer. There are three types of starting concentration distributions that the user can choose from. The first type is a \texttt{blank} concentration distribution, which simply means that the user will be presented with a clean canvas when this option is selected. The second type is a \texttt{load} option, so the user can load previously saved concentration distributions that are stored on their device. The third type of concentration distribution is a \texttt{predefined} distribution, meaning that the user can choose from a few predefined distributions that are already present in the application. In case of the second and third option, there will be a third column in the cell browser that lists all the available concentration distributions that can be loaded. When the user clicks on an item in the third column, the required distribution is immediately loaded on an appropriate canvas. For the first option, a blank canvas is displayed on the screen when the user clicks on \texttt{blank}. \\
@@ -79,13 +75,8 @@ snel genoeg, etcetera}
 %The user can change the drawing tool that is used to paint on the canvas. The current shape and size of the drawing tool is displayed on the mixing interface, as a button with an image. When the user clicks on this button, a pop-up menu appears with two vertical panels. The left panel contains a list of all the different shapes for the drawing tool, such as circle and square. The right panel contains a slider to adjust the size of the drawing tool. The user can change the settings for the drawing tool and close the pop-up menu by clicking on the button again. \\
 %These requirements can be described with the following functional requirements:
 
-\SRQ{must have}{The user can select a colour (black or white) to paint with for the initial concentration distribution, via a Toggle Button.} % CPR6
-\SRQ{must have}{The user can define an initial concentration distribution with the selected colour on the canvas, by drawing with their finger.} % CPR6
 \SRQ[circleshaped]{must have}{The user can select a circle-shaped drawing tool via a pop-up panel.} % CPR7
-\SRQ{must have}{After selecting the circle-shaped drawing tool in \srqref{circleshaped}, the user can draw with this tool on the canvas.} % CPR7, los omdat de square een lagere prioriteit heeft in het URD
-\SRQ{must have}{The user can reset the current concentration distribution to a completely white concentration distribution, by clicking on the \texttt{Reset} button.} % CPR8
 \SRQ[squareshaped]{should have}{The user can select a square-shaped drawing tool via a pop-up panel.} % CPR9
-\SRQ{should have}{After selecting the square-shaped drawing tool in \srqref{squareshaped}, the user can draw this tool on the canvas.} % CPR9
 \SRQ{should have}{The user can adjust the size of the drawing tool, using a slider in the popup panel from \srqref{circleshaped} and \srqref{squareshaped}}. % CPR10
 
 \subsubsection{Define mixing protocol for specific geometries}
@@ -125,6 +116,8 @@ The user can choose to execute a single step of a mixing protocol, by choosing a
 
 \subsection{ClientPersistence}
 To manage mixing protocols, the user can save and load the mixing protocols they have created. It is also possible to load a predefined mixing protocol.
+
+\SRQ{should have}{The user can save an initial concentration distribution locally on their device, using a button and popup panel.} % CPR11
 
 \SRQ{should have}{ % CPR22
     The user can click the \texttt{Save} button to save the mixing protocol to their device. The desired name for the protocol can then be specified in the pop-up that appears.
