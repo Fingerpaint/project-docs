@@ -99,7 +99,7 @@ For the \emph{Journal bearing} geometry, the user can swipe across the screen to
 }
 
 \SRQ[visResults]{must have}{ % CPR29e
-    After the client receives the JSON object containing the concentration distribution and the performance result from the server, the client un-JSON's these items. The concentration distribution is visualised on the client's screen, using the canvas that was originally used to draw the initial concentration distribution. The performance result is visualised on the screen at the same time using a number. % TODO: If multiple runs are being received one after another, plot the performance.
+    After the client receives the JSON object containing the concentration distribution and the performance result from the server, the client un-JSON's these items. The concentration distribution is visualised on the client's screen, using the canvas that was originally used to draw the initial concentration distribution. The performance result is visualised on the screen at the same time using a number. If previous performance results have been received for this particular run as a result of previous executions, all performance results are plotted in a graph.
 }
 
 \SRQ{must have}{ % CPR19
@@ -171,7 +171,7 @@ To manage mixing protocols, the user can save and load the mixing protocols they
 \todo{Dit is niet in overeenstemming met use case B.20, want ik heb geen \texttt{View Saved Files} button en ik sta hier toe dat meerdere dingen tegelijkertijd verwijderd worden.}
 
 \subsubsection{Remove previously saved concentration distributions}
-%The user can remove a previously saved initial concentration distribution. To this end, a \texttt{Remove saved distributions} button is available. When the user clicks this button, a new screen opens with a cell list that shows all the available saved concentration distributions, along with a check box next to each item. The \texttt{Remove saved distributions} button will remain visible in this new screen. The user can then select one or more items to be removed using the check boxes. When the remove button is pressed, an \emph{Are you sure?} message is displayed. When the user presses \texttt{Yes}, all the selected distributions will be removed and the user returns to the history interface. If \texttt{No} is pressed, removal process is aborted and the history interface is shown again. \\ 
+%The user can remove a previously saved initial concentration distribution. To this end, a \texttt{Remove saved distributions} button is available. When the user clicks this button, a new screen opens with a cell list that shows all the available saved concentration distributions, along with a check box next to each item. The \texttt{Remove saved distributions} button will remain visible in this new screen. The user can then select one or more items to be removed using the check boxes. When the remove button is pressed, an \emph{Are you sure?} message is displayed. When the user presses \texttt{Yes}, all the selected distributions will be removed and the user returns to the history interface. If \texttt{No} is pressed, removal process is aborted and the history interface is shown again. \\
 %If no concentration distributions have been saved yet, a \emph{No saved distributions} message is displayed and the user can press \texttt{OK} to continue and display the history interface again. If the user has not given access rights to the application, a \emph{Insufficient access rights} error message is shown. The user can press \texttt{OK} to return to the history interface. \\
 %This user requirement can then be described with the following functional requirements:
 
@@ -196,7 +196,7 @@ In the results window a \texttt{save} button, an \texttt{export} button and a \t
 \SRQ{should have}{The \texttt{export performance} option can be used to export an image of the current performance graph somewhere on the device.}
 %CPR35&37
 
-\SRQ{should have}{Data loaded with the \texttt{load performance} button is depicted in a single performance graph.} 
+\SRQ{should have}{Data loaded with the \texttt{load performance} button is depicted in a single performance graph.}
 %CPR36
 
 \SRQ{should have}{The user should be able to cancel loading files by clicking somewhere not on the loading popup.}
