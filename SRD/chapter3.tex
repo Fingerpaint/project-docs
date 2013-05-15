@@ -20,10 +20,10 @@ Note that as \applicationname\ is developed using GWT, some of the software requ
 \label{sec:funcreq}
 This section lists the functional requirements for the \applicationname.
 
-\subsection{HTTP Server}
+\subsection[HTTP]{HTTP Server}
 \SRQ{must have}{The HTTP Server must be able to serve files to the Client Browser.}
 
-\subsection{Application Service} % Oude Mixer Provider
+\subsection[AS]{Application Service} % Oude Mixer Provider
 \SRQ{must have}{The Application Service must be able to retrieve all the available mixers from the Application Persistence.}
 \SRQ{must have}{The Application Service must be able to send all the available mixers to the Client Browser.}
 \SRQ{must have}{The Application Service must allow for adding new mixers to the Application Persistence.}
@@ -31,21 +31,21 @@ This section lists the functional requirements for the \applicationname.
 \SRQ{must have}{The Application Service must allow for removing existing mixers to the Application Persistence.}
 \SRQ{must have}{The Application Service must be able to provide all available geometries to the Client Browser.}
 
-\subsection{Application Persistence Communication}
+\subsection[APC]{Application Persistence Communication}
 \SRQ{must have}{The Application Persistence Communication must be able to access all the data from the Application Persistence.}
 \SRQ{must have}{The Application Persistence Communication must be \todo{fast enough} to serve the data from the Application Persistence to the Application Service.}
 
-\subsection{Application Persistence} % Voorheen MixerPersistence
+\subsection[AP]{Application Persistence} % Voorheen MixerPersistence
 \SRQ{must have}{The Application Persistence must deliver all saved mixers to the Application Service.}
 \SRQ{must have}{The Application Persistence must save new mixers handed by the Application Service.}
 \SRQ{must have}{The Application Persistence must save changes to existing mixers handed by the Application Service.}
 \SRQ{must have}{The Application Persistence must remove existing mixers handed by the Application Service.}
 
-\subsection{Application Service Communication} % Voorheen MixerProviderCommunication
+\subsection[ASC]{Application Service Communication} % Voorheen MixerProviderCommunication
 \SRQ{must have}{The Application Service Communication must be able to access all the functionality from the Application Service.}
 \SRQ{must have}{The Application Service Communication must be \todo{fast enough} to provide the functionality from the Application Service to the Client Browser.}
 
-\subsection{Client Browser}
+\subsection[CB]{Client Browser}
 \subsubsection{Set options for a mixing protocol}
 A duration can be any value that can be created by combining the possible values for $D$ (the step size), namely 4, 2, 1, 0.5, 0.25 and 0.1. Such a value $D$ can be entered in a text box near the drawing canvas. If an invalid value is entered -- i.e. a value that cannot be created by combining the mentioned values -- the user is prompted to enter a different value.
 
@@ -70,6 +70,7 @@ To indicate how many times the protocol created using the above items is execute
 %The user can select a rectangular mixer geometry. To this end, a cell browser is available that lists all the available geometries in the first column. This first column will contain several geometries, including \texttt{rectangle}, \texttt{square}, \texttt{circle} or \texttt{Journal Bearing}. After clicking on a certain geometry, the available mixers for this geometry are displayed in the second column of the cell browser. The user can now select a mixer of choice and then, the third column in the cell browser lists all the available starting concentration distributions for the selected mixer. There are three types of starting concentration distributions that the user can choose from. The first type is a \texttt{blank} concentration distribution, which simply means that the user will be presented with a clean canvas when this option is selected. The second type is a \texttt{load} option, so the user can load previously saved concentration distributions that are stored on their device. The third type of concentration distribution is a \texttt{predefined} distribution, meaning that the user can choose from a few predefined distributions that are already present in the application. In case of the second and third option, there will be a third column in the cell browser that lists all the available concentration distributions that can be loaded. When the user clicks on an item in the third column, the required distribution is immediately loaded on an appropriate canvas. For the first option, a blank canvas is displayed on the screen when the user clicks on \texttt{blank}. \\
 %This user requirement can then be described with the following functional requirements:
 
+\SRQ{must have}{The mixing interface contains a cell browser with four columns, to select an initial mixer, geometry and initial distribution.} % CPR1
 \SRQ[selgeomrec]{must have}{The user can select \texttt{rectangle} as a geometry, via the first column in the cell browser.} % CPR1
 \SRQ[selmixer]{must have}{After having selected a geometry, the user can select a mixer that fits the selected geometry. The mixer can be selected via a second column in the cell browser.} % CPR2
 \SRQ[selgeomsq]{should have}{The user can select \texttt{square} as a geometry, via the first column in the cell browser.}  % CPR3
@@ -82,11 +83,12 @@ To indicate how many times the protocol created using the above items is execute
 \SRQ{should have}{After selecting the \texttt{predefined} option from \srqref{predef}, the user can select a predefined initial concentration distribution by clicking on one distribution in the fourth column in the cell browser.} % CPR14
 
 \subsubsection{Change the drawing tool}
-%The user can change the drawing tool that is used to paint on the canvas. The current shape and size of the drawing tool is displayed on the mixing interface, as a button with an image. When the user clicks on this button, a pop-up menu appears with two vertical panels. The left panel contains a list of all the different shapes for the drawing tool, such as circle and square. The right panel contains a slider to adjust the size of the drawing tool. The user can change the settings for the drawing tool and close the pop-up menu by clicking on the button again. \\
-%These requirements can be described with the following functional requirements:
+The user can change the drawing tool that is used to paint on the canvas. The current shape and size of the drawing tool is displayed on the mixing interface, as a button with an image. When the user clicks on this button, a pop-up menu appears with two vertical panels. The left panel contains a list of all the different shapes for the drawing tool, such as circle and square. The right panel contains a slider to adjust the size of the drawing tool. The user can change the settings for the drawing tool and close the pop-up menu by clicking on the button again.
 
-\SRQ[circleshaped]{must have}{The user can select a circle-shaped drawing tool via a pop-up panel.} % CPR7
-\SRQ[squareshaped]{should have}{The user can select a square-shaped drawing tool via a pop-up panel.} % CPR9
+\SRQ{must have}[shapedraw]{The mixing interface contains a button that displays the current shape of the drawing tool.} % CPR7
+\SRQ{should have}{The button from \srqref{shapedraw} also displays the current size of the drawing tool.} % CPR10
+\SRQ[circleshaped]{must have}{After clicking the button from \srqref{shapedraw}, the user can select a circle-shaped drawing tool via a pop-up panel.} % CPR7
+\SRQ[squareshaped]{should have}{After clicking the button from \srqref{shapedraw}, the user can select a square-shaped drawing tool via a pop-up panel.} % CPR9
 \SRQ{should have}{The user can adjust the size of the drawing tool, using a slider in the popup panel from \srqref{circleshaped} and \srqref{squareshaped}}. % CPR10
 
 \subsubsection{Define mixing protocol for specific geometries}
@@ -124,7 +126,7 @@ The user can choose to execute a single step of a mixing protocol, by choosing a
 }
 
 
-\subsection{Client Persistence}
+\subsection[CP]{Client Persistence}
 To manage mixing protocols, the user can save and load the mixing protocols they have created. It is also possible to load a predefined mixing protocol.
 
 \SRQ{should have}{The user can save an initial concentration distribution locally on their device, using a button and popup panel.} % CPR11
@@ -182,7 +184,7 @@ To manage mixing protocols, the user can save and load the mixing protocols they
 %If no concentration distributions have been saved yet, a \emph{No saved distributions} message is displayed and the user can press \texttt{OK} to continue and display the history interface again. If the user has not given access rights to the application, a \emph{Insufficient access rights} error message is shown. The user can press \texttt{OK} to return to the history interface. \\
 %This user requirement can then be described with the following functional requirements:
 
-\SRQ{should have}{There is a \texttt{Remove saved distributions} button to remove previously saved distributions.} % CPR12
+\SRQ{should have}{The mixing interface has a \texttt{Remove saved distributions} button to remove previously saved distributions.} % CPR12
 \SRQ[listsaved]{should have}{After clicking the \texttt{Remove saved distributions} button, the history interface is shown, with a cell list that provides all the previously saved concentration distributions.} % CPR12
 \SRQ[selectremove]{should have}{Each item from in the cell list of \srqref{listsaved} contains a check box that can be selected or deselected, to indicate which distributions should be removed.} % CPR12
 \SRQ[suremessage]{should have}{After selecting at least one item from \srqref{selectremove}, the user can press the \texttt{Remove saved distributions} button and a \emph{Are you sure?} message is shown.} % CPR12
@@ -227,7 +229,7 @@ In the results window a \texttt{save} button, an \texttt{export} button and a \t
 \subsubsection{Language selection}
 In the menu bar a flag of the currently selected language is visible. When clicked, a popup appears containing several language options, each symbolised by the flag of their country. These flags can be clicked to change the language to that specific language. Standard language is English. The preferred language should be stored on the client device.
 
-\subsection{Simulator Service Communication}
+\subsection[SSC]{Simulator Service Communication}
 To execute a mixing protocol, the following SRQs are executed in this order: \srqref{startMixing}, \srqref{sendParams}, \srqref{readParams}, \srqref{execMixing}, \srqref{returnParams} and \srqref{visResults}.
 
 \SRQ[sendParams]{must have}{ % CPR29b
@@ -260,7 +262,7 @@ The user is able to visualise his mixing protocol, as well as able to save and e
 \SRQ{could have}{An animation of the mixing run is shown in the results window if the \texttt{animate mixing} checkbox is checked.}
 %CPR38
 
-\subsection{Simulator Service}
+\subsection[SS]{Simulator Service}
 \SRQ[execMixing]{must have}{ %CRP29c2
      The server executes the mixing using the parameters received via the socket. The concentration distribution and mixing protocol are given to the \textsc{Fortran} implementation.
 }
@@ -274,7 +276,7 @@ The user is able to visualise his mixing protocol, as well as able to save and e
 \subsubsection{Define a mixing protocol}
 A wall movement is defined by either $T$ or $B$, denoting a movement of the top or bottom wall, respectively. Looking directly at the screen, a $T$ movement indicates that the top wall should move to the right, and a $B$ movement indicates that the bottom wall should move to the left. Each of these wall movements can be combined with a `$-$' sign, to indicate that the direction of movement should be reversed. This means $-T$, for example, indicates that the top wall should move to the \emph{left}. A duration can be any value that can be created by combining the possible values for $D$ (the step size), namely 4, 2, 1, 0.5, 0.25 and 0.1.
 
-\subsection{Fortran Module}
+\subsection[FM]{Fortran Module}
 \SRQ{must have}{The Fortran Module must accept input (matrix, protocol information) from the Simulator Service.}
 \SRQ{must have}{The Fortran Module must provide output (vectors) to the Simulator Service.}
 
