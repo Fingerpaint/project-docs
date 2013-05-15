@@ -196,35 +196,53 @@ To manage mixing protocols, the user can save and load the mixing protocols they
 \SRQ{should have}{The user can press the \texttt{OK} button in the message from \srqref{insuffrights} to return to the history interface.} % CPR12
 \SRQ{should have}{After pressing the button from requirements \srqref{yesbutton} or \srqref{nobutton}, the user returns to the history interface.} % CPR12
 
-\subsubsection{saving and exporting results}
-In the results window a \texttt{save} button, an \texttt{export} button and a \texttt{load results} button are available. If the \texttt{export} button is pressed, a popup with several available export options is shown: \texttt{export performance}, \texttt{export picture} and \texttt{export animation}. \texttt{export animation} is only available if the \texttt{animate mixing} checkbox was checked in the mixing interface. The user can then name the file and browse to a desirable storage location. If during saving the specified name for saving/exporting is already in use, the application returns a \texttt{name already in use} message. Additionally, a \texttt{load performance} button. The user can use this button to open a popup. In this popup he can select the files he wants to load. The button changes to \texttt{load selected} and now loads all the selected files. If no files are selected, the button is named \texttt{cancel} and will simply cancel without loading. An alternative way to cancel loading is to click somewhere not on the popup.
+\subsubsection{Saving and exporting results}
+In the results window a \texttt{save} button, an \texttt{export} button and a \texttt{load results} button is available. If the \texttt{export} button is pressed, a popup with several available export options is shown: \texttt{export performance}, \texttt{export picture} and \texttt{export animation}. \texttt{export animation} is only available if the \texttt{animate mixing} checkbox was checked in the mixing interface. The user can then name the file and browse to a desirable storage location. If during saving the specified name for saving/exporting is already in use, the application returns a \texttt{name already in use} message. Additionally, a \texttt{load performance} button is available in the results window. The user can use this button to open a popup. In this popup he can select the files he wants to load. The button changes to \texttt{load selected} and now loads all the selected files. If no files are selected, the button is named \texttt{cancel} and will simply cancel without loading. An alternative way to cancel loading is to click somewhere not on the popup.
 
-\SRQ{should have}{The \texttt{export picture} option can be used to export an image of the mixing result somewhere on the device.}
+\SRQ{should have}{The \texttt{export picture} option can be used to open the export menu for an image of the mixing result.}
 %CPR33
-
-\SRQ{should have}{The \texttt{export performance} option can be used to export an image of the current performance graph somewhere on the device.}
+\SRQ{should have}{The \texttt{export performance} option can be used to open the export menu for an image of the current performance graph.}
 %CPR35&37
-
-\SRQ{should have}{Data loaded with the \texttt{load performance} button is depicted in a single performance graph.}
-%CPR36
-
+\SRQ{could have}{The \texttt{export animation} button can be used to open the export menu for an animation of the mixing procedure somewhere on the device.}
+%CPR39
+\SRQ[exportname]{should have}{In the export menu, The user can specify a name for the exported file.}
+%NEW
+\SRQ[exportlocation]{should have}{In the export menu, The user can specify a location for the exported file.}
+%NEW
+\SRQ[exportsave]{should have}{If the user clicks on the save button in the export menu, the file is stored at the location specified in \srqref{exportlocation} with the name specified in \srqref{exportname}.}
+%NEW
 \SRQ{should have}{The user should be able to cancel loading files by clicking somewhere not on the loading popup.}
 %NEW
-
-\SRQ{should have}{If there are no access rights to store the exported/saved data at the selected location, the application returns a \texttt{no access rights} message.}
+\SRQ[nameinuseexport]{should have}{If there are no access rights to store the exported/saved data at the selected location when \srqref{exportsave} is executed, the application returns a \texttt{no access rights} message.}
 %Use case alternative S.1
-
-\SRQ{should have}{If there is no memory space to store exported/saved data, the application returns an \texttt{out of memory} message.}
+\SRQ[nomemoryexport]{should have}{If there is no memory space to store exported/saved data when \srqref{exportsave} is executed, the application returns an \texttt{out of memory} message.}
 %Use case alternative S.2
-
-\SRQ{should have}{The user can overwrite the old file if a saved file already exists.}
+\SRQ{should have}{The popup opened by \srqref{nomemoryexport} can be closed with an \texttt{ok} button}
+%NEW
+\SRQ{should have}{The user can overwrite the old file in \srqref{nameinuse} with an \texttt{overwrite} button if a saved file already exists.}
 %Use case alternative S.3.1
-
-\SRQ{should have}{The user can cancel overwriting the old file if a saved file already exists.}
+\SRQ{should have}{The user can cancel overwriting the old file in \srqref{nameinuseexport} with a \texttt{cancel} button if a saved file already exists.}
 %Use case alternative S.3.2
 
-\SRQ{could have}{The \texttt{export animation} button can be used to export an animation of the mixing procedure somewhere on the device.}
-%CPR39
+\subsubsection{Loading results}
+In the results window a \texttt{load results} button is available. This button opens a loading window in which a \texttt{results} file is opened. Multiple results can be selected.
+
+\SRQ{should have}{The \texttt{load results} button can be used to open the load menu for a texttt{results} file.}
+%CPR30&36
+\SRQ[selectload]{should have}{In the load menu one or more \texttt{results} files can be selected to be loaded.}
+%CPR30&36
+\SRQ[loadresults]{should have}{In the load menu, the \texttt{load} button can be used to load the files selected in \srqref{selectload}.}
+%CPR30&36
+\SRQ[displayload]{should have}{When \srqref{loadresults} is executed, the end mixture and the performance are loaded from files selected in \srqref{selectload}.}
+%CPR30&36
+\SRQ{should have}{If in \srqref{displayload} multiple files are selected, all performance data is loaded in one graph.}
+%CPR36
+\SRQ{should have}{If in \srqref{displayload} multiple files are selected, the user is able to browse through the result mixtures.}
+%Extention of CPR36
+\SRQ{should have}{In the load menu, the \texttt{cancel} button can be used to exit the loading menu.}
+%CPR30&36
+\SRQ{should have}{If multiple files are selected in the loading menu, they are all depicted in a single performance graph.}
+%CPR36
 
 \subsubsection{Language selection}
 In the menu bar a flag of the currently selected language is visible. When clicked, a popup appears containing several language options, each symbolised by the flag of their country. These flags can be clicked to change the language to that specific language. Standard language is English. The preferred language should be stored on the client device.
@@ -250,16 +268,16 @@ To execute a mixing protocol, the following SRQs are executed in this order: \sr
 \subsubsection{Requirements regarding the presentation of results}
 The user is able to visualise his mixing protocol, as well as able to save and export these results. To this end a results window is available. In the results window there is a \texttt{show statistics} button. When pressed, the performance of the mixing run is shown in a graph. In this new menu the \texttt{show statistics} button changes to \texttt{show result}. When this button is pressed, the image switches back to the default results window. The results window is reached by pressing the \texttt{start mixing} button in the mixing interface. The mixing interface is the window where the user can define his mixing protocol. In the mixing interface there is a \texttt{animate mixing} checkbox. If this checkbox was checked when the \texttt{start mixing} button is pressed, an animation of the mixing procedure is shown in the results window.
 
-\SRQ{must have}{In the results window the result of the user's mixing protocol is shown.}
+\SRQ{must have}{In the results window the result of the user's mixing protocol is shown. This interface can be reached by pressing the \texttt{start mixing} button.}
 %CPR32
 
 \SRQ{must have}{The user can use the \texttt{show performance} button to get visual information of the performance of the mixing run.}
 %CPR34
 
-\SRQ{must have}{The user can use the \texttt{show result} button to switch back and view the result distribution of the mixing run.}
+\SRQ{must have}{The user can use the \texttt{show result} button to switch back to the standard results window and view the result distribution of the mixing run.}
 %NEW
 
-\SRQ{could have}{An animation of the mixing run is shown in the results window if the \texttt{animate mixing} checkbox is checked.}
+\SRQ{could have}{An animation of the mixing run is shown in the results window if the \texttt{animate mixing} checkbox was checked.}
 %CPR38
 
 \subsection[SS]{Simulator Service}
