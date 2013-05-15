@@ -38,11 +38,11 @@ A duration can be any value that can be created by combining the possible values
 To indicate how many times the protocol created using the above items is executed, the user can enter a number in a spinner. We use a spinner because the number it contains can easily be incremented or decremented by using the arrow keys, and a value that is not near the original value can easily be entered using its text box.
 
 \SRQ[stepsize]{must have}{ % CPR20
-    The user can enter the step size in a text box.
+    The user can enter a valid step size in a text box.
 }
 
 \SRQ{must have}{ % CPR21
-    The user can indicate via a spinner how many times the protocol should be applied.
+    The user can indicate via a spinner how many times the protocol should be applied. This value must be an integer number, and must be at least 1.
 }
 
 \subsubsection{Defining an initial concentration distribution}
@@ -61,11 +61,15 @@ To indicate how many times the protocol created using the above items is execute
 \SRQ[selgeomsq]{should have}{The user can select \texttt{square} as a geometry, via the first column in the cell browser.}  % CPR3
 \SRQ[selgeomcir]{could have}{The user can select \texttt{circle} as a geometry, via the first column in the cell browser.}  % CPR4
 \SRQ[selgeomjb]{could have}{The user can select \texttt{Journal Bearing} as a geometry, via the first column in the cell browser.}  % CPR5
-\SRQ{must have}{The user can select a blank canvas, by choosing the \texttt{blank} option in the third column in the cell browser.} % CPR6
+\SRQ{must have}{The user can select a blank canvas after choosing a geometry and mixer, by choosing the \texttt{blank} option in the third column in the cell browser.} % CPR6
 \SRQ[prevsaved]{should have}{The user can view a list of all previously saved concentration distributions, by choosing the \texttt{load} option in the third column in the cell browser.} % CPR13
 \SRQ{should have}{After selecting the \texttt{load} option from \srqref{prevsaved}, the user can select a previously saved distribution by clicking on one distribution in the fourth column in the cell browser.} % CPR13
 \SRQ[predef]{should have}{The user can view a list of all predefined concentration distributions, by choosing the \texttt{predefined} option in the third column in the cell browser.} % CPR14
 \SRQ{should have}{After selecting the \texttt{predefined} option from \srqref{predef}, the user can select a predefined initial concentration distribution by clicking on one distribution in the fourth column in the cell browser.} % CPR14
+
+\SRQ{must have}{ % CPR19
+    The user can press the \texttt{Reset} button to clear the current canvas, which is equivalent to completely colouring it white.
+}
 
 \todo{MixerProvider/SimulatorService Communication+MixdrPersistence requirements: \\
 Zorg dat alle functionaliteit van de SimulatieServer beschikbaar is (stel de volledige API/data bloot) \\
@@ -77,14 +81,16 @@ snel genoeg, etcetera}
 
 \SRQ[circleshaped]{must have}{The user can select a circle-shaped drawing tool via a pop-up panel.} % CPR7
 \SRQ[squareshaped]{should have}{The user can select a square-shaped drawing tool via a pop-up panel.} % CPR9
-\SRQ{should have}{The user can adjust the size of the drawing tool, using a slider in the popup panel from \srqref{circleshaped} and \srqref{squareshaped}}. % CPR10
+\SRQ{should have}{The user can adjust the size of the drawing tool, using a slider in the popup panel from \srqref{circleshaped} and \srqref{squareshaped}.} % CPR10
 
 \subsubsection{Define mixing protocol for specific geometries}
-For the rectangular or square geometries, a wall movement is defined by either $T$ or $B$, denoting a movement of the top or bottom wall, respectively. Each movement is performed for $D$ time units, which can be set using \srqref{stepsize}. Looking directly at the screen, a $T$ movement indicates that the top wall should move to the right, and a $B$ movement indicates that the bottom wall should move to the left. Each of these wall movements can be combined with a `$-$' sign, to indicate that the direction of movement should be reversed. This means $-T$, for example, indicates that the top wall should move to the \emph{left}.
+A mixing protocol consists of movements of the mixer (if applicable), and how long these movements are executed. Different movement types are possible for each geometry. Each movement is performed for $D$ time units, which can be set using \srqref{stepsize}.
+
+For the rectangular or square geometries, a wall movement is defined by either $T$ or $B$, denoting a movement of the top or bottom wall, respectively. Looking directly at the screen, a $T$ movement indicates that the top wall should move to the right, and a $B$ movement indicates that the bottom wall should move to the left. Each of these wall movements can be combined with a `$-$' sign, to indicate that the direction of movement should be reversed. This means $-T$, for example, indicates that the top wall should move to the \emph{left}.
 
 The circular geometry does not support movements, and as such a mixing protocol is immediately defined after selecting a mixer.
 
-For the \emph{Journal bearing} geometry, the user can swipe across the screen to indicate movements. Swiping to the right near the top of the outer circle means the outer circle rotates clockwise for $D$ time units, and swiping to the right near the top of the inner circle means the inner circle rotates clockwise for $D$ time units.
+For the \emph{Journal bearing} geometry, movements are defined by rotating the outer or inner circle. Swiping to the right near the top of the outer circle means the outer circle rotates clockwise for $D$ time units, and swiping to the right near the top of the inner circle means the inner circle rotates clockwise for $D$ time units. Here, too, a `-' sign implies the rotation is executed in the opposite direction.
 
 \SRQ{must have}{ % CPR17a
     The \emph{Step} class contains a movement and a duration for this movement.
@@ -95,29 +101,32 @@ For the \emph{Journal bearing} geometry, the user can swipe across the screen to
 }
 
 \SRQ[startMixing]{must have}{ % CPR29a
-    After defining a mixer, a mixing protocol and an initial distribution, the user can press the \texttt{Mix} button to execute the actual mixing.
+    After defining a mixer, a mixing protocol and an initial distribution, the user can press the \texttt{Mix} button to execute the actual mixing. This button is greyed out (it cannot be pressed) if no mixing protocol has been defined.
 }
+
+\subsubsection{Visualising the results}
+When the client receives the JSON object containing the concentration distribution and the performance result from the server, the client un-JSON's these items. The concentration distribution is visualised on the client's screen, using the canvas that was originally used to draw the initial concentration distribution. The performance result is visualised in a graph, which contains all previous performance results for this particular run.
 
 \SRQ[visResults]{must have}{ % CPR29e
-    After the client receives the JSON object containing the concentration distribution and the performance result from the server, the client un-JSON's these items. The concentration distribution is visualised on the client's screen, using the canvas that was originally used to draw the initial concentration distribution. The performance result is visualised on the screen at the same time using a number. If previous performance results have been received for this particular run as a result of previous executions, all performance results are plotted in a graph.
+    Concentration distributions can be drawn on the client's canvas.
 }
 
-\SRQ{must have}{ % CPR19
-    The user can press the \texttt{Reset} button to clear the current canvas, which is equivalent to completely colouring it white.
+\SRQ{must have}{ % CPR29f
+    Performance results can be plotted in a graph.
 }
 
 \subsubsection{Execute mixing runs}
-The user can choose to execute a single step of a mixing protocol, by choosing a single \emph{Step}. This invokes \srqref{startMixing}, \srqref{sendParams}, \srqref{readParams}, \srqref{execMixing}, \srqref{returnParams} and \srqref{visResults}.
+The user can choose to execute a single step of a mixing protocol, by defining a single \emph{Step}. This is done by choosing one wall movement and its duration. This invokes \srqref{startMixing}, \srqref{sendParams}, \srqref{readParams}, \srqref{execMixing}, \srqref{returnParams} and \srqref{visResults}.
 
 \SRQ{must have}{ % CPR18
-    After selecting a geometry, a mixer, an initial distribution and a single \emph{Step}, the user can press the \texttt{Execute step} button to execute a single step.
+    After selecting a geometry, a mixer, an initial distribution and a single \emph{Step}, the user can press the \texttt{Execute step} button to execute a single step. This button is greyed out (cannot be pressed) if no \emph{Step} has been defined.
 }
 
 
 \subsection{ClientPersistence}
-To manage mixing protocols, the user can save and load the mixing protocols they have created. It is also possible to load a predefined mixing protocol.
-
 \SRQ{should have}{The user can save an initial concentration distribution locally on their device, using a button and popup panel.} % CPR11
+
+To manage mixing protocols, the user can save and load the mixing protocols they have created. It is also possible to load a predefined mixing protocol.
 
 \SRQ{should have}{ % CPR22
     The user can click the \texttt{Save} button to save the mixing protocol to their device. The desired name for the protocol can then be specified in the pop-up that appears.
@@ -128,11 +137,11 @@ To manage mixing protocols, the user can save and load the mixing protocols they
 }
 
 \SRQ{should have}{ % CPR24
-    After the user has selected the geometry and the mixer using \srqref{selgeomrec}, \srqref{selgeomsq}, \srqref{selgeomcir} or \srqref{selgeomjb} and \srqref{selmixer}, they can choose to load a previously saved mixing protocol by choosing the \texttt{Load} option in the third level of the menu. This spawns a fourth menu level with the names of all applicable saved protocols. Clicking one such protocol loads it.
+    After the user has selected the geometry and the mixer using \srqref{selgeomrec}, \srqref{selgeomsq}, \srqref{selgeomcir} or \srqref{selgeomjb} and \srqref{selmixer}, they can choose to load a previously saved mixing protocol. This spawns a menu with the names of all applicable saved protocols. Pressing the name of one such protocol loads it.
 }
 
 \SRQ{could have}{ % CPR28
-    After \srqref{selgeomrec}, \srqref{selgeomsq}, \srqref{selgeomcir} or \srqref{selgeomjb} and \srqref{selmixer}, the user selects the \texttt{Predefined} option in the third level of the \texttt{Mixer} menu. This spawns a fourth level of the menu containing all suitable predefined mixing protocols for the selected geometry. Clicking one such protocol selects it, which means it will be used once the mixing is executed.
+    After \srqref{selgeomrec}, \srqref{selgeomsq}, \srqref{selgeomcir} or \srqref{selgeomjb} and \srqref{selmixer}, the user can load a predefined mixing protocol. This spawns a menu containing all suitable predefined mixing protocols for the selected geometry. Pressing the name of one such protocol selects it, which means it will be used once the mixing is executed.
 }
 
 \subsubsection{Mixing runs}
@@ -145,8 +154,8 @@ To manage mixing protocols, the user can save and load the mixing protocols they
 }
 
 \subsubsection{Save an initial concentration distribution}
-%The user can save an initial concentration distribution locally on their device. When the user clicks the \texttt{Save Distribution} button, a pop-up menu appears. The user can now enter a name for the concentration distribution and click the \texttt{Save} button to save the distribution. When the save was successful, a \emph{Save was successful} message is displayed and the user can press \texttt{OK} to go back to the mixing interface. If there is not enough memory to save the image, a \emph{Insufficient memory message} is displayed; the user can then press the \texttt{OK} button to go back to the mixing interface. \\
-%If the entered name is already in use, a new pop-up menu is displayed, giving the user the choice to either \texttt{Overwrite} or \texttt{Cancel} the current save process. If the user presses the \texttt{Overwrite} button and the save was successful, a \emph{Save was successful} message is displayed and the user can press \texttt{OK} to go back to the mixing interface. The user can abort the saving process in either dialogues, by clicking the \texttt{Cancel} button. \\
+%The user can save an initial concentration distribution locally on their device. When the user clicks the \texttt{Save Distribution} button, a pop-up menu appears. The user can now enter a name for the concentration distribution and click the \texttt{Save} button to save the distribution. When the save was successful, a \emph{Save was successful} message is displayed and the user can press \texttt{OK} to go back to the mixing interface. If there is not enough memory to save the image, a \emph{Insufficient memory message} is displayed; the user can then press the \texttt{OK} button to go to the mixing interface. \\
+%If the entered name is already in use, a new pop-up back menu is displayed, giving the user the choice to either \texttt{Overwrite} or \texttt{Cancel} the current save process. If the user presses the \texttt{Overwrite} button and the save was successful, a \emph{Save was successful} message is displayed and the user can press \texttt{OK} to go back to the mixing interface. The user can abort the saving process in either dialogues, by clicking the \texttt{Cancel} button. \\
 
 \SRQ[savedistr]{should have}{The user can save an initial concentration distribution locally on their device, using a \texttt{Save Distribution} button.} % CPR11
 \SRQ[savename]{should have}{After clicking the save button from \srqref{savedistr}, the user can specify a name for the concentration distribution.} % CPR11
@@ -224,15 +233,15 @@ In the menu bar a flag of the currently selected language is visible. When click
 To execute a mixing protocol, the following SRQs are executed in this order: \srqref{startMixing}, \srqref{sendParams}, \srqref{readParams}, \srqref{execMixing}, \srqref{returnParams} and \srqref{visResults}.
 
 \SRQ[sendParams]{must have}{ % CPR29b
-    The parameters (initial concentration distribution, geometry, mixing protocol, mixer and number of protocol applications) are JSON'ed and sent to the server using a socket.
+    The parameters (initial concentration distribution, geometry, mixing protocol, mixer and number of protocol applications) are encapsulated into a JSON object which is sent to the server using a socket.
 }
 
 \SRQ[readParams]{must have}{ % CPR29c
-    The server un-JSON's the parameters.
+    The server parses the parameters.
 }
 
 \SRQ[returnParams]{must have}{ % CPR29d
-    The server JSON's the resulting concentration distribution and the performance result and sends this JSON object back to the client using the socket.
+    The server encapsulates the resulting concentration distribution and the performance result into a JSON object and sends this back to the client using the socket.
 }
 
 \subsubsection{Requirements regarding the presentation of results}
@@ -252,7 +261,7 @@ The user is able to visualise his mixing protocol, as well as able to save and e
 
 \subsection{SimulatorServer}
 \SRQ[execMixing]{must have}{ %CRP29c2
-     The server executes the mixing using the parameters received via the socket. The concentration distribution and mixing protocol are given to the \textsc{Fortran} implementation.
+     The server executes the mixing using the parameters received via the socket. The concentration distribution and mixing protocol are given as input to the \textsc{Fortran} implementation.
 }
 
 MixerProvider/SimulatorService Communication+MixdrPersistence requirements:
