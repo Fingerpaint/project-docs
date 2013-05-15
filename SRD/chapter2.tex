@@ -52,4 +52,43 @@ used, the resulting fluid distribution and the resulting performance metric.
 
 \section{Model description}
 \label{sec:moddesc}
-\todo{A description of the logical model}
+On a very high level, the architecture of the \applicationname{} can be divided into different tiers communicating through communication channels. A graphical representation of these relation between those tiers and channels can be found in figure \ref{fig:tierchannel}.
+
+\subsection{Client tier}
+\label{sec:clienttier}
+There are an arbitrary number of Client tiers. These tiers are the physical machines of the users of the \applicationname{} (phones, tablets, laptops, desktops).
+
+\subsubsection{Client Browser and Client Persistence}
+\label{sec:clientbrowser} 
+Each Client tier runs a Client Browser (one of the browsers as specified in section \ref{sec:env}) and has a persistent storage facility (Client Persistence). The Client Browser can use this facility to store data that is specific to the user and does not need to be stored in a central location. The Client Browser provides the user with a Graphical User Interface. All interactions of the user with the application are performed through this GUI.
+
+\subsection{Application Server tier}
+\label{sec:aplicationserver}
+The Application Server is a physical machine maintained by the system administrator of the application. It is used to distribute the application and provide services to the application.
+
+\subsubsection{HTTP Server}
+\label{sec:httpserver}
+The application is distributed on demand to the Client tiers using HTTP by the HTTP server. This is just a (large) static collection of content that can be executed by the Client Browser. Once this collection has been transferred the Client will do all communication through the Application Service.
+
+\subsubsection{Application Service}
+\label{sec:applicationservice}
+Whenever centralized data or other communication is required by the application running on a Client, this is done through the Application Service using the Application Service Communiaction channel.
+
+\subsection{Application Persistence tier}
+\label{sec:applicationpersistence}
+The Application Service may use a global persistent storage facility in order to store data that needs to be available to all Clients. This storage facility is provided in the Application Persistence tier and is communicated to through the Application Persistence Communication chanel. In practice, this tier may be the same physical machine as the Application Server.
+
+\subsection{Simulator Server}
+\label{sec:simulatorserver}
+The simulations that need to be done for the application are ran on a dedicated machine (altough in practice, this may be the same physical machine as the Application Server).
+
+\subsubsection{Simulator Service and Fortran Module}
+\label{sec:simulatorservice}
+Whenever a Client wishes to run a simulation, it interfaces with the Simulator Service through the Simulator Service Communication channel. The Simulator Service uses an existing Fortran Module to calculate the result of a simulation.
+
+\begin{figure}
+\label{fig:tierchannel}
+  \centering
+\includegraphics[scale=0.5]{SoftwareTiers}
+\caption{The different tiers of the system}
+\end{figure}
