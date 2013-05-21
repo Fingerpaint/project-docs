@@ -47,7 +47,7 @@ This section lists the functional requirements for the \applicationname.
 
 \subsection[CB]{Client Browser}
 \subsubsection{Set options for a mixing protocol}
-A duration can be any value that can be created by combining the possible values for $D$ (the step size), namely 4, 2, 1, 0.5 and 0.25. Such a value $D$ can be entered in a spinner near the drawing canvas. If an invalid value is entered -- i.e. a value that cannot be created by combining the mentioned values -- the user is prompted to enter a different value.
+A duration can be any value that can be created by combining the possible values for $D$ (the step size), namely 4, 2, 1, 0.5 and 0.25. Such a value $D$ can be entered in a spinner near the drawing canvas. If an invalid value is entered -- i.e. a value that cannot be created by combining the mentioned values -- this value is rounded up or down to the nearest valid value, whichever is closest. For example, 4.2 is rounded up to 4.25, while 4.1 is rounded down to 4.
 
 To indicate how many times the protocol created using the above items is executed, the user can enter a number in a spinner. We use a spinner because the number it contains can easily be incremented or decremented by using the arrow keys, and a value that is not near the original value can easily be entered using its text box.
 
@@ -70,6 +70,9 @@ To indicate how many times the protocol created using the above items is execute
 The user can select a rectangular mixer geometry. To this end, a cell browser is available that lists all the available geometries in the first column. This first column will contain several geometries, including \texttt{rectangle}, \texttt{square}, \texttt{circle} or \texttt{Journal Bearing}. After clicking on a certain geometry, the available mixers for this geometry are displayed in the second column of the cell browser. The user can now select a mixer of choice and then, the third column in the cell browser lists all the available starting concentration distributions for the selected mixer. There are three types of starting concentration distributions that the user can choose from. The first type is a \texttt{blank} concentration distribution, which simply means that the user will be presented with a clean canvas when this option is selected. The second type is a \texttt{load} option, so the user can load previously saved concentration distributions that are stored on their device. The third type of 
 concentration distribution is a \texttt{predefined} distribution, meaning that the user can choose from a few predefined distributions that are already present in the application. In case of the second and third option, there will be a third column in the cell browser that lists all the available concentration distributions that can be loaded. When the user clicks on an item in the third column, the required distribution is immediately loaded on an appropriate canvas. For the first option, a blank canvas is displayed on the screen when the user clicks on \texttt{blank}. \\
 This translates to the following software requirements:
+%The user can select a rectangular mixer geometry. To this end, a cell browser is available that lists all the available geometries in the first column. This first column will contain several geometries, including \texttt{rectangle}, \texttt{square}, \texttt{circle} or \texttt{Journal Bearing}. After clicking on a certain geometry, the available mixers for this geometry are displayed in the second column of the cell browser. The user can now select a mixer of choice and then, the third column in the cell browser lists all the available starting concentration distributions for the selected mixer. There are three types of starting concentration distributions that the user can choose from. The first type is a \texttt{blank} concentration distribution, which simply means that the user will be presented with a clean canvas when this option is selected. The second type is a \texttt{load} option, so the user can load previously saved concentration distributions that are stored on their device. The third type of 
+% concentration distribution is a \texttt{predefined} distribution, meaning that the user can choose from a few predefined distributions that are already present in the application. In case of the second and third option, there will be a third column in the cell browser that lists all the available concentration distributions that can be loaded. When the user clicks on an item in the third column, the required distribution is immediately loaded on an appropriate canvas. For the first option, a blank canvas is displayed on the screen when the user clicks on \texttt{blank}. \\
+%This user requirement can then be described with the following functional requirements:
 
 \SRQ[CB-7]{must have}{The mixing interface contains a cell browser with four columns, to select an initial mixer, geometry and options for the initial concentration distribution.} % CPR1
 \SRQ[selgeomrec]{must have}{The user can select \texttt{rectangle} as a geometry, via the first column in the cell browser.} % CPR1
@@ -95,7 +98,7 @@ The user can change the drawing tool that is used to paint on the canvas. The cu
 \subsubsection{Define mixing protocol for specific geometries}
 A mixing protocol consists of movements of the geometry (if applicable), and how long these movements are executed. Different movement types are possible for each geometry. Each movement is performed for $D$ time units, which can be set using \srqref{stepsize}.
 
-For the rectangular or square geometries, a wall movement is defined by either $T$ or $B$, denoting a movement of the top or bottom wall, respectively. These walls are visible above and below the canvas, respectively, and the user can define the wall movement and direction by swiping over the screen. Looking directly at the screen, a $T$ movement indicates that the top wall should move to the right, and a $B$ movement indicates that the bottom wall should move to the left. Each of these wall movements can be combined with a `$-$' sign, to indicate that the direction of movement should be reversed. This means $-T$, for example, indicates that the top wall should move to the \emph{left}. 
+For the rectangular or square geometries, a wall movement is defined by either $T$ or $B$, denoting a movement of the top or bottom wall, respectively. These walls are visible above and below the canvas, respectively, and the user can define the wall movement and direction by swiping over the screen. Looking directly at the screen, a $T$ movement indicates that the top wall should move to the right, and a $B$ movement indicates that the bottom wall should move to the left. This way, the walls normally move in a clockwise direction. Each of these wall movements can be combined with a `$-$' sign, to indicate that the direction of movement should be counter-clockwise. This means $-T$, for example, indicates that the top wall should move to the \emph{left}. 
 
 The circular geometry does not support movements, but the mixer that is placed inside the circle does support some form of movement. The user can specify how far he/she wants to move the mixer inside the geometry, and this serves as the protocol.
 
@@ -118,7 +121,7 @@ For the \emph{Journal bearing} geometry, movements are defined by rotating the o
 }
 
 \subsubsection{Visualising the results}
-When the client receives the JSON object containing the concentration distribution and the performance result from the server, the client un-JSON's these items. The concentration distribution is visualised on the client's screen, using the canvas that was originally used to draw the initial concentration distribution. The performance result is visualised in a graph, which contains all previous performance results for this particular run.
+When the client receives the JSON object containing the concentration distribution and the performance result from the server, the client parses these items. The concentration distribution is visualised on the client's screen, using the canvas that was originally used to draw the initial concentration distribution. The performance result is visualised in a graph, which contains all previous performance results for this particular run.
 
 \SRQ[visResults]{must have}{ % CPR29e
     Concentration distributions can be drawn on the client's canvas.
@@ -138,6 +141,7 @@ The user can choose to execute a single step of a mixing protocol, by defining a
 \subsection[CP]{ClientPersistence}
 \SRQ[CP-0]{should have}{The user can save an initial concentration distribution locally on their device, using a button and popup panel.} % CPR11
 
+\subsubsection{Managing mixing protocols}
 To manage mixing protocols, the user can save and load the mixing protocols they have created. It is also possible to load a predefined mixing protocol.
 
 \SRQ[CP-1]{should have}{The user can save an initial concentration distribution locally on their device, using a button and popup panel.} % CPR11
@@ -151,11 +155,11 @@ To manage mixing protocols, the user can save and load the mixing protocols they
 }
 
 \SRQ[CP-4]{should have}{ % CPR24
-    After the user has selected the geometry and the mixer using \srqref{selgeomrec}, \srqref{selgeomsq}, \srqref{selgeomcir} or \srqref{selgeomjb} and \srqref{selmixer}, they can choose to load a previously saved mixing protocol. This spawns a menu with the names of all applicable saved protocols. Pressing the name of one such protocol loads it.
+    After the user has selected the geometry and the mixer using \srqref{selgeomrec}, \srqref{selgeomsq}, \srqref{selgeomcir} or \srqref{selgeomjb} and \srqref{selmixer}, they can choose to load a previously saved mixing protocol. This opens a menu with the names of all applicable saved protocols. Pressing the name of one such protocol loads it.
 }
 
 \SRQ[CP-5]{could have}{ % CPR28
-    After \srqref{selgeomrec}, \srqref{selgeomsq}, \srqref{selgeomcir} or \srqref{selgeomjb} and \srqref{selmixer}, the user can load a predefined mixing protocol. This spawns a menu containing all suitable predefined mixing protocols for the selected geometry. Pressing the name of one such protocol selects it, which means it will be used once the mixing is executed.
+    After \srqref{selgeomrec}, \srqref{selgeomsq}, \srqref{selgeomcir} or \srqref{selgeomjb} and \srqref{selmixer}, the user can load a predefined mixing protocol. This opens a menu containing all suitable predefined mixing protocols for the selected geometry. Pressing the name of one such protocol selects it, which means it will be used once the mixing is executed.
 }
 
 \subsubsection{Mixing runs}
@@ -180,7 +184,7 @@ To manage mixing protocols, the user can save and load the mixing protocols they
 
 \subsubsection{Load previously saved concentration distribution}
 \SRQ[loaddistbutton]{should have}{The mixing interface has a \texttt{Load} button that allows the user to load previously saved concentration distributions.} % CPR13
-\SRQ[CP-11]{should have}{After clicking the \texttt{Load} button from \srqref{loaddistbutton}, the \texttt{Load} distribution" interface appears.} % CPR13
+\SRQ[CP-11]{should have}{After clicking the \texttt{Load} button from \srqref{loaddistbutton}, the \texttt{Load distribution} interface appears.} % CPR13
 \SRQ[loaddist]{should have}{The \texttt{Load distribution} interface contains a cell browser with two rows.} % CPR13
 \SRQ[loadload]{should have}{The first row of the cell browser from \srqref{loaddist} contains a \texttt{Load} option, to load previously saved distributions.} % CPR13
 \SRQ[CP-12]{should have}{The second row of the cell browser from \srqref{loadload} displays all previously saved concentration distributions for the selected option of \srqref{loadload}.} % CPR13
@@ -208,38 +212,36 @@ To manage mixing protocols, the user can save and load the mixing protocols they
 \SRQ[CP-19]{should have}{After pressing the button from requirements \srqref{yesbutton} or \srqref{nobutton}, the user returns to the history interface.} % CPR12
 
 \subsubsection{Saving and exporting results}
-In the results window a \texttt{save} button, an \texttt{export} button and a \texttt{load results} button is available. If the \texttt{export} button is pressed, a popup with several available export options is shown: \texttt{export performance}, \texttt{export picture} and \texttt{export animation}. \texttt{export animation} is only available if the \texttt{animate mixing} checkbox was checked in the mixing interface. The user can then name the file and browse to a desirable storage location. If during saving the specified name for saving/exporting is already in use, the application returns a \texttt{name already in use} message. Additionally, a \texttt{load performance} button is available in the results window. The user can use this button to open a popup. In this popup he can select the files he wants to load. The button changes to \texttt{load selected} and now loads all the selected files. If no files are selected, the button is named \texttt{cancel} and will simply cancel without loading. An 
-alternative way to cancel loading is to click somewhere not on the popup.
+The results window can be opened by choosing \texttt{Results} from the main interface. This window contains a \texttt{save} button, an \texttt{export} button and a \texttt{load results} button. If the \texttt{export} button is pressed, a pop-up with several available export options is shown: \texttt{export performance}, \texttt{export picture} and \texttt{export animation}. \texttt{export animation} is only available if the \texttt{animate mixing} checkbox was checked in the mixing interface during the run. The user can then name the file. If during saving the specified name for saving/exporting is already in use, the application returns a \texttt{name already in use} message. Additionally, a \texttt{load performance} button is available in the results window. The user can use this button to open a popup. In this popup they can select the files they want to load. The button \texttt{load selected} can now be pressed and now loads all the selected files. If no files are selected, the button named \texttt{cancel} simply cancels without loading. An alternative way to cancel loading is to click somewhere not on the pop-up.
 
-\SRQ[CP-20]{should have}{The \texttt{export picture} option can be used to open the export menu for an image of the mixing result.}
+% \SRQ[CP-20]{should have}{The \texttt{export picture} option can be used to open the export menu for an image of the mixing result.}
 %CPR33
 \SRQ[CP-21]{should have}{The \texttt{export performance} option can be used to open the export menu for an image of the current performance graph.}
 %CPR35&37
 \SRQ[CP-22]{could have}{The \texttt{export animation} button can be used to open the export menu for an animation of the mixing procedure somewhere on the device.}
 %CPR39
-\SRQ[exportname]{should have}{In the export menu, The user can specify a name for the exported file.}
+\SRQ[exportname]{should have}{In the export menu, the user can specify a name for the exported file. }
 %CPR33&35&37&39
-\SRQ[exportlocation]{should have}{In the export menu, The user can specify a location for the exported file.}
-%CPR33&35&37&39
-\SRQ[exportsave]{should have}{If the user clicks on the save button in the export menu, the file is stored at the location specified in \srqref{exportlocation} with the name specified in \srqref{exportname}.}
+\SRQ[exportsave]{should have}{If the user clicks on the save button in the \texttt{export} menu, the file is stored at the location where the browser stores files with the name specified in \srqref{exportname}.}
 %CPR33&35&37&39
 \SRQ[CP-23]{should have}{The user should be able to cancel loading files by clicking somewhere not on the loading popup.}
 %CPR33&35&37&39
 \SRQ[nameinuseexport]{should have}{If there are no access rights to store the exported/saved data at the selected location when \srqref{exportsave} is executed, the application returns a \texttt{no access rights} message.}
 %CPR33&35&37&39, Use case alternative S.1
 \SRQ[nomemoryexport]{should have}{If there is no memory space to store exported/saved data when \srqref{exportsave} is executed, the application returns an \texttt{out of memory} message.}
+\SRQ[actualNameInUse]{must have}{If a file exists with the same name as the one entered in \srqref{exportname}, the application returns a \texttt{File exists} message.}
 %CPR33&35&37&39, Use case alternative S.2
-\SRQ[CP-24]{should have}{The popup opened by \srqref{nomemoryexport} can be closed with an \texttt{ok} button}
+\SRQ[CP-24]{should have}{The popups opened by \srqref{actualNameInUse} and \srqref{nomemoryexport} can be closed with an \texttt{ok} button}.
 %CPR33&35&37&39
-\SRQ[CP-25]{should have}{The user can overwrite the old file in \srqref{nameinuseexport} with an \texttt{overwrite} button if a saved file already exists.}
+\SRQ[CP-25]{should have}{The user can overwrite the old file in \srqref{actualNameInUse} with an \texttt{overwrite} button if a saved file already exists.}
 %CPR33&35&37&39, Use case alternative S.3.1
-\SRQ[CP-26]{should have}{The user can cancel overwriting the old file in \srqref{nameinuseexport} with a \texttt{cancel} button if a saved file already exists.}
+\SRQ[CP-26]{should have}{The user can cancel overwriting the old file in \srqref{actualNameInUse} with a \texttt{cancel} button if a saved file already exists.}
 %CPR33&35&37&39, Use case alternative S.3.1
 
 \subsubsection{Loading results}
 In the results window a \texttt{load results} button is available. This button opens a loading window in which a \texttt{results} file is opened. Multiple results can be selected.
 
-\SRQ[CP-27]{should have}{The \texttt{load results} button can be used to open the load menu for a texttt{results} file.}
+\SRQ[CP-27]{should have}{The \texttt{load results} button can be used to open the load menu for a \texttt{results} file.}
 %CPR30&36
 \SRQ[selectload]{should have}{In the load menu one or more \texttt{results} files can be selected to be loaded.}
 %CPR30&36
@@ -247,17 +249,18 @@ In the results window a \texttt{load results} button is available. This button o
 %CPR30&36
 \SRQ[displayload]{should have}{When \srqref{loadresults} is executed, the end mixture and the performance are loaded from files selected in \srqref{selectload}.}
 %CPR30&36
-\SRQ[CP-28]{should have}{If in \srqref{displayload} multiple files are selected, all performance data is loaded in one graph.}
+\SRQ[CP-28]{should have}{If multiple files are selected in the loading menu, they are all depicted in a single performance graph.}
 %CPR36
 \SRQ[CP-29]{should have}{If in \srqref{displayload} multiple files are selected, the user is able to browse through the result mixtures.}
 %CPR36, extention for consistency.
 \SRQ[CP-30]{should have}{In the load menu, the \texttt{cancel} button can be used to exit the loading menu.}
 %CPR30&36
-\SRQ[CP-31]{should have}{If multiple files are selected in the loading menu, they are all depicted in a single performance graph.}
-%CPR36
 
 \subsubsection{Language selection}
 In the menu bar a flag of the currently selected language is visible. When clicked, a popup appears containing several language options, each symbolised by the flag of their country. These flags can be clicked to change the language to that specific language. Standard language is English. The preferred language should be stored on the client device.
+\SRQ[selLang]{could have}{
+  The user can choose a different language for the application.
+}
 
 \subsection[SSC]{Simulator Service Communication}
 To execute a mixing protocol, the following SRQs are executed in this order: \srqref{startMixing}, \srqref{sendParams}, \srqref{readParams}, \srqref{execMixing}, \srqref{returnParams} and \srqref{visResults}.
@@ -282,7 +285,7 @@ The user is able to visualise his mixing protocol, as well as able to save and e
 
 \SRQ[SSC-3]{must have}{In the results window the result of the user's mixing protocol is shown. This interface can be reached by pressing the \texttt{start mixing} button.}
 %CPR32
-\SRQ[SSC-4]{must have}{The user can use the \texttt{show performance} button to get visual information of the performance of the mixing run.}
+\SRQ[SSC-4]{must have}{The user can use the \texttt{show performance} button to view the performance graph of the mixing run.}
 %CPR34
 \SRQ[SSC-5]{must have}{The user can use the \texttt{show result} button to switch back to the standard results window and view the result distribution of the mixing run.}
 %CPR34, extention for consistency.
@@ -292,17 +295,17 @@ The user is able to visualise his mixing protocol, as well as able to save and e
 
 \subsection[SS]{Simulator Service}
 \SRQ[execMixing]{must have}{ %CRP29c2
-     The server executes the mixing using the parameters received via the socket. The concentration distribution and mixing protocol are given as input to the \textsc{Fortran} implementation.
+     The server executes the mixing run using the parameters received via the socket. These parameters are passed as input to the \textsc{Fortran} implementation.
 }
+
+\subsubsection{Information exchange}
+The Simulator Service must be able to send and receive matrix files from the Client Browser and to the Fortran Module. These matrices specify the characteristics of the mixers. 
 
 \SRQ[SS-1]{must have}{The Simulator Service must be able to receive matrix files from the Client Browser.}
 \SRQ[SS-2]{must have}{The Simulator Service must be able to receive protocol information from the Client Browser.}
 \SRQ[SS-3]{must have}{The Simulator Service must be able to pass matrix files to the Fortran Module.}
 \SRQ[SS-4]{must have}{The Simulator Service must be able to pass protocol information to the Fortran Module.}
 \SRQ[SS-5]{must have}{The Simulator Service must make sure that that the listed mixers in the Application Persistence are known to the Fortran Module, for each geometry.}
-
-\subsubsection{Define a mixing protocol}
-A wall movement is defined by either $T$ or $B$, denoting a movement of the top or bottom wall, respectively. Looking directly at the screen, a $T$ movement indicates that the top wall should move to the right, and a $B$ movement indicates that the bottom wall should move to the left. Each of these wall movements can be combined with a `$-$' sign, to indicate that the direction of movement should be reversed. This means $-T$, for example, indicates that the top wall should move to the \emph{left}. A duration can be any value that can be created by combining the possible values for $D$ (the step size), namely 4, 2, 1, 0.5, 0.25 and 0.1.
 
 \subsection[FM]{Fortran Module}
 \SRQ[FM-1]{must have}{The Fortran Module must accept input (matrix, protocol information) from the Simulator Service.}
@@ -313,13 +316,13 @@ A wall movement is defined by either $T$ or $B$, denoting a movement of the top 
 \label{sec:nonfuncreq}
 
 \subsection{Performance}
-\SRQ[NONF-1]{must have}{Waiting time between submitting input and receiving output is no longer than 5 seconds.}
+\SRQ[NONF-1]{must have}{Waiting time between submitting input and receiving output is around 5 seconds on average.}
 %CNR10
 
-\SRQ[NONF-2]{should have}{Waiting time between submitting input and receiving output is no longer than 3 seconds.}
+\SRQ[NONF-2]{should have}{Waiting time between submitting input and receiving output is around 3 seconds on average.}
 %CNR11
 
-\SRQ[NONF-3]{could have}{Waiting time between submitting input and receiving output is no longer than 1 seconds.}
+\SRQ[NONF-3]{could have}{Waiting time between submitting input and receiving output is around 1 second on average.}
 %CNR12
 
 \subsection{Interface}
@@ -364,3 +367,24 @@ higher.}
 \subsection{Safety}
 \subsection{Documentation}
 \subsection{Extensibility}
+
+%%%%%%
+%%%%%%%%%
+%%%%%%%%%
+%%%%%%%%%
+%%%%%%%%%
+%%%%%%%%%
+%%%%%%%%%
+%%%%%%%%%
+%%%%%%%%%
+%%%%%%%%%
+%%%%%%%%% Feedback nog te doen
+% 3.1.8 Other 1 button for 2 functionalities wat is de andere functionaliteit
+% Language selection heeft geen SRQ
+% 3.1.7 Q Language select
+% SRQ89 toegevoegd; SRQs hierna zijn dus 1 opgeschoven
+% SRQ84 is verwijderd
+% 3.1.7 Other It's not clear ... Wss is de incorrect gedachte verwoording wel correct want anders is het gelijk aan srq98
+%
+%
+%
