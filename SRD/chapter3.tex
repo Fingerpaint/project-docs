@@ -27,7 +27,7 @@ This section lists the functional requirements for the \applicationname.
 \SRQ[AS-1]{must have}{The Application Service must be able to retrieve all the available mixers from the Application Persistence.}
 \SRQ[AS-2]{must have}{The Application Service must be able to send all the available mixers to the Client Browser.}
 \SRQ[AS-3]{must have}{The Application Service must allow for adding new mixers to the Application Persistence.} %CNR13
-\SRQ[AS-4]{must have}{The Application Service must allow for editing existing mixers in the Application Persistence.}
+\SRQ[AS-4]{should have}{The Application Service must allow for editing existing mixers in the Application Persistence.}
 \SRQ[AS-5]{must have}{The Application Service must allow for removing existing mixers to the Application Persistence.}
 \SRQ[AS-6]{must have}{The Application Service must be able to provide all available geometries to the Client Browser.}
 
@@ -38,7 +38,7 @@ This section lists the functional requirements for the \applicationname.
 \subsection[AP]{Application Persistence} % Voorheen MixerPersistence
 \SRQ[AP-1]{must have}{The Application Persistence must deliver all saved mixers to the Application Service.}
 \SRQ[AP-2]{must have}{The Application Persistence must save new mixers handed by the Application Service.}
-\SRQ[AP-3]{must have}{The Application Persistence must save changes to existing mixers handed by the Application Service.}
+\SRQ[AP-3]{should have}{The Application Persistence must save changes to existing mixers handed by the Application Service.}
 \SRQ[AP-4]{must have}{The Application Persistence must remove existing mixers handed by the Application Service.}
 
 \subsection[ASC]{Application Service Communication} % Voorheen MixerProviderCommunication
@@ -47,7 +47,7 @@ This section lists the functional requirements for the \applicationname.
 
 \subsection[CB]{Client Browser}
 \subsubsection{Set options for a mixing protocol}
-A duration can be any value that can be created by combining the possible values for $D$ (the step size), namely 4, 2, 1, 0.5 and 0.25. Such a value $D$ can be entered in a text box near the drawing canvas. If an invalid value is entered -- i.e. a value that cannot be created by combining the mentioned values -- this value is rounded up or down to the nearest valid value, whichever is closest. For example, 4.2 is rounded up to 4.25, while 4.1 is rounded down to 4.
+A duration can be any value that can be created by combining the possible values for $D$ (the step size), namely 4, 2, 1, 0.5 and 0.25. Such a value $D$ can be entered in a spinner near the drawing canvas. If an invalid value is entered -- i.e. a value that cannot be created by combining the mentioned values -- this value is rounded up or down to the nearest valid value, whichever is closest. For example, 4.2 is rounded up to 4.25, while 4.1 is rounded down to 4.
 
 To indicate how many times the protocol created using the above items is executed, the user can enter a number in a spinner. We use a spinner because the number it contains can easily be incremented or decremented by using the arrow keys, and a value that is not near the original value can easily be entered using its text box.
 
@@ -67,11 +67,14 @@ To indicate how many times the protocol created using the above items is execute
 \SRQ[CB-6]{should have}{After selecting the square-shaped drawing tool in \srqref{squareshaped}, the user can draw this tool on the canvas.} % CPR9
 
 \subsubsection{Select a geometry, mixer and initial concentration distribution}
+The user can select a rectangular mixer geometry. To this end, a cell browser is available that lists all the available geometries in the first column. This first column will contain several geometries, including \texttt{rectangle}, \texttt{square}, \texttt{circle} or \texttt{Journal Bearing}. After clicking on a certain geometry, the available mixers for this geometry are displayed in the second column of the cell browser. The user can now select a mixer of choice and then, the third column in the cell browser lists all the available starting concentration distributions for the selected mixer. There are three types of starting concentration distributions that the user can choose from. The first type is a \texttt{blank} concentration distribution, which simply means that the user will be presented with a clean canvas when this option is selected. The second type is a \texttt{load} option, so the user can load previously saved concentration distributions that are stored on their device. The third type of 
+concentration distribution is a \texttt{predefined} distribution, meaning that the user can choose from a few predefined distributions that are already present in the application. In case of the second and third option, there will be a third column in the cell browser that lists all the available concentration distributions that can be loaded. When the user clicks on an item in the third column, the required distribution is immediately loaded on an appropriate canvas. For the first option, a blank canvas is displayed on the screen when the user clicks on \texttt{blank}. \\
+This translates to the following software requirements:
 %The user can select a rectangular mixer geometry. To this end, a cell browser is available that lists all the available geometries in the first column. This first column will contain several geometries, including \texttt{rectangle}, \texttt{square}, \texttt{circle} or \texttt{Journal Bearing}. After clicking on a certain geometry, the available mixers for this geometry are displayed in the second column of the cell browser. The user can now select a mixer of choice and then, the third column in the cell browser lists all the available starting concentration distributions for the selected mixer. There are three types of starting concentration distributions that the user can choose from. The first type is a \texttt{blank} concentration distribution, which simply means that the user will be presented with a clean canvas when this option is selected. The second type is a \texttt{load} option, so the user can load previously saved concentration distributions that are stored on their device. The third type of 
 % concentration distribution is a \texttt{predefined} distribution, meaning that the user can choose from a few predefined distributions that are already present in the application. In case of the second and third option, there will be a third column in the cell browser that lists all the available concentration distributions that can be loaded. When the user clicks on an item in the third column, the required distribution is immediately loaded on an appropriate canvas. For the first option, a blank canvas is displayed on the screen when the user clicks on \texttt{blank}. \\
 %This user requirement can then be described with the following functional requirements:
 
-\SRQ[CB-7]{must have}{The mixing interface contains a cell browser with four columns, to select an initial mixer, geometry and initial distribution.} % CPR1
+\SRQ[CB-7]{must have}{The mixing interface contains a cell browser with four columns, to select an initial mixer, geometry and options for the initial concentration distribution.} % CPR1
 \SRQ[selgeomrec]{must have}{The user can select \texttt{rectangle} as a geometry, via the first column in the cell browser.} % CPR1
 \SRQ[selmixer]{must have}{After having selected a geometry, the user can select a mixer that fits the selected geometry. The mixer can be selected via a second column in the cell browser.} % CPR2
 \SRQ[selgeomsq]{should have}{The user can select \texttt{square} as a geometry, via the first column in the cell browser.}  % CPR3
@@ -80,11 +83,11 @@ To indicate how many times the protocol created using the above items is execute
 \SRQ[CB-8]{must have}{The user can select a blank canvas after choosing a geometry and mixer, by choosing the \texttt{blank} option in the third column in the cell browser.} % CPR6
 \SRQ[prevsaved]{should have}{The user can view a list of all previously saved concentration distributions, by choosing the \texttt{load} option in the third column in the cell browser.} % CPR13
 \SRQ[CB-9]{should have}{After selecting the \texttt{load} option from \srqref{prevsaved}, the user can select a previously saved distribution by clicking on one distribution in the fourth column in the cell browser.} % CPR13
-\SRQ[predef]{should have}{The user can view a list of all predefined concentration distributions, by choosing the \texttt{predefined} option in the third column in the cell browser.} % CPR14
-\SRQ[CB-10]{should have}{After selecting the \texttt{predefined} option from \srqref{predef}, the user can select a predefined initial concentration distribution by clicking on one distribution in the fourth column in the cell browser.} % CPR14
+\SRQ[predef]{could have}{The user can view a list of all predefined concentration distributions, by choosing the \texttt{predefined} option in the third column in the cell browser.} % CPR14
+\SRQ[CB-10]{could have}{After selecting the \texttt{predefined} option from \srqref{predef}, the user can select a predefined initial concentration distribution by clicking on one distribution in the fourth column in the cell browser.} % CPR14
 
 \subsubsection{Change the drawing tool}
-The user can change the drawing tool that is used to paint on the canvas. The current shape and size of the drawing tool is displayed on the mixing interface, as a button with an image. When the user clicks on this button, a pop-up menu appears with two vertical panels. The left panel contains a list of all the different shapes for the drawing tool, such as circle and square. The right panel contains a slider to adjust the size of the drawing tool. The user can change the settings for the drawing tool and close the pop-up menu by clicking on the button again.
+The user can change the drawing tool that is used to paint on the canvas. The current shape and size of the drawing tool is displayed on the mixing interface, as a button with an image. When the user clicks on this button, a pop-up menu appears with one horizontal panel with two cells. The left cell contains a vertical panel with multiple cells; each cell contains a button and corresponds to a different shape for the drawing tool (circle or square, for instance). The right cell contains a slider to adjust the size of the drawing tool. The user can change the settings for the drawing tool and close the pop-up menu by clicking on the button again.
 
 \SRQ[shapedraw]{must have}{The mixing interface contains a button that displays the current shape of the drawing tool.} % CPR7
 \SRQ[CB-12]{should have}{The button from \srqref{shapedraw} also displays the current size of the drawing tool.} % CPR10
@@ -93,11 +96,11 @@ The user can change the drawing tool that is used to paint on the canvas. The cu
 \SRQ[CB-13]{should have}{The user can adjust the size of the drawing tool, using a slider in the popup panel from \srqref{circleshaped} and \srqref{squareshaped}}. % CPR10
 
 \subsubsection{Define mixing protocol for specific geometries}
-A mixing protocol consists of movements of the mixer (if applicable), and how long these movements are executed. Different movement types are possible for each geometry. Each movement is performed for $D$ time units, which can be set using \srqref{stepsize}.
+A mixing protocol consists of movements of the geometry (if applicable), and how long these movements are executed. Different movement types are possible for each geometry. Each movement is performed for $D$ time units, which can be set using \srqref{stepsize}.
 
-For the rectangular or square geometries, a wall movement is defined by either $T$ or $B$, denoting a movement of the top or bottom wall, respectively. Looking directly at the screen, a $T$ movement indicates that the top wall should move to the right, and a $B$ movement indicates that the bottom wall should move to the left. This way, the walls normally move in a clockwise direction. Each of these wall movements can be combined with a `$-$' sign, to indicate that the direction of movement should be counterclockwise. This means $-T$, for example, indicates that the top wall should move to the \emph{left}.
+For the rectangular or square geometries, a wall movement is defined by either $T$ or $B$, denoting a movement of the top or bottom wall, respectively. These walls are visible above and below the canvas, respectively, and the user can define the wall movement and direction by swiping over the screen. Looking directly at the screen, a $T$ movement indicates that the top wall should move to the right, and a $B$ movement indicates that the bottom wall should move to the left. This way, the walls normally move in a clockwise direction. Each of these wall movements can be combined with a `$-$' sign, to indicate that the direction of movement should be counter-clockwise. This means $-T$, for example, indicates that the top wall should move to the \emph{left}. 
 
-The circular geometry does not support movements, and as such a mixing protocol is immediately defined after selecting a mixer.
+The circular geometry does not support movements, but the mixer that is placed inside the circle does support some form of movement. The user can specify how far he/she wants to move the mixer inside the geometry, and this serves as the protocol.
 
 For the \emph{Journal bearing} geometry, movements are defined by rotating the outer or inner circle. Swiping to the right near the top of the outer circle means the outer circle rotates clockwise for $D$ time units, and swiping to the right near the top of the inner circle means the inner circle rotates clockwise for $D$ time units. Here, too, a `-' sign implies the rotation is executed in the opposite direction.
 
@@ -132,7 +135,7 @@ For exchanging parameters such as the distribution and geometry, we use JSON. Th
 The user can choose to execute a single step of a mixing protocol, by defining a single \emph{Step}. This is done by choosing one wall movement and its duration. This invokes \srqref{startMixing}, \srqref{sendParams}, \srqref{readParams}, \srqref{execMixing}, \srqref{returnParams} and \srqref{visResults}.
 
 \SRQ[CB-17]{must have}{ % CPR18
-    After selecting a geometry, a mixer, an initial distribution and a single \emph{Step}, the user can press the \texttt{Execute step} button to execute a single step. This button is greyed out (cannot be pressed) if no \emph{Step} has been defined.
+    After selecting a geometry, a mixer, an initial distribution and a single \emph{Step}, the user can execute a single step, if the  ``Define protocol" check box has not been checked.
 }
 
 \subsection[CP]{ClientPersistence}
