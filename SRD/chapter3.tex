@@ -118,7 +118,7 @@ For the \emph{Journal bearing} geometry, movements are defined by rotating the o
 }
 
 \subsubsection{Visualising the results}
-When the client receives the JSON object containing the concentration distribution and the performance result from the server, the client parses these items. The concentration distribution is visualised on the client's screen, using the canvas that was originally used to draw the initial concentration distribution. The performance result is visualised in a graph, which contains all previous performance results for this particular run.
+For exchanging parameters such as the distribution and geometry, we use JSON. This encapsulates objects into strings, which then have to be parsed by the receiving end to correctly retrieve the original object. When the client receives the JSON object containing the concentration distribution and the performance result from the server, the client parses these items. The concentration distribution is visualised on the client's screen, using the canvas that was originally used to draw the initial concentration distribution. The performance result is visualised in a graph, which contains all previous performance results for this particular run.
 
 \SRQ[visResults]{must have}{ % CPR29e
     Concentration distributions can be drawn on the client's canvas.
@@ -209,7 +209,8 @@ To manage mixing protocols, the user can save and load the mixing protocols they
 \SRQ[CP-19]{should have}{After pressing the button from requirements \srqref{yesbutton} or \srqref{nobutton}, the user returns to the history interface.} % CPR12
 
 \subsubsection{Saving and exporting results}
-The results window can be opened by choosing \texttt{Results} from the main interface. This window contains a \texttt{save} button, an \texttt{export} button and a \texttt{load results} button. If the \texttt{export} button is pressed, a pop-up with several available export options is shown: \texttt{export performance}, \texttt{export picture} and \texttt{export animation}. \texttt{export animation} is only available if the \texttt{animate mixing} checkbox was checked in the mixing interface during the run. The user can then name the file. If during saving the specified name for saving/exporting is already in use, the application returns a \texttt{name already in use} message. Additionally, a \texttt{load performance} button is available in the results window. The user can use this button to open a popup. In this popup they can select the files they want to load. The button \texttt{load selected} can now be pressed and now loads all the selected files. If no files are selected, the button named \texttt{cancel} simply cancels without loading. An alternative way to cancel loading is to click somewhere not on the pop-up.
+The results window can be opened by choosing \texttt{Results} from the main interface. This window contains a \texttt{save} button, an \texttt{export} button and a \texttt{load results} button. If the \texttt{export} button is pressed, a pop-up with several available export options is shown: \texttt{export performance}, \texttt{export picture} and \texttt{export animation}. \texttt{export animation} is only available if the \texttt{animate mixing} checkbox was checked in the mixing interface during the run. The user can then name the file. If during saving the specified name for saving/exporting is already in use, the application returns a \texttt{name already in use} message. Additionally, a \texttt{load performance} button is available in the results window. The user can use this button to open a popup. In this popup they can select the files they want to load. The button \texttt{load selected} can now be pressed and now loads all the selected files. If no files are selected, the button named \texttt{
+cancel} simply cancels without loading. An alternative way to cancel loading is to click somewhere not on the pop-up.
 
 % \SRQ[CP-20]{should have}{The \texttt{export picture} option can be used to open the export menu for an image of the mixing result.}
 %CPR33
@@ -364,24 +365,3 @@ higher.}
 \subsection{Safety}
 \subsection{Documentation}
 \subsection{Extensibility}
-
-%%%%%%
-%%%%%%%%%
-%%%%%%%%%
-%%%%%%%%%
-%%%%%%%%%
-%%%%%%%%%
-%%%%%%%%%
-%%%%%%%%%
-%%%%%%%%%
-%%%%%%%%%
-%%%%%%%%% Feedback nog te doen
-% 3.1.8 Other 1 button for 2 functionalities wat is de andere functionaliteit
-% Language selection heeft geen SRQ
-% 3.1.7 Q Language select
-% SRQ89 toegevoegd; SRQs hierna zijn dus 1 opgeschoven
-% SRQ84 is verwijderd
-% 3.1.7 Other It's not clear ... Wss is de incorrect gedachte verwoording wel correct want anders is het gelijk aan srq98
-%
-%
-%
