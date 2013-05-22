@@ -27,11 +27,11 @@ This section lists the functional requirements for the \applicationname.
 
 \subsection[AS]{Application Service} % Oude Mixer Provider
 \SRQ[AS-1]{must have}{The Application Service must be able to retrieve all the available mixers from the Application Persistence.}
-\SRQ[AS-2]{must have}{The Application Service must be able to send all the available mixers to the Client Browser.}
+\SRQ[AS-2]{must have}{The Application Service must be able to send all the available mixers to the HTTP server which in turn should send it to the Client Browser.}
 \SRQ[AS-3]{must have}{The Application Service must allow for adding new mixers to the Application Persistence.} %CNR13
 %\SRQ[AS-4]{should have}{The Application Service must allow for editing existing mixers in the Application Persistence.}
 \SRQ[AS-5]{must have}{The Application Service must allow for removing existing mixers to the Application Persistence.}
-\SRQ[AS-6]{must have}{The Application Service must be able to provide all available geometries to the Client Browser.}
+\SRQ[AS-6]{must have}{The Application Service must be able to provide all available geometries to the Client Browser (via the HTTP server).}
 
 \subsection[APC]{Application Persistence Communication}
 \SRQ[APC-1]{must have}{The Application Persistence Communication must be able to access all the data from the Application Persistence.}
@@ -123,7 +123,7 @@ For the \emph{Journal bearing} geometry, movements are defined by rotating the o
 }
 
 \subsubsection{Visualising the results}
-For exchanging parameters such as the distribution and geometry, we use JSON. This encapsulates objects into strings, which then have to be parsed by the receiving end to correctly retrieve the original object. When the client receives the JSON object containing the concentration distribution and the performance result from the server, the client parses these items. The concentration distribution is visualised on the client's screen, using the canvas that was originally used to draw the initial concentration distribution. The performance result is visualised in a graph, which contains all previous performance results for this particular run.
+The concentration distribution is visualised on the client's screen, using the canvas that was originally used to draw the initial concentration distribution. The performance result is visualised in a graph, which contains all previous performance results for this particular run.
 
 \SRQ[visResults]{must have}{ % CPR29e
     Concentration distributions can be drawn on the client's canvas.
@@ -269,19 +269,16 @@ In the menu bar a flag of the currently selected language is visible. When click
 To execute a mixing protocol, the following SRQs are executed in this order: \srqref{startMixing}, \srqref{sendParams}, \srqref{readParams}, \srqref{execMixing}, \srqref{returnParams} and \srqref{visResults}.
 
 \SRQ[sendParams]{must have}{ % CPR29b
-    The parameters (initial concentration distribution, geometry, mixing protocol, mixer and number of protocol applications) are encapsulated into a JSON object which is sent to the server using a socket.
+    The parameters (initial concentration distribution, geometry, mixing protocol, mixer and number of protocol applications) can be sent to the server through the Simulator Service Communication channel.
 }
 
 \SRQ[readParams]{must have}{ % CPR29c
-    The server parses the parameters.
+    The server is able to parse the parameters that it receives and interpret those.
 }
 
 \SRQ[returnParams]{must have}{ % CPR29d
-    The server encapsulates the resulting concentration distribution and the performance result into a JSON object and sends this back to the client using the socket.
+    The server can send the resulting distribution and performance statistics to the Client Browser via the HTTP server.
 }
-
-\SRQ[SSC-1]{must have}{The Simulator Service Communication must be able to access all the functionality from the Application Persistence.}
-\SRQ[SSC-2]{must have}{The Simulator Service Communication must be fast enough to serve the data from the Application Persistence to the Client Browser.}
 
 \subsubsection{Requirements regarding the presentation of results}
 The user is able to visualise his mixing protocol, as well as able to save and export these results. To this end a results window is available. In the results window there is a \texttt{show statistics} button. When pressed, the performance of the mixing run is shown in a graph. In this new menu the \texttt{show statistics} button changes to \texttt{show result}. When this button is pressed, the image switches back to the default results window. The results window is reached by pressing the \texttt{start mixing} button in the mixing interface. The mixing interface is the window where the user can define his mixing protocol. In the mixing interface there is a \texttt{animate mixing} checkbox. If this checkbox was checked when the \texttt{start mixing} button is pressed, an animation of the mixing procedure is shown in the results window.
@@ -298,17 +295,16 @@ The user is able to visualise his mixing protocol, as well as able to save and e
 
 \subsection[SS]{Simulator Service}
 \SRQ[execMixing]{must have}{ %CRP29c2
-     The server executes the mixing run using the parameters received via the socket. These parameters are passed as input to the \textsc{Fortran} implementation.
+     The server executes the mixing run using the parameters received via the HTTP server. These parameters are passed as input to the \textsc{Fortran} implementation.
 }
 
 \subsubsection{Information exchange}
 The Simulator Service must be able to send and receive matrix files from the Client Browser and to the Fortran Module. These matrices specify the characteristics of the mixers. 
 
-\SRQ[SS-1]{must have}{The Simulator Service must be able to receive matrix files from the Client Browser.}
 \SRQ[SS-2]{must have}{The Simulator Service must be able to receive protocol information from the Client Browser.}
-\SRQ[SS-3]{must have}{The Simulator Service must be able to pass matrix files to the Fortran Module.}
+\SRQ[SS-3]{must have}{The Simulator Service must be able to pass (references to) matrix files to the Fortran Module, that the Fotran Module can use for simulations.}
 \SRQ[SS-4]{must have}{The Simulator Service must be able to pass protocol information to the Fortran Module.}
-\SRQ[SS-5]{must have}{The Simulator Service must make sure that that the listed mixers in the Application Persistence are known to the Fortran Module, for each geometry.}
+\SRQ[SS-5]{must have}{The Simulator Service must, together with the Application Service, make sure that the listed mixers in the Application Persistence are known to the Fortran Module, for each geometry.}
 
 \subsection[FM]{Fortran Module}
 \SRQ[FM-1]{must have}{The Fortran Module must accept input (matrix, protocol information) from the Simulator Service.}
