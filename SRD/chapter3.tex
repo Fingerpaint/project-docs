@@ -11,9 +11,11 @@ Each requirement has a specific priority, based on the MoSCoW model \cite{moscow
     \item \emph{won't have}; requirements with this priority will not be implemented in this version of the product, but may be nice to implement in future versions.
 \end{itemize}
 
-Only those user requirements from the URD \cite{urd} with a priority higher then \emph{won't have} will be translated to software requirements in this chapter.
+\noindent Only those user requirements from the URD \cite{urd} with a priority higher then \emph{won't have} will be translated to software requirements in this chapter.
 
-Note that as \applicationname\ is developed using GWT, some of the software requirements listed in this chapter are described in terms of specific GWT widgets or panels\footnote{The website for the GWT widgetlist can be found at \url{https://developers.google.com/web-toolkit/doc/latest/RefWidgetGallery}.}.
+\fpstartparagraph{} In some of the requirements in this section, the term ``fast enough" is mentioned: for a precise definition, refer to chapter 6 of the ADD \cite{add}.
+
+\fpstartparagraph{} Note that as \applicationname\ is developed using GWT, some of the software requirements listed in this chapter are described in terms of specific GWT widgets or panels\footnote{The website for the GWT widgetlist can be found at \url{https://developers.google.com/web-toolkit/doc/latest/RefWidgetGallery}.}.
 
 % Functional requirements --------------------------------------------------------------------------------------------------------
 \section{Functional requirements}
@@ -27,25 +29,25 @@ This section lists the functional requirements for the \applicationname.
 \SRQ[AS-1]{must have}{The Application Service must be able to retrieve all the available mixers from the Application Persistence.}
 \SRQ[AS-2]{must have}{The Application Service must be able to send all the available mixers to the Client Browser.}
 \SRQ[AS-3]{must have}{The Application Service must allow for adding new mixers to the Application Persistence.} %CNR13
-\SRQ[AS-4]{should have}{The Application Service must allow for editing existing mixers in the Application Persistence.}
+%\SRQ[AS-4]{should have}{The Application Service must allow for editing existing mixers in the Application Persistence.}
 \SRQ[AS-5]{must have}{The Application Service must allow for removing existing mixers to the Application Persistence.}
 \SRQ[AS-6]{must have}{The Application Service must be able to provide all available geometries to the Client Browser.}
 
 \subsection[APC]{Application Persistence Communication}
 \SRQ[APC-1]{must have}{The Application Persistence Communication must be able to access all the data from the Application Persistence.}
-\SRQ[APC-2]{must have}{The Application Persistence Communication must be \todo{fast enough} to serve the data from the Application Persistence to the Application Service.}
+\SRQ[APC-2]{must have}{The Application Persistence Communication must be fast enough to serve the data from the Application Persistence to the Application Service.}
 
 \subsection[AP]{Application Persistence} % Voorheen MixerPersistence
 \SRQ[AP-1]{must have}{The Application Persistence must deliver all saved mixers to the Application Service.}
 \SRQ[AP-2]{must have}{The Application Persistence must save new mixers handed by the Application Service.}
-\SRQ[AP-3]{should have}{The Application Persistence must save changes to existing mixers handed by the Application Service.}
+%\SRQ[AP-3]{should have}{The Application Persistence must save changes to existing mixers handed by the Application Service.}
 \SRQ[AP-4]{must have}{The Application Persistence must remove existing mixers handed by the Application Service.}
 \SRQ[AP-5]{must have}{The System Administrator is able to add new mixer types for a geometry.}
 \SRQ[AP-6]{must have}{The System Administrator is able to remove mixer types for a geometry.}
 
 \subsection[ASC]{Application Service Communication} % Voorheen MixerProviderCommunication
 \SRQ[ASC-1]{must have}{The Application Service Communication must be able to access all the functionality from the Application Service.}
-\SRQ[ASC-2]{must have}{The Application Service Communication must be \todo{fast enough} to provide the functionality from the Application Service to the Client Browser.}
+\SRQ[ASC-2]{must have}{The Application Service Communication must be fast enough to provide the functionality from the Application Service to the Client Browser.}
 
 \subsection[CB]{Client Browser}
 \subsubsection{Set options for a mixing protocol}
@@ -195,7 +197,7 @@ To manage mixing protocols, the user can save and load the mixing protocols they
 \SRQ[loadpred]{could have}{The first row of the cell browser from \srqref{loaddist} contains a \texttt{Predefined} option, to load predefined concentration distributions.} % CPR14
 \SRQ[CP-15]{could have}{The second row of the cell browser from \srqref{loaddist} displays all predefined concentration distributions for the selected option of \srqref{loadpred}.} % CPR14
 
-\todo{Dit is niet in overeenstemming met use case B.20, want ik heb geen \texttt{View Saved Files} button en ik sta hier toe dat meerdere dingen tegelijkertijd verwijderd worden.}
+%\todo{Dit is niet in overeenstemming met use case B.20, want ik heb geen \texttt{View Saved Files} button en ik sta hier toe dat meerdere dingen tegelijkertijd verwijderd worden.}
 \subsubsection{Remove previously saved concentration distributions}
 %The user can remove a previously saved initial concentration distribution. To this end, a \texttt{Remove saved distributions} button is available. When the user clicks this button, a new screen opens with a cell list that shows all the available saved concentration distributions, along with a check box next to each item. The \texttt{Remove saved distributions} button will remain visible in this new screen. The user can then select one or more items to be removed using the check boxes. When the remove button is pressed, an \emph{Are you sure?} message is displayed. When the user presses \texttt{Yes}, all the selected distributions will be removed and the user returns to the history interface. If \texttt{No} is pressed, removal process is aborted and the history interface is shown again. \\
 %If no concentration distributions have been saved yet, a \emph{No saved distributions} message is displayed and the user can press \texttt{OK} to continue and display the history interface again. If the user has not given access rights to the application, a \emph{Insufficient access rights} error message is shown. The user can press \texttt{OK} to return to the history interface. \\
@@ -281,7 +283,7 @@ To execute a mixing protocol, the following SRQs are executed in this order: \sr
 }
 
 \SRQ[SSC-1]{must have}{The Simulator Service Communication must be able to access all the functionality from the Application Persistence.}
-\SRQ[SSC-2]{must have}{The Simulator Service Communication must be \todo{fast enough} to serve the data from the Application Persistence to the Client Browser.}
+\SRQ[SSC-2]{must have}{The Simulator Service Communication must be fast enough to serve the data from the Application Persistence to the Client Browser.}
 
 \subsubsection{Requirements regarding the presentation of results}
 The user is able to visualise his mixing protocol, as well as able to save and export these results. To this end a results window is available. In the results window there is a \texttt{show statistics} button. When pressed, the performance of the mixing run is shown in a graph. In this new menu the \texttt{show statistics} button changes to \texttt{show result}. When this button is pressed, the image switches back to the default results window. The results window is reached by pressing the \texttt{start mixing} button in the mixing interface. The mixing interface is the window where the user can define his mixing protocol. In the mixing interface there is a \texttt{animate mixing} checkbox. If this checkbox was checked when the \texttt{start mixing} button is pressed, an animation of the mixing procedure is shown in the results window.
