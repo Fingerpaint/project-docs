@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.2">
-<info created="D:20130514133434" modified="D:20130522104602"/>
+<info created="D:20130514133434" modified="D:20130522133610"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -232,7 +232,21 @@ h
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<path layer="alpha" stroke="black" fill="white" pen="heavier">
+<path layer="alpha" matrix="1 0 0 0.4375 272 272.25" stroke="0.247" dash="dotted">
+60 612 m
+180 612 l
+180 484 l
+60 484 l
+60 612 l
+</path>
+<path stroke="0.247" dash="dotted">
+60 612 m
+180 612 l
+180 484 l
+60 484 l
+60 612 l
+</path>
+<path stroke="black" fill="white" pen="heavier">
 176 816 m
 176 672 l
 304 672 l
@@ -253,7 +267,7 @@ h
 320 800 l
 h
 </path>
-<text matrix="1 0 0 1 4 184" transformations="translations" pos="192 608" stroke="black" type="label" width="26.29" height="6.918" depth="0" valign="center">Client</text>
+<text matrix="1 0 0 1 4 180" transformations="translations" pos="192 608" stroke="black" type="label" width="26.29" height="6.918" depth="0" valign="center">Client</text>
 <path stroke="black">
 208 768 m
 232 776
@@ -285,7 +299,7 @@ h
 256 728 m
 256 704 l
 </path>
-<path matrix="1.78571 0 0 2.375 -201.143 -888" stroke="black">
+<path matrix="1.78571 0 0 2.375 -201.143 -888" stroke="black" pen="heavier">
 144 640 m
 144 576 l
 368 576 l
@@ -374,7 +388,20 @@ h
 324 508 m
 324 456 l
 </path>
-<text matrix="1 0 0 1 -128 16" transformations="translations" pos="192 608" stroke="black" type="label" width="81.14" height="6.926" depth="1.93" valign="center">Application Server</text>
-<text matrix="0.999883 -0.0152982 0.0152982 0.999883 64.067 30.9369" transformations="translations" pos="188 520" stroke="black" type="minipage" width="88.94" height="11.924" depth="6.95" halign="center" valign="center">\begin{center}Application Service Communication\end{center}</text>
+<text matrix="1 0 0 1 -128 12" transformations="translations" pos="192 608" stroke="black" type="label" width="165.629" height="7.473" depth="2.49" valign="center">Application Server / Simulator Server</text>
+<text matrix="0.999883 -0.0152982 0.0152982 0.999883 108.067 66.9369" transformations="translations" pos="188 520" stroke="black" type="minipage" width="88.94" height="11.924" depth="6.95" halign="center" valign="center">\begin{center}Application Service Communication\end{center}</text>
+<path stroke="black" dash="dashed">
+260 548 m
+348 548 l
+348 572 l
+</path>
+<path matrix="0.966667 0 0 0.40625 278 443.375" stroke="0.247" dash="dotted">
+60 612 m
+180 612 l
+180 484 l
+60 484 l
+60 612 l
+</path>
+<text matrix="0.999883 -0.0152982 0.0152982 0.999883 144.067 170.937" transformations="translations" pos="188 520" stroke="black" type="minipage" width="112.94" height="25.105" depth="20.17" halign="center" valign="top">\raggedright{Parts in boxes like this can be run on separate hardware, if required/preferred.}</text>
 </page>
 </ipe>
