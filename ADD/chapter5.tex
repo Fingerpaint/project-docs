@@ -2,37 +2,104 @@
 \label{chap:compdescr}
 \todo{short chapter intro}
 
-\todo{For each component, a section with the following structure.}
+\section{Server}
 
-\section{Component identifier}
-\todo{A unique identifier}
+\subsection{Application Service}
+\label{subsec:Appservice}
 
-\subsection{Type}
-\todo{Task, procedure, package, program, file, ...}
+\subsection*{Component identifier}
 
-\subsection{Purpose}
-\todo{Software requirements implemented}
+Server.ApplicationService
 
-\subsection{Function}
-\todo{What the component does.}
+\subsubsection*{Type}
 
-\subsection{Subordinates}
-\todo{Child components (modules called, files composed of, classes used)}
+Package
 
-\subsection{Dependencies}
-\todo{Components to be executed before/after, excluded operations during execution}
+\subsubsection*{Purpose}
+Provides functionality for the following requirements: \\
+SRQ2, SRQ3, SRQ4, SRQ5, SRQ6, SRQ14 and SRQ15.
+% AS-1, AS-2, AS-3, AS-5, AS-6, ASC-1, ASC-2
 
-\subsection{Interfaces}
-\todo{Data and control flow in and out}
+\subsubsection*{Function}
+Whenever centralized data or other communication is required by the application running on a Client, this is done through the Application Service using the Application Service Communication channel.
 
-\subsection{Resources}
-\todo{Needed to perform the function}
+\subsubsection*{Subordinates}
+\todo{Child components (modules called, files composed of, classes used) - Ask Thom/Lasse}
 
-\subsection{References}
-\todo{to other documents}
+\subsubsection*{Dependencies}
+%\todo{Components to be executed before/after, excluded operations during execution}
+\begin{description}
+\item The Application Service depends on the Application Persistence component when the HTTP Server makes a request for data from the Application Persistence.
+\item The Application Service depends on the Simulator Service component when the HTTP Server sends a protocol to be executed on the Fortran Module.
+\item The Application Service depends on the HTTP Server component when the resulting concentration distribution has been calculated by the Fortran Module, and this results has to be send back to the client browser.
+\end{description}
+\noindent For an overview of dependencies, see figure \ref{fig:compdependencies}.
 
-\subsection{Processing}
-\todo{Internal control and data flow}
+\subsubsection*{Interfaces}
+\todo{Data and control flow in and out - Ask Ion}
 
-\subsection{Data}
-\todo{Internal data}
+\subsubsection*{Resources}
+\todo{Needed to perform the function - Ask Ion}
+
+\subsubsection*{References}
+%\todo{to other documents}
+For an in-depth description of the Application Service and the functionality described in purpose, see the SRD \cite{srd}.
+
+\subsubsection*{Processing}
+\todo{Internal control and data flow - Ask Ion}
+
+\subsubsection*{Data}
+\todo{Internal data - ask Ion}\\
+none (?)
+
+
+\subsection{Application State}
+\label{subsec:Appservice}
+
+\subsection*{Component identifier}
+Server.Application State
+
+\subsubsection*{Type}
+Program
+
+\subsubsection*{Purpose}
+Provides functionality for the following requirements: \\
+%Criteria : If there is any interaction required between the application state and Layout (accessing of storing information), the SRQ is listed in both components. If its 100% GUI, it's not here.
+ SRQ17, SRQ19, SRQ21, SRQ23, SRQ24, SRQ25, SRQ26, SRQ27, SRQ28, SRQ29, SRQ30, SRQ31, SRQ32, SRQ33, SRQ39, SRQ40, SRQ41, SRQ42, SRQ43, SRQ44, SRQ45, SRQ46, SRQ47, SRQ48, SRQ49, SRQ50, SRQ51, SRQ52, SRQ53, SRQ54, SRQ56, SRQ58, SRQ61, SRQ62, SRQ63, SRQ64, SRQ65, SRQ67, SRQ68, SRQ70, SRQ73, SRQ76, SRQ77, SRQ78, SRQ79, SRQ80, SRQ81, SRQ83, SRQ85, SRQ86, SRQ87, SRQ89, SRQ91, SRQ92, SRQ94, SRQ95, SRQ96 and SRQ98.\\
+
+% CB-1, CB-3, CB-5, CB-7, selgeomrec, selmixer, selgeomsq, selgeomcir, selgeomjb, CB-8, prevsaved, CB-9, predef, CB10, CB-14, CB-15, startMixing, CB-16, visResults, CB-16-2, CB-17, CP-0, CP-1, CP-2, CP-3, CP-4, CP-5, CP-6, CP-7, savedistr, savebutton, CP-9, CP-11, loaddist, loadload, CP-12, CP-13, loadpred, CP-15, listsaved, yesbutton, CP-17, insuffrights, CP-18, CP-19, CP-21, CP-22, exportsave, nameinuseexport, nomemoryexport, actualNameInUse, CP-25, CP-27, selectload, displayload, CP-28, CP-29, selLang
+
+
+\subsubsection*{Function}
+The Client Browser provides the user with a Graphical User Interface. All interactions of the user with the application are performed through this GUI. Whenever a user action on the GUI makes any change to the state of the application this change is kept track of, and stored in, the Application State. When any information stored in the Application State needs to displayed on the GUI it is accessed as well. For saving a file locally on the device the Application State is needed to communicate and forward this to the Client Persistent component to store it there. Finally, it also communicates mixing runs to the HTTP server component to forward it to the Fortran Module which does the computation.
+
+\subsubsection*{Subordinates}
+\todo{Child components (modules called, files composed of, classes used) - Ask Ion}
+
+\subsubsection*{Dependencies}
+%\todo{Components to be executed before/after, excluded operations during execution}
+For saving a file locally on the device the Application State state depends on the Client Persistence to make this happen. To make any changes to the state of the application it depends on the Layout to issue the parameters for the new value. Finally, when the user wants to execute a mixing step/run, and the Layout communicates this to the Application State, it depends on the HTTP Server component to forward it to the Fortran Module which does the computation. \\
+
+\noindent For an overview of dependencies, see figure \ref{fig:compdependencies}.
+
+\subsubsection*{Interfaces}
+\todo{Data and control flow in and out - Ask Ion}
+
+\subsubsection*{Resources}
+\todo{Needed to perform the function - Ask Ion}
+
+\subsubsection*{References}
+%\todo{to other documents}
+For an in-depth description of the Application Service and the functionality described in purpose, see the SRD \cite{srd}.
+
+\subsubsection*{Processing}
+\todo{Internal control and data flow - Ask Ion}
+
+\subsubsection*{Data}
+\todo{Internal data - ask Ion}
+
+
+
+
+
+
