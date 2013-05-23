@@ -216,24 +216,24 @@ To manage mixing protocols, the user can save and load the mixing protocols they
 \SRQ[CP-19]{should have}{After pressing the button from requirements \srqref{yesbutton} or \srqref{nobutton}, the user returns to the history interface.} % CPR12
 
 \subsubsection{Saving and exporting results}
-The results window can be opened by choosing \texttt{Results} from the main interface. This window contains a \texttt{save} button, an \texttt{export} button and a \texttt{load results} button. If the \texttt{export} button is pressed, a pop-up with several available export options is shown: \texttt{export performance}, \texttt{export picture} and \texttt{export animation}. \texttt{export animation} is only available if the \texttt{animate mixing} checkbox was checked in the mixing interface during the run. The user can then name the file. If during saving the specified name for saving/exporting is already in use, the application returns a \texttt{name already in use} message. Additionally, a \texttt{load performance} button is available in the results window. The user can use this button to open a popup. In this popup they can select the files they want to load. The button \texttt{load selected} can now be pressed and now loads all the selected files. If no files are selected, the button named \texttt{
+The results window can be opened by choosing \texttt{Results} from the main interface. This window contains a \texttt{save} button, an \texttt{export} button and a \texttt{load results} button. If the \texttt{export} button is pressed, a pop-up with several available export options is shown: \texttt{export performance}, \texttt{export picture} and \texttt{export animation}. \texttt{export animation} is only available if the \texttt{animate mixing} checkbox was checked in the mixing interface during the run. The user can then name the file. If during saving the specified name for \texttt{saving/exporting} is already in use, the application returns a \texttt{name already in use} message. Additionally, a \texttt{load performance} button is available in the results window. The user can use this button to open a popup. In this popup they can select the files they want to load. The button \texttt{load selected} can now be pressed and now loads all the selected files. If no files are selected, the button named \texttt{
 cancel} simply cancels without loading. An alternative way to cancel loading is to click somewhere not on the pop-up.
 
-% \SRQ[CP-20]{should have}{The \texttt{export picture} option can be used to open the export menu for an image of the mixing result.}
+% \SRQ[CP-20]{should have}{The \texttt{export picture} option can be used to open the \texttt{export} menu to \texttt{export} an image of the mixing result.}
 %CPR33
-\SRQ[CP-21]{should have}{The \texttt{export performance} option can be used to open the export menu for an image of the current performance graph.}
+\SRQ[CP-21]{should have}{The \texttt{export performance} option can be used to open the \texttt{export} menu to \texttt{export} an image of the current performance graph.}
 %CPR35&37
-\SRQ[CP-22]{could have}{The \texttt{export animation} button can be used to open the export menu for an animation of the mixing procedure somewhere on the device.}
+\SRQ[CP-22]{could have}{The \texttt{export animation} button can be used to open the \texttt{export} menu to \texttt{export} an animation of the mixing procedure.}
 %CPR39
 \SRQ[exportname]{should have}{In the export menu, the user can specify a name for the exported file. }
 %CPR33&35&37&39
-\SRQ[exportsave]{should have}{If the user clicks on the save button in the \texttt{export} menu, the file is stored at the location where the browser stores files with the name specified in \srqref{exportname}.}
+\SRQ[exportsave]{should have}{If the user clicks on the save button in the \texttt{export} menu, the file is stored at the location where the browser stores files, with the name specified in \srqref{exportname}.}
 %CPR33&35&37&39
-\SRQ[CP-23]{should have}{The user should be able to cancel loading files by clicking somewhere not on the loading popup.}
+\SRQ[CP-23]{should have}{The user should be able to cancel loading files by clicking outside of the loading popup.}
 %CPR33&35&37&39
 \SRQ[nameinuseexport]{should have}{If there are no access rights to store the exported/saved data at the selected location when \srqref{exportsave} is executed, the application returns a \texttt{no access rights} message.}
 %CPR33&35&37&39, Use case alternative S.1
-\SRQ[nomemoryexport]{should have}{If there is no memory space to store exported/saved data when \srqref{exportsave} is executed, the application returns an \texttt{out of memory} message.}
+\SRQ[nomemoryexport]{should have}{If there is no memory space to store \texttt{exported/saved} data when \srqref{exportsave} is executed, the application returns an \texttt{out of memory} message.}
 \SRQ[actualNameInUse]{must have}{If a file exists with the same name as the one entered in \srqref{exportname}, the application returns a \texttt{File exists} message.}
 %CPR33&35&37&39, Use case alternative S.2
 \SRQ[CP-24]{should have}{The popups opened by \srqref{actualNameInUse} and \srqref{nomemoryexport} can be closed with an \texttt{ok} button}.
