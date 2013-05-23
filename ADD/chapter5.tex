@@ -5,7 +5,6 @@ In this chapter we will describe all of the components that were indentified in 
 %-------------------------------------------------------------------------------------------------------------------
 \section{Server}
 %-------------------------------------------------------------------------------------------------------------------
-
 \subsection{Fortran Module}
 
 \subsubsection*{Component Identifier}
@@ -29,9 +28,6 @@ The Fortran Module does not have dependencies with relation to other components.
 
 \subsubsection*{Interfaces}
 The Fortran Module has a single interface with the Simulation Service. This interface is the procedure call of the module in Fortran. This call uses a concentration distribution and a mixing step as arguments and returns a concentration distribution. For more detail regarding this interface, refer to  chapter \ref{chap:systcontext}.
-
-\subsubsection*{Resources}
-\todo{ask Ion}
 
 \subsubsection*{References}
 The requirements SQR111 and SQR112 can be found in subsection 3.1.10 of the SRD \cite{srd}.
@@ -66,9 +62,6 @@ The Simulation Service depends on the Fortran Module for technical calculations.
 
 \subsubsection*{Interfaces}
 The Simulation Service uses the Fortran Module's interface for communications to it. The Simulator Service itself is accessible through the Simulator Service Communication.
-
-\subsubsection*{Resources}
-\todo{ask Ion}
 
 \subsubsection*{References}
 The requirements SRQ99-101 can be found in subsection 3.1.8 of the SRD \cite{srd}.
@@ -111,10 +104,6 @@ The Application Persistence component depends on the Application Service compone
 \subsubsection*{Interfaces}
 %Data and control flow in and out
 This component it is only accessed through the Application Service component. The Application Persistence Communication is used for this purpose.  \todo{write more about this after consulting Ion}
-
-\subsubsection*{Resources}
-%Needed to perform the function
-\todo{Ask Ion}
 
 \subsubsection*{References}
 %to other documents
@@ -162,10 +151,6 @@ The HTTP Server component doesn't depend on any other components. For an overvie
 This component is accessed through the application service component, the application state component and the update application persistence component. The application service communication is used for the communication with the application service components. For communication with the two components on the client-side of the application, HTTP is used.
  \todo{write more about this after consulting Ion}
 
-\subsubsection*{Resources}
-%Needed to perform the function
-\todo{Ask Ion}
-
 \subsubsection*{References}
 %to other documents
 The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
@@ -179,7 +164,6 @@ The description of the specific requirements, mentioned in the section purpose, 
 The HTTP server component contains a static collection of content files, that can be served to the client side of the application.
 
 %-------------------------------------------------------------------------------------------------------------------
-
 \subsection{Application Service}
 \label{subsec:Appservice}
 
@@ -213,9 +197,6 @@ Whenever centralized data or other communication is required by the application 
 
 \subsubsection*{Interfaces}
 \todo{Data and control flow in and out - Ask Ion}
-
-\subsubsection*{Resources}
-\todo{Needed to perform the function - Ask Ion}
 
 \subsubsection*{References}
 %\todo{to other documents}
@@ -269,10 +250,6 @@ The layout component depends on both the Application State and Update Applicatio
 This component doesn't have any interfaces. It is part of the Client Browser, and any interfacing with this component is done throught the Application State and Update Application Persistence components.
  \todo{write more about this after consulting Ion}
 
-\subsubsection*{Resources}
-%Needed to perform the function
-\todo{Ask Ion}
-
 \subsubsection*{References}
 %to other documents
 The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
@@ -309,9 +286,6 @@ The Client Persistence depends on stable data to store. Therefore, the Applicati
 
 \subsubsection*{Interfaces}
 The Client Persistence uses the browser's native interface for storing. The Application State uses the Client Persistence interface for storing and retrieving files.
-
-\subsubsection*{Resources}
-\todo{ask Ion}
 
 \subsubsection*{References}
 The requirements SRQ99-110 can be found insubsection 3.1.7 of the SRD \cite{srd}.
@@ -355,10 +329,6 @@ The Update Application Persistence dependes on the layout component, since it ne
 %Data and control flow in and out
 This component has an interface with the HTTP server. HTTP is used on this interface to send data to and receive data from the server side of the application. \todo{write more about this after consulting Ion}
 
-\subsubsection*{Resources}
-%Needed to perform the function
-\todo{Ask Ion}
-
 \subsubsection*{References}
 %to other documents
 The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
@@ -388,7 +358,6 @@ Provides functionality for the following requirements: \\
 
 % CB-1, CB-3, CB-5, CB-7, selgeomrec, selmixer, selgeomsq, selgeomcir, selgeomjb, CB-8, prevsaved, CB-9, predef, CB10, CB-14, CB-15, startMixing, CB-16, visResults, CB-16-2, CB-17, CP-0, CP-1, CP-2, CP-3, CP-4, CP-5, CP-6, CP-7, savedistr, savebutton, CP-9, CP-11, loaddist, loadload, CP-12, CP-13, loadpred, CP-15, listsaved, yesbutton, CP-17, insuffrights, CP-18, CP-19, CP-21, CP-22, exportsave, nameinuseexport, nomemoryexport, actualNameInUse, CP-25, CP-27, selectload, displayload, CP-28, CP-29, selLang
 
-
 \subsubsection*{Function}
 The Client Browser provides the user with a Graphical User Interface. All interactions of the user with the application are performed through this GUI. Whenever a user action on the GUI makes any change to the state of the application this change is kept track of, and stored in, the Application State. When any information stored in the Application State needs to displayed on the GUI it is accessed as well. For saving a file locally on the device the Application State is needed to communicate and forward this to the Client Persistent component to store it there. Finally, it also communicates mixing runs to the HTTP server component to forward it to the Fortran Module which does the computation.
 
@@ -403,9 +372,6 @@ For saving a file locally on the device the Application State state depends on t
 
 \subsubsection*{Interfaces}
 \todo{Data and control flow in and out - Ask Ion}
-
-\subsubsection*{Resources}
-\todo{Needed to perform the function - Ask Ion}
 
 \subsubsection*{References}
 %\todo{to other documents}
