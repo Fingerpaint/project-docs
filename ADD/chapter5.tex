@@ -1,38 +1,211 @@
 \chapter{Component description}
 \label{chap:compdescr}
-\todo{short chapter intro}
+In this chapter we will describe all of the components that were indentified in chapter \ref{chap:systdesign} in detail.
 
-\todo{For each component, a section with the following structure.}
 
-\section{Component identifier}
-\todo{A unique identifier}
+%-------------------------------------------------------------------------------------------------------------------
+\section{Server}
+%-------------------------------------------------------------------------------------------------------------------
+\subsection{Application Persistence}
 
-\subsection{Type}
-\todo{Task, procedure, package, program, file, ...}
+\subsubsection*{Component identifier}
+%A unique identifier
+Server.ApplicationPersistence
 
-\subsection{Purpose}
-\todo{Software requirements implemented}
+\subsubsection*{Type}
+%Task, procedure, package, program, file, ...
+Database.
 
-\subsection{Function}
-\todo{What the component does.}
+\subsubsection*{Purpose}
+%Software requirements implemented
+Provides functionality for the following software requirements:\\
+SRQ9, SRQ10, SRQ11
+%This are the requirements with labels AP-1, AP-2, AP-4
 
-\subsection{Subordinates}
-\todo{Child components (modules called, files composed of, classes used)}
+\subsubsection*{Function}
+%What the component does.
+This component is the database that contains the different mixers and their information. Mixers can be retrieved from this component for use within the Fortran Module. New mixers can be stored and old fixers can be removed. All the communication to execute these functions is done by the Application Persistence Communication, which is described in section 2.7.3 of the SRD \cite{srd}.
 
-\subsection{Dependencies}
-\todo{Components to be executed before/after, excluded operations during execution}
+\subsubsection*{Subordinates}
+%Child components (modules called, files composed of, classes used)
+The Application Persistence does not have any child modules.
 
-\subsection{Interfaces}
-\todo{Data and control flow in and out}
+\subsubsection*{Dependencies}
+%Components to be executed before/after, excluded operations during execution
+The Application Persistence component depends on the Application Service component to receive requests from other components. For an overview of dependencies, see figure \ref{fig:compdependencies}.
 
-\subsection{Resources}
-\todo{Needed to perform the function}
+\subsubsection*{Interfaces}
+%Data and control flow in and out
+This component it is only accessed through the Application Service component. The Application Persistence Communication is used for this purpose.  \todo{write more about this after consulting Ion}
 
-\subsection{References}
-\todo{to other documents}
+\subsubsection*{Resources}
+%Needed to perform the function
+\todo{Ask Ion}
 
-\subsection{Processing}
-\todo{Internal control and data flow}
+\subsubsection*{References}
+%to other documents
+The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
 
-\subsection{Data}
-\todo{Internal data}
+\subsubsection*{Processing}
+%Internal control and data flow
+\todo{Follows from the component’s function and interfaces.}
+
+\subsubsection*{Data}
+%Internal data
+This component is a database containing data that represents the different mixers.
+
+%-------------------------------------------------------------------------------------------------------------------
+\subsection{HTTP Server}
+
+\subsubsection*{Component identifier}
+%A unique identifier
+Server.HTTPServer
+
+\subsubsection*{Type}
+%Task, procedure, package, program, file, ...
+Program.
+
+\subsubsection*{Purpose}
+%Software requirements implemented
+Provides functionality for the following software requirements:\\
+SRQ1, SRQ3, SRQ6, SRQ101, 
+%This are the requirements with labels HTTP-1, AS-2, AS-6, returnParams
+
+\subsubsection*{Function}
+%What the component does.
+The HTTP server is a piece of software that responds to requests by either serving a file from a static collection of content or responding with a dynamically build response. The former is used to serve the actual application, while the latter is used when the client requests a simulation, which goes through the HTTP server as well.
+
+\subsubsection*{Subordinates}
+%Child components (modules called, files composed of, classes used)
+\todo{I have no idea whatsoever}
+
+\subsubsection*{Dependencies}
+%Components to be executed before/after, excluded operations during execution
+The HTTP Server component doesn't depend on any other components. For an overview of dependencies, see figure \ref{fig:compdependencies}.
+
+\subsubsection*{Interfaces}
+%Data and control flow in and out
+This component is accessed through the application service component, the application state component and the update application persistence component. The application service communication is used for the communication with the application service components. For communication with the two components on the client-side of the application, HTTP is used.
+ \todo{write more about this after consulting Ion}
+
+\subsubsection*{Resources}
+%Needed to perform the function
+\todo{Ask Ion}
+
+\subsubsection*{References}
+%to other documents
+The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
+
+\subsubsection*{Processing}
+%Internal control and data flow
+\todo{Follows from the component’s function and interfaces.}
+
+\subsubsection*{Data}
+%Internal data
+The HTTP server component contains a static collection of content files, that can be served to the client side of the application.
+
+%-------------------------------------------------------------------------------------------------------------------
+\section{Client}
+%-------------------------------------------------------------------------------------------------------------------
+\subsection{Layout}
+
+\subsubsection*{Component identifier}
+%A unique identifier
+Client.Layout
+
+\subsubsection*{Type}
+%Task, procedure, package, program, file, ...
+GUI.
+
+\subsubsection*{Purpose}
+%Software requirements implemented
+Provides functionality for the following software requirements:\\
+SRQ16, SRQ17, SRQ18, SRQ19, SRQ20, SRQ21, SRQ22, SRQ23, SRQ24, SRQ25, SRQ26, SRQ27, SRQ28, SRQ29, SRQ30, SRQ31, SRQ32, SRQ33, SRQ34, SRQ35, SRQ36, SRQ37, SRQ38, SRQ41, SRQ42, SRQ43, SRQ44, SRQ45, SRQ46, SRQ47, SRQ48, SRQ49, SRQ50, SRQ51, SRQ52, SRQ53, SRQ54, SRQ55, SRQ56, SRQ57, SRQ58, SRQ59, SRQ60, SRQ61, SRQ62, SSRQ63, SRQ64, SRQ65, SRQ66, SRQ67, SRQ68, SRQ69, SRQ70, SRQ71, SRQ72, SRQ73, SRQ74, SRQ75, SRQ76, SRQ77, SRQ78, SRQ79, SRQ80, SRQ81, SRQ82, SRQ83, SRQ84, SRQ85, SRQ86, SRQ87, SRQ88, SRQ89, SRQ90, SRQ91, SRQ92, SRQ93, SRQ94, SRQ95, SRQ96, SRQ97, SRQ98, SRQ102, SRQ103, SRQ104, SRQ105
+%This are the requirements with labels: stepsize, CB-1, CB-2, CB-3, CB-4, CB-5, CB-6, CB-7, selgeomrec, selmixer, selgeomcir, selgeomjb, CB-8, prevsaved, CB-9, predef, CB-10, shapedraw, CB-12, circleshaped, squareshaped, CB-13, startMixing, CB-16, visResults, CB-16-2, CB-17, CP-0, CP-1, CP-2, CP-3, CP-4, CP-5, CP-6, CP-7, savedistr, savename, savebutton, CP-8, CP-9, CP-10, loaddistbutton, CP-11, loaddist, loadload, CP-12, CP-13, CP-14, loadpred CP-15, CP-16, listsaved, selectremove, suremessage, yesbutton, nobutton, nosaveddistr, CP-17, insuffrights, CP-18, CP-19, CP-21, CP-22, exportname, exportsave, CP-23, nameinuseexport, nomemoryexport, actualNameInUse, CP-24, CP-25, CP-26, CP-27, selectLoad, loadresults, displayLoad, CP-28, CP-29, CP-30, selLang, SSC-3, SSC-4, SSC-5, SSC-6
+
+\subsubsection*{Function}
+%What the component does.
+This component is responsible for the GUI layout.
+
+\subsubsection*{Subordinates}
+%Child components (modules called, files composed of, classes used)
+This component consists of the following files:
+\begin{itemize}
+\item fingerpaint.css
+\item fingerpaint.html
+\item fingerpaint.js
+\end{itemize}
+
+\subsubsection*{Dependencies}
+%Components to be executed before/after, excluded operations during execution
+The layout component depends on both the Application State and Update Application Persistence components. If the data inside one of these components changes, the layout component has to be updated accordingly. For an overview of dependencies, see figure \ref{fig:compdependencies}.
+
+\subsubsection*{Interfaces}
+%Data and control flow in and out
+This component doesn't have any interfaces. It is part of the Client Browser, and any interfacing with this component is done throught the Application State and Update Application Persistence components.
+ \todo{write more about this after consulting Ion}
+
+\subsubsection*{Resources}
+%Needed to perform the function
+\todo{Ask Ion}
+
+\subsubsection*{References}
+%to other documents
+The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
+
+\subsubsection*{Processing}
+%Internal control and data flow
+\todo{ask someone if javascript does processing}
+
+\subsubsection*{Data}
+%Internal data
+This component doesn't keep any internal data.
+
+%-------------------------------------------------------------------------------------------------------------------
+\subsection{Update Application Persistence}
+
+\subsubsection*{Component identifier}
+%A unique identifier
+Client.UpdateApplicationPersistence
+
+\subsubsection*{Type}
+%Task, procedure, package, program, file, ...
+Program.
+
+\subsubsection*{Purpose}
+%Software requirements implemented
+Provides functionality for the following software requirements:\\
+SRQ12, SRQ13
+%This are the requirements with labels: AP-5, AP-6
+
+\subsubsection*{Function}
+%What the component does.
+This component allows for adding new mixers to and removing mixers from the application persistence, from the client side of the application.
+
+\subsubsection*{Subordinates}
+%Child components (modules called, files composed of, classes used)
+\todo{I've no idea whatsover}
+
+\subsubsection*{Dependencies}
+%Components to be executed before/after, excluded operations during execution
+The Update Application Persistence dependes on the layout component, since it needs the data that was inputted by the user in this component to perform its tasks. It also depends on the HTTP server, to send all its requests to the server side of the application. For an overview of dependencies, see figure \ref{fig:compdependencies}.
+
+\subsubsection*{Interfaces}
+%Data and control flow in and out
+This component has an interface with the HTTP server. HTTP is used on this interface to send data to and receive data from the server side of the application. \todo{write more about this after consulting Ion}
+
+\subsubsection*{Resources}
+%Needed to perform the function
+\todo{Ask Ion}
+
+\subsubsection*{References}
+%to other documents
+The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
+
+\subsubsection*{Processing}
+%Internal control and data flow
+\todo{Follows from the component’s function and interfaces.}
+
+\subsubsection*{Data}
+%Internal data
+\todo{This component doesn't keep any internal data.}
