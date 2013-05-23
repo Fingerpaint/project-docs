@@ -14,8 +14,9 @@ Server.FortranModule
 The Fortran Module consists of a single procedure.
 
 \subsubsection*{Purpose}
-To enable \projectname to function, the requirements SQR111 and SQR112 (as described in the SRD \cite{srd}) should be fulfilled.
-%FM-1 and FM-2
+Provides functionality for the following software requirements:\\
+SRQ111, SRQ112
+%This are the requirements with labels: FM-1, FM-2
 
 \subsubsection*{Function}
 The Fortran Module performs the calculations to calculate how the mixing distribution changes as a mixing step is applied.
@@ -33,10 +34,10 @@ The Fortran Module has a single interface with the Simulation Service. This inte
 The requirements SQR111 and SQR112 can be found in subsection 3.1.10 of the SRD \cite{srd}.
 
 \subsubsection*{Processing}
-As the implementation of the Fortran Module is beyond \projectname, the internal flow is irrelevant.
+As the implementation of the Fortran Module is beyond the scope of project \projectname, the internal flow is irrelevant.
 
 \subsubsection*{Data}
-As the implementation of the Fortran Module is beyond \projectname, the internal data is irrelevant.
+As the implementation of the Fortran Module is beyond the scope of project \projectname, the internal data is irrelevant.
 
 %-------------------------------------------------------------------------------------------------------------------
 \subsection{Simulation Service}
@@ -48,26 +49,28 @@ Server.SimulationService
 The Simulation Service is a program.
 
 \subsubsection*{Purpose}
-For the component to successful, it must fulfull requirements SRQ99-101 and requirements SRQ106-110 (as described in the SRD \cite{srd}).
-%sendParams, readParams, returnParams, execMixing and all SS-versions
+Provides functionality for the following software requirements:\\
+SRQ99, SRQ100, SRQ101, SRQ106, SRQ107, SRQ108, SRQ109, SRQ110
+%This are the requirements with labels: sendParams, readParams, returnParams, execMixing, SS, SS-2, SS-3, SS-4, SS-5
 
 \subsubsection*{Function}
 The Simulation Service is meant to simulate a mixing protocol on the server and compute how the concentration distribution changes when such a protocol is applied.
 
 \subsubsection*{Subordinates}
-The Simulation Service uses the Fortran Module to perform the technical computations.
+\todo{The Simulator Service is composed of multiple java classes}
 
 \subsubsection*{Dependencies}
 The Simulation Service depends on the Fortran Module for technical calculations.
 
 \subsubsection*{Interfaces}
-The Simulation Service uses the Fortran Module's interface for communications to it. The Simulator Service itself is accessible through the Simulator Service Communication.
+The Simulation Service uses the Fortran Module's interface for communications to it. This communication is done in C and Fortran. The Simulator Service itself is accessible through the Simulator Service Communication. JNI is used for the Simulator Service Communication.
 
 \subsubsection*{References}
 The requirements SRQ99-101 can be found in subsection 3.1.8 of the SRD \cite{srd}.
 
 \subsubsection*{Processing}
 For processing requests, the Simulation Service keeps each request separate. For each request, the protocol is split up in single steps and these are simulated in sequence by the Fortran Module.
+\todo{make activity diagram for the simulator service}
 
 \subsubsection*{Data}
 The Simulation Service has no internal data other than the protocol and distribution defined by the request. This data is modified as each step of the protocol is processed by the Fortran Module,and finally returned when all steps are analysed.
@@ -95,15 +98,15 @@ This component is the database that contains the different mixers and their info
 
 \subsubsection*{Subordinates}
 %Child components (modules called, files composed of, classes used)
-The Application Persistence does not have any child modules.
+The Application Persistence does not have any child components.
 
 \subsubsection*{Dependencies}
 %Components to be executed before/after, excluded operations during execution
-The Application Persistence component depends on the Application Service component to receive requests from other components. For an overview of dependencies, see figure \ref{fig:compdependencies}.
+The Application Persistence component doesn't depend on any other components. For an overview of dependencies, see figure \ref{fig:compdependencies}.
 
 \subsubsection*{Interfaces}
 %Data and control flow in and out
-This component it is only accessed through the Application Service component. The Application Persistence Communication is used for this purpose.  \todo{write more about this after consulting Ion}
+This component it is only accessed through the Application Service component. The Application Persistence Communication is used for this purpose. The Application Persistence Commucation exists of Java calls.
 
 \subsubsection*{References}
 %to other documents
@@ -111,7 +114,7 @@ The description of the specific requirements, mentioned in the section purpose, 
 
 \subsubsection*{Processing}
 %Internal control and data flow
-\todo{Follows from the component’s function and interfaces.}
+Follows from the component’s function and interfaces.
 
 \subsubsection*{Data}
 %Internal data
@@ -148,7 +151,7 @@ The HTTP Server component doesn't depend on any other components. For an overvie
 
 \subsubsection*{Interfaces}
 %Data and control flow in and out
-This component is accessed through the application service component, the application state component and the update application persistence component. The application service communication is used for the communication with the application service components. For communication with the two components on the client-side of the application, HTTP is used.
+This component is accessed through the application service component, the application state component and the update application persistence component. The application service communication is used for the communication with the application service components. This communication consists of a Java call. For communication with the two components on the client-side of the application, HTTP is used.
  \todo{write more about this after consulting Ion}
 
 \subsubsection*{References}
@@ -157,7 +160,7 @@ The description of the specific requirements, mentioned in the section purpose, 
 
 \subsubsection*{Processing}
 %Internal control and data flow
-\todo{Follows from the component’s function and interfaces.}
+As the implementation of the HTTP server component is beyond the scope of project \projectname, the internal flow is irrelevant.
 
 \subsubsection*{Data}
 %Internal data
@@ -168,15 +171,13 @@ The HTTP server component contains a static collection of content files, that ca
 \label{subsec:Appservice}
 
 \subsection*{Component identifier}
-
 Server.ApplicationService
 
 \subsubsection*{Type}
-
-Package
+Program.
 
 \subsubsection*{Purpose}
-Provides functionality for the following requirements: \\
+Provides functionality for the following software requirements: \\
 SRQ2, SRQ3, SRQ4, SRQ5, SRQ6, SRQ14 and SRQ15.
 % AS-1, AS-2, AS-3, AS-5, AS-6, ASC-1, ASC-2
 
@@ -185,29 +186,50 @@ Whenever centralized data or other communication is required by the application 
 
 \subsubsection*{Subordinates}
 \todo{Child components (modules called, files composed of, classes used) - Ask Thom/Lasse}
+This component is composed of three packages, which contain Java classes. The structure of the packages is shown below:\\
+
+\begin{itemize}
+\item nl.tue.fingerpaint.client.serverdata
+\begin{itemize}
+\item ServerDataCache.java
+\item ServerDataService.java
+\item ServerDataServiceAsync.java
+\end{itemize}
+\item nl.tue.fingerpaint.server
+\begin{itemize}
+\item ServerDataServiceImpl.java
+\end{itemize}
+\item nl.tue.fingerpaint.shared
+\begin{itemize}
+\item ServerDataResult.java
+\end{itemize}
+\end{itemize}
 
 \subsubsection*{Dependencies}
 %\todo{Components to be executed before/after, excluded operations during execution}
 \begin{description}
-\item The Application Service depends on the Application Persistence component when the HTTP Server makes a request for data from the Application Persistence.
-\item The Application Service depends on the Simulator Service component when the HTTP Server sends a protocol to be executed on the Fortran Module.
+\item The Application Service depends on the Application Persistence component when the HTTP Server makes a request for data from the Application Persistence. 
+\item The Application Service depends on the Simulator Service component when the HTTP Server sends a protocol to be executed on the Fortran Module. 
 \item The Application Service depends on the HTTP Server component when the resulting concentration distribution has been calculated by the Fortran Module, and this results has to be send back to the client browser.
 \end{description}
 \noindent For an overview of dependencies, see figure \ref{fig:compdependencies}.
 
 \subsubsection*{Interfaces}
-\todo{Data and control flow in and out - Ask Ion}
+\begin{description}
+\item The Application Service has an interface with the Application Persistence component. This communication is done through a Java call.
+\item The Application Service has an interface with the Simulator Service component.This communication is done throught JNI.
+\item The Application Service has an interface with the HTTP Server component. This communication is done through a Java call.
+\end{description}
 
 \subsubsection*{References}
 %\todo{to other documents}
 For an in-depth description of the Application Service and the functionality described in purpose, see the SRD \cite{srd}.
 
 \subsubsection*{Processing}
-\todo{Internal control and data flow - Ask Ion}
+\todo{Make activity diagram}
 
 \subsubsection*{Data}
-\todo{Internal data - ask Ion}\\
-none (?)
+\todo{Internal data - ask Thom/Lasse}\\
 
 %-------------------------------------------------------------------------------------------------------------------
 \section{Client}
@@ -256,7 +278,7 @@ The description of the specific requirements, mentioned in the section purpose, 
 
 \subsubsection*{Processing}
 %Internal control and data flow
-\todo{ask someone if javascript does processing}
+\todo{Make activity diagram}
 
 \subsubsection*{Data}
 %Internal data
@@ -272,29 +294,53 @@ Client.ClientPersistence
 The Client Persistence is a set of files stored on the system of the client.
 
 \subsubsection*{Purpose}
-For the component to successful, it must fulfull requirements SRQ46-799 and requirements SRQ84-97 (as described in the SRD \cite{srd}).
-%The entirety of 3.1.7 except for the exports.
+Provides functionality for the following software requirements:\\
+SRQ46, SRQ47, SRQ48, SRQ49, SRQ50, SRQ51, SRQ52, SRQ53, SRQ54, SRQ55, SRQ56, SRQ57, SRQ58, SRQ59, SRQ60, SRQ61, SRQ62, SRQ63, SRQ64, SRQ65, SRQ66, SRQ67, SRQ68, SRQ69, SRQ70, SRQ71, SRQ72, SRQ73, SRQ74, SRQ75, SRQ76, SRQ77, SRQ78, SRQ79, SRQ84, SRQ85, SRQ86, SRQ87, SRQ88, SRQ89, SRQ90, SRQ91, SRQ92, SRQ93, SRQ94, SRQ95, SRQ96, SRQ97
+%This are the requirements with labels: CP-0, CP-1, CP-2, CP-3, CP-4, CP-5, CP-6, CP-7, savedistr, savename, savebutton, CP-8, CP-9, CP-10, loaddistbutton, CP-11, loaddist, loadLoad, CP-12, CP-13, CP-14, loadpred, CP-15, CP-16, listsaved, selectremove, suremessage, yesbutton, nobutton, nosaveddistr, CP-17, insuffrights, CP-18, CP-19, CP-23, nameinuseexport, nomemoryexport, actualNameInUse, CP-24, CP-25, CP-26, CP-27, selectLoad, loadresults, displayload, CP-28, CP-29, CP-30
 
 \subsubsection*{Function}
 The Client Persistence is responsible for storing results and self-defined protocols and distributions.
 
 \subsubsection*{Subordinates}
-The Client Persistence is composed of files representing mixing protocols and mixing distributions.
+The Client Persistence does not have any child components.
 
 \subsubsection*{Dependencies}
-The Client Persistence depends on stable data to store. Therefore, the Application State should provide these, aswell as not modify them during the saving.
+The Client Persistence component doesn't depend on any other components. For an overview of dependencies, see figure \ref{fig:compdependencies}.
 
 \subsubsection*{Interfaces}
-The Client Persistence uses the browser's native interface for storing. The Application State uses the Client Persistence interface for storing and retrieving files.
+The Application State uses the Client Persistence interface for storing and retrieving files. This communication is done through a java-call.
 
 \subsubsection*{References}
-The requirements SRQ99-110 can be found insubsection 3.1.7 of the SRD \cite{srd}.
+The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
 
 \subsubsection*{Processing}
 As the Client Persistence merely consists of files, there is no internal processing.
 
 \subsubsection*{Data}
 The data stored in the Client Persistence is composed of files representing mixing protocols and mixing distributions.
+
+%-------------------------------------------------------------------------------------------------------------------
+
+\subsubsection*{Dependencies}
+%Components to be executed before/after, excluded operations during execution
+The Application Persistence component depends on the Application Service component to receive requests from other components. For an overview of dependencies, see figure \ref{fig:compdependencies}.
+
+\subsubsection*{Interfaces}
+%Data and control flow in and out
+This component it is only accessed through the Application Service component. The Application Persistence Communication is used for this purpose. The Application Persistence Commucation exists of Java calls.
+
+\subsubsection*{References}
+%to other documents
+The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
+
+\subsubsection*{Processing}
+%Internal control and data flow
+Follows from the component’s function and interfaces.
+
+\subsubsection*{Data}
+%Internal data
+This component is a database containing data that represents the different mixers.
+
 
 %-------------------------------------------------------------------------------------------------------------------
 \subsection{Update Application Persistence}
