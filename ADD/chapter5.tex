@@ -5,6 +5,81 @@ In this chapter we will describe all of the components that were indentified in 
 %-------------------------------------------------------------------------------------------------------------------
 \section{Server}
 %-------------------------------------------------------------------------------------------------------------------
+
+\subsection{Fortran Module}
+
+\subsubsection*{Component Identifier}
+Server.FortranModule
+
+\subsubsection*{Type}
+The Fortran Module consists of a single procedure.
+
+\subsubsection*{Purpose}
+To enable \projectname to function, the requirements SQR111 and SQR112 (as described in the SRD \cite{srd}) should be fulfilled.
+%FM-1 and FM-2
+
+\subsubsection*{Function}
+The Fortran Module performs the calculations to calculate how the mixing distribution changes as a mixing step is applied.
+
+\subsubsection*{Subordinates}
+The Fortran Module does not have any known child components. This is because the module was given to \projectauthor as a black box.
+
+\subsubsection*{Dependencies}
+The Fortran Module does not have dependencies with relation to other components. This is because it uses its own data, along with the parameters for computations and only interfaces with its parent module (the Simulation Service).
+
+\subsubsection*{Interfaces}
+The Fortran Module has a single interface with the Simulation Service. This interface is the procedure call of the module in Fortran. This call uses a concentration distribution and a mixing step as arguments and returns a concentration distribution. For more detail regarding this interface, refer to  chapter \ref{chap:systcontext}.
+
+\subsubsection*{Resources}
+\todo{ask Ion}
+
+\subsubsection*{References}
+The requirements SQR111 and SQR112 can be found in subsection 3.1.10 of the SRD \cite{srd}.
+
+\subsubsection*{Processing}
+As the implementation of the Fortran Module is beyond \projectname, the internal flow is irrelevant.
+
+\subsubsection*{Data}
+As the implementation of the Fortran Module is beyond \projectname, the internal data is irrelevant.
+
+%-------------------------------------------------------------------------------------------------------------------
+\subsection{Simulation Service}
+
+\subsubsection*{Component Identifier}
+Server.SimulationService
+
+\subsubsection*{Type}
+The Simulation Service is a program.
+
+\subsubsection*{Purpose}
+For the component to successful, it must fulfull requirements SRQ99-101 and requirements SRQ106-110 (as described in the SRD \cite{srd}).
+%sendParams, readParams, returnParams, execMixing and all SS-versions
+
+\subsubsection*{Function}
+The Simulation Service is meant to simulate a mixing protocol on the server and compute how the concentration distribution changes when such a protocol is applied.
+
+\subsubsection*{Subordinates}
+The Simulation Service uses the Fortran Module to perform the technical computations.
+
+\subsubsection*{Dependencies}
+The Simulation Service depends on the Fortran Module for technical calculations.
+
+\subsubsection*{Interfaces}
+The Simulation Service uses the Fortran Module's interface for communications to it. The Simulator Service itself is accessible through the Simulator Service Communication.
+
+\subsubsection*{Resources}
+\todo{ask Ion}
+
+\subsubsection*{References}
+The requirements SRQ99-101 can be found in subsection 3.1.8 of the SRD \cite{srd}.
+
+\subsubsection*{Processing}
+For processing requests, the Simulation Service keeps each request separate. For each request, the protocol is split up in single steps and these are simulated in sequence by the Fortran Module.
+
+\subsubsection*{Data}
+The Simulation Service has no internal data other than the protocol and distribution defined by the request. This data is modified as each step of the protocol is processed by the Fortran Module,and finally returned when all steps are analysed.
+
+%-------------------------------------------------------------------------------------------------------------------
 \subsection{Application Persistence}
 
 \subsubsection*{Component identifier}
@@ -211,6 +286,43 @@ The description of the specific requirements, mentioned in the section purpose, 
 This component doesn't keep any internal data.
 
 %-------------------------------------------------------------------------------------------------------------------
+\subsection{Client Persistence}
+
+\subsubsection*{Component Identifier}
+Client.ClientPersistence
+
+\subsubsection*{Type}
+The Client Persistence is a set of files stored on the system of the client.
+
+\subsubsection*{Purpose}
+For the component to successful, it must fulfull requirements SRQ46-799 and requirements SRQ84-97 (as described in the SRD \cite{srd}).
+%The entirety of 3.1.7 except for the exports.
+
+\subsubsection*{Function}
+The Client Persistence is responsible for storing results and self-defined protocols and distributions.
+
+\subsubsection*{Subordinates}
+The Client Persistence is composed of files representing mixing protocols and mixing distributions.
+
+\subsubsection*{Dependencies}
+The Client Persistence depends on stable data to store. Therefore, the Application State should provide these, aswell as not modify them during the saving.
+
+\subsubsection*{Interfaces}
+The Client Persistence uses the browser's native interface for storing. The Application State uses the Client Persistence interface for storing and retrieving files.
+
+\subsubsection*{Resources}
+\todo{ask Ion}
+
+\subsubsection*{References}
+The requirements SRQ99-110 can be found insubsection 3.1.7 of the SRD \cite{srd}.
+
+\subsubsection*{Processing}
+As the Client Persistence merely consists of files, there is no internal processing.
+
+\subsubsection*{Data}
+The data stored in the Client Persistence is composed of files representing mixing protocols and mixing distributions.
+
+%-------------------------------------------------------------------------------------------------------------------
 \subsection{Update Application Persistence}
 
 \subsubsection*{Component identifier}
@@ -258,6 +370,7 @@ The description of the specific requirements, mentioned in the section purpose, 
 \subsubsection*{Data}
 %Internal data
 \todo{This component doesn't keep any internal data.}
+<<<<<<< HEAD
 %-------------------------------------------------------------------------------------------------------------------
 \subsection{Application State}
 \label{subsec:Appservice}
@@ -303,5 +416,4 @@ For an in-depth description of the Application Service and the functionality des
 
 \subsubsection*{Data}
 \todo{Internal data - ask Ion}
-
 
