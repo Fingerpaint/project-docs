@@ -2,7 +2,7 @@
 \label{chap:compdescr}
 \todo{short chapter intro}
 
-\section{server}
+\section{Server}
 
 \subsection{Fortran Module}
 
@@ -32,13 +32,14 @@ The Fortran Module has a single interface with the Simulation Service. This inte
 \todo{ask Ion}
 
 \subsubsection*{References}
-The requirements SQR111 and SQR112 can be found in 3.1.10 of the SRD \cite{srd}.
+The requirements SQR111 and SQR112 can be found in subsection 3.1.10 of the SRD \cite{srd}.
 
 \subsubsection*{Processing}
 As the implementation of the Fortran Module is beyond \projectname, the internal flow is irrelevant.
 
 \subsubsection*{Data}
 As the implementation of the Fortran Module is beyond \projectname, the internal data is irrelevant.
+
 
 \subsection{Simulation Service}
 
@@ -68,7 +69,7 @@ The Simulation Service uses the Fortran Module's interface for communications to
 \todo{ask Ion}
 
 \subsubsection*{References}
-The requirements SRQ99-101 can be found in 3.1.8 of the SRD \cite{srd}, and requirements SRQ106-110 can be found in 3.1.9 of the SRD \cite{srd}.
+The requirements SRQ99-101 can be found in subsection 3.1.8 of the SRD \cite{srd}.
 
 \subsubsection*{Processing}
 For processing requests, the Simulation Service keeps each request separate. For each request, the protocol is split up in single steps and these are simulated in sequence by the Fortran Module.
@@ -76,37 +77,41 @@ For processing requests, the Simulation Service keeps each request separate. For
 \subsubsection*{Data}
 The Simulation Service has no internal data other than the protocol and distribution defined by the request. This data is modified as each step of the protocol is processed by the Fortran Module,and finally returned when all steps are analysed.
 
-\todo{For each component, a section with the following structure.}
 
-\section{Component identifier}
-\todo{A unique identifier}
+\section{Client}
 
-\subsection{Type}
-\todo{Task, procedure, package, program, file, ...}
+\subsection{Client Persistence}
 
-\subsection{Purpose}
-\todo{Software requirements implemented}
+\subsubsection*{Component Identifier}
+Client.ClientPersistence
 
-\subsection{Function}
-\todo{What the component does.}
+\subsubsection*{Type}
+The Client Persistence is a set of files stored on the system of the client.
 
-\subsection{Subordinates}
-\todo{Child components (modules called, files composed of, classes used)}
+\subsubsection*{Purpose}
+For the component to successful, it must fulfull requirements SRQ46-799 and requirements SRQ84-97 (as described in the SRD \cite{srd}).
+%The entirety of 3.1.7 except for the exports.
 
-\subsection{Dependencies}
-\todo{Components to be executed before/after, excluded operations during execution}
+\subsubsection*{Function}
+The Client Persistence is responsible for storing results and self-defined protocols and distributions.
 
-\subsection{Interfaces}
-\todo{Data and control flow in and out}
+\subsubsection*{Subordinates}
+The Client Persistence is composed of files representing mixing protocols and mixing distributions.
 
-\subsection{Resources}
-\todo{Needed to perform the function}
+\subsubsection*{Dependencies}
+The Client Persistence depends on stable data to store. Therefore, the Application State should provide these, aswell as not modify them during the saving.
 
-\subsection{References}
-\todo{to other documents}
+\subsubsection*{Interfaces}
+The Client Persistence uses the browser's native interface for storing. The Application State uses the Client Persistence interface for storing and retrieving files.
 
-\subsection{Processing}
-\todo{Internal control and data flow}
+\subsubsection*{Resources}
+\todo{ask Ion}
 
-\subsection{Data}
-\todo{Internal data}
+\subsubsection*{References}
+The requirements SRQ99-110 can be found insubsection 3.1.7 of the SRD \cite{srd}.
+
+\subsubsection*{Processing}
+As the Client Persistence merely consists of files, there is no internal processing.
+
+\subsubsection*{Data}
+The data stored in the Client Persistence is composed of files representing mixing protocols and mixing distributions.
