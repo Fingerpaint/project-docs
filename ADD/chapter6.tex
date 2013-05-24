@@ -9,41 +9,54 @@
 %\item The Simulator Service Communication must be \todo{fast enough} to serve the data from the Application Persistence to the Client Browser.
 %\end{itemize}
 
-This chapter gives an estimation of the computer resources which are needed to develop and operate \projectname. Also, when all of the resource requirements in this chapter are met, the software requirements \todo{SRQ8, SRQ13 and SRQ101} from the SRD \cite{srd} are also met. \\
+This chapter gives an estimation of the computer resources which are needed to develop and operate \projectname{}. Also, when all of the resource requirements in this chapter are met, the software requirements \todo{SRQ8, SRQ13 and SRQ101} from the SRD \cite{srd} are also met.
 %This are the requirements with labels: APC-2, ASC-2 and SSC-2.
 
-\noindent The requirements for the development of \projectname\ are:\\
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-CPU &  $\geq$ \todo{1.0} GHz x86 or equivalent \\
-Memory & $\geq$ \todo{1} GB RAM \\
-Hard disk & $\geq$ \todo{1} GB free on hard disk \\
-Operating System & Windows 7 or Linux\\
-Software & Java 1.7 or higher, Google Web Toolkit 2.5.1, iOS Safara version 6.0 or higher, Firefox version 20 or higher, Google Chrome version 26 or higher, Internet Explorer version 10 or higher and Safari version 6.0 or higher. \todo{Add more stuff if needed}\\
-\end{tabular}\\
-\newline
-The requirements for the server needed to develop the \applicationname\ are:\\
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-CPU &  $\geq$ \todo{1.0} GHz x86 or equivalent \\
-Memory & $\geq$ 4 GB RAM \todo{\textless- This is the number of the server we got from BCF}\\
-Hard disk & $\geq$ 30 GB free on hard disk \todo{\textless- This is the number of the server we got from BCF}\\
-Operating System & Windows 7 \todo{\textless- This is the OS of the server we got from BCF}\\
-Software & Java 1.7 or higher, Google Web Toolkit 2.5.1, iOS Safara version 6.0 or higher, Firefox version 20 or higher, Google Chrome version 26 or higher, Internet Explorer version 10 or higher and Safari version 6.0 or higher. \todo{Add more stuff if needed}\\
-\end{tabular}\\
-\newline
-The requirements for the operating the \applicationname\ on the server side are:\\
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-CPU & $\geq$ \todo{1.0} GHz x86 or equivalent \\
-Memory & $\geq$ \todo{1} GB RAM \\
-Hard disk & $\geq$ \todo{1} GB free on hard disk \\
-Operating System & \todo{Windows 7}\\
-Software & Java 1.7 or higher, Google Web Toolkit 2.5.1. \todo{\textless- Is this true? Or is just the html/css/javascript gonna run on the server?}\\
-\end{tabular}\\
-\newline
-The requirements for operating the \applicationname\ on a client device are:\\
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-CPU & $\geq$ \todo{1.0} GHz x86 or equivalent \\
-Memory & $\geq$ \todo{1} GB RAM \\
-Operating System & Any supporting the software\\
-Software & iOS Safara version 6.0 or higher, Firefox version 20 or higher, Google Chrome version 26 or higher, Internet Explorer version 10 or higher or Safari version 6.0 or higher.\\
-\end{tabular}
+\fpstartparagraph{} The requirements for the development of \projectname{} are:
 
+\begin{center}
+\begin{tabular}{p{0.2\textwidth} p{0.7\textwidth}}
+CPU &  $\geq$ 1.0 GHz x86 or equivalent \\
+Memory & $\geq$ 4 GB RAM (or at least enough disk space to swap to) \\
+Hard disk & $\geq$ 500 MB free on hard disk \\
+Operating System & Windows 7 or higher, or some up-to-date Linux distribution\\
+Software & Java 1.7 or higher, Google Web Toolkit SDK 2.5.1, iOS Safari version 6.0 or higher, Firefox version 20 or higher, Google Chrome version 26 or higher, Internet Explorer version 10 or higher and Safari version 6.0 or higher. \\
+\end{tabular}
+\end{center}
+
+\fpstartparagraph{} The requirements for the server needed to develop the \applicationname{} are:
+
+\begin{center}
+\begin{tabular}{p{0.2\textwidth} p{0.7\textwidth}}
+CPU & $\geq$ 1.0 GHz x86 or equivalent \\
+Memory & $\geq$ 2 GB RAM \\
+Hard disk & $\geq$ 200 MB free on hard disk \\
+Operating System & Windows 7 or higher, or some up-to-date Linux distribution\\
+Software & Java 1.7 or higher, Google Web Toolkit SDK 2.5.1.\\
+\end{tabular}
+\end{center}
+
+\fpstartparagraph{} The requirements for the operating the \applicationname{} on the server side are:
+
+\begin{center}
+\begin{tabular}{p{0.2\textwidth} p{0.7\textwidth}}
+CPU & $\geq$ 1.0 GHz x86 or equivalent \\
+Memory & $\geq$ 2 GB RAM \\
+Hard disk & $\geq$ 200 MB free on hard disk \\
+Operating System & Windows 7 or higher, or some up-to-date Linux distribution\\
+Software & Java 1.7 or higher, Google Web Toolkit SDK 2.5.1.\\
+\end{tabular}
+\end{center}
+
+\begin{samepage}
+\fpstartparagraph{} The requirements for operating the \applicationname\ on a client device are:
+
+\begin{center}
+\begin{tabular}{p{0.2\textwidth} p{0.7\textwidth}}
+CPU & $\geq$ 1.0 GHz x86 or equivalent \\
+Memory & $\geq$ 1 GB RAM \\
+Operating System & Any supporting the software\\
+Software & iOS Safari version 6.0 or higher, Firefox version 20 or higher, Google Chrome version 26 or higher, Internet Explorer version 10 or higher or Safari version 6.0 or higher.\\
+\end{tabular}
+\end{center}
+\end{samepage}

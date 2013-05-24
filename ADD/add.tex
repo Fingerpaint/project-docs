@@ -1,14 +1,12 @@
-\input{../style.tex}
-\renewcommand{\pathtobase}[1]{../#1}
-
-%Variables
-\renewcommand{\TitelFull}{Architectural Design Document}
-\renewcommand{\TitelAbbr}{ADD}
-\renewcommand{\Version}{0.0}
+\documentclass[%
+		pathtobase=..,%
+		titlefull={Software Requirements Document},%
+		titleabbr=SRD,%
+		version=0.0]{fingerpaint}
 
 \begin{document}
 
-\fingerpainttitlepage{}
+\maketitle{}
 
 \begin{abstract}
 This document contains descriptions of the architecture of the \applicationname. This project is part of the Software Engineering Project (2IP35) and is one of the assignments at Eindhoven University of Technology. The Architectural Design Document (ADD) is based on the ESA standard for software development, as set by the European Space Agency (ESA) \cite{esa}.
