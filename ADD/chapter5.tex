@@ -1,6 +1,6 @@
 \chapter{Component description}
 \label{chap:compdescr}
-In this chapter we will describe all of the components that were indentified in chapter \ref{chap:systdesign} in detail.
+In this chapter we describe all of the components that were indentified in chapter \ref{chap:systdesign} in detail. 
 
 %-------------------------------------------------------------------------------------------------------------------
 \section{Server}
@@ -24,7 +24,7 @@ Provides functionality for the following software requirements:
 The Fortran Module performs the calculations to calculate how the mixing distribution changes as a mixing step is applied.
 
 \subsubsection*{Subordinates}
-The Fortran Module does not have any known child components. This is because the module was given to \projectauthor as a black box.
+The Fortran Module does not have any known child components. This is because the module was given to \projectauthor{} as a black box.
 
 \subsubsection*{Dependencies}
 The Fortran Module does not have dependencies with relation to other components. This is because it uses its own data, along with the parameters for computations and only interfaces with its parent module (the Simulation Service). For an overview of dependencies, see figure \ref{fig:compdependencies}.
@@ -36,10 +36,10 @@ The Fortran Module has a single interface with the Simulation Service. This inte
 The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
 
 \subsubsection*{Processing}
-As the implementation of the Fortran Module is beyond the scope of project \projectname, the internal flow is irrelevant.
+As the implementation of the Fortran Module is beyond the scope of project \projectname{}, the internal flow is irrelevant.
 
 \subsubsection*{Data}
-As the implementation of the Fortran Module is beyond the scope of project \projectname, the internal data is irrelevant.
+As the implementation of the Fortran Module is beyond the scope of project \projectname{}, the internal data is irrelevant.
 
 %-------------------------------------------------------------------------------------------------------------------
 \subsection{Simulator Service}
@@ -379,7 +379,7 @@ This component doesn't keep any internal data.
 
 %-------------------------------------------------------------------------------------------------------------------
 \subsection{Application State}
-\label{subsec:Appservice}
+\label{subsec:appstate}
 
 \subsection*{Component identifier}
 Client.Application State
@@ -388,9 +388,10 @@ Client.Application State
 Program
 
 \subsubsection*{Purpose}
-Provides functionality for the following requirements: \\
+Provides functionality for the following requirements:
+
 %Criteria : If there is any interaction required between the application state and Layout (accessing of storing information), the SRQ is listed in both components. If its 100% GUI, it's not here.
- SRQ17, SRQ19, SRQ21, SRQ23, SRQ24, SRQ25, SRQ26, SRQ27, SRQ28, SRQ29, SRQ30, SRQ31, SRQ32, SRQ33, SRQ39, SRQ40, SRQ41, SRQ42, SRQ43, SRQ44, SRQ45, SRQ46, SRQ47, SRQ48, SRQ49, SRQ50, SRQ51, SRQ52, SRQ53, SRQ54, SRQ56, SRQ58, SRQ61, SRQ62, SRQ63, SRQ64, SRQ65, SRQ67, SRQ68, SRQ70, SRQ73, SRQ76, SRQ77, SRQ78, SRQ79, SRQ80, SRQ81, SRQ83, SRQ85, SRQ86, SRQ87, SRQ89, SRQ91, SRQ92, SRQ94, SRQ95, SRQ96 and SRQ98.\\
+\noindent{} SRQ17, SRQ19, SRQ21, SRQ23, SRQ24, SRQ25, SRQ26, SRQ27, SRQ28, SRQ29, SRQ30, SRQ31, SRQ32, SRQ33, SRQ39, SRQ40, SRQ41, SRQ42, SRQ43, SRQ44, SRQ45, SRQ46, SRQ47, SRQ48, SRQ49, SRQ50, SRQ51, SRQ52, SRQ53, SRQ54, SRQ56, SRQ58, SRQ61, SRQ62, SRQ63, SRQ64, SRQ65, SRQ67, SRQ68, SRQ70, SRQ73, SRQ76, SRQ77, SRQ78, SRQ79, SRQ80, SRQ81, SRQ83, SRQ85, SRQ86, SRQ87, SRQ89, SRQ91, SRQ92, SRQ94, SRQ95, SRQ96 and SRQ98.
 
 % CB-1, CB-3, CB-5, CB-7, selgeomrec, selmixer, selgeomsq, selgeomcir, selgeomjb, CB-8, prevsaved, CB-9, predef, CB10, CB-14, CB-15, startMixing, CB-16, visResults, CB-16-2, CB-17, CP-0, CP-1, CP-2, CP-3, CP-4, CP-5, CP-6, CP-7, savedistr, savebutton, CP-9, CP-11, loaddist, loadload, CP-12, CP-13, loadpred, CP-15, listsaved, yesbutton, CP-17, insuffrights, CP-18, CP-19, CP-21, CP-22, exportsave, nameinuseexport, nomemoryexport, actualNameInUse, CP-25, CP-27, selectload, displayload, CP-28, CP-29, selLang
 
@@ -400,18 +401,19 @@ The Client Browser provides the user with a Graphical User Interface. All intera
 \subsubsection*{Subordinates}
 %\todo{Child components (modules called, files composed of, classes used) - Ask Ion}
 The component is composed of ..., which contain java classes. The structure of the packages is shown below:
+
 \fpstartparagraph{} \begin{itemize}
-nl.tue.nl.fingerpaint.client
-\begin{itemize}
-ApplicationState.java
-\end{itemize}
+	\item nl.tue.nl.fingerpaint.client
+	\begin{itemize}
+		\item ApplicationState.java
+	\end{itemize}
 \end{itemize}
 
 \subsubsection*{Dependencies}
 %\todo{Components to be executed before/after, excluded operations during execution}
-For saving a file locally on the device the Application State state depends on the Client Persistence to make this happen. To make any changes to the state of the application it depends on the Layout to issue the parameters for the new value. Finally, when the user wants to execute a mixing step/run, and the Layout communicates this to the Application State, it depends on the HTTP Server component to forward it to the Fortran Module which does the computation. \\
+For saving a file locally on the device the Application State state depends on the Client Persistence to make this happen. To make any changes to the state of the application it depends on the Layout to issue the parameters for the new value. Finally, when the user wants to execute a mixing step/run, and the Layout communicates this to the Application State, it depends on the HTTP Server component to forward it to the Fortran Module which does the computation.
 
-\noindent For an overview of dependencies, see figure \ref{fig:compdependencies}.
+\fpstartparagraph{} For an overview of dependencies, see figure \ref{fig:compdependencies}.
 
 \subsubsection*{Interfaces}
 %\todo{Data and control flow in and out - Ask Ion}
