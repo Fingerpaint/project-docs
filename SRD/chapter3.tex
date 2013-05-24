@@ -11,7 +11,7 @@ Each requirement has a specific priority, based on the MoSCoW model \cite{moscow
     \item \emph{won't have}; requirements with this priority will not be implemented in this version of the product, but may be nice to implement in future versions.
 \end{itemize}
 
-\noindent Only those user requirements from the URD \cite{urd} with a priority higher then \emph{won't have} will be translated to software requirements in this chapter.
+\noindent Only those user requirements from the URD \cite{urd} with a priority higher than \emph{won't have} will be translated to software requirements in this chapter.
 
 \fpstartparagraph{} In some of the requirements in this section, the term ``fast enough" is mentioned: for a precise definition, refer to chapter 6 of the ADD \cite{add}.
 
@@ -30,7 +30,7 @@ This section lists the functional requirements for the \applicationname.
 \SRQ[AS-2]{must have}{The Application Service must be able to send all the available mixers to the HTTP server which in turn should send it to the Client Browser.}
 \SRQ[AS-3]{must have}{The Application Service must allow for adding new mixers to the Application Persistence.} %CNR13
 %\SRQ[AS-4]{should have}{The Application Service must allow for editing existing mixers in the Application Persistence.}
-\SRQ[AS-5]{must have}{The Application Service must allow for removing existing mixers to the Application Persistence.}
+\SRQ[AS-5]{must have}{The Application Service must allow for removing existing mixers from the Application Persistence.}
 \SRQ[AS-6]{must have}{The Application Service must be able to provide all available geometries to the Client Browser (via the HTTP server).}
 
 \subsection[APC]{Application Persistence Communication}
@@ -50,20 +50,9 @@ This section lists the functional requirements for the \applicationname.
 \SRQ[ASC-2]{must have}{The Application Service Communication must be fast enough to provide the functionality from the Application Service to the Client Browser.}
 
 \subsection[CB]{Client Browser}
-\subsubsection{Set options for a mixing protocol}
-A duration can be any value that can be created by combining the possible values for $D$ (the step size), namely 4, 2, 1, 0.5 and 0.25. Such a value $D$ can be entered in a spinner near the drawing canvas. If an invalid value is entered -- i.e. a value that cannot be created by combining the mentioned values -- this value is rounded up or down to the nearest valid value, whichever is closest. For example, 4.2 is rounded up to 4.25, while 4.1 is rounded down to 4.
-
-To indicate how many times the protocol created using the above items is executed, the user can enter a number in a spinner. We use a spinner because the number it contains can easily be incremented or decremented by using the arrow keys, and a value that is not near the original value can easily be entered using its text box.
-
-\SRQ[stepsize]{must have}{ % CPR20
-    The user can enter a valid step size in a text box.
-}
-
-\SRQ[CB-1]{must have}{ % CPR21
-    The user can indicate via a spinner how many times the protocol should be applied. This value must be an integer number, and must be at least 1.
-}
-
 \subsubsection{Defining an initial concentration distribution}
+The user can select a circle or square-shaped drawing tool to draw with. He can draw on the canvas by swiping with his finger or drawing the mouse.In addition, the user can reset the drawn distribution to completely white by using a \texttt{reset} button.
+
 \SRQ[CB-2]{must have}{The user can select a colour (black or white) to paint with for the initial concentration distribution, via a toggle button.} % CPR6
 \SRQ[CB-3]{must have}{The user can define an initial concentration distribution with the selected colour on the canvas, by drawing with their finger.} % CPR6
 \SRQ[CB-4]{must have}{After selecting the circle-shaped drawing tool in \srqref{circleshaped}, the user can draw with this tool on the canvas.} % CPR7, los omdat de square een lagere prioriteit heeft in het URD
@@ -100,13 +89,25 @@ The user can change the drawing tool that is used to paint on the canvas. The cu
 \SRQ[CB-13]{should have}{The user can adjust the size of the drawing tool, using a slider in the popup panel from \srqref{circleshaped} and \srqref{squareshaped}}. % CPR10
 
 \subsubsection{Define mixing protocol for specific geometries}
-A mixing protocol consists of movements of the geometry (if applicable), and how long these movements are executed. Different movement types are possible for each geometry. Each movement is performed for $D$ time units, which can be set using \srqref{stepsize}.
+A mixing protocol consists of movements of the geometry (if applicable), and how long these movements are executed. Different movement types are possible for each geometry. A step of a mixing protocol has a certain duration (the step size). This duration $D$ can be any value that can be created by combining the possible base values for this duration , namely 4, 2, 1, 0.5 and 0.25. Such a value $D$ can be entered in a spinner near the drawing canvas. If an invalid value is entered -- i.e. a value that cannot be created by combining the mentioned values -- this value is rounded up or down to the nearest valid value, whichever is closest. For example, 4.2 is rounded up to 4.25, while 4.1 is rounded down to 4. Each movement is performed for $D$ time units, which can be set using \srqref{stepsize}.
 
-For the rectangular or square geometries, a wall movement is defined by either $T$ or $B$, denoting a movement of the top or bottom wall, respectively. These walls are visible above and below the canvas, respectively, and the user can define the wall movement and direction by swiping over the screen. Looking directly at the screen, a $T$ movement indicates that the top wall should move to the right, and a $B$ movement indicates that the bottom wall should move to the left. This way, the walls normally move in a clockwise direction. Each of these wall movements can be combined with a `$-$' sign, to indicate that the direction of movement should be counter-clockwise. This means $-T$, for example, indicates that the top wall should move to the \emph{left}. 
+Depending on the geometry, a step has additional parameters signifying which part moves and how:
+
+\fpstartparagraph{} For the rectangular or square geometries, a wall movement is defined by either $T$ or $B$, denoting a movement of the top or bottom wall, respectively. These walls are visible above and below the canvas, respectively, and the user can define the wall movement and direction by swiping over the screen. Looking directly at the screen, a $T$ movement indicates that the top wall should move to the right, and a $B$ movement indicates that the bottom wall should move to the left. This way, the walls normally move in a clockwise direction. Each of these wall movements can be combined with a `$-$' sign, to indicate that the direction of movement should be counter-clockwise. This means $-T$, for example, indicates that the top wall should move to the \emph{left}. 
 
 The circular geometry does not support movements, but the mixer that is placed inside the circle does support some form of movement. The user can specify how far he/she wants to move the mixer inside the geometry, and this serves as the protocol.
 
 For the \emph{Journal bearing} geometry, movements are defined by rotating the outer or inner circle. Swiping to the right near the top of the outer circle means the outer circle rotates clockwise for $D$ time units, and swiping to the right near the top of the inner circle means the inner circle rotates clockwise for $D$ time units. Here, too, a `-' sign implies the rotation is executed in the opposite direction.
+
+\fpstartparagraph{} To indicate how many times the protocol created using the above items is executed, the user can enter a number in a (different) spinner. We use a spinner because the number it contains can easily be incremented or decremented by using the arrow keys, and a value that is not near the original value can easily be entered using its text box.
+
+\SRQ[stepsize]{must have}{ % CPR20
+    The user can enter a valid step size in a text box.
+}
+
+\SRQ[CB-1]{must have}{ % CPR21
+    The user can indicate via a spinner how many times the protocol should be applied. This value must be a positive integer.
+}
 
 \SRQ[CB-14]{must have}{ % CPR17a, CPR25a, CPR26a, CPR27a
     The \emph{Step} class contains a movement and a duration for this movement.
@@ -283,7 +284,7 @@ To execute a mixing protocol, the following SRQs are executed in this order: \sr
 }
 
 \subsubsection{Requirements regarding the presentation of results}
-The user is able to visualise his mixing protocol, as well as able to save and export these results. To this end a results window is available. In the results window there is a \texttt{show statistics} button. When pressed, the performance of the mixing run is shown in a graph. In this new menu the \texttt{show statistics} button changes to \texttt{show result}. When this button is pressed, the image switches back to the default results window. The results window is reached by pressing the \texttt{start mixing} button in the mixing interface. The mixing interface is the window where the user can define his mixing protocol. In the mixing interface there is a \texttt{animate mixing} checkbox. If this checkbox was checked when the \texttt{start mixing} button is pressed, an animation of the mixing procedure is shown in the results window.
+The user is able to get the distribution that resulted from executing his mixing run. In additon, the mixing performance is given after each mixing step. He is also able to save and export these results. To this end a results window is available. In the results window, the final distribution is shown. There is also a \texttt{show statistics} button. When pressed, the performance of the mixing run is shown in a graph. In this new menu the \texttt{show statistics} button changes to \texttt{show result}. When this button is pressed, the image switches back to the default results window. The results window is reached by pressing the \texttt{start mixing} button in the mixing interface. The mixing interface is the window where the user can define his mixing protocol. In the mixing interface there is a \texttt{animate mixing} checkbox. If this checkbox was checked when the \texttt{start mixing} button is pressed, an animation of the mixing procedure is shown in the results window.
 
 \SRQ[SSC-3]{must have}{In the results window the result of the user's mixing protocol is shown. This interface can be reached by pressing the \texttt{start mixing} button.}
 %CPR32
@@ -304,7 +305,7 @@ The user is able to visualise his mixing protocol, as well as able to save and e
 The Simulator Service must be able to send and receive matrix files from the Client Browser and to the Fortran Module. These matrices specify the characteristics of the mixers. 
 
 \SRQ[SS-2]{must have}{The Simulator Service must be able to receive protocol information from the Client Browser.}
-\SRQ[SS-3]{must have}{The Simulator Service must be able to pass (references to) matrix files to the Fortran Module, that the Fotran Module can use for simulations.}
+\SRQ[SS-3]{must have}{The Simulator Service must be able to pass (references to) matrix files to the Fortran Module, which the Fotran Module can use for simulations.}
 \SRQ[SS-4]{must have}{The Simulator Service must be able to pass protocol information to the Fortran Module.}
 \SRQ[SS-5]{must have}{The Simulator Service must, together with the Application Service, make sure that the listed mixers in the Application Persistence are known to the Fortran Module, for each geometry.}
 
@@ -333,9 +334,9 @@ The Simulator Service must be able to send and receive matrix files from the Cli
 \SRQ[NONF-5]{should have}{A Dutch interface is available.}
 %CPR41
 
-\subsection{Operational}
-\subsection{Resource}
-\subsection{Verification and testing}
+\subsection{Operational}\todo{get more requirements}
+\subsection{Resource}\todo{get more requirements}
+\subsection{Verification and testing}\todo{get more requirements}
 \subsection{Portability}
 \SRQ[NONF-6]{must have}{The application runs on iOS Safari version 6.0 and higher.}
 %CNR1
@@ -362,9 +363,9 @@ higher.}
 \SRQ[NONF-13]{could have}{The application runs on devices running on Windows 8.}
 %CNR9
 
-\subsection{Maintainability}
-\subsection{Reliability}
-\subsection{Security}
-\subsection{Safety}
-\subsection{Documentation}
-\subsection{Extensibility}
+\subsection{Maintainability}\todo{get more requirements}
+\subsection{Reliability}\todo{get more requirements}
+\subsection{Security}\todo{get more requirements}
+\subsection{Safety}\todo{get more requirements}
+\subsection{Documentation}\todo{get more requirements}
+\subsection{Extensibility}\todo{get more requirements}
