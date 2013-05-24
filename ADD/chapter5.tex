@@ -67,7 +67,7 @@ The Simulation Service is meant to simulate a mixing protocol on the server and 
 The Simulation Service depends on the Fortran Module for technical calculations. For an overview of dependencies, see figure \ref{fig:compdependencies}.
 
 \subsubsection*{Interfaces}
-The Simulation Service uses the Fortran Module's interface for communications to it. The Simulater Service sends a concentration distribution and a mixing step to the Fortran Module, and receives a concentration distribution from the Fortran Module. This communication is done in C and Fortran. 
+The Simulation Service uses the Fortran Module's interface for communications to it. The Simulater Service sends a concentration distribution and a mixing step to the Fortran Module, and receives a concentration distribution from the Fortran Module. This communication is done in C and Fortran.
 The Simulator Service also receives information regarding mixing runs that have to be executed from the Application Service, and it sends the resulting distribution back to the Application Service. This communication is done by the Simulater Service Communication, which uses JNI.
 
 \subsubsection*{References}
@@ -185,7 +185,7 @@ Server.ApplicationService
 Program.
 
 \subsubsection*{Purpose}
-Provides functionality for the following software requirements: 
+Provides functionality for the following software requirements:
 
 \noindent SRQ2, SRQ3, SRQ4, SRQ5, SRQ6, SRQ14 and SRQ15.
 % AS-1, AS-2, AS-3, AS-5, AS-6, ASC-1, ASC-2
@@ -374,7 +374,7 @@ This component receives data that is inputted by the user from the Layout compon
 
 \subsubsection*{Data}
 %Internal data
-This component doesn't keep any internal data. 
+This component doesn't keep any internal data.
 \todo{Reconsider after this component has been build.}
 
 %-------------------------------------------------------------------------------------------------------------------
@@ -423,7 +423,7 @@ For an in-depth description of the Application Service and the functionality des
 
 \subsubsection*{Processing}
 \todo{Internal control and data flow - Ask Ion}
-It converts a mixing run call to a HTTP format to send to the HTTP server. When files need to be saved it converts the data to String format. 
+It converts a mixing run call to a HTTP format to send to the HTTP server. When files need to be saved it converts the data to String format.
 
 \subsubsection*{Data}
-Variables entered by the user. 
+The data stored in the Application State are the variables entered by the user in the Layout component.
