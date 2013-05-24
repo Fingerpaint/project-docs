@@ -1,6 +1,6 @@
 \chapter{Component description}
 \label{chap:compdescr}
-In this chapter we will describe all of the components that were indentified in chapter \ref{chap:systdesign} in detail.
+In this chapter we describe all of the components that were indentified in chapter \ref{chap:systdesign} in detail. 
 
 %-------------------------------------------------------------------------------------------------------------------
 \section{Server}
@@ -24,7 +24,7 @@ Provides functionality for the following software requirements:
 The Fortran Module performs the calculations to calculate how the mixing distribution changes as a mixing step is applied.
 
 \subsubsection*{Subordinates}
-The Fortran Module does not have any known child components. This is because the module was given to \projectauthor as a black box.
+The Fortran Module does not have any known child components. This is because the module was given to \projectauthor{} as a black box.
 
 \subsubsection*{Dependencies}
 The Fortran Module does not have dependencies with relation to other components. This is because it uses its own data, along with the parameters for computations and only interfaces with its parent module (the Simulation Service). For an overview of dependencies, see figure \ref{fig:compdependencies}.
@@ -36,10 +36,10 @@ The Fortran Module has a single interface with the Simulation Service. This inte
 The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
 
 \subsubsection*{Processing}
-As the implementation of the Fortran Module is beyond the scope of project \projectname, the internal flow is irrelevant.
+As the implementation of the Fortran Module is beyond the scope of project \projectname{}, the internal flow is irrelevant.
 
 \subsubsection*{Data}
-As the implementation of the Fortran Module is beyond the scope of project \projectname, the internal data is irrelevant.
+As the implementation of the Fortran Module is beyond the scope of project \projectname{}, the internal data is irrelevant.
 
 %-------------------------------------------------------------------------------------------------------------------
 \subsection{Simulator Service}
@@ -401,11 +401,12 @@ The Client Browser provides the user with a Graphical User Interface. All intera
 \subsubsection*{Subordinates}
 %\todo{Child components (modules called, files composed of, classes used) - Ask Ion}
 The component is composed of ..., which contain java classes. The structure of the packages is shown below:
+
 \fpstartparagraph{} \begin{itemize}
-nl.tue.nl.fingerpaint.client
-\begin{itemize}
-ApplicationState.java
-\end{itemize}
+	\item nl.tue.nl.fingerpaint.client
+	\begin{itemize}
+		\item ApplicationState.java
+	\end{itemize}
 \end{itemize}
 
 \subsubsection*{Dependencies}
