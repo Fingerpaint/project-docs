@@ -208,8 +208,8 @@ This component is composed of three packages, which contain Java classes. The st
 \subsubsection*{Dependencies}
 %\todo{Components to be executed before/after, excluded operations during execution}
 \begin{description}
-\item The Application Service depends on the Application Persistence component when the HTTP Server makes a request for data from the Application Persistence. 
-\item The Application Service depends on the Simulator Service component when the HTTP Server sends a protocol to be executed on the Fortran Module. 
+\item The Application Service depends on the Application Persistence component when the HTTP Server makes a request for data from the Application Persistence.
+\item The Application Service depends on the Simulator Service component when the HTTP Server sends a protocol to be executed on the Fortran Module.
 \item The Application Service depends on the HTTP Server component when the resulting concentration distribution has been calculated by the Fortran Module, and this results has to be send back to the client browser.
 \end{description}
 \noindent For an overview of dependencies, see figure \ref{fig:compdependencies}.
@@ -392,7 +392,7 @@ The description of the specific requirements, mentioned in the section purpose, 
 \label{subsec:Appservice}
 
 \subsection*{Component identifier}
-Server.Application State
+Client.Application State
 
 \subsubsection*{Type}
 Program
@@ -408,7 +408,14 @@ Provides functionality for the following requirements: \\
 The Client Browser provides the user with a Graphical User Interface. All interactions of the user with the application are performed through this GUI. Whenever a user action on the GUI makes any change to the state of the application this change is kept track of, and stored in, the Application State. When any information stored in the Application State needs to displayed on the GUI it is accessed as well. For saving a file locally on the device the Application State is needed to communicate and forward this to the Client Persistent component to store it there. Finally, it also communicates mixing runs to the HTTP server component to forward it to the Fortran Module which does the computation.
 
 \subsubsection*{Subordinates}
-\todo{Child components (modules called, files composed of, classes used) - Ask Ion}
+%\todo{Child components (modules called, files composed of, classes used) - Ask Ion}
+The component is composed of ..., which contain java classes. The structure of the packages is shown below:
+\fpstartparagraph{} \begin{itemize}
+nl.tue.nl.fingerpaint.client
+\begin{itemize}
+ApplicationState.java
+\end{itemize}
+\end{itemize}
 
 \subsubsection*{Dependencies}
 %\todo{Components to be executed before/after, excluded operations during execution}
@@ -418,6 +425,7 @@ For saving a file locally on the device the Application State state depends on t
 
 \subsubsection*{Interfaces}
 \todo{Data and control flow in and out - Ask Ion}
+The Application State receives input about which data needs to be stored locally from the Layout component. It can send information that needs to be stored locally on the device to the Client Persistence. It receives information about a mixing run that has to be executed from the Layout, and it can communicate the mixing run to the HTTP Server. Finally, it also receives data about user actions (i.e. opening a menu) in the Layout.
 
 \subsubsection*{References}
 %\todo{to other documents}
@@ -425,6 +433,7 @@ For an in-depth description of the Application Service and the functionality des
 
 \subsubsection*{Processing}
 \todo{Internal control and data flow - Ask Ion}
+It converts a mixing run call to a HTTP format to send to the HTTP server. When files need to be saved it converts the data to String format. 
 
 \subsubsection*{Data}
-\todo{Internal data - ask Ion}
+Variables entered by the user. 
