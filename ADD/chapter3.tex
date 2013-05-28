@@ -1,17 +1,12 @@
 \chapter{System context}
 \label{chap:systcontext}
-  
-\section{Interface with the fortran visualisation server}
-Computations that need to be done by \applicationname are offloaded to the fortran module as described in section 2.7.4 of the SRD \cite{srd}. Communications to this module are done by calling its procedure in fortran. This procedure simulates one mixing step and uses the following parameters:\\
-\texttt{geometry}: This is a number, each number stands for a different geometry \todo{link each used geometry to a number}\\
-\texttt{matrix}: This number represents which mixer is used from those available for the given geometry \todo{link each used mixer to a number}\\
-\texttt{distribution}: A vector that describes the concentration distribution of the canvas.\\
-\texttt{len\_distribution}: A meta-parameter that represents the length of the distribution vector described above.\\
-\texttt{step}: Size of the mixing step that is to be simulated.\\
-\texttt{stepid}: Describes the type of step that should be simulated (e.g. for a rectangular geometry it contains which of the walls is moved and in which direction). \\
-\texttt{len\_stepid}: A meta-parameter that represents the length of the stepid.\\
-\texttt{segregration}: A value that defines how well a mixture is separated, a lower segregation means the mixture is well-mixed.\\
-Of these parameters, \texttt{geometry},\texttt{ matrix}, \texttt{distribution}, \texttt{len\_distribution}, \texttt{step}, \texttt{stepid} and \texttt{len\_stepid} are used as input parameters, and \texttt{distribution} and \texttt{segregation} are used as output parameters.
+In this chapter, the context of the system is discussed. With this, we mean external components that are used by the \applicationname{}.
 
+\section{Interface with the Fortran visualisation server}
+Computations that need to be done by the \applicationname{} are offloaded to the Fortran module as described in section 2.7.4 of the SRD \cite{srd}. Communication with this module are done by calling its procedure in Fortran. This procedure simulates one mixing step and uses the following parameters:
 
+\begin{center}
+\LTXtable{\textwidth}{chap3_parameters.tex}
+\end{center}
 
+\noindent In the above, all meta-parameters are not needed to make the Fortran code function, but when calling the code from C, these parameters are needed (and used) to ensure that the application only uses its own memory and thus, prevent \texttt{segmentation fault}s from occuring.
