@@ -91,9 +91,9 @@ The user can change the drawing tool that is used to paint on the canvas. The cu
 \subsubsection{Define mixing protocol for specific geometries}
 A mixing protocol consists of movements of the geometry (if applicable), and how long these movements are executed. Different movement types are possible for each geometry. A step of a mixing protocol has a certain duration (the step size). This duration $D$ can be any multiple of $0.25$. If a value is not a multiple of $0.25$, it will be rounded to the nearest valid value. For example, $4.2$ is rounded up to $4.25$, while $4.1$ is rounded down to $4$. Each movement is performed for $D$ time units, which can be set using \srqref{stepsize}. Depending on the geometry, a step has additional parameters signifying which part moves and how:
 
-\fpstartparagraph{} For the \emp{rectangular} or \emp{square} geometries, a wall movement is defined by either $T$ or $B$, denoting a movement of the top or bottom wall, respectively. These movements can be combined with a $L$ or $R$ denoting whether the wall is moving left or right. This means there are four movement modifiers: $TL$, $TR$, $BL$ and $BR$. 
+\fpstartparagraph{} For the \emph{rectangular} or \emph{square} geometries, a wall movement is defined by either $T$ or $B$, denoting a movement of the top or bottom wall, respectively. These movements can be combined with a $L$ or $R$ denoting whether the wall is moving left or right. This means there are four movement modifiers: $TL$, $TR$, $BL$ and $BR$. 
 
-The \emp{circular} geometry supports rotating clockwise (to the right, and therefore called $R$) and rotating counter-clockwise (to the left, and therefore called $L$).
+The \emph{circular} geometry supports rotating clockwise (to the right, and therefore called $R$) and rotating counter-clockwise (to the left, and therefore called $L$).
 
 For the \emph{journal bearing} geometry, movements are defined by rotating the outer or inner circle. The outer circle is denoted with an $O$ and the inner circle is denoted with an $I$. These modifiers can be combined with modifiers denoting the direction of the rotation, $R$ and $L$. This results in four possible modifiers: $OL$, $OR$, $IL$ and $IR$.
 
@@ -181,7 +181,7 @@ To manage mixing protocols, the user can save and load the mixing protocols they
 
 \SRQ[savedistr]{should have}{A graphical user interface is present to save the concentration vector currently displayed on the canvas.} % CPR11
 \SRQ[savename]{should have}{During the \srqref{savedistr} action a name for the concentration vector can be inputted.} % CPR11
-\SRQ[savebutton]{should have}{After specifying a name in \sqrref{savename}, the concentration vector can be saved to the ClientPersistence under the inputted name.} % CPR11
+\SRQ[savebutton]{should have}{After specifying a name in \srqref{savename}, the concentration vector can be saved to the ClientPersistence under the inputted name.} % CPR11
 \SRQ[CP-9]{should have}{If the specified name from \srqref{savename} is already taken, a graphical user interface is present to overwrite the previously saved concentration vector.} % CPR11
 \SRQ[CP-10]{should have}{The saving process can be cancelled at any time.} % CPR11
 
