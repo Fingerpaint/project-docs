@@ -1,6 +1,6 @@
 \chapter{Component description}
 \label{chap:compdescr}
-In this chapter we describe all of the components that were indentified in chapter \ref{chap:systdesign} in detail. 
+In this chapter we describe all of the components that were identified in chapter \ref{chap:systdesign} in detail. For every component, we will give an identifier and the type, purpose, function, subordinates, dependencies and interfaces of the component. Furthermore, the internal control flow and internal data flow are described.
 
 %-------------------------------------------------------------------------------------------------------------------
 \section{Server}
@@ -27,10 +27,10 @@ The Fortran Module performs the calculations to calculate how the mixing distrib
 The Fortran Module does not have any known child components. This is because the module was given to \projectauthor{} as a black box.
 
 \subsubsection*{Dependencies}
-The Fortran Module does not have dependencies with relation to other components. This is because it uses its own data, along with the parameters for computations and only interfaces with its parent module (the Simulation Service). For an overview of dependencies, see figure \ref{fig:compdependencies}.
+The Fortran Module does not have dependencies with relation to other components. This is because it uses its own data, along with the parameters for computations and only interfaces with its parent module (the Simulation Service). For an overview of all dependencies in the system, see figure \ref{fig:compdependencies}.
 
 \subsubsection*{Interfaces}
-The Fortran Module has a single interface with the Simulation Service. This interface is the procedure call of the module in Fortran. This call uses a concentration distribution and a mixing step as arguments and returns a concentration distribution. For more detail regarding this interface, refer to chapter \ref{chap:systcontext}.
+The Fortran Module has a single interface with the Simulation Service. This interface is the procedure call of the module in Fortran. This call receives a concentration distribution, a geometry, mixer and a mixing step as arguments and returns a concentration distribution and a performance measure, namely the segregation factor. For more detail regarding this interface, refer to chapter \ref{chap:systcontext}.
 
 \subsubsection*{References}
 The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
@@ -61,24 +61,37 @@ Provides functionality for the following software requirements:
 The Simulation Service is meant to simulate a mixing protocol on the server and compute how the concentration distribution changes when such a protocol is applied.
 
 \subsubsection*{Subordinates}
-\todo{The Simulator Service is composed of multiple java classes}
+The Simulator Service is composed of multiple Java classes, located in two packages. This is because one part is located on the client side, while another part resides on the server (calling the Fortran module, that runs on the server). The structure of these packages is shown below:
+\begin{itemize}
+	\item nl.tue.fingerpaint.server.simulator
+		\begin{itemize}
+			\item NativeCommunicator.java
+			\item SimulatorServiceImpl.java
+		\end{itemize}
+	
+	\item nl.tue.fingerpaint.client.simulator
+		\begin{itemize}
+			\item SimulatorService.java
+			\item SimulatorServiceAsync.java
+		\end{itemize}
+\end{itemize}
 
 \subsubsection*{Dependencies}
 The Simulation Service depends on the Fortran Module for technical calculations. For an overview of dependencies, see figure \ref{fig:compdependencies}.
 
 \subsubsection*{Interfaces}
-The Simulation Service uses the Fortran Module's interface for communications to it. The Simulater Service sends a concentration distribution and a mixing step to the Fortran Module, and receives a concentration distribution from the Fortran Module. This communication is done in C and Fortran.
-The Simulator Service also receives information regarding mixing runs that have to be executed from the Application Service, and it sends the resulting distribution back to the Application Service. This communication is done by the Simulater Service Communication, which uses JNI.
+The Simulation Service uses the Fortran Module's interface to communicate with it. That interface is described in subsection \ref{subsec:fortranmodule}, more specifically the section ``Interfaces''. This communication is done through C, that calls the Fortran function.
+
+The Simulator Service also receives information regarding mixing runs that have to be executed from the Application Service, and it sends the resulting distribution back to the Application Service. This communication is done by the Simulator Service Communication, which uses JNI.
 
 \subsubsection*{References}
 The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
 
 \subsubsection*{Processing}
-For processing requests, the Simulation Service keeps each request separate. For each request, the protocol is split up in single steps, which are seperately send to the Fortran Module.
+For processing requests, the Simulation Service keeps each request separate. For each request, the protocol is split up in single steps, which are separately send to the Fortran Module.
 
 \subsubsection*{Data}
-The Simulation Service has no internal data other than the protocol and distribution defined by the request. This data is modified as each step of the protocol is processed by the Fortran Module,and finally returned when all steps are analysed.
-\todo{Is this true? Ask Lasse}
+The Simulation Service has no internal data other than the protocol and distribution defined by the request. This data is modified as each step of the protocol is processed by the Fortran Module and finally returned when all steps are analysed. Note that the concentration distribution may be duplicated a number of times, when intermediate results are requested.
 
 %-------------------------------------------------------------------------------------------------------------------
 \subsection{Application Persistence}
@@ -101,7 +114,7 @@ Provides functionality for the following software requirements:
 
 \subsubsection*{Function}
 %What the component does.
-This component is the database that contains the different mixers and their information. Mixers can be retrieved from this component for use within the Fortran Module. New mixers can be stored and old fixers can be removed. All the communication to execute these functions is done by the Application Persistence Communication, which is described in section 2.7.3 of the SRD \cite{srd}.
+This component is the database that contains the different mixers and their information. Mixers can be retrieved from this component for use within the Fortran Module. New mixers can be stored and old mixers can be removed. All the communication to execute these functions is done by the Application Persistence Communication, which is described in section 2.7.3 of the SRD \cite{srd}.
 
 \subsubsection*{Subordinates}
 %Child components (modules called, files composed of, classes used)
@@ -197,47 +210,48 @@ Whenever centralized data or other communication is required by the application 
 %Child components (modules called, files composed of, classes used) - Ask Thom/Lasse
 This component is composed of three packages, which contain Java classes. The structure of the packages is shown below:
 \begin{itemize}
-\item nl.tue.fingerpaint.client.serverdata
-\begin{itemize}
-\item ServerDataCache.java
-\item ServerDataService.java
-\item ServerDataServiceAsync.java
-\end{itemize}
-\item nl.tue.fingerpaint.server
-\begin{itemize}
-\item ServerDataServiceImpl.java
-\end{itemize}
-\item nl.tue.fingerpaint.shared
-\begin{itemize}
-\item ServerDataResult.java
-\end{itemize}
+	\item nl.tue.fingerpaint.client.serverdata
+		\begin{itemize}
+			\item ServerDataCache.java
+			\item ServerDataService.java
+			\item ServerDataServiceAsync.java
+		\end{itemize}
+	
+	\item nl.tue.fingerpaint.server
+		\begin{itemize}
+			\item ServerDataServiceImpl.java
+		\end{itemize}
+	
+	\item nl.tue.fingerpaint.shared
+		\begin{itemize}
+			\item ServerDataResult.java
+		\end{itemize}
 \end{itemize}
 
 \subsubsection*{Dependencies}
 %\todo{Components to be executed before/after, excluded operations during execution}
-\begin{description}
-\item The Application Service depends on the Application Persistence component when the HTTP Server makes a request for data from the Application Persistence.
-\item The Application Service depends on the Simulator Service component when the HTTP Server sends a protocol to be executed on the Fortran Module.
-\item The Application Service depends on the HTTP Server component when the resulting concentration distribution has been calculated by the Fortran Module, and this results has to be send back to the client browser.
-\end{description}
-\noindent For an overview of dependencies, see figure \ref{fig:compdependencies}.
+The Application Service depends on the Application Persistence component when the HTTP Server makes a request for data from the Application Persistence.
+
+\fpstartparagraph{} The Application Service depends on the Simulator Service component when the HTTP Server sends a protocol to be executed on the Fortran Module.
+
+\fpstartparagraph{} The Application Service depends on the HTTP Server component when the resulting concentration distribution has been calculated by the Fortran Module, and this results has to be send back to the client browser.
+
+\fpstartparagraph{} For an overview of all dependencies in the system, see figure \ref{fig:compdependencies}.
 
 \subsubsection*{Interfaces}
-\begin{description}
-\item The Application Service has an interface with the Application Persistence component. This communication is done through a Java call. The Application Service sends requests to the Application persistence to add, remove or return a mixer. It receives data belonging to mixers from the Application Persistence.
-\item The Application Service has an interface with the Simulator Service component.This communication is done throught JNI. The application service sends information belonging to a a mixing run to the Simulator Service. It receives data of the result of the calculated mixing run from the Simulator Service.
-\item The Application Service has an interface with the HTTP Server component. This communication is done through a Java call. The Application Service receives requests to execute a mixing run or to add or remove mixers from the HTTP Server. It sends the data of the result of the calculated mixing run to the HTTP Server.
-\end{description}
+The Application Service has an interface with the Application Persistence component. This communication is done through a Java call. The Application Service sends requests to the Application persistence to add, remove or return a mixer. It receives data belonging to mixers from the Application Persistence.
+\fpstartparagraph{} The Application Service has an interface with the Simulator Service component.This communication is done throught JNI. The application service sends information belonging to a a mixing run to the Simulator Service. It receives data of the result of the calculated mixing run from the Simulator Service.
+\fpstartparagraph{} The Application Service has an interface with the HTTP Server component. This communication is done through a Java call. The Application Service receives requests to execute a mixing run or to add or remove mixers from the HTTP Server. It sends the data of the result of the calculated mixing run to the HTTP Server.
 
 \subsubsection*{References}
 %\todo{to other documents}
 For an in-depth description of the Application Service and the functionality described in purpose, see the SRD \cite{srd}.
 
 \subsubsection*{Processing}
-No internal processing of data takes place in the Application Service. It only passes data to the next component. \todo{Ask Lasse/Thom whether this is true... Maybe the data is parsed from/to some other format, in which it can pass the HTTP Server?}.
+Basically, the only thing the Application Service does is passing data through from the HTTP Server to the Simulation Service or Application Persistence, or vice versa. This would imply that no processing is done. This is not entirely true however: some data is compressed before sending it to the client, for example. Thus, the Application Service may format the data before sending it to the client or the back end.
 
 \subsubsection*{Data}
-The Application Service doesn't contain any internal data. The only data residing in this component is the data passing through with requests. \todo{Is this true? Ask Thom/Lasse}
+The Application Service does not have any internal data. The only data residing in this component is the data passing through with requests.
 
 %-------------------------------------------------------------------------------------------------------------------
 \section{Client}
@@ -265,11 +279,11 @@ This component is responsible for the GUI layout.
 
 \subsubsection*{Subordinates}
 %Child components (modules called, files composed of, classes used)
-This component consists of the following files:
+The layout is generated by GWT, which means that there are no files that actually contain the layout. However, there are files that control the output and which are parsed/used by GWT to generate the actual layout. These files are listed below:
 \begin{itemize}
-\item fingerpaint.css
-\item fingerpaint.html
-\item fingerpaint.js
+	\item \makebox[0.3\textwidth][l]{fingerpaint.nocache.js}  \emph{generated by GWT: will load the application}
+	\item \makebox[0.3\textwidth][l]{fingerpaint.css}         \emph{used by GWT to generate inline CSS}
+	\item \makebox[0.3\textwidth][l]{Fingerpaint.html}        \emph{base HTML, populated dynamically with JavaScript}
 \end{itemize}
 
 \subsubsection*{Dependencies}
@@ -317,7 +331,7 @@ The Client Persistence does not have any child components.
 The Client Persistence component doesn't depend on any other components. For an overview of dependencies, see figure \ref{fig:compdependencies}.
 
 \subsubsection*{Interfaces}
-The Application State uses the Client Persistence interface for storing and retrieving files. This communication is done through a java-call.
+The Application State uses the Client Persistence interface for storing and retrieving files. This communication is done through a Java-call.
 This component is accessed through the Application State component. It receives requests to add, remove or return distributions or protocols from the Application State. If it receives a request to return a file, it will send the requested data to the Application State. The communication between these two components consists of Java calls.
 
 \subsubsection*{References}
@@ -400,7 +414,7 @@ The Client Browser provides the user with a Graphical User Interface. All intera
 
 \subsubsection*{Subordinates}
 %\todo{Child components (modules called, files composed of, classes used) - Ask Ion}
-The component is composed of ..., which contain java classes. The structure of the packages is shown below:
+The component is composed of ..., which contain Java classes. The structure of the packages is shown below:
 
 \fpstartparagraph{} \begin{itemize}
 	\item nl.tue.nl.fingerpaint.client
