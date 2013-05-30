@@ -156,7 +156,7 @@ Program.
 %Software requirements implemented
 Provides functionality for the following software requirements:
 
-\noindent SRQ1, SRQ3, SRQ6, SRQ101,
+\noindent SRQ1, SRQ3, SRQ6, SRQ101
 %This are the requirements with labels HTTP-1, AS-2, AS-6, returnParams
 
 \subsubsection*{Function}
@@ -240,7 +240,9 @@ The Application Service depends on the Application Persistence component when th
 
 \subsubsection*{Interfaces}
 The Application Service has an interface with the Application Persistence component. This communication is done through a Java call. The Application Service sends requests to the Application persistence to add, remove or return a mixer. It receives data belonging to mixers from the Application Persistence.
+
 \fpstartparagraph{} The Application Service has an interface with the Simulator Service component.This communication is done throught JNI. The application service sends information belonging to a a mixing run to the Simulator Service. It receives data of the result of the calculated mixing run from the Simulator Service.
+
 \fpstartparagraph{} The Application Service has an interface with the HTTP Server component. This communication is done through a Java call. The Application Service receives requests to execute a mixing run or to add or remove mixers from the HTTP Server. It sends the data of the result of the calculated mixing run to the HTTP Server.
 
 \subsubsection*{References}
@@ -371,7 +373,7 @@ This component allows for adding new mixers to and removing mixers from the appl
 
 \subsubsection*{Dependencies}
 %Components to be executed before/after, excluded operations during execution
-The Update Application Persistence dependes on the layout component, since it needs the data that was inputted by the user in this component to perform its tasks. It also depends on the HTTP server, to send all its requests to the server side of the application. For an overview of dependencies, see figure \ref{fig:compdependencies}.
+The Update Application Persistence depends on the layout component, since it needs the data that was inputted by the user in this component to perform its tasks. It also depends on the HTTP server, to send all its requests to the server side of the application. For an overview of dependencies, see figure \ref{fig:compdependencies}.
 
 \subsubsection*{Interfaces}
 %Data and control flow in and out
@@ -405,7 +407,7 @@ Program
 Provides functionality for the following requirements:
 
 %Criteria : If there is any interaction required between the application state and Layout (accessing of storing information), the SRQ is listed in both components. If its 100% GUI, it's not here.
-\noindent{} SRQ17, SRQ19, SRQ21, SRQ23, SRQ24, SRQ25, SRQ26, SRQ27, SRQ28, SRQ29, SRQ30, SRQ31, SRQ32, SRQ33, SRQ39, SRQ40, SRQ41, SRQ42, SRQ43, SRQ44, SRQ45, SRQ46, SRQ47, SRQ48, SRQ49, SRQ50, SRQ51, SRQ52, SRQ53, SRQ54, SRQ56, SRQ58, SRQ61, SRQ62, SRQ63, SRQ64, SRQ65, SRQ67, SRQ68, SRQ70, SRQ73, SRQ76, SRQ77, SRQ78, SRQ79, SRQ80, SRQ81, SRQ83, SRQ85, SRQ86, SRQ87, SRQ89, SRQ91, SRQ92, SRQ94, SRQ95, SRQ96 and SRQ98.
+\noindent SRQ17, SRQ19, SRQ21, SRQ23, SRQ24, SRQ25, SRQ26, SRQ27, SRQ28, SRQ29, SRQ30, SRQ31, SRQ32, SRQ33, SRQ39, SRQ40, SRQ41, SRQ42, SRQ43, SRQ44, SRQ45, SRQ46, SRQ47, SRQ48, SRQ49, SRQ50, SRQ51, SRQ52, SRQ53, SRQ54, SRQ56, SRQ58, SRQ61, SRQ62, SRQ63, SRQ64, SRQ65, SRQ67, SRQ68, SRQ70, SRQ73, SRQ76, SRQ77, SRQ78, SRQ79, SRQ80, SRQ81, SRQ83, SRQ85, SRQ86, SRQ87, SRQ89, SRQ91, SRQ92, SRQ94, SRQ95, SRQ96 and SRQ98.
 
 % CB-1, CB-3, CB-5, CB-7, selgeomrec, selmixer, selgeomsq, selgeomcir, selgeomjb, CB-8, prevsaved, CB-9, predef, CB10, CB-14, CB-15, startMixing, CB-16, visResults, CB-16-2, CB-17, CP-0, CP-1, CP-2, CP-3, CP-4, CP-5, CP-6, CP-7, savedistr, savebutton, CP-9, CP-11, loaddist, loadload, CP-12, CP-13, loadpred, CP-15, listsaved, yesbutton, CP-17, insuffrights, CP-18, CP-19, CP-21, CP-22, exportsave, nameinuseexport, nomemoryexport, actualNameInUse, CP-25, CP-27, selectload, displayload, CP-28, CP-29, selLang
 
