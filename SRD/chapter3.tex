@@ -22,10 +22,10 @@ Each requirement has a specific priority, based on the MoSCoW model \cite{moscow
 \label{sec:funcreq}
 This section lists the functional requirements for the \applicationname.
 
-\subsection[HTTP]{HTTP Server}
+\subsection{HTTP Server}
 \SRQ[HTTP-1]{must have}{The HTTP Server must be able to serve static files to the Client Browser.}
 
-\subsection[AS]{Application Service} % Oude Mixer Provider
+\subsection{Application Service} % Oude Mixer Provider
 \SRQ[AS-1]{must have}{The Application Service must be able to retrieve all the available mixers from the Application Persistence.}
 \SRQ[AS-2]{must have}{The Application Service must be able to send all available mixers to the Client Browser.}
 \SRQ[AS-3]{must have}{The Application Service must allow for adding new mixers to the Application Persistence.} %CNR13
@@ -34,11 +34,11 @@ This section lists the functional requirements for the \applicationname.
 \SRQ[AS-6]{must have}{The Application Service must be able to provide all available geometries to the Client Browser.}
 \SRQ[AS-7]{must have}{The Application Service must be able to act as a relay between the Client Browser and the Simulation Service.}
 
-\subsection[APC]{Application Persistence Communication}
+\subsection{Application Persistence Communication}
 \SRQ[APC-1]{must have}{The Application Persistence Communication must be able to access all the data from the Application Persistence.}
 \SRQ[APC-2]{must have}{The Application Persistence Communication must be fast enough to serve the data from the Application Persistence to the Application Service.}
 
-\subsection[AP]{Application Persistence} % Voorheen MixerPersistence
+\subsection{Application Persistence} % Voorheen MixerPersistence
 \SRQ[AP-1]{must have}{The Application Persistence must deliver all saved mixers to the Application Service.}
 \SRQ[AP-2]{must have}{The Application Persistence must save new mixers handed by the Application Service.}
 %\SRQ[AP-3]{should have}{The Application Persistence must save changes to existing mixers handed by the Application Service.}
@@ -46,11 +46,11 @@ This section lists the functional requirements for the \applicationname.
 \SRQ[AP-5]{must have}{The System Administrator is able to add new mixer types for a geometry.}
 \SRQ[AP-6]{must have}{The System Administrator is able to remove mixer types for a geometry.}
 
-\subsection[ASC]{Application Service Communication} % Voorheen MixerProviderCommunication
+\subsection{Application Service Communication} % Voorheen MixerProviderCommunication
 \SRQ[ASC-1]{must have}{The Application Service Communication must be able to access all the functionality from the Application Service.}
 \SRQ[ASC-2]{must have}{The Application Service Communication must be fast enough to provide the functionality from the Application Service to the Client Browser.}
 
-\subsection[CB]{Client Browser}
+\subsection{Client Browser}
 \subsubsection{Change the drawing tool}
 The user can change the drawing tool that is used to paint on the canvas. The current shape (circle and square) and size of the drawing tool is displayed on the user interface. The user interface contains options to change the current shape and size of the drawing tool.
 
@@ -142,7 +142,7 @@ The user can choose to execute a single step of a mixing protocol, by defining a
 \SRQ[CB-17]{must have}{ % CPR18
     After selecting a geometry, a mixer, an initial distribution and a single step, the user can execute a mixing run with this single step.}
 
-\subsection[CP]{ClientPersistence}
+\subsection{ClientPersistence}
 \SRQ[CP-0]{should have}{The client persistence is capable of storing concentration distributions, mixing protocols and associated mixers and geometries.} % CPR11
 
 \subsubsection{Managing mixing protocols}
@@ -250,7 +250,7 @@ The user is able to get the distribution that resulted from executing his mixing
 \SRQ[SSC-6]{could have}{An animation of the mixing run is shown in the results window if the \texttt{animate mixing} checkbox was checked.}
 %CPR38
 
-\subsection[SSC]{Simulator Service Communication}\srqref{startMixing}, \srqref{sendParams}, \srqref{readParams}, \srqref{execMixing}, \srqref{returnParams} and \srqref{visResults}.
+\subsection{Simulator Service Communication}\srqref{startMixing}, \srqref{sendParams}, \srqref{readParams}, \srqref{execMixing}, \srqref{returnParams} and \srqref{visResults}.
 
 \SRQ[sendParams]{must have}{ % CPR29b
     The parameters (initial concentration distribution, geometry, mixing protocol, mixer and number of protocol applications) can be sent from the Application Service to the Simulation Service through the Simulator Service Communication channel.
@@ -260,7 +260,7 @@ The user is able to get the distribution that resulted from executing his mixing
     The results of a mixing simulation can be sent from the Simulator Service to the Application Service throught the Simulator Service Communication.
 }
 
-\subsection[SS]{Simulator Service}
+\subsection{Simulator Service}
 \SRQ[execMixing]{must have}{ %CRP29c2
      The server executes the mixing run using the parameters received from the Simulator Service Communication. These parameters are passed as input to the \textsc{Fortran} implementation.
 }
@@ -274,7 +274,7 @@ The Simulator Service must be able to send and receive matrix files from the Cli
 \SRQ[SS-2]{must have}{The Simulator Service must be able to receive protocol information from the Client Browser throught the Application Service.}
 \SRQ[SS-4]{must have}{The Simulator Service must be able to pass protocol information to the Fortran Module.}
 
-\subsection[FM]{Fortran Module}
+\subsection{Fortran Module}
 \SRQ[FM-1]{must have}{The Fortran Module must accept input (matrix name, protocol information) from the Simulator Service.}
 \SRQ[FM-2]{must have}{The Fortran Module must provide output (vectors) to the Simulator Service.}
 \SRQ[FM-3]{must have}{The Fortran Module must have knowledge of all the geometries and mixers used in the application. This knowledge is not automatically transferred from the application to the fortran module.}
@@ -300,9 +300,9 @@ The Simulator Service must be able to send and receive matrix files from the Cli
 \SRQ[NONF-5]{should have}{A Dutch interface is available.}
 %CPR41
 
-\subsection{Operational}\todo{get more requirements}
-\subsection{Resource}\todo{get more requirements}
-\subsection{Verification and testing}\todo{get more requirements}
+%\subsection{Operational}\todo{get more requirements}
+%\subsection{Resource}\todo{get more requirements}
+%\subsection{Verification and testing}\todo{get more requirements}
 \subsection{Portability}
 \SRQ[NONF-6]{must have}{The application runs on iOS Safari version 6.0 and higher.}
 %CNR1
@@ -329,9 +329,9 @@ higher.}
 \SRQ[NONF-13]{could have}{The application runs on devices running on Windows 8.}
 %CNR9
 
-\subsection{Maintainability}\todo{get more requirements}
-\subsection{Reliability}\todo{get more requirements}
-\subsection{Security}\todo{get more requirements}
-\subsection{Safety}\todo{get more requirements}
-\subsection{Documentation}\todo{get more requirements}
-\subsection{Extensibility}\todo{get more requirements}
+%\subsection{Maintainability}\todo{get more requirements}
+%\subsection{Reliability}\todo{get more requirements}
+%\subsection{Security}\todo{get more requirements}
+%\subsection{Safety}\todo{get more requirements}
+%\subsection{Documentation}\todo{get more requirements}
+%\subsection{Extensibility}\todo{get more requirements}
