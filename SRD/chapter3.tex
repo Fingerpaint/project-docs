@@ -15,7 +15,7 @@ Each requirement has a specific priority, based on the MoSCoW model \cite{moscow
 
 \fpstartparagraph{} In some of the requirements in this section, the term ``fast enough" is mentioned: for a precise definition, refer to chapter 6 of the ADD \cite{add}.
 
-\fpstartparagraph{} Note that as \applicationname\ is developed using GWT, some of the software requirements listed in this chapter are described in terms of specific GWT widgets or panels\footnote{The website for the GWT widgetlist can be found at \url{https://developers.google.com/web-toolkit/doc/latest/RefWidgetGallery}.}.
+%\fpstartparagraph{} Note that as \applicationname\ is developed using GWT, some of the software requirements listed in this chapter are described in terms of specific GWT widgets or panels\footnote{The website for the GWT widgetlist can be found at \url{https://developers.google.com/web-toolkit/doc/latest/RefWidgetGallery}.}.
 
 % Functional requirements --------------------------------------------------------------------------------------------------------
 \section{Functional requirements}
@@ -51,6 +51,15 @@ This section lists the functional requirements for the \applicationname.
 \SRQ[ASC-2]{must have}{The Application Service Communication must be fast enough to provide the functionality from the Application Service to the Client Browser.}
 
 \subsection[CB]{Client Browser}
+\subsubsection{Change the drawing tool}
+The user can change the drawing tool that is used to paint on the canvas. The current shape (circle and square) and size of the drawing tool is displayed on the user interface. The user interface contains options to change the current shape and size of the drawing tool.
+
+\SRQ[shapedraw]{must have}{The user interface displays the shape of the tool that is currently selected.} % CPR7
+\SRQ[CB-12]{should have}{The user interface displays the size of the tool that is currently selected.} % CPR10
+\SRQ[circleshaped]{must have}{A circle-shaped drawing tool can be selected on the graphical user interface.} % CPR7
+\SRQ[squareshaped]{should have}{A square-shaped drawing tool can be selected on the graphical user interface.} % CPR9
+\SRQ[CB-13]{should have}{A graphical user interface is present to adjust the size of the current tool.} % CPR10
+
 \subsubsection{Defining an initial concentration distribution}
 The user can select a circle or square-shaped drawing tool to draw with. He can draw on the canvas by swiping with his finger or drawing the mouse. In addition, the user can reset the drawn distribution to completely white.
 
@@ -78,15 +87,6 @@ concentration distribution is a \texttt{predefined} distribution, meaning that t
 \SRQ[CB-9]{should have}{After the list of concentration vectors from \srqref{prevsaved} is presented, a previously saved concentration vector can be selected and loaded onto the canvas.} % CPR13
 \SRQ[predef]{could have}{After a geometry and appropriate mixer is slected in the user interface, a list of all predefined concentration vectors can be retrieved in the user interface.} % CPR14
 \SRQ[CB-10]{could have}{After the list of concentration vectors from \srqref{predef} is presented, a predefined concentration vector can be selected and loaded onto the canvas.} % CPR14
-
-\subsubsection{Change the drawing tool}
-The user can change the drawing tool that is used to paint on the canvas. The current shape (circle and square) and size of the drawing tool is displayed on the user interface. The user interface contains options to change the current shape and size of the drawing tool.
-
-\SRQ[shapedraw]{must have}{The user interface displays the shape of the tool that is currently selected.} % CPR7
-\SRQ[CB-12]{should have}{The user interface displays the size of the tool that is currently selected.} % CPR10
-\SRQ[circleshaped]{must have}{A circle-shaped drawing tool can be selected on the graphical user interface.} % CPR7
-\SRQ[squareshaped]{should have}{A square-shaped drawing tool can be selected on the graphical user interface.} % CPR9
-\SRQ[CB-13]{should have}{A graphical user interface is present to adjust the size of the current tool.} % CPR10
 
 \subsubsection{Define mixing protocol for specific geometries}
 A mixing protocol consists of movements of the geometry (if applicable), and how long these movements are executed. Different movement types are possible for each geometry. A step of a mixing protocol has a certain duration (the step size). This duration $D$ can be any multiple of $0.25$. If a value is not a multiple of $0.25$, it will be rounded to the nearest valid value. For example, $4.2$ is rounded up to $4.25$, while $4.1$ is rounded down to $4$. Each movement is performed for $D$ time units, which can be set using \srqref{stepsize}. Depending on the geometry, a step has additional parameters signifying which part moves and how:
