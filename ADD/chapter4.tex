@@ -12,7 +12,7 @@ This chapter describes the technical aspects of the design of \projectname.
 % \todo{Overview of components: decomposition, dependencies, interfaces.}
 The decomposition of \projectname\ into components is based on the requirements of the URD \cite{urd} and the SRD \cite{srd}.
 
-\fpstartparagraph{} Section \ref{subsec:complist} lists the components, which are further described in chapter \ref{chap:compdescr}. Section \ref{subsec:depdiag} illustrates the dependencies between the components.
+\fpstartparagraph{} Section \ref{subsec:complist} lists the components, which are further described in chapter \ref{chap:compdescr}. Section \ref{subsec:depdiag} illustrates the dependencies between the components. The identified components are strongly based on the tiers listed in section 2.7 of the SRD \cite{srd}. An overview of these tiers is given in Figure 2.1 of the SRD \cite{srd}.
 
 \subsection{List of components}
 \label{subsec:complist}
@@ -41,7 +41,7 @@ The following components are identiﬁed:
 
 \subsection{Dependencies diagram}
 \label{subsec:depdiag}
-Figure \ref{fig:compdependencies} illustrates the dependencies between the components of \projectname\. Arrows indicate a `depends on' relation between components.
+Figure \ref{fig:compdependencies} illustrates the dependencies between the components of \projectname. Arrows indicate a `depends on' relation between components. This relationship means that the component on the start of the arrow needs the functionality of the component on the end of the arrow to fulfill its task. A double arrow indicates a bidirectional relationship, so the components on both sides of the arrow need eachother.
 
 \noindent
 \begin{figure}[h!b]
