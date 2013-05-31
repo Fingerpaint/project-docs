@@ -65,8 +65,8 @@ The user can select a circle or square-shaped drawing tool to draw with. He can 
 \SRQ[CB-2]{must have}{A graphical interface is present to select the colour (black or white) to paint with for the initial concentration distribution.} % CPR6
 \SRQ[CB-3]{must have}{A graphical interface is present to define an initial concentration distribution with the selected color on the canvas. It must be possible to define this distribution by means of ``painting'' on the canvas.} % CPR6
 \SRQ[CB-4]{must have}{If the circle-shaped drawing tool in \srqref{circleshaped} is selected, this tool will be used when the canvas is ``painted''.} % CPR7, los omdat de square een lagere prioriteit heeft in het URD
+\SRQ[CB-6]{should have}{If the square-shaped drawing tool in \srqref{squareshaped} is selected, this tool will be used when the canvas is ``painted''.}% CPR9
 \SRQ[CB-5]{must have}{A graphical user interface is present to reset the current initial concentration distribution to a completely white state.} % CPR8
-\SRQ[CB-6]{should have}{If the circle-shaped drawing tool in \srqref{squareshaped} is selected, this tool will be used when the canvas is ``painted''.}% CPR9
 
 \subsubsection{Select a geometry, mixer and initial concentration distribution}
 The user can select a rectangular mixer geometry. Then the user can select a mixer that can operate on the selected geometry and a initial concentration distribution. There are three types of initial concentration distributions that the user can choose from. The first type is a \texttt{blank} concentration distribution, which simply means that the user will be presented with a clean canvas when this option is selected. The second type is a \texttt{load} option, so the user can load previously saved concentration distributions that are stored on their device. The third type of 
@@ -92,7 +92,7 @@ A mixing protocol consists of movements of the geometry (if applicable), and how
 
 \fpstartparagraph{} For the \emph{rectangular} or \emph{square} geometries, a wall movement is defined by either $T$ or $B$, denoting a movement of the top or bottom wall, respectively. These movements can be combined with a $L$ or $R$ denoting whether the wall is moving left or right. This means there are four movement modifiers: $TL$, $TR$, $BL$ and $BR$. 
 
-The \emph{circular} geometry only supports one (un-named) modifier.
+The \emph{circular} geometry only supports one (unnamed) modifier.
 
 For the \emph{journal bearing} geometry, movements are defined by rotating the outer or inner circle. The outer circle is denoted with an $O$ and the inner circle is denoted with an $I$. These modifiers can be combined with modifiers denoting the direction of the rotation, $R$ and $L$. This results in four possible modifiers: $OL$, $OR$, $IL$ and $IR$.
 
@@ -124,6 +124,12 @@ The user interface will contains options to input modifiers where appropriate an
     A grahpical user interface is present to reset the currently defined protocol, thereby removing all currently defined steps.
 }
 
+\subsubsection{Execute mixing runs}
+The user can choose to execute a single step of a mixing protocol, by defining a single step. This is done by choosing one wall movement and its duration. This invokes \srqref{startMixing}, \srqref{sendParams}, \srqref{execMixing}, \srqref{returnParams} and \srqref{visResults}.
+
+\SRQ[CB-17]{must have}{ % CPR18
+    After selecting a geometry, a mixer, an initial distribution and a single step, the user can execute a mixing run with this single step.}
+
 \subsubsection{Visualising the results}
 The concentration distribution resulting from a mixing simulation is visualised in the user interface, using the canvas that was originally used to draw the initial concentration distribution. The performance results are visualised in a graph.
 
@@ -134,13 +140,7 @@ The concentration distribution resulting from a mixing simulation is visualised 
 \SRQ[CB-16-2]{must have}{ % CPR29f
     Performance results can be plotted in a graph.
 }
-
-\subsubsection{Execute mixing runs}
-The user can choose to execute a single step of a mixing protocol, by defining a single step. This is done by choosing one wall movement and its duration. This invokes \srqref{startMixing}, \srqref{sendParams}, \srqref{execMixing}, \srqref{returnParams} and \srqref{visResults}.
-
-\SRQ[CB-17]{must have}{ % CPR18
-    After selecting a geometry, a mixer, an initial distribution and a single step, the user can execute a mixing run with this single step.}
-
+    
 \subsection{ClientPersistence}
 \SRQ[CP-0]{should have}{The client persistence is capable of storing concentration distributions, mixing protocols and associated mixers and geometries. Results of a mixing run can also be stored.} % CPR11
 
@@ -162,7 +162,7 @@ To manage mixing protocols, the user can save and load the mixing protocols they
 }
 
 \SRQ[CP-5]{could have}{ % CPR28
-    After \srqref{selgeomrec}, \srqref{selgeomsq}, \srqref{selgeomcir} or \srqref{selgeomjb}, the user can load a predefined mixing protocol. This opens a menu containing all suitable predefined mixing protocols for the selected geometry. Pressing the name of one such protocol selects it, which means it will be used once the mixing is executed.
+    After \srqref{selgeomrec}, \srqref{selgeomsq}, \srqref{selgeomcir} or \srqref{selgeomjb}, the user can load a predefined mixing protocol. This opens a menu containing all suitable predefined mixing protocols for the selected geometry. Pressing the name of one such protocol selects it, which means it will be loaded into the application. After this it can be changed or used for simulation immediately.
 }
 
 \subsubsection{Save and remove mixing runs}
@@ -188,7 +188,7 @@ To manage mixing protocols, the user can save and load the mixing protocols they
 \SRQ[loaddistbutton]{should have}{A graphical user interface is present to initiate the loading of a previously saved concentration distribution.} % CPR13
 \SRQ[loadlist]{should have}{After the loading process from \srqref{loaddistbutton} has been initiated, a list of previously saved concentration distributions is presented.} % CPR13
 \SRQ[loadload]{should have}{In the list from \srqref{loadlist}, a previously saved distribution can be selected.}
-\SRQ[CP-14]{should have}{The concentration distribution selected in \srqref{loadload} can be loaded into the canvas.}
+\SRQ[CP-14]{should have}{A concentration distribution (for example the one selected in \srqref{loadload}) can be loaded into the canvas.}
 
 %\todo{Dit is niet in overeenstemming met use case B.20, want ik heb geen \texttt{View Saved Files} button en ik sta hier toe dat meerdere dingen tegelijkertijd verwijderd worden.}
 \subsubsection{Remove previously saved concentration distributions}
