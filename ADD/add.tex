@@ -4,6 +4,21 @@
 		titleabbr=ADD,%
 		version=0.0]{fingerpaint}
 
+% Enable referencing to the SRD, by using \ref{SRD-[label name in SRD]}
+\externaldocument[SRD-]{\pathtobase{SRD/srd}}
+\newcommand{\srqref}[1]{\ref*{SRD-srq:#1}}
+
+% Component identifiers
+\newcommand{\RTMSFM}{Server.FortranModule}
+\newcommand{\RTMSSS}{Server.SimulatorService}
+\newcommand{\RTMSAP}{Server.ApplicationPersistence}
+\newcommand{\RTMSHS}{Server.HTTPServer}
+\newcommand{\RTMSAS}{Server.ApplicationService}
+\newcommand{\RTMCL}{Client.Layout}
+\newcommand{\RTMCCP}{Client.ClientPersistence}
+\newcommand{\RTMCUAP}{Client.UpdateApplicationPersistence}
+\newcommand{\RTMCAS}{Client.ApplicationState}
+
 \begin{document}
 
 \maketitle{}

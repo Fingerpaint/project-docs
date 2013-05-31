@@ -1,5 +1,48 @@
-\chapter{Requirements traceability matrix}
+\chapter{Requirements Traceability Matrix}
 \label{chap:reqtracematrix}
-\todo{A table showing how each software requirement of the SRD is linked to components in the ADD}
+In this chapter, we link SRQs, described in the SRD \cite{srd}, to the components described in this document.
+
+\section{SRD to ADD}
+The following matrix lists which components are linked to the SRQs in the SRD.
+
+\newcounter{tracmatrixcounter}
+\stepcounter{tracmatrixcounter}
+\begin{center}
+  \begin{tabularx}{0.9\textwidth}{rX|rX}
+    \toprule
+    \textbf{SRQ} & \textbf{Component} & \textbf{SRQ} & \textbf{Component} \\
+    \midrule
+    \srqref{HTTP-1} & \RTMSHS{} &
+    \srqref{AS-1}   & \RTMSAS{}, \RTMSAP{} \\
+    
+    \srqref{AS-2}   & \RTMSAS{}, \RTMSAP{} &
+    \srqref{AS-3}   & \RTMSAS{}, \RTMSAP{} \\
+    
+    \srqref{AS-5}   & \RTMSAS{}, \RTMSAP{} &
+    \srqref{AS-6}   & \RTMSAS{}, \RTMSAP{} \\
+    
+    \srqref{AS-7}   & \RTMSAS{}, \RTMSAP{} &
+    \srqref{APC-1}  & \RTMSAP{} \\
+    
+    \srqref{APC-2}  & \RTMSAP{} &
+    \srqref{AP-1}   & \RTMSAS{}, \RTMSAP{} \\
+    
+    \srqref{AP-2}   & \RTMSAS{}, \RTMSAP{} &
+    \srqref{AP-5}   & \RTMSAS{}, \RTMSAP{} \\
+    
+    \srqref{AP-6}   & \RTMSAS{}, \RTMSAP{} &
+    \srqref{ASC-1}  & \RTMSAS{} \\
+    
+    \srqref{ASC-2}  & \RTMSAS{} &
+    \srqref{shapedraw} & \RTMCL{} \\
+    
+    \srqref{CB-12}  & \RTMCL{} &
+    \srqref{circleshaped} & \RTMCL{} \\
+    
+    \srqref{squareshaped} & \RTMCL{} &
+    \srqref{CB-13}  & \RTMCL{} \\
+    \bottomrule
+  \end{tabularx}
+\end{center}
 
 
