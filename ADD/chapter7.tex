@@ -1,48 +1,58 @@
+% Below command is used to add rows to the SRD to ADD matrix,
+% it takes care of the number of columns automatically
+\newcounter{srdtoaddcount}
+\newcommand{\srdtoaddline}[2]{%
+	\srqref{#1} & #2 \ifthenelse{\isodd{\thesrdtoaddcount}}{\\}{&}%
+	\stepcounter{srdtoaddcount}
+}
+% Below command makes sure that a line the table is ended, when an odd number
+% of things is added to the table
+\newcommand{\srdtoaddendline}{%
+	\ifthenelse{\isodd{\thesrdtoaddcount}}{& \\\stepcounter{srdtoaddcount}}{}
+}
+% Below command makes adding SRQs easier
+% http://tex.stackexchange.com/questions/82253/parse-variable-length-comma-separated-list-into-command
+\makeatletter
+\newcommand\addtosrdlist[1]{%
+  \def\tempa{}%
+  \@for\reserved:=#1\do{%
+    \ifx\tempa\empty\else, \fi\srqref{\reserved}%
+    \edef\tempa{something}%
+  }
+}
+\makeatother
+
+% Needed for proper breaking
+\let\oldRTMCUAP\RTMCUAP{}
+\renewcommand{\RTMCUAP}{Client.UpdateApplication-Persistence}
+
 \chapter{Requirements Traceability Matrix}
 \label{chap:reqtracematrix}
-In this chapter, we link SRQs, described in the SRD \cite{srd}, to the components described in this document.
+In this chapter, we link SRQs, described in the SRD \cite{srd}, to the components described in this document. We also do this the other way round, namely listing which SRQs are implemented in a component.
 
 \section{SRD to ADD}
 The following matrix lists which components are linked to the SRQs in the SRD.
 
-\newcounter{tracmatrixcounter}
-\stepcounter{tracmatrixcounter}
+\LTXtable{\textwidth}{chapter7.srdtoaddmatrix}
+\let\RTMCUAP\oldRTMCUAP
+
+\section{ADD to SRD}
+The following matrix lists which SRQs are implemented by each component.
+
 \begin{center}
-  \begin{tabularx}{0.9\textwidth}{rX|rX}
+  \begin{tabularx}{\textwidth}{lX}
     \toprule
-    \textbf{SRQ} & \textbf{Component} & \textbf{SRQ} & \textbf{Component} \\
+    \textbf{Component} & \textbf{SRQ(s)} \\
     \midrule
-    \srqref{HTTP-1} & \RTMSHS{} &
-    \srqref{AS-1}   & \RTMSAS{}, \RTMSAP{} \\
-    
-    \srqref{AS-2}   & \RTMSAS{}, \RTMSAP{} &
-    \srqref{AS-3}   & \RTMSAS{}, \RTMSAP{} \\
-    
-    \srqref{AS-5}   & \RTMSAS{}, \RTMSAP{} &
-    \srqref{AS-6}   & \RTMSAS{}, \RTMSAP{} \\
-    
-    \srqref{AS-7}   & \RTMSAS{}, \RTMSAP{} &
-    \srqref{APC-1}  & \RTMSAP{} \\
-    
-    \srqref{APC-2}  & \RTMSAP{} &
-    \srqref{AP-1}   & \RTMSAS{}, \RTMSAP{} \\
-    
-    \srqref{AP-2}   & \RTMSAS{}, \RTMSAP{} &
-    \srqref{AP-5}   & \RTMSAS{}, \RTMSAP{} \\
-    
-    \srqref{AP-6}   & \RTMSAS{}, \RTMSAP{} &
-    \srqref{ASC-1}  & \RTMSAS{} \\
-    
-    \srqref{ASC-2}  & \RTMSAS{} &
-    \srqref{shapedraw} & \RTMCL{} \\
-    
-    \srqref{CB-12}  & \RTMCL{} &
-    \srqref{circleshaped} & \RTMCL{} \\
-    
-    \srqref{squareshaped} & \RTMCL{} &
-    \srqref{CB-13}  & \RTMCL{} \\
+    \RTMCAS{}  & \addtosrdlist{CP-1,CP-2,CP-3,CP-4,CP-5,CP-6,CP-7,savedistr,savename,savebutton,CP-14} \\
+    \RTMCCP{}  & \addtosrdlist{CP-1,CP-2,CP-3,CP-4,CP-5,CP-6,CP-7,savebutton,CP-14,displayload,CP-28} \\
+    \RTMCL{}   & \addtosrdlist{shapedraw,CB-12,circleshaped,squareshaped,CB-13,CB-2,CB-3,CB-4,CB-5,CB-6,CB-7,selgeomrec,selmixer,selgeomsq,selgeomcir,selgeomjb,CB-8,prevsaved,CB-9,predef,CB-10,stepsize,protocolrepeat,CB-14,CB-15,startMixing,CB-16,CB-17,visResults,CB-16-2,CP-1,CP-2,CP-3,CP-4,CP-5,CP-6,CP-7,savedistr,savename,CP-9,CP-10,loaddistbutton,loadlist,loadload,CP-14,removeinit,listsaved,selectremove,suremessage,nosaveddistr,insuffrights,gengraph,gendist,exportname,initload,selectload,displayload,CP-28,selLang,SSC-3,SSC-4,SSC-5,SSC-6,englan,dutlan,NONF-6,NONF-7,NONF-8,NONF-9,NONF-10,NONF-11,NONF-12,NONF-13} \\
+    \RTMCUAP{} & \addtosrdlist{CP-1,CP-2,CP-3,CP-4,CP-5,CP-6,CP-7,savebutton,CP-14,displayload,CP-28} \\
+    \RTMSAP{}  & \addtosrdlist{AS-1,AS-2,AS-3,AS-5,AS-6,AS-7,APC-1,APC-2,AP-1,AP-2,AP-5,AP-6,CP-0} \\
+    \RTMSAS{}  & \addtosrdlist{AS-1,AS-2,AS-3,AS-5,AS-6,AS-7,AP-1,AP-2,AP-5,AP-6,ASC-1,ASC-2,CB-17,sendParams,returnParams,SS-2} \\
+    \RTMSFM{}  & \addtosrdlist{CB-17,execMixing,returnMixing,SS-4,FM-1,FM-2,FM-3} \\
+    \RTMSHS{}  & \addtosrdlist{HTTP-1,CB-17,SS-2} \\
+    \RTMSSS{}  & \addtosrdlist{CB-17,sendParams,returnParams,execMixing,returnMixing,SS-2,SS-4} \\
     \bottomrule
   \end{tabularx}
 \end{center}
-
-
