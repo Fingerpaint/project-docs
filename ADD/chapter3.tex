@@ -1,12 +1,9 @@
 \chapter{System context}
 \label{chap:systcontext}
-In this chapter, the context of the system is discussed. With this, we mean external components that are used by the \applicationname{}.
+In this chapter, the context of the system is discussed. This means any external components that are used by the \applicationname{}. The \applicationname{} uses one external component: a Fortran server.
 
-\section{Interface with the Fortran visualisation server}
-Computations that need to be done by the \applicationname{} are offloaded to the Fortran module as described in section 2.7.4 of the SRD \cite{srd}. Communication with this module are done by calling its procedure in Fortran. This procedure simulates one mixing step and uses the following parameters:
+Any computations that need to be done by the \applicationname{} are offloaded to the Fortran module as described in section 2.7.4 of the SRD \cite{srd}. Communication with this module is done by calling its procedure in Fortran. This procedure simulates one mixing step and uses several parameters. Some of these parameters are parameters describing the length of other parameters, this is needed to ensure that the application only uses its own memory. These parameters are: \texttt{len\_geometry}, \texttt{len\_matrix}, \texttt{len\_concentration\_vector} and \texttt{len\_step\_name}. The other parameters are described in the table below:
 
 \begin{center}
 \LTXtable{\textwidth}{chap3_parameters.tex}
 \end{center}
-
-\noindent In the above, all meta-parameters are not needed to make the Fortran code function, but when calling the code from C, these parameters are needed (and used) to ensure that the application only uses its own memory and thus, prevent \texttt{segmentation faults} from occuring.

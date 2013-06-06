@@ -4,7 +4,7 @@ This chapter lists general information about this document.
 
 \section{Purpose}
 %The purpose of this particular ADD and its intended readership
-The Architectural Design Document (ADD) describes the basic design of the \applicationname\ that will be developed by \projectauthor. First of all, it describes how the application is divided into different components. Thereafter, for each component, it describes the dependencies to other components, and the relation to external interfaces.
+The Architectural Design Document (ADD) describes the basic design of the \applicationname\ that is being developed by \projectauthor. First of all, it describes how the application is divided into different components. Then, for each component, it describes the dependencies to other components, and finally the relation to external interfaces.
 
 \section{Scope}
 %Scope of the software. Identifies the product by name, explains what the software will do
@@ -17,7 +17,7 @@ The \applicationname\ is an application designed and developed by \projectauthor
 \item[Fortran:] A general-pupose, imperative programming language.
 \item[Google Web Toolkit:] An open source set of tools that allows for the creation and maintenance of JavaScript applications in Java.
 \item[Meta-parameter:] \todo{Ask Thom}
-\item[Mixing step:] The combination of a wall the move, the direction the wall is moved in and the size for this step.
+\item[Mixing step:] Part of a mixing protocol, it consists of: a wall to move, the direction the wall is moved in and the size of this step.
 \item[Subordinate:] A child component.
 \end{description}
 
@@ -25,12 +25,12 @@ The \applicationname\ is an application designed and developed by \projectauthor
 \begin{tabular}{l|l}
 2IP35 & The Software Engineering Project \\
 ADD & Architectural Design Document \\
+%CM    & Configuration Manager \\ not used in the document
 GUI & Graphical User Interface \\
 GWT & Google Web Toolkit \\
 JNI & Java Native Interface \\
-CM    & Configuration Manager \\
 SEP   & Software Engineering Project \\
-SR    & Software Requirements \\
+%SR    & Software Requirements \\ not used in the document
 SRD   & Software Requirements Document \\
 TU/e  & Eindhoven University of Technology \\
 URD   & User Requirements Document \\
@@ -41,7 +41,7 @@ URD   & User Requirements Document \\
 
 \section{Overview}
 %Short description of the rest of the ADD and how it is organized.
-The remaining chapters describe the architectural design of \projectname\ in more detail. Chapter \ref{chap:systoverview} gives a system overview. Chapter \ref{chap:systcontext} describes the system context. The relationship with external components is explained in detail in this chapter. Chapter \ref{chap:systdesign} covers the sytem design. The name and reference of the used design method are given. In section \ref{sec:decompdescr} a description of the decomposition of the system and an overview of its components are given.
-In chapter \ref{chap:compdescr} all components are described in detail. For each component, its type, purpose, function, subordinates, dependencies to other components, interfaces, resources needed, internal processing and  data are described. Chapter \ref{chap:feasresest} gives an overview of all resources need to build, operate and maintain the application. Chapter \ref{chap:reqtracematrix} contains a traceability matrix. This matrix shows how each software requirement of the SRD \cite{srd} is linked to the components described in the ADD.
+The remaining chapters describe the architectural design of \projectname\ in more detail. Chapter \ref{chap:systoverview} gives a system overview. Chapter \ref{chap:systcontext} describes the system context. The relationship with external components is explained in detail in this chapter. Chapter \ref{chap:systdesign} covers the sytem design. The name and reference of the used design method are given.
+In chapter \ref{chap:compdescr} all components are described in detail. For each component, its type, purpose, function, subordinates, dependencies to other components, interfaces, resources needed, internal processing and  data are described. Chapter \ref{chap:feasresest} gives an overview of all resources needed to build, operate and maintain the application. Chapter \ref{chap:reqtracematrix} contains a traceability matrix. This matrix shows how each software requirement of the SRD \cite{srd} is linked to the components described in the ADD.
 
 
