@@ -240,7 +240,7 @@ The Application Service depends on the Application Persistence component when ei
 \subsubsection*{Interfaces}
 The Application Service has an interface with the Application Persistence component. This communication is done through a Java call. The Application Service sends requests to the Application persistence to add, remove or return a mixer. It receives data belonging to mixers from the Application Persistence.
 
-The Application Service also has an interface with the Simulator Service component.This communication is done through JNI. The application service sends information belonging to a a mixing run to the Simulator Service. It receives the result of the calculated mixing run from the Simulator Service.
+The Application Service also has an interface with the Simulator Service component.This communication is done through JNI. The application service sends information belonging to a mixing run to the Simulator Service. It receives the result of the calculated mixing run from the Simulator Service.
 
 Finally, the Application Service has interfaces with the Application State component and the Update Application Persistence component. This communication is done through a Java call. The Application Service receives requests to execute a mixing run or to add or remove mixers from one of these components. It sends back the the result of the calculated mixing run to the Application State.
 
@@ -300,7 +300,7 @@ The description of the specific requirements, mentioned in \emph{Purpose}, can b
 
 \subsubsection*{Processing}
 %Internal control and data flow
-In this component data regarding information that was input by the user is sent to the Application State and Update Application Persistence components. The data is processed there. This component also receives data from the Application State and Update Application Persistence components regarding the contents of the GUI. The Layout components uses this data to update the GUI.
+In this component data regarding information that was input by the user is sent to the Application State and Update Application Persistence components. The data is processed there. This component also receives data from the Application State and Update Application Persistence components regarding the contents of the GUI. The Layout component uses this data to update the GUI.
 
 \subsubsection*{Data}
 %Internal data
@@ -369,11 +369,11 @@ This component allows for adding new mixers to and removing mixers from the appl
 
 \subsubsection*{Dependencies}
 %Components to be executed before/after, excluded operations during execution
-The Update Application Persistence depends on the layout component, since it needs the data that was input by the user in this component to perform its tasks. It also depends on the Application Service, to send all its requests to the Application Persistence. Lastly, it depends on the HTTP server to retreive the files with web page content that needs to be displayed.
+The Update Application Persistence depends on the layout component, since it needs the data that was input by the user in this component to perform its tasks. It also depends on the Application Service to send all its requests to the Application Persistence. Finally, it depends on the HTTP server to retrieve the files with web page content that needs to be displayed.
 
 \subsubsection*{Interfaces}
 %Data and control flow in and out
-This component has an interface with the HTTP server. HTTP is used to retreive the web content files from the HTTP server. It also has an interface with the Application Service. Java calls are used on this interface to send data to and receive data from the server side of the application. This component receives data from the Application Service regarding all mixers that are stored in the client persistence. It sends data to the Application Service regarding new mixers to add or to remove mixers.
+This component has an interface with the HTTP server. HTTP is used to retrieve the web content files from the HTTP server. It also has an interface with the Application Service. Java calls are used on this interface to send data to and receive data from the server side of the application. This component receives data from the Application Service regarding all mixers that are stored in the client persistence. It sends data to the Application Service regarding new mixers to add or to remove mixers.
 
 \subsubsection*{References}
 %to other documents
