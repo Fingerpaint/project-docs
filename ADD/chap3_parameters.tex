@@ -4,23 +4,19 @@
 	\midrule
 	\endhead
 	
-	\texttt{geometry} & This is a string that identifies which geometry is used. The idea is that this string is a descriptive string, that can also be used in the GUI. For example, ``Rectangle 400x240''. \\
-	\texttt{len\_geometry} & A meta-parameter that represents the length (number of characters) of above string. This is needed so that calling the function from C is reliable and robust. \\
+	\texttt{geometry} & This is a string that identifies which geometry is used. The idea is that this string is a descriptive string, that can also be used in the GUI. For example, this string can be ``Rectangle 400x240''. \\
 	\midrule
 	
 	\texttt{matrix} & This is a string that identifies which matrix is used, from the matrices available for the selected geometry. The string should, just like the above string, be descriptive. \\
-	\texttt{len\_matrix} & A meta-parameter that represents the length (number of characters) of above string. This is needed so that calling the function from C is reliable and robust. \\
 	\midrule
 	
 	\texttt{concentration\_vector} & A vector that describes the concentration distribution on the canvas: simply an array of values between $0.0$ and $1.0$. This value will be changed by the function. \\
-	\texttt{len\_concentration\_vector} & A meta-parameter that represents the number of values in above vector. This is needed so that calling the function from C is reliable and robust. \\
 	\midrule
 	
 	\texttt{step\_size} & Size of the mixing step that is to be simulated. \\
 	\midrule
 	
 	\texttt{step\_name} & Describes the type of step that should be simulated (e.g. for a rectangular geometry it contains which of the walls is moved and in which direction). \\
-	\texttt{len\_step\_name} & A meta-parameter that represents the length (number of characters) of above string. This is needed so that calling the function from C is reliable and robust. \\
 	\midrule
 	
 	\texttt{segregration} & A value that defines how well a mixture is separated, a lower segregation means the mixture is well-mixed. This is not an input parameter, but a pointer to a value that will be set by this function: an output parameter. \\

@@ -10,7 +10,7 @@
 
 \chapter{Component description}
 \label{chap:compdescr}
-In this chapter we describe all of the components that were identified in chapter \ref{chap:systdesign} in detail. For every component, we will give an identifier and the type, purpose, function, subordinates, dependencies and interfaces of the component. Furthermore, the internal control flow and internal data flow are described.
+In this chapter we describe all of the components that were identified in chapter \ref{chap:systdesign} in detail. For every component, we give an identifier and the type, purpose, function, subordinates, dependencies and interfaces of the component. Furthermore, the internal control flow and internal data flow are described.
 
 %-------------------------------------------------------------------------------------------------------------------
 \section{Server}
@@ -36,13 +36,13 @@ The Fortran Module performs the calculations to calculate how the mixing distrib
 The Fortran Module does not have any known child components. This is because the module was given to \projectauthor{} as a black box.
 
 \subsubsection*{Dependencies}
-The Fortran Module does not have dependencies with relation to other components. This is because it uses its own data, along with the parameters for computations and only interfaces with its parent module (the Simulation Service). For an overview of all dependencies in the system, see figure \ref{fig:compdependencies}.
+The Fortran Module does not have dependencies in relation to other components. This is because it uses its own data, along with the parameters for computations and only interfaces with its parent module (the Simulation Service).
 
 \subsubsection*{Interfaces}
-The Fortran Module has a single interface with the Simulation Service. This interface is the procedure call of the module in Fortran. This call receives a concentration distribution, a geometry, mixer and a mixing step as arguments and returns a concentration distribution and a performance measure, namely the segregation factor. For more detail regarding this interface, refer to chapter \ref{chap:systcontext}.
+The Fortran Module has a single interface with the Simulation Service. This interface is the procedure call of the module in Fortran. This call receives a concentration distribution, a geometry, mixer and a mixing step as arguments and returns a concentration distribution ands the segregation factor. For more detail regarding this interface, refer to chapter \ref{chap:systcontext}.
 
 \subsubsection*{References}
-The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
+The description of the specific requirements, mentioned in \emph{Purpose}, can be found in the SRD \cite{srd}.
 
 \subsubsection*{Processing}
 As the implementation of the Fortran Module is beyond the scope of project \projectname{}, the internal flow is irrelevant.
@@ -66,7 +66,7 @@ Provides functionality for the following software requirements:
 \noindent \addtosrqlist{CB-17,sendParams,returnParams,execMixing,returnMixing,SS-2,SS-4}
 
 \subsubsection*{Function}
-The Simulator Service is meant to simulate a mixing protocol on the server and compute how the concentration distribution changes when such a protocol is applied.
+The purpose of the Simulator Service is to simulate a mixing protocol on the server and compute how the concentration distribution changes when such a protocol is applied.
 
 \subsubsection*{Subordinates}
 The Simulator Service is composed of multiple Java classes, located in two packages. This is because one part is located on the client side, while another part resides on the server (calling the Fortran module, that runs on the server). The structure of these packages is shown below:
@@ -85,18 +85,18 @@ The Simulator Service is composed of multiple Java classes, located in two packa
 \end{itemize}
 
 \subsubsection*{Dependencies}
-The Simulator Service depends on the Fortran Module for technical calculations. For an overview of dependencies, see figure \ref{fig:compdependencies}.
+The Simulator Service depends on the Fortran Module for technical calculations.
 
 \subsubsection*{Interfaces}
-The Simulator Service uses the Fortran Module's interface to communicate with it. That interface is described in subsection \ref{subsec:fortranmodule}, more specifically the section ``Interfaces''. This communication is done through C, that calls the Fortran function.
+The Simulator Service uses the Fortran Module's interface to communicate with it. That interface is described in subsection \ref{subsec:fortranmodule}, more specifically the section ``Interfaces''. This communication is done via C code, which in turn calls the Fortran function.
 
 The Simulator Service also receives information regarding mixing runs that have to be executed from the Application Service, and it sends the resulting distribution back to the Application Service. This communication is done by the Simulator Service Communication, which uses JNI.
 
 \subsubsection*{References}
-The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
+The description of the specific requirements, mentioned in \emph{Purpose}, can be found in the SRD \cite{srd}.
 
 \subsubsection*{Processing}
-For processing requests, the Simulator Service keeps each request separate. For each request, the protocol is split up in single steps, which are separately send to the Fortran Module.
+For processing requests, the Simulator Service keeps each request separate. For each request, the protocol is split up in single steps, which are separately sent to the Fortran Module.
 
 \subsubsection*{Data}
 The Simulator Service has no internal data other than the protocol and distribution defined by the request. This data is modified as each step of the protocol is processed by the Fortran Module and finally returned when all steps are analysed. Note that the concentration distribution may be duplicated a number of times, when intermediate results are requested.
@@ -129,7 +129,7 @@ The Application Persistence does not have any child components.
 
 \subsubsection*{Dependencies}
 %Components to be executed before/after, excluded operations during execution
-The Application Persistence component doesn't depend on any other components. For an overview of dependencies, see figure \ref{fig:compdependencies}.
+The Application Persistence component does not depend on any other components.
 
 \subsubsection*{Interfaces}
 %Data and control flow in and out
@@ -137,11 +137,11 @@ This component is accessed through the Application Service component. It receive
 
 \subsubsection*{References}
 %to other documents
-The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
+The description of the specific requirements, mentioned in \emph{Purpose}, can be found in the SRD \cite{srd}.
 
 \subsubsection*{Processing}
 %Internal control and data flow
-No processing of data is being done in this component, since it's a database.
+No processing of data is done in this component, since it is a database.
 
 \subsubsection*{Data}
 %Internal data
@@ -175,15 +175,15 @@ The HTTP Server does not have any known child components. This is because this c
 
 \subsubsection*{Dependencies}
 %Components to be executed before/after, excluded operations during execution
-The HTTP Server component doesn't depend on any other components. For an overview of dependencies, see figure \ref{fig:compdependencies}.
+The HTTP Server component does not depend on any other components.
 
 \subsubsection*{Interfaces}
 %Data and control flow in and out
-This component is accessed through the Application State Component and the Update Application Persistence component. Both the Application State and Update Application Persistence components send requests for web pages to the HTTP Server. The HTTP server responds to these request by serving the requested file(s). All this communication is done through HTTP.
+This component is accessed through the Application State Component and the Update Application Persistence component. Both the Application State and Update Application Persistence components sends requests for web pages to the HTTP Server. The HTTP server responds to these request by serving the requested file(s). All this communication is done through HTTP.
 
 \subsubsection*{References}
 %to other documents
-The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
+The description of the specific requirements, mentioned in \emph{Purpose}, can be found in the SRD \cite{srd}.
 
 \subsubsection*{Processing}
 %Internal control and data flow
@@ -235,20 +235,18 @@ This component is composed of three packages, which contain Java classes. The st
 
 \subsubsection*{Dependencies}
 %\todo{Components to be executed before/after, excluded operations during execution}
-The Application Service depends on the Application Persistence component when the either the Application State or the Update Application Persistence component makes a request for data from the Application Persistence. Furthermore, the Application Service depends on the Simulator Service component when the Application State sends a protocol to be executed on the Fortran Module.
-
-\fpstartparagraph{} For an overview of all dependencies in the system, see figure \ref{fig:compdependencies}.
+The Application Service depends on the Application Persistence component when either the Application State or the Update Application Persistence component makes a request for data from the Application Persistence. Furthermore, the Application Service depends on the Simulator Service component when the Application State sends a protocol to be executed on the Fortran Module.
 
 \subsubsection*{Interfaces}
 The Application Service has an interface with the Application Persistence component. This communication is done through a Java call. The Application Service sends requests to the Application persistence to add, remove or return a mixer. It receives data belonging to mixers from the Application Persistence.
 
-The Application Service also has an interface with the Simulator Service component.This communication is done through JNI. The application service sends information belonging to a a mixing run to the Simulator Service. It receives data of the result of the calculated mixing run from the Simulator Service.
+The Application Service also has an interface with the Simulator Service component.This communication is done through JNI. The application service sends information belonging to a mixing run to the Simulator Service. It receives the result of the calculated mixing run from the Simulator Service.
 
-Lastly, the Application Service has interfaces with the Application State component and the Update Application Persistence component. This communication is done through a Java call. The Application Service receives requests to execute a mixing run or to add or remove mixers from one of these components. It sends back the data of the result of the calculated mixing run to the Application State.
+Finally, the Application Service has interfaces with the Application State component and the Update Application Persistence component. This communication is done through a Java call. The Application Service receives requests to execute a mixing run or to add or remove mixers from one of these components. It sends back the the result of the calculated mixing run to the Application State.
 
 \subsubsection*{References}
 %\todo{to other documents}
-For an in-depth description of the Application Service and the functionality described in purpose, see the SRD \cite{srd}.
+For an in-depth description of the Application Service and the functionality described in \emph{Purpose}, see the SRD \cite{srd}.
 
 \subsubsection*{Processing}
 Basically, the only thing the Application Service does is passing data through from the Application State and Update Application Persistence to the Simulation Service or Application Persistence, or vice versa. This would imply that no processing is done. This is not entirely true however: some data is compressed before sending it to the client, for example. Thus, the Application Service may format the data before sending it to the client or the back end.
@@ -290,23 +288,23 @@ The layout is generated by GWT, which means that there are no files that actuall
 
 \subsubsection*{Dependencies}
 %Components to be executed before/after, excluded operations during execution
-The layout component depends on both the Application State and Update Application Persistence components. If the data inside one of these components changes, the layout component has to be updated accordingly. For an overview of dependencies, see figure \ref{fig:compdependencies}.
+The layout component depends on both the Application State and Update Application Persistence components. If the data inside one of these components changes, the layout component has to be updated accordingly.
 
 \subsubsection*{Interfaces}
 %Data and control flow in and out
-This component doesn't have any interfaces. It is part of the Client Browser, and any interfacing with this component is done through the Application State and Update Application Persistence components.
+This component does not have any interfaces. It is part of the Client Browser, and any interfacing with this component is done through the Application State and Update Application Persistence components.
 
 \subsubsection*{References}
 %to other documents
-The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
+The description of the specific requirements, mentioned in \emph{Purpose}, can be found in the SRD \cite{srd}.
 
 \subsubsection*{Processing}
 %Internal control and data flow
-In this component data regarding information that was input by the user is send to the Application State and Update Application Persistence components. The data is processed there. This component also receives data from the Application State and Update Application Persistence components regarding the contents of the GUI. The Layout components uses this data to update the GUI.
+In this component data regarding information that was input by the user is sent to the Application State and Update Application Persistence components. The data is processed there. This component also receives data from the Application State and Update Application Persistence components regarding the contents of the GUI. The Layout component uses this data to update the GUI.
 
 \subsubsection*{Data}
 %Internal data
-This component doesn't keep any internal data.
+This component does not keep any internal data.
 
 %-------------------------------------------------------------------------------------------------------------------
 \subsection{Client Persistence}
@@ -329,17 +327,17 @@ The Client Persistence is responsible for storing results and self-defined proto
 The Client Persistence does not have any child components.
 
 \subsubsection*{Dependencies}
-The Client Persistence component doesn't depend on any other components. For an overview of dependencies, see figure \ref{fig:compdependencies}.
+The Client Persistence component does not depend on any other components.
 
 \subsubsection*{Interfaces}
 The Application State uses the Client Persistence interface for storing and retrieving files. This communication is done through a Java-call.
 This component is accessed through the Application State component. It receives requests to add, remove or return distributions or protocols from the Application State. If it receives a request to return a file, it will send the requested data to the Application State. The communication between these two components consists of Java calls.
 
 \subsubsection*{References}
-The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
+The description of the specific requirements, mentioned in \emph{Purpose}, can be found in the SRD \cite{srd}.
 
 \subsubsection*{Processing}
-No processing of data is being done in this component, since it's a database.
+No processing of data is done in this component, since it is a database.
 
 \subsubsection*{Data}
 The data stored in the Client Persistence is a collection of files representing mixing protocols and concentration distributions.
@@ -367,11 +365,11 @@ This component allows for adding new mixers to and removing mixers from the appl
 
 \subsubsection*{Subordinates}
 %Child components (modules called, files composed of, classes used)
-\todo{This component doesn't exist yet. It's subordinates will follow later on.}
+\todo{This component does not exist yet. It is subordinates will follow later on.}
 
 \subsubsection*{Dependencies}
 %Components to be executed before/after, excluded operations during execution
-The Update Application Persistence depends on the layout component, since it needs the data that was input by the user in this component to perform its tasks. It also depends on the Application Service, to send all its requests to the Application Persistence. Lastly, it depends on the HTTP server to retrieve the files with web page content that need to be displayed. For an overview of dependencies, see figure \ref{fig:compdependencies}.
+The Update Application Persistence depends on the layout component, since it needs the data that was input by the user in this component to perform its tasks. It also depends on the Application Service to send all its requests to the Application Persistence. Finally, it depends on the HTTP server to retrieve the files with web page content that needs to be displayed.
 
 \subsubsection*{Interfaces}
 %Data and control flow in and out
@@ -379,16 +377,16 @@ This component has an interface with the HTTP server. HTTP is used to retrieve t
 
 \subsubsection*{References}
 %to other documents
-The description of the specific requirements, mentioned in the section purpose, can be found in the SRD \cite{srd}.
+The description of the specific requirements, mentioned in \emph{Purpose}, can be found in the SRD \cite{srd}.
 
 \subsubsection*{Processing}
 %Internal control and data flow
-This component receives data that is input by the user from the Layout component. If this data concerns requests to add or remove a mixer, the data will be send to the Application Service. This component also receives information regarding already existing mixers from the Application Service, as described in the section `Interfaces'. This data is being send to the Layout component to display it on the client device.
+This component receives data that is input by the user from the Layout component. If this data concerns requests to add or remove a mixer, the data will be sent to the Application Service. This component also receives information regarding already existing mixers from the Application Service, as described in the section `Interfaces'. This data is sent to the Layout component to display it on the client device.
 \todo{Reconsider after this component has been build.}
 
 \subsubsection*{Data}
 %Internal data
-This component doesn't keep any internal data.
+This component does not keep any internal data.
 \todo{Reconsider after this component has been build.}
 
 %-------------------------------------------------------------------------------------------------------------------
@@ -407,7 +405,7 @@ Provides functionality for the following requirements:
 \noindent \addtosrqlist{CP-1,CP-2,CP-3,CP-4,CP-5,CP-6,CP-7,savedistr,savename,savebutton,CP-14}
 
 \subsubsection*{Function}
-The Client Browser provides the user with a Graphical User Interface. All interactions of the user with the application are performed through this GUI. Whenever a user action on the GUI makes any change to the state of the application this change is kept track of, and stored in, the Application State. When any information stored in the Application State needs to displayed on the GUI it is accessed as well. For saving a file locally on the device the Application State is needed to communicate and forward this to the Client Persistent component to store it there. Finally, it also communicates mixing runs to the Application Service component to forward it to the Fortran Module which does the computation.
+The Client Browser provides the user with a Graphical User Interface. All interactions of the user with the application are performed through this GUI. Whenever a user action on the GUI makes any change to the state of the application this change is stored in the Application State. When any information stored in the Application State needs to be displayed on the GUI it is accessed as well. For saving a file locally on the device the Application State is needed to communicate and forward this to the Client Persistent component to store it there. Finally, it also communicates mixing runs to the Application Service component to forward it to the Fortran Module which does the computation.
 
 \subsubsection*{Subordinates}
 %\todo{Child components (modules called, files composed of, classes used) - Ask Ion}
@@ -422,7 +420,7 @@ The component is composed of \todo{...}, which contain Java classes. The structu
 
 \subsubsection*{Dependencies}
 %\todo{Components to be executed before/after, excluded operations during execution}
-For saving a file locally on the device the Application State state depends on the Client Persistence to make this happen. To make any changes to the state of the application it depends on the Layout to issue the parameters for the new value. To retrieve the files with web content that need to be displayed, it depends on the HTTP Server. Finally, when the user wants to execute a mixing step/run, and the Layout communicates this to the Application State, it depends on the Application Service component to forward it to the Fortran Module which does the computation. For an overview of dependencies, see figure \ref{fig:compdependencies}.
+For saving a file locally on the device the Application State state depends on the Client Persistence to make this happen. To make any changes to the state of the application it depends on the Layout to issue the parameters for the new value. To retrieve the files with web content that need to be displayed, it depends on the HTTP Server. Finally, when the user wants to execute a mixing step/run, and the Layout communicates this to the Application State, it depends on the Application Service component to forward it to the Fortran Module which does the computation.
 
 \subsubsection*{Interfaces}
 %\todo{Data and control flow in and out - Ask Ion}
@@ -430,11 +428,11 @@ The Application State can send information that needs to be stored locally on th
 
 \subsubsection*{References}
 %\todo{to other documents}
-For an in-depth description of the Application Service and the functionality described in purpose, see the SRD \cite{srd}.
+For an in-depth description of the Application Service and the functionality described in \emph{Purpose}, see the SRD \cite{srd}.
 
 \subsubsection*{Processing}
 %\todo{Internal control and data flow - Ask Ion}
-It converts a mixing run call to a JSON format to send to the Application Service. When files need to be saved it converts the data to String format.
+the Application State converts a mixing run call to a JSON format to send to the Application Service. When files need to be saved it converts the data to String format.
 
 \subsubsection*{Data}
 The data stored in the Application State are the variables entered by the user in the Layout component.
