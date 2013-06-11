@@ -3,40 +3,37 @@
 This chapter describes the technical aspects of the design of \projectname.
 
 \section{Design method}
-%\todo{Name and reference of the method used}
 \projectname{} is implemented as a web application using the Java software development framework Google Web Toolkit (GWT). Section \ref{sec:decompdescr} defines the components of \projectname{} and their dependencies.
 
 
 \section{Decomposition description}
 \label{sec:decompdescr}
-% \todo{Overview of components: decomposition, dependencies, interfaces.}
 The decomposition of \projectname\ into components is based on the requirements of the URD \cite{urd} and the SRD \cite{srd}.
 
-\fpstartparagraph{} Section \ref{subsec:complist} lists the components, which are further described in chapter \ref{chap:compdescr}. Section \ref{subsec:depdiag} illustrates the dependencies between the components. The identified components are strongly based on the tiers listed in section 2.7 of the SRD \cite{srd}. An overview of these tiers is given in Figure 2.1 of the SRD \cite{srd}.
+\fpstartparagraph{} Section \ref{subsec:complist} lists the components, which are further described in chapter \ref{chap:compdescr}. Section \ref{subsec:depdiag} illustrates the dependencies between the components. The identified components are strongly based on the tiers listed in section \ref*{SRD-sec:moddesc} of the SRD \cite{srd}. An overview of these tiers is given in Figure  \ref*{SRD-fig:tierchannel} of the SRD \cite{srd}.
 
 \subsection{List of components}
 \label{subsec:complist}
 The following components are identiﬁed:
 
 \begin{itemize}
-\item Server
-\begin{itemize}
-\item Application Persistence
-\item HTTP Server
-\item Fortran Module
-\item Application Service
-\item Simulator Service
-\end{itemize}
-\item Client
-\begin{itemize}
-\item Client Browser
-\begin{itemize}
-\item Layout
-\item Application State
-\item Update Application Persistence
-\end{itemize}
-\item Client Persistence
-\end{itemize}
+	\item Server
+	\begin{itemize}
+		\item Application Persistence
+		\item HTTP Server
+		\item Fortran Module
+		\item Application Service
+		\item Simulator Service
+	\end{itemize}
+		\item Client
+	\begin{itemize}
+		\item Client Browser
+	\begin{itemize}
+		\item Layout
+		\item Application State
+	\end{itemize}
+		\item Client Persistence
+	\end{itemize}
 \end{itemize}
 
 \subsection{Dependencies diagram}
