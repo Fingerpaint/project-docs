@@ -10,12 +10,12 @@ No other current projects are related to \projectname{}.
 \section{Relation to predecessor and successor projects}
 \label{sec:predsuc}
 %The context of this project in relation to past and future projects
-\projectname{} has multiple predecessor projects. These projects resulted in multiple Matlab\footnote{\url{http://www.mathworks.nl/products/matlab/}} tools that are available on the client's web page \cite{clientpage}. \projectname{} will combine some of the functionality of these tools into a mobile web application. \projectname{} will be developed in such a way that the client can easily extend the application with new mixers. When the development of \projectname{} is complete, \projectname{} is no longer responsible for the application after the final deliverable produced in the SEP project. This means that the client may change, add or remove the application's functionality.
+\projectname{} has multiple predecessor projects. These projects resulted in multiple Matlab\footnote{\url{http://www.mathworks.nl/products/matlab/}} tools that are available on the client's web page \cite{clientpage}. \projectname{} will combine some of the functionality of these tools into a mobile web application. \projectname{} will be developed in such a way that the client can easily extend the application with new mixers. When the development of \projectname{} is completed, \projectname{} is no longer responsible for the application after the final deliverable produced in the SEP project. This means that the client may change, add or remove the application's functionality.
 
 \section{Function and purpose}
 \label{sec:functpurp}
 %A general overview of the function and purpose of the product
-\projectname{} is an application that serves as an educational tool for anyone who wants to gain a deeper understanding of the process of mixing in general, and in particular for students at the TU/e. By interacting with the application, users can quickly and easily find out what the effects of a certain mixer and mixing protocol on an initial distribution are. The user can thus obtain a better understanding about the way this mixer functions. \projectname{} may also be used as a quick and convenient way to observe whether a mixing protocol renders good or bad mixing results. 
+\projectname{} is an application that serves as an educational tool for anyone who wants to gain a deeper understanding of the process of mixing in general, and in particular for students at the TU/e. By interacting with the application, users can quickly and easily find out what the effects of a certain mixer and mixing protocol are on an initial distribution. The user can thus obtain a better understanding about the way this mixer functions. \projectname{} may also be used as a quick and convenient way to observe whether a mixing protocol renders good or bad mixing results.
 
 \section{Environment}
 \label{sec:env}
@@ -24,7 +24,7 @@ No other current projects are related to \projectname{}.
 
 To support the significant share of smartphones and tablets that run on Android, \projectname{} should run on devices running on Android version 4.0 and higher. Lastly, if time permits, \projectname{} could also run on devices running on Windows 8.
 
-The hardware used by the users must be able to run at least one of the supported operating systems and browsers. Also, the application obviously works better on screens that have a diagonal of at least about 4 inches and a resolution of at least about 540x960 pixels - the larger the screen, the easier it is to draw on it (up to a certain maximum, about the size of a desktop monitor with a diagonal of 20 inches). This is because the user draws with their finger and since fingers have a certain size, the screen should be large enough to comfortably draw and see what has been drawn at the same time. On the other hand, when the screen is too big, it costs too much effort to fill up large parts of the mixer.
+The hardware used by the users must be able to run at least one of the supported operating systems and browsers. Also, the application obviously works better on screens that have a diagonal of at least about 4 inches and a resolution of at least about 540x960 pixels - the larger the screen, the easier it is to draw on it (up to a certain maximum, about the size of a desktop monitor with a diagonal of 20 inches). This is because the user draws with their finger and since fingers have a certain size, the screen should be large enough to comfortably draw and see what has been drawn at the same time. %On the other hand, when the screen is too big, it costs too much effort to fill up large parts of the mixer. %Tool is scalable, no longer relevant
 
 The application must support the following screen resolutions:
 \begin{itemize}
@@ -59,8 +59,8 @@ On a very high level, the architecture of the \applicationname{} can be divided 
 Of the Client tier, there are an arbitrary number of instances. These instances are the physical machines of the users of the \applicationname{} (phones, tablets, laptops, desktops).
 
 \subsubsection{Client Browser and Client Persistence}
-\label{sec:clientbrowser} 
-Each Client instance runs a Client Browser (one of the browsers as specified in section \ref{sec:env}) and has a persistent storage facility (Client Persistence). The Client Browser can use this facility to store data that is specific to the user and does not need to be stored in a central location. The Client Browser provides the user with a Graphical User Interface. All interactions of the user with the application are performed through this GUI.
+\label{sec:clientbrowser}
+The Client Browser provides the user with a Graphical User Interface. All interactions of the user with the application are performed through this GUI. Each Client instance runs a Client Browser (one of the browsers as specified in section \ref{sec:env}) and has a persistent storage facility (Client Persistence). The Client Browser can use this facility to store data that is specific to the user and does not need to be stored in a central location.
 
 \subsection{Application Server tier}
 \label{sec:aplicationserver}
@@ -68,11 +68,11 @@ The Application Server is a physical machine maintained by the system administra
 
 \subsubsection{HTTP Server}
 \label{sec:httpserver}
-The application is distributed on demand to the Client instances using HTTP by the HTTP server. The HTTP server is a piece of software that responds to requests by either serving a file from a static collection of content or responding with a dynamically built response. The former is used to serve the actual application, while the latter is used when the client requests a simulation, which goes through the HTTP server as well.
+The application is distributed on demand to the Client instances using HTTP by the HTTP server. The HTTP server is a piece of software that responds to requests by serving a file from a static collection of content, which is used to serve the actual application. 
 
 \subsubsection{Application Service}
 \label{sec:applicationservice}
-Whenever centralised data or a simulation is required by the application running on a Client, this is handled by the Application Service in response to a request from the HTTP server. This service is responsible for communicating any simulations and their results and also for serving data from the persistent storage. Data from the persistent storage can be a list of mixers for example.
+Whenever centralised data or a simulation is required by the application running on a Client, this is handled by the Application Service in response to a request from the Client Browser. This service is responsible for communicating any simulations and their results and also for serving data from the persistent storage. Data from the persistent storage can be a list of mixers for example.
 
 \subsection{Application Persistence tier}
 \label{sec:applicationpersistence}
@@ -84,7 +84,7 @@ The simulations that need to be done for the application run on a dedicated mach
 
 \subsubsection{Simulator Service and Fortran Module}
 \label{sec:simulatorservice}
-Whenever a Client wishes to run a simulation, it interfaces with the Simulator Service indirectly through the HTTP server, Application Service and Simulator Service Communication channel. The Simulator Service uses an existing Fortran Module to calculate the result of a simulation.
+Whenever a Client wishes to run a simulation, it interfaces with the Simulator Service indirectly through the Application Service Communication channel, the Application Service and the Simulator Service Communication channel. The Simulator Service uses an existing Fortran Module to calculate the result of a simulation.
 
 \begin{figure}
 	\centering
