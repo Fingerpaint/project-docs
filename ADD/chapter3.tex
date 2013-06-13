@@ -1,9 +1,18 @@
 \chapter{System context}
 \label{chap:systcontext}
-In this chapter, the context of the system is discussed. This means any external components that are used by the \applicationname{}. The \applicationname{} uses one external component: a Fortran server.
+In this chapter, the context of the system is discussed. This means any external components that are used by the \applicationname{}. The \applicationname{} uses one external component: a Fortran server. This component is described is section \ref{sec:fortranserver}. For communication with this server data compression is used, which is described in section \ref{sec:datacomp}.
 
+\section{Fortran server}
+\label{sec:fortranserver}
 Any computations that need to be done by the \applicationname{} are offloaded to the Fortran module as described in section 2.7.4 of the SRD \cite{srd}. Communication with this module is done by calling its procedure in Fortran. This procedure simulates one mixing step and uses several parameters. Some of these parameters are parameters describing the length of other parameters, this is needed to ensure that the application only uses its own memory. These parameters are: \texttt{len\_geometry}, \texttt{len\_matrix}, \texttt{len\_concentration\_vector} and \texttt{len\_step\_name}. The other parameters are described in the table below:
 
 \begin{center}
 \LTXtable{\textwidth}{chap3_parameters.tex}
 \end{center}
+
+\section{Data compression}
+\label{sec:datacomp}
+As described in the previous section, all parameters needed to perform the calculation need to be uploaded from the client's device to the Fortran server. However, the \texttt{len\_concentration\_vector} parameter contains such a large amount of data that uploading it with a speed of 1 to 2 Mb/s takes longer than the time requirements mentioned in the URD \cite{urd}. Since this is the average upload speed for mobile and ADSL broadband connections, and the \applicationname{} will mainly be used from mobile devices, it is a priority that it also functions correctly and within a timely matter at these speeds. Therefore, the data of the \texttt{len\_concentration\_vector} parameter is compressed before uploading it to the Fortran server, which decreases the time needed to upload it.
+
+For this purpose, the open source JavaScript Libray JSZip \cite{jszip} is used on the client side of the application to compress the data. On the server side java functions are used to decompress the data again before sending it to the Fortran module to perform the actual calculations. Since the download speed of mobile devices is significantly faster than the upload speed, the result data from the server is not compressed again before sending it to the client side. Downloading speeds are so high, that compressing this data before sending it to the server side will not result in a significant speed increase.
+
