@@ -22,7 +22,7 @@ In this chapter we describe all of the components that were identified in chapte
 \RTMSFM{}
 
 \subsubsection*{Type}
-Procedure.
+Program.
 
 \subsubsection*{Purpose}
 Provides functionality for the following software requirements:
@@ -30,7 +30,7 @@ Provides functionality for the following software requirements:
 \noindent \addtosrqlist{CB-17,execMixing,returnMixing,SS-4,FM-1,FM-2,FM-3}
 
 \subsubsection*{Function}
-The Fortran Module performs the calculations to calculate how the mixing distribution changes as a mixing step is applied.
+The Fortran Module calculates how the mixing distribution changes as a mixing step is applied.
 
 \subsubsection*{Subordinates}
 The Fortran Module does not have any known child components. This is because the module was given to \projectauthor{} as a black box.
@@ -39,7 +39,7 @@ The Fortran Module does not have any known child components. This is because the
 The Fortran Module does not have dependencies in relation to other components. This is because it uses its own data, along with the parameters for computations and only interfaces with its parent module (the Simulation Service).
 
 \subsubsection*{Interfaces}
-The Fortran Module has a single interface with the Simulation Service. This interface is the procedure call of the module in Fortran. This call receives a concentration distribution, a geometry, mixer and a mixing step as arguments and returns a concentration distribution ands the segregation factor. For more detail regarding this interface, refer to chapter \ref{chap:systcontext}.
+The Fortran Module has a single interface with the Simulation Service. This interface is the procedure call of the module in Fortran. This call receives a concentration distribution, a geometry, mixer and a mixing step as arguments and returns a concentration distribution and the segregation factor. For more detail regarding this interface, refer to chapter \ref{chap:systcontext}.
 
 \subsubsection*{References}
 The description of the specific requirements, mentioned in the ``Purpose''-section, can be found in the SRD \cite{srd}.
@@ -143,7 +143,7 @@ The description of the specific requirements, mentioned in the ``Purpose''-secti
 
 \subsubsection*{Processing}
 %Internal control and data flow
-No processing of data is done in this component, since it is a database.
+No processing of data is done in this component.
 
 \subsubsection*{Data}
 %Internal data
@@ -173,7 +173,7 @@ The HTTP server is a piece of software that responds to requests by serving a fi
 
 \subsubsection*{Subordinates}
 %Child components (modules called, files composed of, classes used)
-The HTTP Server does not have any known child components. This is because this component was not build by \projectauthor.
+The HTTP Server does not have any known child components. This is because this component was not built by \projectauthor.
 
 \subsubsection*{Dependencies}
 %Components to be executed before/after, excluded operations during execution
@@ -249,8 +249,7 @@ The Application Service also has an interface with the Simulator Service compone
 For an in-depth description of the Application Service and the functionality described in the ``Purpose''-section, see the SRD \cite{srd}.
 
 \subsubsection*{Processing}
-Basically, the only thing the Application Service does is passing data through from the Application State to the Simulation Service or Application Persistence, and vice versa. This would imply that no processing is done. This is not entirely true however: some data is compressed before sending it to the client, for example. Thus, the Application Service may format the data before sending it to the client or the back end.
-
+Basically, the only thing the Application Service does is passing data through from the Application State to the Simulation Service or Application Persistence, and vice versa. This would imply that no processing is done. This is not entirely true however, as some data is compressed before sending it to the client. Thus, the Application Service may format the data before sending it to the client or the back end; see section \ref{sec:datacomp} for more information.
 
 \subsubsection*{Data}
 The Application Service does not have any internal data. The only data residing in this component is the data passing through with requests.
@@ -339,7 +338,7 @@ This component is accessed through the Application State component. It receives 
 The description of the specific requirements, mentioned in the ``Purpose''-section, can be found in the SRD \cite{srd}.
 
 \subsubsection*{Processing}
-No processing of data is done in this component, since it is a database.
+No processing of data is done in this component.
 
 \subsubsection*{Data}
 The data stored in the Client Persistence is a collection of files representing mixing protocols and concentration distributions.

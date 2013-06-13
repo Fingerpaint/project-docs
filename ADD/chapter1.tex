@@ -17,8 +17,9 @@ The \applicationname\ is an application designed and developed by \projectauthor
 \item[Client:] Prof.dr.ir. P.D. Anderson.
 \item[Fortran:] A general-purpose, imperative programming language.
 \item[Google Web Toolkit:] An open source set of tools that allows for the creation and maintenance of JavaScript applications in Java.
-\item[Mixing step:] Part of a mixing protocol, it consists of: a wall to move, the direction the wall is moved in and the size of this step.
+\item[Mixing step:] Part of a mixing protocol. A mixing step involves a step size and possibly a movement of a wall with a given direction.
 \item[Subordinate:] A child component.
+\item[Wall:] A moveable part of the application that can be used to define the direction of the mixing step to be executed. The wall is compatible with the selected geometry. For instance, when a rectangular geometry is used, there are two rectangular walls (top and bottom) that can be moved to the left or right.
 \end{description}
 
 \subsection{Abbreviations}
@@ -44,5 +45,3 @@ URD   & User Requirements Document \\
 %Short description of the rest of the ADD and how it is organized.
 The remaining chapters describe the architectural design of \projectname\ in more detail. Chapter \ref{chap:systoverview} gives a system overview. Chapter \ref{chap:systcontext} describes the system context. The relationship with external components is explained in detail in this chapter. Chapter \ref{chap:systdesign} covers the sytem design. The name and reference of the used design method are given.
 In chapter \ref{chap:compdescr} all components are described in detail. For each component, its type, purpose, function, subordinates, dependencies to other components, interfaces, resources needed, internal processing and  data are described. Chapter \ref{chap:feasresest} gives an overview of all resources needed to build, operate and maintain the application. Chapter \ref{chap:reqtracematrix} contains a traceability matrix. This matrix shows how each software requirement of the SRD \cite{srd} is linked to the components described in the ADD.
-
-
