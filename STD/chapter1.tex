@@ -1,16 +1,35 @@
 \chapter{Introduction}
+This chapter contains general information regarding this document.
 
 \section{Purpose}
-\todo{The purpose of this particular STD and its intended
-readership.}
+%The purpose of this particular STD and its intended readership.
+This document contains information regarding the transfer of the \applicationname{} from \projectauthor{} to the customer. It describes what is to be transferred, and how these items have been tested before the actual transfer. In chapter \ref{chap:problems}, the state of the transferred items is listed with regards to the user requirements of the URD \cite{urd}.
 
 \section{Scope}
-\todo{Scope of the software. Identifies the product by name, explains what the software will
-do.}
+%Scope of the software. Identifies the product by name, explains what the software will do.
+The \applicationname{} is an application designed and developed by \projectauthor{} for prof.dr.ir. P.D. Anderson, at the Eindhoven University of Technology. The application serves as an educational tool for anyone who wants to gain a deeper understanding of the process of mixing in general, and in particular for students at the TU/e.
 
 \section{List of definitions}
-\todo{The definitions of all used terms, acronyms and
-abbreviations.}
+%The definitions of all used terms, acronyms and abbreviations.
+\subsection{Definitions}
+\begin{description}
+\item[Customer:] Prof.dr.ir. P.D. Anderson.
+\item[Java Development Kit:] The software used to build Java applications.
+\item[Ant:] Tool to build Java applications.
+\item[Make:] A tool which controls the generation of executables and other non-source files of a program from the program's source files.
+\end{description}
+
+\subsection{Abbreviations}
+\begin{tabular}{l|l}
+2IP35 & The Software Engineering Project \\
+ADD & Architectural Design Document \\
+ATP & Acceptance Test Plan \\
+JDK & Java Development Kit \\
+TU/e  & Eindhoven University of Technology \\
+\end{tabular}
 
 \section{List of references}
-\bibliography{\pathtobase{ref.bib}}
+\bibliography{../ref}
+
+\section{Overview}
+The remainder of this document starts with a description of the build procedures in chapter \ref{chap:build}. The installation procedures for the software built using these build procedures are described in chapter \ref{chap:install}. The list of items transferred to the customer is described in chapter \ref{chap:conf}. A summary of the test results obtained by executing the tests in the ATP \cite{atp} is provided in chapter \ref{chap:testreports}. Chapter \ref{chap:problems} lists some items that were not implemented satisfactorily. If any modifications were requested by the customer during the transfer phase, they are listed in chapter \ref{chap:changes}. If these were implemented during the transfer phase, they are documented in chapter \ref{chap:implemented}.
