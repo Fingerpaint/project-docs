@@ -1,17 +1,27 @@
-\input{../style.tex}
-\renewcommand{\pathtobase}[1]{../#1}
-
-%Variables
-\renewcommand{\TitelFull}{Software User Manual}
-\renewcommand{\TitelAbbr}{SUM}
-\renewcommand{\Version}{0.0}
+\documentclass[%
+		pathtobase=..,%
+		titlefull={Software User Manual},%
+		titleabbr=SUM,%
+		version=0.0]{fingerpaint}
+		
+% Note: all the screenshot-figures should be place in the screenshots-folder, to use the following command.
+\newcommand{\screenshot}[2]{ %
+	\begin{figure}[h!t]
+	\centering
+	\includegraphics{screenshots/#1}
+	\caption{#2}
+	\label{fig:#1}
+\end{figure}
+}
 
 \begin{document}
 
-\fingerpainttitlepage{}
+\maketitle{}
 
 \begin{abstract}
-\todo{abstract}
+This document is the user manual for the \projectname system. This program is part of the Software Engineering Project (2IP35) at Eindhoven University of Technology.
+The document complies with the Software User Manual (SUM) from the Software Engineering Standard, as set by the European Space Agency \cite{esa}.
+
 \end{abstract}
 
 \tableofcontents

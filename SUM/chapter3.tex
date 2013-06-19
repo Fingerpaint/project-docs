@@ -1,19 +1,102 @@
 \chapter{Tutorial}
-\todo{short chapter intro}
+%\todo{short chapter intro}
+This chapter contains tutorials for performing all actions and operations supported by \projectname. It is assumed the \applicationname has been accessed successfully. 
 
-\todo{For each session or lesson of the tutorial, a section of the following structure}
-\section{Name of the session}
+%\todo{For each session or lesson of the tutorial, a section of the following structure}
+%\section{Name of the session}
+%
+%\subsection{Functional description}
+%%\todo{What the tutorial session is supposed to achieve.}
+%This section describes 
+%\subsection{Cautions and warnings}
+%%\todo{A list of precautions that may need to be taken}
+%
+%\subsection{Procedures}
+%
+%\subsubsection{Preparation}
+%%\todo{how to prepare for and start the task}
+%
+%\subsubsection{Description}
+%%\todo{A step-by-step description of what the user must do and the response of the system}
+%
+%\subsubsection{Results}
+%%\todo{What final results to expect}
+%
+%\subsection{Likely errors}
+%%\todo{An informal description (not a list of errors) of likely errors and possible causes}
+
+\section{Choosing a geometry and mixer type}
+\label{sec:ChooseGeomAndMixer}
 
 \subsection{Functional description}
-\todo{What the tutorial session is supposed to achieve.}
+This tutorial describes how to choose a geometry and mixer for your mixing simulation.
 
 \subsection{Cautions and warnings}
-\todo{A list of precautions that may need to be taken}
+
+Version 1.0 of the \applicationname only supports the \emph{Rectangle 400x240} geometry. It is intended to add the \emph{Square} geometry in the future, but as of now it has no functionality.\\
 
 \subsection{Procedures}
-\todo{how to prepare for and start the task}
-\todo{A step-by-step description of what the user must do and the response of the system}
-\todo{What final results to expect}
+
+\subsubsection{Preparation}
+Open your webbrowser and navigate to the \projectname website. Wait for the loading to finish and the menu to appear.
+
+\subsubsection{Description}
+%\todo{A step-by-step description of what the user must do and the response of the system}
+
+\begin{enumerate}
+\item Select the \emph{Rectangle 400x240} geometry.
+\begin{itemize}
+  \item A new menu appears to the right
+\end{itemize}
+\item From this menu, select the \emph{Default} mixer.
+\begin{itemize}
+  \item The main menu appears. Your selection of the \emph{Rectangle 400x240} geometry and \emph{Default} mixer is stored.
+\end{itemize}
+\end{enumerate}
+
+\subsubsection{Results}
+%\todo{What final results to expect}
+You have now successfully selected a geometry and a mixer, and are at the main menu of the application.
 
 \subsection{Likely errors}
-\todo{An informal description (not a list of errors) of likely errors and possible causes}
+Version 1.0 of the \applicationname\ only supports the \emph{Rectangle 400x240} geometry. It is intended to add the \emph{Square} geometry in the future, but as of now it has no functionality. If you have selected the \emph{Square} geometry, you can change your selecting by refreshing the browser and repeating step 1 \& 2.\\
+
+\noindent If you cannot access the fingerpaint website, please make sure you have one of the following browsers:\\
+\begin{itemize}
+\item iOS Safari version 6.0 or higher
+\item Firefox version 20 or higher
+\item Google Chrome version 26 or higher.
+\item Internet Explorer version 10 or higher.
+\item Safari version 6.0 or higher.
+\end{itemize}
+
+% STUKJES VAN FEMKE -------------------------------------------------------------------------------------------------
+\section{View the performance graph of a mixing run}\label{sec:viewsinglegraph}
+
+\subsection{Functional description}
+In this tutorial, the performance graph of the previously executed mixing run is retrieved and viewed.
+
+\subsection{Cautions and warnings}
+When this tutorial is executed in Internet Explorer 10, the graph that should appear after step 1 from section  \ref{subsubsec:viewsinglegraphDesc} is not displayed. The graphs that we display are namely in SVG format and Internet Explorer 10 cannot handle this format.
+
+\subsection{Procedures}
+
+\subsubsection{Preparation}
+% TODO: referentie naar sectie betreft uitvoeren van mixing run + Figuur van "Define a protocol" menu
+Before this tutorial session can be executed, the session from section ... has to be done first. As a result, the menu from figure ... is shown.
+
+\subsubsection{Description}\label{subsubsec:viewsinglegraphDesc}
+\begin{enumerate}
+	\item Press the \emph{View performance graph} button.
+		\begin{itemize}
+			\item The menu from figure \ref{fig:mixingGraphSingle} appears.
+		\end{itemize}	
+\end{enumerate}
+
+\screenshot{mixingGraphSingle}{The pop-up menu that appears after clicking \emph{View performance graph}.}
+
+\subsubsection{Results}
+After following the steps as described above, a graph of the mixing performance of the previously executed mixing run is shown. In this graph, the mixing performance is shown on the y-axis, and the corresponding protocol step is shown on the x-axis. The initial performance of the mixing run is always 1.0, so there is always a point with this value at step 0.
+
+\subsection{Likely errors}
+None.

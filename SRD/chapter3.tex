@@ -15,8 +15,6 @@ Each requirement has a specific priority, based on the MoSCoW model \cite{moscow
 
 \fpstartparagraph{} In some of the requirements in this section, the term ``fast enough" is mentioned: for a precise definition, refer to chapter 6 of the ADD \cite{add}.
 
-%\fpstartparagraph{} Note that as \applicationname\ is developed using GWT, some of the software requirements listed in this chapter are described in terms of specific GWT widgets or panels\footnote{The website for the GWT widgetlist can be found at \url{https://developers.google.com/web-toolkit/doc/latest/RefWidgetGallery}.}.
-
 % Functional requirements --------------------------------------------------------------------------------------------------------
 \section{Functional requirements}
 \label{sec:funcreq}
@@ -25,11 +23,10 @@ This section lists the functional requirements for the \applicationname.
 \subsection{HTTP Server}
 \SRQ[HTTP-1]{must have}{The HTTP Server must be able to serve static files (files that are not dynamically generated) to the Client Browser.}
 
-\subsection{Application Service} % Oude Mixer Provider
+\subsection{Application Service}
 \SRQ[AS-1]{must have}{The Application Service must be able to retrieve all the available mixers from the Application Persistence.}
 \SRQ[AS-2]{must have}{The Application Service must be able to send all available mixers to the Client Browser.}
 \SRQ[AS-3]{must have}{The Application Service must allow for adding new mixers to the Application Persistence.} %CNR13
-%\SRQ[AS-4]{should have}{The Application Service must allow for editing existing mixers in the Application Persistence.}
 \SRQ[AS-5]{must have}{The Application Service must allow for removing existing mixers from the Application Persistence.}
 \SRQ[AS-6]{must have}{The Application Service must be able to provide all available geometries to the Client Browser.}
 \SRQ[AS-7]{must have}{The Application Service must be able to act as a relay between the Client Browser and the Simulation Service.}
@@ -38,20 +35,19 @@ This section lists the functional requirements for the \applicationname.
 \SRQ[APC-1]{must have}{The Application Persistence Communication must be able to access all the data from the Application Persistence.}
 \SRQ[APC-2]{must have}{The Application Persistence Communication must be fast enough to serve the data from the Application Persistence to the Application Service.}
 
-\subsection{Application Persistence} % Voorheen MixerPersistence
+\subsection{Application Persistence}
 \SRQ[AP-1]{must have}{The Application Persistence must deliver all saved mixers to the Application Service.}
 \SRQ[AP-2]{must have}{The Application Persistence must be able to save new mixers provided by the Application Service.}
-%\SRQ[AP-3]{should have}{The Application Persistence must save changes to existing mixers handed by the Application Service.}
 \SRQ[AP-5]{must have}{The System Administrator is able to add new mixer types for a geometry.}
 \SRQ[AP-6]{must have}{The System Administrator is able to remove mixer types for a geometry.}
 
-\subsection{Application Service Communication} % Voorheen MixerProviderCommunication
+\subsection{Application Service Communication}
 \SRQ[ASC-1]{must have}{The Application Service Communication must be able to access all the functionality from the Application Service.}
 \SRQ[ASC-2]{must have}{The Application Service Communication must be fast enough to provide the functionality from the Application Service to the Client Browser.}
 
 \subsection{Client Browser}
 \subsubsection{Change the drawing tool}
-The user can change the drawing tool that is used to paint on the canvas. The current shape (circle and square) and size of the drawing tool is displayed on the user interface. The user interface contains options to change the current shape and size of the drawing tool.
+The user can change the drawing tool that is used to paint on the canvas. The current shape (circle or square) and size of the drawing tool is displayed on the user interface. The user interface contains options to change the current shape and size of the drawing tool.
 
 \SRQ[shapedraw]{must have}{The user interface displays the shape of the tool that is currently selected.} % CPR7
 \SRQ[CB-12]{should have}{The user interface displays the size of the tool that is currently selected.} % CPR10
@@ -69,22 +65,18 @@ The user can select a circle or square-shaped drawing tool to draw with. He can 
 \SRQ[CB-5]{must have}{A graphical user interface is present to reset the current initial concentration distribution to a completely white state.} % CPR8
 
 \subsubsection{Select a geometry, mixer and initial concentration distribution}
-The user can select a rectangular mixer geometry. Then the user can select a mixer that can operate on the selected geometry and a initial concentration distribution. There are three types of initial concentration distributions that the user can choose from. The first type is a \texttt{blank} concentration distribution, which simply means that the user will be presented with a clean canvas when this option is selected. The second type is a \texttt{load} option, so the user can load previously saved concentration distributions that are stored on their device. The third type of
-concentration distribution is a \texttt{predefined} distribution, meaning that the user can choose from a few predefined distributions that are already present in the application. The selected concentration distribution is then loaded onto the canvas. This translates to the following software requirements:
-%The user can select a rectangular mixer geometry. To this end, a cell browser is available that lists all the available geometries in the first column. This first column will contain several geometries, including \texttt{rectangle}, \texttt{square}, \texttt{circle} or \texttt{Journal Bearing}. After clicking on a certain geometry, the available mixers for this geometry are displayed in the second column of the cell browser. The user can now select a mixer of choice and then, the third column in the cell browser lists all the available starting concentration distributions for the selected mixer. There are three types of starting concentration distributions that the user can choose from. The first type is a \texttt{blank} concentration distribution, which simply means that the user will be presented with a clean canvas when this option is selected. The second type is a \texttt{load} option, so the user can load previously saved concentration distributions that are stored on their device. The third type of
-% concentration distribution is a \texttt{predefined} distribution, meaning that the user can choose from a few predefined distributions that are already present in the application. In case of the second and third option, there will be a third column in the cell browser that lists all the available concentration distributions that can be loaded. When the user clicks on an item in the third column, the required distribution is immediately loaded on an appropriate canvas. For the first option, a blank canvas is displayed on the screen when the user clicks on \texttt{blank}. \\
-%This user requirement can then be described with the following functional requirements:
+The user can select a rectangular mixer geometry. Then the user can select a mixer that can operate on the selected geometry and an initial concentration distribution. This translates to the following software requirements:
 
-\SRQ[CB-7]{must have}{The application contains a graphical interface to select an initial mixer, geometry and options for the initial concentration distribution.} % CPR1
+\SRQ[CB-7]{must have}{The application contains a graphical interface to select an initial mixer and a geometry.} % CPR1
 \SRQ[selgeomrec]{must have}{A \texttt{rectangle} geometry can be selected in the user interface.} % CPR1
 \SRQ[selmixer]{must have}{If a geometry is selected, a user interface is presented to select an appropriate mixer.} % CPR2
 \SRQ[selgeomsq]{should have}{A \texttt{square} geometry can be selected in the user interface.}  % CPR3
 \SRQ[selgeomcir]{could have}{A \texttt{circle} geometry can be selected in the user interface.}  % CPR4
 \SRQ[selgeomjb]{could have}{A \texttt{journal bearing} geometry can be selected in the user interface.}  % CPR5
-\SRQ[CB-8]{must have}{After a geometry and appropriate mixer is slected in the user interface, a blank canvas can be selected and loaded.} % CPR6
-\SRQ[prevsaved]{should have}{After a geometry and appropriate mixer is slected in the user interface, a list of all previously saved concentration distribution can be retrieved in the user interface.} % CPR13
+\SRQ[CB-8]{must have}{After a geometry and appropriate mixer is selected in the user interface, a blank canvas is shown.} % CPR6
+\SRQ[prevsaved]{should have}{After a geometry and appropriate mixer is selected in the user interface, a list of all previously saved concentration distribution can be retrieved in the user interface.} % CPR13
 \SRQ[CB-9]{should have}{After the list of concentration distribution from \srqref{prevsaved} is presented, a previously saved concentration distribution can be selected and loaded onto the canvas.} % CPR13
-\SRQ[predef]{could have}{After a geometry and appropriate mixer is slected in the user interface, a list of all predefined concentration distribution can be retrieved in the user interface.} % CPR14
+\SRQ[predef]{could have}{After a geometry and appropriate mixer is selected in the user interface, a list of all predefined concentration distribution can be retrieved in the user interface.} % CPR14
 \SRQ[CB-10]{could have}{After the list of concentration distribution from \srqref{predef} is presented, a predefined concentration distribution can be selected and loaded onto the canvas.} % CPR14
 
 \subsubsection{Define mixing protocol for specific geometries}
@@ -121,7 +113,7 @@ The user interface will contain options to input modifiers where appropriate and
 }
 
 \SRQ[CB-16]{must have}{ % CPR19
-    A grahpical user interface is present to reset the currently defined protocol, thereby removing all currently defined steps.
+    A graphical user interface is present to reset the currently defined protocol, thereby removing all currently defined steps.
 }
 
 \subsubsection{Execute mixing runs}
@@ -167,7 +159,7 @@ To manage mixing protocols, the user can save and load the mixing protocols they
 
 \subsubsection{Save and remove mixing runs}
 \SRQ[CP-6]{must have}{ % CPR30
-    After the mixing has been executed, a graphical user interface is present to save the mixing run. That is, the initial concentration distribution of the run is saved (if not already saved), the mixing protocol is saved (if not already saved), the performance result of the mixing simulation is saved and the used geometry and mixer are saved.
+    After the mixing has been executed, a graphical user interface is present to save the mixing run. That is, the resulting concentration distribution of the run is saved, the mixing protocol is saved, the performance result of the mixing simulation is saved and the used geometry and mixer are saved.
 }
 
 \SRQ[CP-7]{must have}{ % CPR31
@@ -175,12 +167,9 @@ To manage mixing protocols, the user can save and load the mixing protocols they
 }
 
 \subsubsection{Save an initial concentration distribution}
-%The user can save an initial concentration distribution locally on their device. When the user clicks the \texttt{Save Distribution} button, a pop-up menu appears. The user can now enter a name for the concentration distribution and click the \texttt{Save} button to save the distribution. When the save was successful, a \emph{Save was successful} message is displayed and the user can press \texttt{OK} to go back to the mixing interface. If there is not enough memory to save the image, a \emph{Insufficient memory message} is displayed; the user can then press the \texttt{OK} button to go to the mixing interface. \\
-%If the entered name is already in use, a new pop-up back menu is displayed, giving the user the choice to either \texttt{Overwrite} or \texttt{Cancel} the current save process. If the user presses the \texttt{Overwrite} button and the save was successful, a \emph{Save was successful} message is displayed and the user can press \texttt{OK} to go back to the mixing interface. The user can abort the saving process in either dialogues, by clicking the \texttt{Cancel} button. \\
-
 \SRQ[savedistr]{should have}{A graphical user interface is present to save the concentration distribution currently displayed on the canvas.} % CPR11
-\SRQ[savename]{should have}{During the \srqref{savedistr} action a name for the concentration distribution can be inputted.} % CPR11
-\SRQ[savebutton]{should have}{After specifying a name in \srqref{savename}, the concentration distribution can be saved to the ClientPersistence under the inputted name.} % CPR11
+\SRQ[savename]{should have}{During the \srqref{savedistr} action a name for the concentration distribution can be specified.} % CPR11
+\SRQ[savebutton]{should have}{After specifying a name in \srqref{savename}, the concentration distribution can be saved to the ClientPersistence under the specified name.} % CPR11
 \SRQ[CP-9]{should have}{If the specified name from \srqref{savename} is already taken, a graphical user interface is present to overwrite the previously saved concentration distribution.} % CPR11
 \SRQ[CP-10]{should have}{The saving process can be cancelled at any time.} % CPR11
 
@@ -190,23 +179,18 @@ To manage mixing protocols, the user can save and load the mixing protocols they
 \SRQ[loadload]{should have}{In the list from \srqref{loadlist}, a previously saved distribution can be selected.}
 \SRQ[CP-14]{should have}{A concentration distribution (for example the one selected in \srqref{loadload}) can be loaded into the canvas.}
 
-%\todo{Dit is niet in overeenstemming met use case B.20, want ik heb geen \texttt{View Saved Files} button en ik sta hier toe dat meerdere dingen tegelijkertijd verwijderd worden.}
 \subsubsection{Remove previously saved concentration distributions}
-%The user can remove a previously saved initial concentration distribution. To this end, a \texttt{Remove saved distributions} button is available. When the user clicks this button, a new screen opens with a cell list that shows all the available saved concentration distributions, along with a check box next to each item. The \texttt{Remove saved distributions} button will remain visible in this new screen. The user can then select one or more items to be removed using the check boxes. When the remove button is pressed, an \emph{Are you sure?} message is displayed. When the user presses \texttt{Yes}, all the selected distributions will be removed and the user returns to the history interface. If \texttt{No} is pressed, removal process is aborted and the history interface is shown again. \\
-%If no concentration distributions have been saved yet, a \emph{No saved distributions} message is displayed and the user can press \texttt{OK} to continue and display the history interface again. If the user has not given access rights to the application, a \emph{Insufficient access rights} error message is shown. The user can press \texttt{OK} to return to the history interface. \\
-%This user requirement can then be described with the following functional requirements:
-
 \SRQ[removeinit]{should have}{A user interface is present to initiate the removal of a previously saved concentration distribution.} % CPR12
 \SRQ[listsaved]{should have}{After the removal action from \srqref{removeinit} has begun, the user interface will present a list of previously saved concentration distributions.} % CPR12
 \SRQ[selectremove]{should have}{After the list from \srqref{listsaved} is shown on the user interface, one or more previously saved concentration distributions can be selected for removal.} % CPR12
-\SRQ[suremessage]{should have}{If at least one item from \srqref{selectremove} is selected, a graphical user interface is presented to remove those items from storage. A confirmation will be required before the removal commences.} % CPR12
+\SRQ[suremessage]{should have}{If an item from \srqref{selectremove} is selected for removal, a confirmation will be shown before the removal commences.} % CPR12
 \SRQ[nosaveddistr]{should have}{If no distributions have been saved yet, and \srqref{removeinit} has been initiated, a message will be shown to inform the user that no items can currently be removed.} % CPR12+13
-\SRQ[insuffrights]{should have}{If no access rights have been provided to the application, a \emph{Insufficient access rights} error message is shown when \srqref{removeinit} is initiated.} % CPR12
+\SRQ[insuffrights]{should have}{If no access rights have been provided to the application, an \emph{Insufficient access rights} error message is shown when \srqref{removeinit} is initiated.} % CPR12
 
 \subsubsection{Exporting results}
-It is possible to save an image of the results of a performed mixing run to the disk of the Client. This can be a image of the resulting concentration distribution, an animation of several intermediate concentration distributions (as indicated by the step-repeat from \srqref{protocolrepeat}) or a graph displaying the performance of a mixing run (a performance point is generated for each time the protocol was repeated using \srqref{protocolrepeat}).
+It is possible to save an image of the results of a performed mixing run to the disk of the Client. This can be an image of the resulting concentration distribution, an animation of several intermediate concentration distributions (as indicated by the step-repeat from \srqref{protocolrepeat}) or a graph displaying the performance of a mixing run (a performance point is generated for each time the protocol was repeated using \srqref{protocolrepeat}).
 
-% \SRQ[CP-20]{should have}{The \texttt{export picture} option can be used to open the \texttt{export} menu to \texttt{export} an image of the mixing result.}
+\SRQ[distimg]{should have}{A graphical user interface is present to export an image of the current concentration distribution.}
 %CPR33
 \SRQ[gengraph]{should have}{A graphical user interface is present to export an image of the current performance graph.}
 %CPR35&37
@@ -235,16 +219,13 @@ It is possible to change the language of the application. The standard language 
 }
 
 \subsubsection{Requirements regarding the presentation of results}
-The user is able to get the distribution that resulted from executing his mixing run. In addition, the mixing performance is given after each mixing step. He is also able to save and export these results. To this end a results window is available. In the results window, the final distribution is shown. There is also a \texttt{show statistics} button. When pressed, the performance of the mixing run is shown in a graph. In this new menu the \texttt{show statistics} button changes to \texttt{show result}. When this button is pressed, the image switches back to the default results window. The results window is reached by pressing the \texttt{start mixing} button in the mixing interface. The mixing interface is the window where the user can define his mixing protocol. In the mixing interface there is a \texttt{animate mixing} checkbox. If this checkbox was checked when the \texttt{start mixing} button is pressed, an animation of the mixing procedure is shown in the results window.
+The user is able to get the distribution that resulted from executing his mixing run. In addition, the mixing performance is given after each mixing step. He is also able to save and export these results. The user interface must be able to support this functionality.
 
-\SRQ[SSC-3]{must have}{In the results window the result of the user's mixing protocol is shown. This interface can be reached by pressing the \texttt{start mixing} button.}
+\SRQ[SSC-3]{must have}{A graphical user interface is present to show the mixing protocol of a loaded mixing run.}
 %CPR32
-\SRQ[SSC-4]{must have}{The user can use the \texttt{show performance} button to view the performance graph of the mixing run.}
+\SRQ[SSC-4]{must have}{A graphical user interface is present to view the performance graph of a loaded mixing run.}
 %CPR34
-\SRQ[SSC-5]{must have}{The user can use the \texttt{show result} button to switch back to the standard results window and view the result distribution of the mixing run.}
-%CPR34, extention for consistency.
-
-\SRQ[SSC-6]{could have}{An animation of the mixing run is shown in the results window if the \texttt{animate mixing} checkbox was checked.}
+\SRQ[SSC-6]{could have}{A graphical user interface is present to view an animation of a loaded mixing run, if the user selected the animate option.}
 %CPR38
 
 \subsection{Simulator Service Communication}
@@ -262,7 +243,7 @@ The user is able to get the distribution that resulted from executing his mixing
      The server executes the mixing run using the parameters received from the Simulator Service Communication. These parameters are passed as input to the Fortran implementation.
 }
 \SRQ[returnMixing]{must have}{
-	The server can return the results from a mixing simulation it received from the fortran module to the Application Service through the Simulator Service Communication.
+	The server can return the results from a mixing simulation it received from the Fortran module to the Application Service through the Simulator Service Communication.
 }
 
 \subsubsection{Information exchange}
@@ -281,13 +262,13 @@ The Simulator Service must be able to send and receive matrix files from the Cli
 \label{sec:nonfuncreq}
 
 \subsection{Performance}
-\SRQ[NONF-1]{must have}{Waiting time between submitting input and receiving output is around 5 seconds on average.}
+\SRQ[NONF-1]{must have}{Waiting time between submitting input and receiving output is no longer than 5 seconds on average.}
 %CNR10
 
-\SRQ[NONF-2]{should have}{Waiting time between submitting input and receiving output is around 3 seconds on average.}
+\SRQ[NONF-2]{should have}{Waiting time between submitting input and receiving output is no longer than 3 seconds on average.}
 %CNR11
 
-\SRQ[NONF-3]{could have}{Waiting time between submitting input and receiving output is around 1 second on average.}
+\SRQ[NONF-3]{could have}{Waiting time between submitting input and receiving output is no longer than 1 second on average.}
 %CNR12
 
 \subsection{Interface}
@@ -297,9 +278,6 @@ The Simulator Service must be able to send and receive matrix files from the Cli
 \SRQ[dutlan]{should have}{A Dutch interface is available.}
 %CPR41
 
-%\subsection{Operational}\todo{get more requirements}
-%\subsection{Resource}\todo{get more requirements}
-%\subsection{Verification and testing}\todo{get more requirements}
 \subsection{Portability}
 \SRQ[NONF-6]{must have}{The application runs on iOS Safari version 6.0 and higher.}
 %CNR1
@@ -325,10 +303,3 @@ higher.}
 
 \SRQ[NONF-13]{could have}{The application runs on devices running on Windows 8.}
 %CNR9
-
-%\subsection{Maintainability}\todo{get more requirements}
-%\subsection{Reliability}\todo{get more requirements}
-%\subsection{Security}\todo{get more requirements}
-%\subsection{Safety}\todo{get more requirements}
-%\subsection{Documentation}\todo{get more requirements}
-%\subsection{Extensibility}\todo{get more requirements}
