@@ -1,9 +1,9 @@
 \chapter{Error messages and recovery procedures}
 %A list of all error messages; for each error: diagnosis and recovery procedure
-This chapter lists all error messages that might be shown by the application. For each message, the possible causes are described. Furthermore, a recovery procedure is given.
+This appendix lists all error messages that might be shown by the application. For each message, the possible causes are described. Furthermore, a recovery procedure is given.
 
 \section {Server errors}
-This section list all errors that are caused by the server. These errors are shown in a notification panel with the message \emph{An error occurred!}, and one of the errors discussed in the remainder of this section.
+This section lists all errors that are caused by the server. These errors are shown in a notification panel with the message \emph{An error occurred!}, and one of the errors discussed in the remainder of this section.
 
 \subsection{The simulation server did not respond in time}
 This error message is shown when the application could not retrieve data from the simulation server within 1 minute. There are two specific cases in which this error might occur. Firstly, when trying to load the application. Secondly, when trying to execute a mixing run. The recommended recovery procedure is to try again later.
@@ -12,7 +12,7 @@ This error message is shown when the application could not retrieve data from th
 This error message is shown when the server throws an error. It specifically occurs when trying to execute a mixing run. The recommended recovery procedure is to try again later.
 
 \section{Save errors}
-This section list all errors that could occur while saving an item (distribution, protocol or mixing run).
+This section lists all errors that could occur while saving an item (distribution, protocol or mixing run).
 
 \subsection{This name is already in use}
 This error message is shown when the entered name for an item to be saved is already in use. This only applies to items from one category. That is, if a protocol is saved under the name \emph{name1}, it is still possible to save a concentration distribution and mixing run under this same name. If, on the other hand, a different protocol is saved under the name \emph{name1}, then the error message from this section is displayed. There are two possible recovery procedures: either overwriting the existing item or cancelling the saving procedure. In the latter case, a new name can be specified to save the specified item.
@@ -25,7 +25,7 @@ This error message is shown when an item (distribution, protocol or mixing run),
 % en eigenlijk ook nog de gebruiker duidelijk maken dat hij niet tussendoor zijn local storage moet clearen!
 
 \subsection{Unknown error}
-This error message is shown when an exception has occurred in the application; it should never occur and hence, there is also no recommended recovery procedure. This exception does not involve any of the other errors that are described in this chapter.
+This error message is shown when an exception has occurred in the application; it should never occur and hence, there is also no recommended recovery procedure. This exception does not involve any of the other errors that are described in this appendix.
 
 \section{Other errors}
 This section lists all other errors that might occur.
