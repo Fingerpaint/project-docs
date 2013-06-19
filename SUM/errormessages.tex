@@ -1,13 +1,15 @@
 \chapter{Error messages and recovery procedures}
 %A list of all error messages; for each error: diagnosis and recovery procedure
+This chapter lists all error messages that might be shown by the application. For each message, the possible causes are described. Furthermore, a recovery procedure is given.
 
 \section {Server errors}
+This section list all errors that are caused by the server. These errors are shown in a notification panel with the message \emph{An error occurred!}, and one of the errors discussed in the remainder of this section.
 
 \subsection{The simulation server did not respond in time}
+This error message is shown when the application could not retrieve data from the simulation server within 1 minute. There are two specific cases in which this error might occur. Firstly, when trying to load the application. Secondly, when trying to execute a mixing run. The recommended recovery procedure is to try again later.
 
 \subsection{Could not reach the server}
-
-\subsection{An error occurred!}
+This error message is shown when the server throws an error. It specifically occurs when trying to execute a mixing run. The recommended recovery procedure is to try again later.
 
 \section{Save errors}
 
@@ -20,9 +22,17 @@
 \subsection{Unknown error}
 
 \section{Other errors}
+This section lists all other errors that might occur.
+
+\subsection{The geometry you have chosen is unsupported}
+This error message is shown when trying the server doesn't support the selected geometry. Specifically, it is shown when trying to execute a mixing run with an unsupported geometry. The recommended recovery procedure is to reload the application by pressing \texttt{F5}, or by using the browser's \emph{refresh} button. Hereafter, a different geometry should be selected.
 
 \subsection{Loading graph failed}
+This error message is shown when an error occurs while loading a performance graph. The recommended recovery procedure is to reload the application by pressing \texttt{F5}, or by using the browser's \emph{refresh} button.
 
 \subsection{No saved files}
+This error message can be shown in the \emph{Load item panel}, the \emph{Remove item panel} or the \emph{Compare performance panel}. It is displayed when no items have been saved yet. The recommended course of action is to save an item using the \emph{Save item panel}.
+
+
 
 
