@@ -1,18 +1,18 @@
-\input{../style.tex}
-
-\renewcommand{\pathtobase}[1]{../#1}
-
-%Variables
-\renewcommand{\TitelFull}{Software Transfer Document}
-\renewcommand{\TitelAbbr}{STD}
-\renewcommand{\Version}{0.0}
+\documentclass[%
+		pathtobase=..,%
+		titlefull={Software Transfer Document},%
+		titleabbr=STD,%
+		version=0.0]{fingerpaint}
+\externaldocument[ATP-]{\pathtobase{../sep-docs/SVVP_AT/atp}}
 
 \begin{document}
 
-\fingerpainttitlepage{}
+\maketitle{}
 
 \begin{abstract}
-\todo{abstract}
+This document is the Software Transfer Document (STD) of the \applicationname{}. The \applicationname{} is part of the Software Engineering Project (2IP35) of the Eindhoven University of Technology.
+
+The STD is based on the ESA standard for software development, as set by the European Space Agency (ESA) \cite{esa}. It describes the procedures for transferring the \applicationname{} from \projectauthor{} to the customer. 
 \end{abstract}
 
 \tableofcontents
