@@ -23,7 +23,7 @@ Version 1.0 of the \applicationname{} only supports the \emph{Rectangle 400x240}
 \subsection{Procedures}
 
 \subsubsection{Preparation}
-Open your webbrowser and navigate to the \projectname website. Wait for the loading to finish and the menu to appear.
+Open your webbrowser and navigate to the \projectname{} website. Wait for the loading to finish and the menu to appear.
 
 \subsubsection{Description}
 
@@ -39,12 +39,12 @@ Open your webbrowser and navigate to the \projectname website. Wait for the load
 \end{enumerate}
 
 \subsubsection{Results}
-You have now successfully selected a geometry and a mixer, and have arrived at the main menu of the application \ref{mainMenu}.
+You have now successfully selected a geometry and a mixer, and have arrived at the main menu of the application (figure \ref{fig:mainMenu}).
 
 \screenshot{mainMenu}{The main menu of the \applicationname.}
 
 \subsection{Likely errors}
-If the message "Your web browser must have JavaScript enabled in order for this application to display correctly." appears, this means you have to enable JavaScript in order to load the application.\\
+If the message \emph{Your web browser must have JavaScript enabled in order for this application to display correctly.} appears, this means you have to enable JavaScript in order to load the application.\\
 
 \noindent Version 1.0 of the \applicationname{} only supports the \emph{Rectangle 400x240} geometry. It is intended to add the \emph{Square} geometry in the future, but as of now it has no functionality. If you have selected the \emph{Square} geometry, you can change your selection by refreshing the browser and repeating step 1 \& 2.\\
 
@@ -54,7 +54,7 @@ If the message "Your web browser must have JavaScript enabled in order for this 
 \label{sec:defineDist}
 
 \subsection{Functional description}
-This section describes how to define an initial concentration distribution.
+This tutorial describes how to define an initial concentration distribution.
 
 \subsection{Cautions and warnings}
 None.
@@ -68,9 +68,9 @@ You can define the initial distribution by dragging across the screen. By defaul
 
 If the menu gets in the way of the canvas, it is possible to hide the menu by clicking the menu toggle button (the button with the "X" on it) at the top right corner of the screen.
 
- To adjust the size or shape of your drawing tool press the \emph{Select tool} button in the menu. A new menu will appear \ref{selectToolMenu}. Here you can change the shape of the drawing tool by pressing the button with either the square or circle shape on it. You can also change the size of your drawing tool by changing the number in the bottom of the menu. You can do this by pressing the + or - button, or by selecting the textfield and typing a size.
+ To adjust the size or shape of your drawing tool press the \emph{Select tool} button in the menu. A new menu will appear (figure \ref{fig:selectToolMenu}). Here you can change the shape of the drawing tool by pressing the button with either the square or circle shape on it. You can also change the size of your drawing tool by changing the number in the bottom of the menu. You can do this by pressing the + or - button, or by selecting the textfield and typing a size.
 
-\screenshot{selectToolMenu}{The menu that appears after pressing \emph{Select tool} in the main menu.}
+\screenshot{selectToolMenu}{The menu that appears after pressing \emph{Select tool} button in the main menu.}
 
 In case of a mistake, simply toggle the color of your drawing tool and drag across the unwanted area.
 
@@ -88,7 +88,7 @@ Only integer numbers are allowed for the drawing tool size. Furthermore the draw
 \label{sec:defineMixProt}
 
 \subsection{Functional description}
-This section describes how to define the mixing protocol for the mixing simulation.
+This tutorial describes how to define the mixing protocol for the mixing simulation.
 
 \subsection{Cautions and warnings}
 None.
@@ -105,9 +105,9 @@ None.
 You should be at, or navigate to, the main menu for this tutorial.
 
 \subsubsection{Description}
-A protocol can be defined by pressing the \emph{Define protocol} button in the main menu. The define protocol menu appears \ref{defineProtMenu}.
+A protocol can be defined by pressing the \emph{Define protocol} button in the main menu. The define protocol menu appears (figure \ref{fig:defineProtMenu}).
 
-\screenshot{defineProtMenu}{The menu that appears after clicking \emph{Define protocol} in the main menu.}
+\screenshot{defineProtMenu}{The menu that appears after pressing the \emph{Define protocol} button in the main menu.}
 
 The amount of time the wall should move can to be entered in the \emph{Step size} textfield. The default value is 1. You can change the value by pressing the + or - button next to the textfield, or by selecting the textfield and typing a size.
 
@@ -129,7 +129,7 @@ If the menu gets in the way of the bars on the canvas, it is possible to hide th
 \label{sec:singleStepMix}
 
 \subsection{Functional description}
-This section describes how to define the mixing protocol for the mixing simulation.
+This tutorial describes how to define the mixing protocol for the mixing simulation.
 
 \subsection{Cautions and warnings}
 None.
@@ -155,7 +155,7 @@ If the menu gets in the way of the bars on the canvas, it is possible to hide th
 \label{sec:exportSingleGraph}
 
 \subsection{Functional description}
-This section describes how you can export the graph of the mixing performance locally to your device.
+This tutorial describes how you can export the graph of the mixing performance locally to your device.
 
 \subsection{Cautions and warnings}
 A performance graph can only be viewed after successful mixing run has been executed with a defined protocol (see \ref{sec:defineMixProt}). The graph option is not available after a single step simulations.
@@ -167,11 +167,27 @@ The performance graph functionality is not supported for the Internet Explorer w
 Before the results of a mixing run can be viewed, a mixing run has to be executed successfully.
 
 \subsubsection{Description}
-After a successful mixing run has been executed, press the \emph{Define mixing protocol} button in the main menu. The \emph{Define a protocol} menu appears. Here, press the \emph{View performance graph} button. A pop up with the mixing performance graph appears \ref{singleGraph}.
+\begin{enumerate}
+	\item  Press the \emph{Define mixing protocol} button in the main menu.
+		\begin{itemize}
+            		\item The \emph{Define a protocol} menu appears.
+		\end{itemize}
+			\item Press the \emph{View performance graph} button.
+		\begin{itemize}
+            		\item A pop up with the mixing performance graph appears (figure \ref{fig:singleGraph}).
+		\end{itemize}
 
 \screenshot{singleGraph}{The graph with the mixing performance of the last mixing run.}
 
-On this menu, press the \emph{Export graph} button. Your browser will give a prompt asking you where you want to save the image of the graph. Select a location and press \emph{OK} / \emph{save}.
+    \item On this menu, press the \emph{Export graph} button.
+		\begin{itemize}
+             \item Your browser will give a prompt asking you where you want to save the image of the graph.
+		\end{itemize}
+    \item  Select a location and press \emph{OK} / \emph{save}.
+		\begin{itemize}
+           \item The image is saved to the selected location.
+		\end{itemize}
+\end{enumerate}
 
 \subsubsection{Results}
 A file with the performance graph of the mixing run has been saved on the selected location.
@@ -179,7 +195,7 @@ A file with the performance graph of the mixing run has been saved on the select
 \subsection{Likely errors}
 A performance graph can only be viewed after successful mixing run has been executed with a defined protocol (see \ref{sec:defineMixProt}). The graph option is not available after a single step simulations.
 
-If you are running the \applicationname on a mobile device saving might not work.
+If you are running the \applicationname{} on a mobile device saving might not work.
 %This could be elaborated, but we did not test extensive enough to give an exact description.
 
 %--------------NEW SECTION-----------------------------------------------
@@ -188,21 +204,37 @@ If you are running the \applicationname on a mobile device saving might not work
 \label{sec:exportMultiGraph}
 
 \subsection{Functional description}
-This section describes how you can export the performance graph of multiple mixing runs.
+This tutorial describes how you can export the performance graph of multiple mixing runs.
 
 \subsection{Cautions and warnings}
 The performance graph functionality is not supported for the Internet Explorer web browser. Hence exporting is not possible.
 
 \subsection{Procedures}
 \subsubsection{Preparation}
-Before the mixing performance of multiple mixing runs can be compared, at least 2 mix results need to be saved. See \ref{sec:savemixrun} for the tutorial on how to save a mixing result.
+Before the mixing performance of multiple mixing runs can be compared, at least 2 mix results need to be saved. See \ref{sec:savmixrun} for the tutorial on how to save a mixing result.
 
 \subsubsection{Description}
-After at least 2 mixing results have been saved, press the \emph{Results} button in the main menu. The \emph{Mixing run results} menu appears. Here, press the \emph{Compare performance} button. A pop up with the saved mixing runs appears \ref{singleGraph}. Select the mixing runs whose performance you want to compare, and press the \emph{Compare} button.  A pop up with the mixing performance graph of the selected mixing runs appears \ref{multiGraph}.
+\begin{enumerate}
+	\item Press the \emph{Results} button in the main menu.
+		\begin{itemize}
+            The \emph{Mixing run results} menu appears.
+		\end{itemize}
+	\item Press the \emph{Compare performance} button.
+		\begin{itemize}
+            \item A pop up with the saved mixing runs appears.
+		\end{itemize}
+	\item Select the mixing runs whose performance you want to compare, and press the \emph{Compare} button.
+		\begin{itemize}
+            \item A pop up with the mixing performance graph of the selected mixing runs appears \ref{fig:multiGraph}.
+		\end{itemize}
+	\screenshot{multiGraph}{The graph with the mixing performance of the last mixing run.}
+	\item On this menu, press the \emph{Export graph} button.
+        \begin{itemize}
+            \item Your browser will give a prompt asking you where you want to save the graph.
+        \end{itemize}
+	\item  Select a location and press \emph{OK} / \emph{save}.
+\end{enumerate}
 
-\screenshot{multiGraph}{The graph with the mixing performance of the last mixing run.}
-
-On this menu, press the \emph{Export graph} button. Your browser will give a prompt asking you where you want to save the graph. Select a location and press \emph{OK} / \emph{save}.
 
 \subsubsection{Results}
 A file with the performance graph of the selected mixing runs has been saved on the selected location.
@@ -218,7 +250,7 @@ If you are running the \applicationname on a mobile device exporting might not w
 \label{sec:exportDist}
 
 \subsection{Functional description}
-This section describes how to export an image of the canvas.
+This tutorial describes how to export an image of the canvas.
 
 \subsection{Cautions and warnings}
 None.
@@ -228,7 +260,17 @@ None.
 You should be at, or navigate to, the main menu for this tutorial.
 
 \subsubsection{Description}
-Press the \emph{Distributions} button on the main menu. A new menu appears. On this menu, press the \emph{Export image} button.  Your browser will give a prompt asking you where you want to save the image of the canvas. Select a location and press \emph{OK} / \emph{save}.
+\begin{enumerate}
+	\item Press the \emph{Distributions} button on the main menu.
+		\begin{itemize}
+            The \emph{Define a protocol} menu appears.
+		\end{itemize}
+	\item Press the \emph{Export image} button.
+		\begin{itemize}
+            \item Your browser will give a prompt asking you where you want to save the image of the canvas.
+		\end{itemize}
+	\item  Select a location and press \emph{OK} / \emph{save}.
+\end{enumerate}
 
 \subsubsection{Results}
 A file with the concentration distribution of the canvas has been saved on the selected location.
@@ -242,23 +284,36 @@ If you are running the \applicationname on a mobile device exporting might not w
 \label{sec:loadDist}
 
 \subsection{Functional description}
-This section describes how to load a concentration distribution to the canvas.
+This tutorial describes how to load a concentration distribution to the canvas.
 
 \subsection{Cautions and warnings}
-It is only possible to load a concentration distribution if one has been saved. See \ref{savedist} for the tutorial on how to save a concentration distribution.
+It is only possible to load a concentration distribution if one has been saved. See tutorial \ref{sec:savdist} for the tutorial on how to save a concentration distribution.
 
 \subsection{Procedures}
 \subsubsection{Preparation}
 You should be at, or navigate to, the main menu for this tutorial.
 
 \subsubsection{Description}
-Press the \emph{Distributions} button on the main menu. A new menu appears. On this menu, press the \emph{Load} button. A pop up with the saved concentration distributions appears. Press the name of the distribution you want to load.
+\begin{enumerate}
+	\item Press the \emph{Distributions} button on the main menu.
+		\begin{itemize}
+            \item The \emph{Distributions} menu appears.
+		\end{itemize}
+	\item On this menu, press the \emph{Load} button.
+		\begin{itemize}
+            \item  A pop up with the saved concentration distributions appears.
+		\end{itemize}
+    \item Press the name of the distribution you want to load.
+		\begin{itemize}
+           \item The selected distribution has been loaded to the canvas.
+		\end{itemize}
+\end{enumerate}
 
 \subsubsection{Results}
 The concentration of the canvas has been replaced with the concentration distribution of the selected saved distribution.
 
 \subsection{Likely errors}
-If no saved distributions are available, a "No saved files" message will appear. 
+If no saved distributions are available, a \emph{No saved files} message will appear.
 
 %--------------NEW SECTION-----------------------------------------------
 
@@ -266,23 +321,41 @@ If no saved distributions are available, a "No saved files" message will appear.
 \label{sec:loadMixProt}
 
 \subsection{Functional description}
-This section describes how to load a mixing protocol.
+This tutorial describes how to load a mixing protocol.
 
 \subsection{Cautions and warnings}
-It is only possible to load a mixing protocol if one has been saved. See \ref{savmixprot} for the tutorial on how to save a mixing protocol.
+It is only possible to load a mixing protocol if one has been saved. See tutorial \ref{sec:savmixprot} for the tutorial on how to save a mixing protocol.
 
 \subsection{Procedures}
 \subsubsection{Preparation}
 You should be at, or navigate to, the main menu for this tutorial.
 
 \subsubsection{Description}
-Press the \emph{Define protocol} button on the main menu. A new menu appears. On this menu, press the \emph{Protocols} button. The protocols menu appears. On this menu, press the \emph{Load} button. A pop up with the saved mixing protocols appears. Press the name of the distribution you want to load.
+\begin{enumerate}
+	\item Press the \emph{Define protocol} button on the main menu.
+		\begin{itemize}
+            \item The \emph{Define a protocol} menu appears.
+		\end{itemize}
+	\item On this menu, press the \emph{Protocols} button.
+		\begin{itemize}
+             \item The \emph{Protocols} menu appears.
+             \screenshot{protMenu}{The menu that appears after pressing the \emph{Protocols} button in the \emph{Define a protocol} menu.}
+		\end{itemize}
+	\item On this menu, press the \emph{Load} button.
+		\begin{itemize}
+            \item A pop up with the saved mixing protocols appears.
+		\end{itemize}
+    \item Press the name of the distribution you want to load.
+   		\begin{itemize}
+            \item The selected protocol is loaded.
+		\end{itemize}
+\end{enumerate}
 
 \subsubsection{Results}
 The current protocol will be replaced by the loaded protocol.
 
 \subsection{Likely errors}
-If no saved mixing protocols are available, a "No saved files" message will appear. 
+If no saved mixing protocols are available, a \emph{No saved files} message will appear.
 
 %--------------NEW SECTION-----------------------------------------------
 
@@ -290,49 +363,63 @@ If no saved mixing protocols are available, a "No saved files" message will appe
 \label{sec:loadMixResult}
 
 \subsection{Functional description}
-This section describes how to load a mixing result.
+This tutorial describes how to load a mixing result.
 
 \subsection{Cautions and warnings}
-It is only possible to load a mixing result if one has been saved. See \ref{savmixrun} for the tutorial on how to save a mixing protocol.
+It is only possible to load a mixing result if one has been saved. See \ref{sec:savmixrun} for the tutorial on how to save a mixing protocol.
 
 \subsection{Procedures}
 \subsubsection{Preparation}
 You should be at, or navigate to, the main menu for this tutorial.
 
 \subsubsection{Description}
-Press the \emph{Results} button on the main menu. A new menu appears. On this menu, press the \emph{Load} button. On this menu, press the \emph{Load} button. A pop up with the saved mixing results appears. Press the name of the mixing result you want to load.
+
+\begin{enumerate}
+	\item Press the \emph{Results} button on the main menu.
+		\begin{itemize}
+           \item  The \emph{Mixing run results} menu appears.
+		\end{itemize}
+	\item On this menu, press the \emph{Load} button.
+		\begin{itemize}
+            \item A pop up with the saved mixing results appears.
+		\end{itemize}
+	\item  Press the name of the mixing result you want to load.
+		\begin{itemize}
+           \item  The select mixing result is loaded into the application.
+		\end{itemize}
+\end{enumerate}
 
 \subsubsection{Results}
 The concentration of the canvas and current protocol have been replaced with the concentration distribution and mixing protocol of the selected saved mixing result.
 
 \subsection{Likely errors}
-If no saved mixing results are available, a "No saved files" message will appear. 
+If no saved mixing results are available, a \emph{No saved files} message will appear.
 
 %--------------NEW SECTION-----------------------------------------------
 
-\section{Remove a concentration distribution from local storage}\label{sec:remdist}
+\section{Removing a concentration distribution from local storage}\label{sec:remdist}
 
 \subsection{Functional description}
 This tutorial describes how to remove a previously saved concentration distribution.
 
 \subsection{Cautions and warnings}
-None.
+It is only possible to remove a concentration distribution if one has been saved. See tutorial \ref{sec:savdist} for the tutorial on how to save a concentration distribution.
 
 \subsection{Procedures}
 
 \subsubsection{Preparation}
-If the session from section \ref{sec:savdist} has been executed, navigate to the distributions menu by pressing the \emph{Distributions} button on the main menu. 
-For this tutorial, the saved concentration distribution will be referred to as \emph{distribution1}.
+You should be at, or navigate to the main menu for this tutorial.
 
 \subsubsection{Description}
 \begin{enumerate}
+	\item Press the \emph{Distributions button}.
+		\begin{itemize}
+			The \emph{Distributions} menu appears (figure \ref{fig:distMenu}).
+		\end{itemize}
 	\item Press the \emph{Remove} button.
 		\begin{itemize}
-			\item The pop-up menu from figure \ref{fig:removeItemPopup} appears.
-		\screenshot{removeItemPopup}{The pop-up menu that appears after clicking the \emph{Remove} button in the distributions menu. This menu is also used for removing a mixing protocol (section \ref{sec:remmixprot}) and a mixing run (section \ref{sec:remmixrun}). The saved items shown here are examples.}
-		\end{itemize}
-	\item Press the button with \emph{X} next to \emph{distribution1}.
-		\begin{itemize}
+			\item A pop up with the saved concentration distributions appears.
+	\item Press the \emph{X}-button next to the item that you want to remove.
 			\item The selected item has been removed.
 			\item A \emph{Delete successful} message is displayed, which disappears after a few seconds.
 		\end{itemize}
@@ -345,7 +432,7 @@ You have now successfully removed the selected concentration distribution locall
 If no concentration distributions have been saved yet, a \emph{No saved files} message will be displayed in the menu from figure \ref{fig:removeItemPopup}.
 
 %--------------NEW SECTION-----------------------------------------------
-\section{Remove a mixing protocol from local storage}\label{sec:remmixprot}
+\section{Removing a mixing protocol from local storage}\label{sec:remmixprot}
 
 \subsection{Functional description}
 This tutorial describes how to remove a previously saved mixing protocol.
@@ -356,7 +443,7 @@ None.
 \subsection{Procedures}
 
 \subsubsection{Preparation}
-If the session from section \ref{sec:savmixprot} has been executed, navigate to the define protocol menu by pressing the \emph{Define protocol} button on the main menu. 
+If the session from tutorial \ref{sec:savmixprot} has been executed, navigate to the define protocol menu by pressing the \emph{Define protocol} button on the main menu.
 For this tutorial, the saved mixing protocol will be referred to as \emph{protocol1}.
 
 \subsubsection{Description}
@@ -379,7 +466,7 @@ You have now successfully removed the selected mixing protocol locally from your
 If no mixing protocols have been saved yet, a \emph{No saved files} message will be displayed in the menu from figure \ref{fig:removeItemPopup}.
 
 %--------------NEW SECTION-----------------------------------------------
-\section{Remove a mixing protocol from local storage}\label{sec:remmixrun}
+\section{Removing a mixing protocol from local storage}\label{sec:remmixrun}
 
 \subsection{Functional description}
 This tutorial describes how to remove a previously saved mixing protocol.
@@ -390,7 +477,7 @@ None.
 \subsection{Procedures}
 
 \subsubsection{Preparation}
-If the session from section \ref{sec:savmixrun} has been executed, navigate to the results menu by pressing the \emph{Results} button on the main menu. 
+If the session from tutorial \ref{sec:savmixrun} has been executed, navigate to the results menu by pressing the \emph{Results} button on the main menu.
 For this tutorial, the saved mixing run will be referred to as \emph{mixingRun1}.
 
 \subsubsection{Description}
@@ -414,7 +501,7 @@ If no mixing runs have been saved yet, a \emph{No saved files} message will be d
 
 %--------------NEW SECTION-----------------------------------------------
 
-\section{Save a concentration distribution}\label{sec:savdist}
+\section{Saving a concentration distribution}\label{sec:savdist}
 
 \subsection{Functional description}
 This tutorial describes how to save the current concentration distribution.
@@ -425,14 +512,14 @@ None.
 \subsection{Procedures}
 
 \subsubsection{Preparation}
-If the session from section \ref{sec:defineDist} has been executed, navigate to the distributions menu by pressing the \emph{Distributions} button on the main menu. 
+If the session from tutorial \ref{sec:defineDist} has been executed, navigate to the distributions menu by pressing the \emph{Distributions} button on the main menu.
 
 \subsubsection{Description}
 \begin{enumerate}
 	\item Press the \emph{Save} button.
 		\begin{itemize}
 			\item The pop-up menu from figure \ref{fig:saveItemPopup} appears.
-		\screenshot{saveItemPopup}{The pop-up menu that appears after clicking the \emph{Save} button in the distributions menu. This menu is also used for saving a mixing protocol (section \ref{sec:savmixprot}) and a mixing run (section \ref{sec:savmixrun}).}
+		\screenshot{saveItemPopup}{The pop-up menu that appears after clicking the \emph{Save} button in the distributions menu. This menu is also used for saving a mixing protocol (tutorial \ref{sec:savmixprot}) and a mixing run (section \ref{sec:savmixrun}).}
 		\end{itemize}
 	\item Enter a name for the mixing run in the text area, for instance \emph{distribution1}.
 		\begin{itemize}
@@ -455,7 +542,7 @@ If the name entered in step 3 is already in use, the pop-up menu as shown in fig
 
 %--------------NEW SECTION-----------------------------------------------
 
-\section{Save a mixing protocol}\label{sec:savmixprot}
+\section{Saving a mixing protocol}\label{sec:savmixprot}
 
 \subsection{Functional description}
 This tutorial describes how to save the current mixing protocol.
@@ -466,7 +553,7 @@ None.
 \subsection{Procedures}
 
 \subsubsection{Preparation}
-If the session from section \ref{sec:defineMixProt} has been executed, navigate to the protocol menu by pressing the \emph{Define protocol} button on the main menu.
+If the session from tutorial \ref{sec:defineMixProt} has been executed, navigate to the protocol menu by pressing the \emph{Define protocol} button on the main menu.
 
 \subsubsection{Description}
 \begin{enumerate}
@@ -478,7 +565,7 @@ If the session from section \ref{sec:defineMixProt} has been executed, navigate 
 		\begin{itemize}
 			\item The pop-up menu from figure \ref{fig:saveItemPopup} appears.
 		\end{itemize}
-	\item Enter a name for the mixing run in the text area, for instance \emph{protocol1}.
+	\item Enter a name for the mixing run in the text area, for instance \emph{protocol1}. \label{item:savmixprotName}
 		\begin{itemize}
 			\item The text \emph{protocol1} appears in the text area.
 		\end{itemize}
@@ -493,11 +580,11 @@ If the session from section \ref{sec:defineMixProt} has been executed, navigate 
 You have now successfully saved the current mixing protocol locally to your device.
 
 \subsection{Likely errors}
-If the name entered in step 3 is already in use, the pop-up as shown in figure \ref{fig:overwriteSavePopup} is shown. Whenever you want to overwrite the existing mixing run, press the \emph{Overwrite} button.
+If the name entered in step \ref{item:savmixprotName} is already in use, the pop-up as shown in figure \ref{fig:overwriteSavePopup} is shown. Whenever you want to overwrite the existing mixing run, press the \emph{Overwrite} button.
 
 %--------------NEW SECTION-----------------------------------------------
 
-\section{Save a mixing run}\label{sec:savmixrun}
+\section{Saving a mixing run}\label{sec:savmixrun}
 
 \subsection{Functional description}
 This tutorial describes how to save a previously executed mixing run.
@@ -508,7 +595,7 @@ None.
 \subsection{Procedures}
 
 \subsubsection{Preparation}
-If the session from section \ref{sec:defineMixProt} has been executed, navigate to the results menu by pressing the \emph{Results} button on the main menu.
+If the session from tutorial \ref{sec:defineMixProt} has been executed, navigate to the results menu by pressing the \emph{Results} button on the main menu.
 
 \subsubsection{Description}
 \begin{enumerate}
@@ -520,7 +607,7 @@ If the session from section \ref{sec:defineMixProt} has been executed, navigate 
 		\begin{itemize}
 			\item The text \emph{mixingRun1} appears in the text area.
 		\end{itemize}
-	\item Press the \emph{Save} button.
+	\item Press the \emph{Save} button. \label{item:savmixrunName}
 		\begin{itemize}
 			\item The save results pop-up menu closes.
 			\item A \emph{Save successful} message is displayed, which disappears after a few seconds.
@@ -531,23 +618,23 @@ If the session from section \ref{sec:defineMixProt} has been executed, navigate 
 You have now successfully saved the previously executed mixing run locally to your device.
 
 \subsection{Likely errors}
-If the name entered in step 3 is already in use, the pop-up as shown in figure \ref{fig:overwriteSavePopup} is shown. Whenever you want to overwrite the existing mixing run, press the \emph{Overwrite} button.
+If the name entered in step \ref{item:savmixrunName} is already in use, the pop-up as shown in figure \ref{fig:overwriteSavePopup} is shown. Whenever you want to overwrite the existing mixing run, press the \emph{Overwrite} button.
 
 %--------------NEW SECTION-----------------------------------------------
 
-\section{View multiple performance results in one graph}\label{sec:viewmultgraph}
+\section{Viewing multiple performance results in one graph}\label{sec:viewmultgraph}
 
 \subsection{Functional description}
 This tutorial describes how to view the performance results of previously saved mixing results simultaneously in one graph.
 
 \subsection{Cautions and warnings}
-When this tutorial is executed in Internet Explorer 10, the graph that should appear after step 4 from section \ref{subsubsec:viewmultgraphDesc} is not displayed. The graph that is displayed is namely in SVG format and Internet Explorer 10 cannot handle this format.
+When this tutorial is executed in Internet Explorer 10, the graph that should appear after step 4 from tutorial \ref{subsubsec:viewmultgraphDesc} is not displayed. The graph that is displayed is namely in SVG format and Internet Explorer 10 cannot handle this format.
 
 \subsection{Procedures}
 
 \subsubsection{Preparation}
-If the session from section \ref{sec:savmixrun} has been executed at least twice, navigate to the results menu by pressing the \emph{Results} button on the main menu. 
-For this tutorial, the saved results will be referred to as \emph{mixingRun1} and \emph{mixingRun2}. 
+If the session from tutorial \ref{sec:savmixrun} has been executed at least twice, navigate to the results menu by pressing the \emph{Results} button on the main menu.
+For this tutorial, the saved results will be referred to as \emph{mixingRun1} and \emph{mixingRun2}.
 
 \subsubsection{Description}\label{subsubsec:viewmultgraphDesc}
 \begin{enumerate}
@@ -556,7 +643,7 @@ For this tutorial, the saved results will be referred to as \emph{mixingRun1} an
 			\item The popup from figure \ref{fig:compPerfPopup} appears.
 		\end{itemize}
 		\screenshot{compPerfPopup}{The pop-up menu that appears after clicking the \emph{Compare performance} button. The list shown here is an example.}
-	\item Select both \emph{mixingRun1} and \emph{mixingRun2} from the list.
+	\item Select both \emph{mixingRun1} and \emph{mixingRun2} from the list. \label{item:viewmultgraphSelect}
 		\begin{itemize}
 			\item Both \emph{mixingRun1} and \emph{mixingRun2} appear selected, as shown in figure 		\ref{fig:compPerfPopupSelected}.
 		\end{itemize}
@@ -574,22 +661,22 @@ You have now successfully obtained a graph of the mixing performance of the sele
 \subsection{Likely errors}
 If no mixing runs have been saved yet, a \emph{No saved files} message will be displayed in the menu from figure \ref{fig:compPerfPopup}.
 
-If no items have been selected in step 3 when \emph{Compare} is pressed, a \emph{No data} message is shown.
+If no items have been selected in step \ref{item:viewmultgraphSelect} when \emph{Compare} is pressed, a \emph{No data} message is shown.
 
 %--------------NEW SECTION-----------------------------------------------
 
-\section{View the performance graph of a mixing run}\label{sec:viewsinglegraph}
+\section{Viewing the performance graph of a mixing run}\label{sec:viewsinglegraph}
 
 \subsection{Functional description}
 This tutorial describes how to view the performance graph of the previously executed mixing run.
 
 \subsection{Cautions and warnings}
-When this tutorial is executed in Internet Explorer 10, the graph that should appear after step 1 from section  \ref{subsubsec:viewsinglegraphDesc} is not displayed. The graph that is displayed is namely in SVG format and Internet Explorer 10 cannot handle this format.
+When this tutorial is executed in Internet Explorer 10, the graph that should appear after step 1 from tutorial  \ref{subsubsec:viewsinglegraphDesc} is not displayed. The graph that is displayed is namely in SVG format and Internet Explorer 10 cannot handle this format.
 
 \subsection{Procedures}
 
 \subsubsection{Preparation}
-If the session from section \ref{sec:defineMixProt} has been executed, navigate to the protocols menu by pressing the \emph{Define protocol} button on the main menu.
+If the session from tutorial \ref{sec:defineMixProt} has been executed, navigate to the protocols menu by pressing the \emph{Define protocol} button on the main menu.
 
 \subsubsection{Description}\label{subsubsec:viewsinglegraphDesc}
 \begin{enumerate}
@@ -614,7 +701,7 @@ None.
 %
 %\subsection{Functional description}
 %%\todo{What the tutorial session is supposed to achieve.}
-%This section describes
+%This tutorial describes
 %
 %\subsection{Cautions and warnings}
 %%\todo{A list of precautions that may need to be taken}

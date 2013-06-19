@@ -1,28 +1,40 @@
 \chapter{Error messages and recovery procedures}
 %A list of all error messages; for each error: diagnosis and recovery procedure
+This appendix lists all error messages that might be shown by the application. For each message, the possible causes are described. Furthermore, a recovery procedure is given.
 
 \section {Server errors}
+This section lists all errors that are caused by the server. These errors are shown in a notification panel with the message \emph{An error occurred!}, and one of the errors discussed in the remainder of this section.
 
 \subsection{The simulation server did not respond in time}
+This error message is shown when the application could not retrieve data from the simulation server within 1 minute. There are two specific cases in which this error might occur. Firstly, when trying to load the application. Secondly, when trying to execute a mixing run. The recommended recovery procedure is to try again later.
 
 \subsection{Could not reach the server}
-
-\subsection{An error occurred!}
+This error message is shown when the server throws an error. It specifically occurs when trying to execute a mixing run. The recommended recovery procedure is to try again later.
 
 \section{Save errors}
+This section lists all errors that could occur while saving an item (distribution, protocol or mixing run).
 
 \subsection{This name is already in use}
+This error message is shown when the entered name for an item to be saved is already in use. This only applies to items from one category. That is, if a protocol is saved under the name \emph{name1}, it is still possible to save a concentration distribution and mixing run under this same name. If, on the other hand, a different protocol is saved under the name \emph{name1}, then the error message from this section is displayed. There are two possible recovery procedures: either overwriting the existing item or cancelling the saving procedure. In the latter case, a new name can be specified to save the specified item.
 
 \subsection{Your storage is full}
+This error message is shown when an item (distribution, protocol or mixing run) is being saved, but there is no more room in the local storage of the web browser to store this item. The recovery procedure is to remove one or more previously saved items for which the error message was shown. That is, when this message is shown when a distribution is saved, one or more previously saved distributions should be removed, in order to make room for a new one.
 
 \subsection{Local storage error}
+This error message is shown when an item (distribution, protocol or mixing run), is being saved, while the storage has not yet been initialised. More specifically, this error could occur when the local storage is cleared while the application is running, and a new item is saved afterwards. The recommended recovery procedure is to reload the application. 
+% en eigenlijk ook nog de gebruiker duidelijk maken dat hij niet tussendoor zijn local storage moet clearen!
 
 \subsection{Unknown error}
+This error message is shown when an exception has occurred in the application; it should never occur and hence, there is also no recommended recovery procedure. This exception does not involve any of the other errors that are described in this appendix.
 
 \section{Other errors}
+This section lists all other errors that might occur.
+
+\subsection{The geometry you have chosen is unsupported}
+This error message is shown when trying the server doesn't support the selected geometry. Specifically, it is shown when trying to execute a mixing run with an unsupported geometry. The recommended recovery procedure is to reload the application by pressing \texttt{F5}, or by using the browser's \emph{refresh} button. Hereafter, a different geometry should be selected.
 
 \subsection{Loading graph failed}
+This error message is shown when an error occurs while loading a performance graph. The recommended recovery procedure is to reload the application by pressing \texttt{F5}, or by using the browser's \emph{refresh} button.
 
 \subsection{No saved files}
-
-
+This error message can be shown in the \emph{Load item panel}, the \emph{Remove item panel} or the \emph{Compare performance panel}. It is displayed when no items have been saved yet. The recommended course of action is to save an item using the \emph{Save item panel}.
