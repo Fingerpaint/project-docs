@@ -11,14 +11,20 @@ This error message is shown when the application could not retrieve data from th
 This error message is shown when the server throws an error. It specifically occurs when trying to execute a mixing run. The recommended recovery procedure is to try again later.
 
 \section{Save errors}
+This section list all errors that could occur while saving an item (distribution, protocol or mixing run).
 
 \subsection{This name is already in use}
+This error message is shown when the entered name for an item to be saved is already in use. This only applies to items from one category. That is, if a protocol is saved under the name \emph{name1}, it is still possible to save a concentration distribution and mixing run under this same name. If, on the other hand, a different protocol is saved under the name \emph{name1}, then the error message from this section is displayed. There are two possible recovery procedures: either overwriting the existing item or cancelling the saving procedure. In the latter case, a new name can be specified to save the specified item.
 
 \subsection{Your storage is full}
+This error message is shown when an item (distribution, protocol or mixing run) is being saved, but there is no more room in the local storage of the web browser to store this item. The recovery procedure is to remove one or more previously saved items for which the error message was shown. That is, when this message is shown when a distribution is saved, one or more previously saved distributions should be removed, in order to make room for a new one.
 
 \subsection{Local storage error}
+This error message is shown when an item (distribution, protocol or mixing run), is being saved, while the storage has not yet been initialised. More specifically, this error could occur when the local storage is cleared while the application is running, and a new item is saved afterwards. The recommended recovery procedure is to reload the application. 
+% en eigenlijk ook nog de gebruiker duidelijk maken dat hij niet tussendoor zijn local storage moet clearen!
 
 \subsection{Unknown error}
+This error message is shown when an exception has occurred in the application; it should never occur and hence, there is also no recommended recovery procedure. This exception does not involve any of the other errors that are described in this chapter.
 
 \section{Other errors}
 
