@@ -2,12 +2,13 @@
 %A list of all error messages; for each error: diagnosis and recovery procedure
 
 \section {Server errors}
+This section list all errors that are caused by the server. These errors are shown in a notification panel with the message \emph{An error occurred!}, and one of the errors discussed in this section.
 
 \subsection{The simulation server did not respond in time}
+This error message is shown when the application could not retrieve data from the simulation server within 1 minute. There are two specific cases in which this error might occur. Firstly, when trying to load the application. Secondly, when trying to execute a mixing run. The recommended recovery procedure is to try again later.
 
 \subsection{Could not reach the server}
-
-\subsection{An error occurred!}
+This error message is shown when the server throws an error. It specifically occurs when trying to execute a mixing run. The recommended recovery procedure is to try again later.
 
 \section{Save errors}
 
