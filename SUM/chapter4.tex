@@ -153,154 +153,323 @@ This chapter describes various parts of the \applicationname{}. For each referen
   \subsection*{Related operations}
   \todo{References to, for example, operations to complete a task or logically related operations.}
 
+%-------------------------------------------------------------------------------------------------
 \section{Save Item Panel}
+\label{sec:saveitem}
   \subsection*{Functional description}
-  \todo{What the operation(command, menu item, button, ...) achieves}
+  %What the operation(command, menu item, button, ...) achieves
+  This panel contains a text box. Furthermore it provides functionality to save an item, and to cancel the operation.
 
   \subsection*{Cautions and warnings}
-  \todo{A list of cautions and warnings that apply to the operation}
+  %A list of cautions and warnings that apply to the operation
+  \begin{itemize}
+  \item Saving the file is only possible with a new of at least 1 character.
+  \item File names can be no longer than 30 characters.
+  \item Characters other then the letters of the Latin script, the numbers 0 through 9 and spaces cannot be used in file names.
+  \item File names cannot start with a space.
+  \end{itemize}
 
   \subsection*{Formal description}
-  \todo{A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics}
-
-  \subsection*{Examples}
-  \todo{One or more examples of the use of the operation.}
+  %A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics
+    \begin{tabularx}{\textwidth}{XXX}
+    \toprule
+    \emph{Operation} & \emph{Steps} & \emph{Results} \\
+    \midrule
+    Insert (part of) a file name & Press inside the text box. Insert any of the valid characters (see section \textbf{Cautions and warnings}). & The chosen character appears in the text box. \\
+    \midrule
+    Remove (part of) a file name & Press inside the text box. Press \emph{backspace}. & The last character of the name disappears. \\
+    \midrule
+    Save an item & Press the \emph{Save} button. & The panel closes, and a \emph{Save successful} message appears and disappears again. \\
+    \midrule
+    Cancel operation & Press the \emph{Cancel} button. & The panel is closed. \\
+    \bottomrule
+\end{tabularx}
 
   \subsection*{Possible errors}
-  \todo{A list of all possible errors for this operation and their causes}
+  %A list of all possible errors for this operation and their causes
+  \begin{description}
+  \item[The message \emph{This name is already in use} is shown.] Another file has already been saved with this name. Also see section \ref{sec:overwriteitem}.
+  \end{description}
 
   \subsection*{Related operations}
-  \todo{References to, for example, operations to complete a task or logically related operations.}
+  %References to, for example, operations to complete a task or logically related operations.
+   \begin{itemize}
+   \item Section {sec:distmenu}
+   \item Section {sec:resultsmenu}
+   \item Section {sec:protmenu}
+   \item Section {sec:overwriteitem}
+  \end{itemize}
 
+%-------------------------------------------------------------------------------------------------
 \section{Overwrite Item Panel}
+\label{sec:overwriteitem}
   \subsection*{Functional description}
-  \todo{What the operation(command, menu item, button, ...) achieves}
+  %What the operation(command, menu item, button, ...) achieves
+  This panel shows the message \emph{This name is already in use. Choose whether to overwrite existing file or to cancel}. Furthermore it provides functionality to overwrite the file, or to cancel the operation.
 
   \subsection*{Cautions and warnings}
-  \todo{A list of cautions and warnings that apply to the operation}
+  %A list of cautions and warnings that apply to the operation
+  \begin{itemize}
+  \item After making use of the fuctionality to overwrite a file, it's not possible to retrieve the overwritten file.
+  \end{itemize}
 
   \subsection*{Formal description}
-  \todo{A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics}
-
-  \subsection*{Examples}
-  \todo{One or more examples of the use of the operation.}
+  %A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics
+    \begin{tabularx}{\textwidth}{XXX}
+    \toprule
+    \emph{Operation} & \emph{Steps} & \emph{Results} \\
+    \midrule
+    Overwrite file & Press the \emph{Overwrite} button. & The panel is closed, and a \emph{Save successful} message appears and disappears again. \\
+    \midrule
+    Cancel operation & Press the \emph{Cancel} button. & The panel is closed, and the Save Item Panel (see section \ref{sec:saveitem}) is displayed again. \\
+    \bottomrule
+\end{tabularx}
 
   \subsection*{Possible errors}
-  \todo{A list of all possible errors for this operation and their causes}
+  %A list of all possible errors for this operation and their causes
+  \begin{description}
+  \item[The message \emph{Local storage error} is shown.] Something went wrong with the the local storage of the browser.
+  \item[The message \emph{Your storage is full. Please remove some items} is shown.] The browser can't store any more items. Remove items using the Remove Item Panel (see section \ref{sec:removeitem}).
+  \item[The message \emph{An unknown error has occurred} is shown.] Cause unknown.
+  \end{description}
 
   \subsection*{Related operations}
-  \todo{References to, for example, operations to complete a task or logically related operations.}
+  %References to, for example, operations to complete a task or logically related operations.
+   \begin{itemize}
+   \item Section {sec:distmenu}
+   \item Section {sec:resultsmenu}
+   \item Section {sec:protmenu}
+   \item Section {sec:saveitem}
+  \end{itemize}
 
+%-------------------------------------------------------------------------------------------------
 \section{Load Item Panel}
+\label{sec:loaditempanel}
   \subsection*{Functional description}
-  \todo{What the operation(command, menu item, button, ...) achieves}
+  %What the operation(command, menu item, button, ...) achieves
+  This panel provides functionality for loading items. It provides functionality to load the shown items, and to close the panel.
 
   \subsection*{Cautions and warnings}
-  \todo{A list of cautions and warnings that apply to the operation}
+  %A list of cautions and warnings that apply to the operation
+  \begin{itemize}
+  \item This panel shows the text \emph{No saved files} when no items have been saved yet.
+  \end{itemize}
 
   \subsection*{Formal description}
-  \todo{A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics}
-
-  \subsection*{Examples}
-  \todo{One or more examples of the use of the operation.}
+  %A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics
+    \begin{tabularx}{\textwidth}{XXX}
+    \toprule
+    \emph{Operation} & \emph{Steps} & \emph{Results} \\
+    \midrule
+    Load an item & Press the one of the items in the list & The selected item is loaded in the drawing area (distribution), define protocol menu (protocol) or both (mixing result). \\
+    \midrule
+    Close panel & Press the \emph{Close} button. & The panel is closed. \\
+    \bottomrule
+\end{tabularx}
 
   \subsection*{Possible errors}
-  \todo{A list of all possible errors for this operation and their causes}
+  %A list of all possible errors for this operation and their causes
+  None.
 
   \subsection*{Related operations}
-  \todo{References to, for example, operations to complete a task or logically related operations.}
+  %References to, for example, operations to complete a task or logically related operations.
+   \begin{itemize}
+   \item Section {sec:distmenu}
+   \item Section {sec:resultsmenu}
+   \item Section {sec:protmenu}
+  \end{itemize}
 
+%-------------------------------------------------------------------------------------------------
 \section{Remove Item Panel}
+\label{sec:removeitem}
   \subsection*{Functional description}
-  \todo{What the operation(command, menu item, button, ...) achieves}
+  %What the operation(command, menu item, button, ...) achieves
+  This panel provides functionality for removing items. It provides functionality to remove the shown items, and to close the panel.
 
   \subsection*{Cautions and warnings}
-  \todo{A list of cautions and warnings that apply to the operation}
+  %A list of cautions and warnings that apply to the operation
+  \begin{itemize}
+  \item This panel shows the text \emph{No saved files} when no items have been saved yet.
+  \end{itemize}
 
   \subsection*{Formal description}
-  \todo{A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics}
-
-  \subsection*{Examples}
-  \todo{One or more examples of the use of the operation.}
+  %A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics
+    \begin{tabularx}{\textwidth}{XXX}
+    \toprule
+    \emph{Operation} & \emph{Steps} & \emph{Results} \\
+    \midrule
+    Remove an item & Press the \texttt{X} next to one of the items. &  The chosen item disappears from the list, and a \emph{Delete successful} message appears and disappears again. \\
+    \midrule
+    Close panel & Press the \emph{Close} button. & The panel is closed. \\
+    \bottomrule
+\end{tabularx}
 
   \subsection*{Possible errors}
-  \todo{A list of all possible errors for this operation and their causes}
+  %A list of all possible errors for this operation and their causes
+  None.
 
   \subsection*{Related operations}
-  \todo{References to, for example, operations to complete a task or logically related operations.}
-
+  %References to, for example, operations to complete a task or logically related operations.
+   \begin{itemize}
+   \item Section {sec:distmenu}
+   \item Section {sec:resultsmenu}
+   \item Section {sec:protmenu}
+  \end{itemize}
+  
+%-------------------------------------------------------------------------------------------------
 \section{Compare Performance Panel}
+\label{sec:compareperf}
   \subsection*{Functional description}
-  \todo{What the operation(command, menu item, button, ...) achieves}
+  %What the operation(command, menu item, button, ...) achieves
+  This panel shows a list of all saved mixing runs. Furthermore it contains options to select one or more of these mixing runs, to compare the  performance of the selected runs and to cancel the operation.
 
   \subsection*{Cautions and warnings}
-  \todo{A list of cautions and warnings that apply to the operation}
+  %A list of cautions and warnings that apply to the operation
+  \begin{itemize}
+  \item This panel shows the text \emph{No saved files} and doesn't have the option to compare when no mixing runs have been saved yet. Also see section \ref{sec:resultsmenu}.
+  \end{itemize}
 
   \subsection*{Formal description}
-  \todo{A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics}
-
-  \subsection*{Examples}
-  \todo{One or more examples of the use of the operation.}
+  %A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics
+    \begin{tabularx}{\textwidth}{XXX}
+    \toprule
+    \emph{Operation} & \emph{Steps} & \emph{Results} \\
+    \midrule
+    Select a result & Press a result that has a white or gray background. & The result is displayed in a white font and with a blue background. \\
+    \midrule
+    Deselect a result & Press a result that has a blue background. & The result is displayed in a black font and with a white or gray background. \\
+    \midrule
+    Compare performance of selected results & Press the \emph{Compare} button. & The \emph{Mixing Performance Graph Panel (Multiple)} is displayed. Also see section \ref{sec:mulperfgraph}. \\
+    \midrule
+    Cancel operation & Press the \emph{Cancel} button. & The panel is closed. \\
+    \bottomrule
+\end{tabularx}
 
   \subsection*{Possible errors}
-  \todo{A list of all possible errors for this operation and their causes}
+  %A list of all possible errors for this operation and their causes
+  None.
 
   \subsection*{Related operations}
-  \todo{References to, for example, operations to complete a task or logically related operations.}
+  %References to, for example, operations to complete a task or logically related operations.
+   \begin{itemize}
+   \item Section {sec:resultsmenu}
+   \item Section {sec:mulperfgraph}
+  \end{itemize}
 
+%-------------------------------------------------------------------------------------------------
 \section{Mixing Performance Graph Panel (Single)}
+\label{sec:singperfgraph}
   \subsection*{Functional description}
-  \todo{What the operation(command, menu item, button, ...) achieves}
+  %What the operation(command, menu item, button, ...) achieves
+  This panel shows a figure with the performance graph of the last executed mixing run. Furthermore it contains options to export this figure and to close this panel.
 
   \subsection*{Cautions and warnings}
-  \todo{A list of cautions and warnings that apply to the operation}
+  %A list of cautions and warnings that apply to the operation
+  \begin{itemize}
+  \item The figure of the performance graphs doesn't display in Internet Explorer (all versions).
+  \end{itemize}
 
   \subsection*{Formal description}
-  \todo{A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics}
-
-  \subsection*{Examples}
-  \todo{One or more examples of the use of the operation.}
+  %A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics
+    \begin{tabularx}{\textwidth}{XXX}
+    \toprule
+    \emph{Operation} & \emph{Steps} & \emph{Results} \\
+    \midrule
+    View performance of a single point & Press one of the points in the graph. & A popup appears with the performance value of this point. \\
+    \midrule
+    Export graph & Press the \emph{Export graph} button. & The default download window of your browser is displayed. \\
+    \midrule
+    Close panel & Press the \emph{Close} button. & The panel is closed. \\
+    \bottomrule
+\end{tabularx}
 
   \subsection*{Possible errors}
-  \todo{A list of all possible errors for this operation and their causes}
+  %A list of all possible errors for this operation and their causes
+  None.
 
   \subsection*{Related operations}
-  \todo{References to, for example, operations to complete a task or logically related operations.}
+  %References to, for example, operations to complete a task or logically related operations.
+   \begin{itemize}
+   \item Section \ref{sec:defprot}
+  \end{itemize}
 
+%-------------------------------------------------------------------------------------------------
 \section{Mixing Performance Graph Panel (Multiple)}
+\label{sec:mulperfgraph}
   \subsection*{Functional description}
-  \todo{What the operation(command, menu item, button, ...) achieves}
+  %What the operation(command, menu item, button, ...) achieves
+  This panel shows a figure with the performance graphs of one or more mixing runs. Furthermore it contains options to export this figure, to create a new figure with the performance of different mixing runs, and to close this panel.
 
   \subsection*{Cautions and warnings}
-  \todo{A list of cautions and warnings that apply to the operation}
+  %A list of cautions and warnings that apply to the operation
+  \begin{itemize}
+  \item The figure of the performance graphs doesn't display in Internet Explorer (all versions).
+  \end{itemize}
 
   \subsection*{Formal description}
-  \todo{A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics}
-
-  \subsection*{Examples}
-  \todo{One or more examples of the use of the operation.}
+  %A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics
+    \begin{tabularx}{\textwidth}{XXX}
+    \toprule
+    \emph{Operation} & \emph{Steps} & \emph{Results} \\
+    \midrule
+    View performance of a single point & Press one of the points in the graph. & A popup appears with the performance value of this point. \\
+    \midrule
+    Export graph & Press the \emph{Export graph} button. & The default download window of your browser is displayed. \\
+    \midrule
+    Create new graph & Press the \emph{New comparison} button. & The panel from section \ref{sec:compareperf} is displayed. \\
+    \midrule
+    Close panel & Press the \emph{Close} button. & The panel is closed. \\
+    \bottomrule
+\end{tabularx}
 
   \subsection*{Possible errors}
-  \todo{A list of all possible errors for this operation and their causes}
+  %A list of all possible errors for this operation and their causes
+  \begin{description}
+  \item[The panel shows a blank field with the text \emph{No data}] A comparison was made with no results selected. Also see section \ref{sec:compareperf}.\\
+  \end{description}
 
   \subsection*{Related operations}
-  \todo{References to, for example, operations to complete a task or logically related operations.}
+  %References to, for example, operations to complete a task or logically related operations.
+   \begin{itemize}
+   \item Section \ref{sec:resultsmenu}
+   \item Section \ref{sec:compareperf}
+  \end{itemize}
 
+%-------------------------------------------------------------------------------------------------
 \section{Toggle Menu Button}
+\label{sec:togmenu}
   \subsection*{Functional description}
-  \todo{What the operation(command, menu item, button, ...) achieves}
+  %What the operation(command, menu item, button, ...) achieves
+  This button is always shown in the top right corner of the application. It can be used to hide the menu bar when it is shown, and to show it again when it is hidden.
 
   \subsection*{Cautions and warnings}
-  \todo{A list of cautions and warnings that apply to the operation}
+  %A list of cautions and warnings that apply to the operation
+  None.
 
   \subsection*{Formal description}
-  \todo{A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics}
-
-  \subsection*{Examples}
-  \todo{One or more examples of the use of the operation.}
+  %A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics
+  \begin{tabularx}{\textwidth}{XXX}
+    \toprule
+    \emph{Operation} & \emph{Steps} & \emph{Results} \\
+    \midrule
+    Hide menu & Press the blue circular button with a white \texttt{X} sign. & The menu bar on the right side of the application slides to the right until it isn't visible anymore. Simulatenously the blue circular button rotates until it shows a \texttt{+} sign.\\
+    \midrule
+    Show menu & Press the blue circular button with a white \texttt{+} sign. & The menu bar on the right side of the application appears and slides to the left until it's entirely visible. Simulatenously the blue circular button rotates until it shows an \texttt{X} sign. \\
+    \bottomrule
+\end{tabularx}
 
   \subsection*{Possible errors}
-  \todo{A list of all possible errors for this operation and their causes}
+  %A list of all possible errors for this operation and their causes
+  None.
 
   \subsection*{Related operations}
-  \todo{References to, for example, operations to complete a task or logically related operations.}
+  %References to, for example, operations to complete a task or logically related operations.
+  \begin{itemize}
+  \item Section \ref{sec:drawingarea}
+  \item Section \ref{sec:mainmenu}
+  \item Section \ref{sec:selecttoolmenu}
+  \item Section \ref{sec:distmenu}
+  \item Section \ref{sec:resultsmenu}
+  \item Section \ref{sec:defprot}
+  \item Section \ref{sec:protmenu}
+  \end{itemize}
