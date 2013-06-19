@@ -1,157 +1,257 @@
 \chapter{Reference}
 This chapter describes various parts of the \applicationname{}. For each reference, a short functional description is provided, along with warnings and errors. Furthermore, examples and related references are listed for each item.
 
+%-------------------------------------------------------------------------------------------------
 \section{Cell Browser}
+\label{sec:cellBrows}
   \subsection*{Functional description}
-  \todo{What the operation(command, menu item, button, ...) achieves}
-
+  The Cell Browser can be used to select geometries and mixers. The Cell Browser is the first menu item that is shown to the user upon entering the application.
+ 
   \subsection*{Cautions and warnings}
-  \todo{A list of cautions and warnings that apply to the operation}
+  Even though the \emph{Square} geometry has been implemented, its mixer has not. Upon trying to mix with this geometry, an error message is shown, informing the user that this mixer has not been implemented.
 
   \subsection*{Formal description}
-  \todo{A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics}
-
-  \subsection*{Examples}
-  \todo{One or more examples of the use of the operation.}
-
-  \subsection*{Possible errors}
-  \todo{A list of all possible errors for this operation and their causes}
-
-  \subsection*{Related operations}
-  \todo{References to, for example, operations to complete a task or logically related operations.}
-
-\section{Drawing Area}
-  \subsection*{Functional description}
-  \todo{What the operation(command, menu item, button, ...) achieves}
-
-  \subsection*{Cautions and warnings}
-  \todo{A list of cautions and warnings that apply to the operation}
-
-  \subsection*{Formal description}
-  \todo{A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics}
-
-  \subsection*{Examples}
-  \todo{One or more examples of the use of the operation.}
-
-  \subsection*{Possible errors}
-  \todo{A list of all possible errors for this operation and their causes}
-
-  \subsection*{Related operations}
-  \todo{References to, for example, operations to complete a task or logically related operations.}
-
-\section{Main Menu}
-  \subsection*{Functional description}
-  \todo{What the operation(command, menu item, button, ...) achieves}
-
-  \subsection*{Cautions and warnings}
-  \todo{A list of cautions and warnings that apply to the operation}
-
-  \subsection*{Formal description}
-  \todo{A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics}
-
-  \subsection*{Examples}
-  \todo{One or more examples of the use of the operation.}
-
-  \subsection*{Possible errors}
-  \todo{A list of all possible errors for this operation and their causes}
-
-  \subsection*{Related operations}
-  \todo{References to, for example, operations to complete a task or logically related operations.}
-
-\section{Select Tool Menu}
-  \subsection*{Functional description}
-  \todo{What the operation(command, menu item, button, ...) achieves}
-
-  \subsection*{Cautions and warnings}
-  \todo{A list of cautions and warnings that apply to the operation}
-
-  \subsection*{Formal description}
-  \todo{A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics}
-
-  \subsection*{Examples}
-  \todo{One or more examples of the use of the operation.}
-
-  \subsection*{Possible errors}
-  \todo{A list of all possible errors for this operation and their causes}
-
-  \subsection*{Related operations}
-  \todo{References to, for example, operations to complete a task or logically related operations.}
-
-\section{Distributions Menu}
-  \subsection*{Functional description}
-  \todo{What the operation(command, menu item, button, ...) achieves}
-
-  \subsection*{Cautions and warnings}
-  \todo{A list of cautions and warnings that apply to the operation}
-
-  \subsection*{Formal description}
-  \todo{A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics}
-
-  \subsection*{Examples}
-  \todo{One or more examples of the use of the operation.}
-
-  \subsection*{Possible errors}
-  \todo{A list of all possible errors for this operation and their causes}
-
-  \subsection*{Related operations}
-  \todo{References to, for example, operations to complete a task or logically related operations.}
+  The Cell Browser is the first menu encountered by the user. Using the first level of the Cell Browser, the user can select the desired geometry for mixing. Currently, available geometries are the \emph{Rectangle} and the \emph{Square}. When one of the possible choices has been selected, the second level of the Cell Browser appears. This allows the user to select the desired mixer for the selected geometry. Currently, only the \emph{Default} mixers are available for both the \emph{Rectangle} and the \emph{Square} geometries.
   
-\section{Results Menu}
-  \subsection*{Functional description}
-  \todo{What the operation(command, menu item, button, ...) achieves}
-
-  \subsection*{Cautions and warnings}
-  \todo{A list of cautions and warnings that apply to the operation}
-
-  \subsection*{Formal description}
-  \todo{A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics}
-
   \subsection*{Examples}
-  \todo{One or more examples of the use of the operation.}
+  The user selects the \emph{Rectangle 400x240} option, followed by the \emph{Default} mixer.
 
   \subsection*{Possible errors}
-  \todo{A list of all possible errors for this operation and their causes}
+  None.
 
   \subsection*{Related operations}
-  \todo{References to, for example, operations to complete a task or logically related operations.}
+  \begin{itemize}
+    \item Section \ref{sec:drawingarea}
+    \item Section \ref{sec:mainmenu}
+  \end{itemize}
 
-\section{Define Protocol Menu}
+%-------------------------------------------------------------------------------------------------
+\section{Drawing Area}
+\label{sec:drawingarea}
   \subsection*{Functional description}
-  \todo{What the operation(command, menu item, button, ...) achieves}
-
+  The drawing area can be used to indicate the location of black or white fluids. It is also used for showing the resulting fluid result after a mixing has been performed.
+  
   \subsection*{Cautions and warnings}
-  \todo{A list of cautions and warnings that apply to the operation}
-
+  The resolution of the canvas depends on the screen resolution. This means that a higher screen resolution means the canvas contains more pixels, and the drawing appears sharper. However, the internal representation for the canvas is dependant on the resolution of the geometry. In the case of the \emph{Rectangle} geometry, this resolution is a fixed $400 \times 240$. When loading results, it is possible that the resulting result appears more pixelated than it was at its creation, but the underlying data structure is unchanged.
+  
   \subsection*{Formal description}
-  \todo{A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics}
+  The drawing area is used for drawing the initial concentration result. This is achieved by dragging over the canvas. Depending on the chosen colour and shape of the drawing tool, the result of fluids on the canvas changes accordingly.
+  
+  When loading a saved result or a saved collection of results, the canvas is used to display the loaded result. After loading, everything that was on the canvas prior to loading is removed, and replaced by what was loaded. However, after the result has been loaded, the user can freely draw on the canvas again.
 
   \subsection*{Examples}
-  \todo{One or more examples of the use of the operation.}
+  The user loads a saved result on the canvas. Then, the user draws a smiley face on the canvas, partially overwriting the initially loaded result.
 
   \subsection*{Possible errors}
-  \todo{A list of all possible errors for this operation and their causes}
+  None.
 
   \subsection*{Related operations}
-  \todo{References to, for example, operations to complete a task or logically related operations.}
+  \begin{itemize}
+    \item Section \ref{sec:selecttoolmenu}
+    \item Section \ref{sec:loaditempanel}
+  \end{itemize}  
 
-\section{Protocols Menu}
+%-------------------------------------------------------------------------------------------------
+\section{Main Menu}\label{sec:mainmenu}
   \subsection*{Functional description}
-  \todo{What the operation(command, menu item, button, ...) achieves}
+  The main menu contains tools to influence the current mixing. It mostly contains buttons to go to other menus, such as the \emph{Distributions} menu.
 
   \subsection*{Cautions and warnings}
-  \todo{A list of cautions and warnings that apply to the operation}
+  None.
 
   \subsection*{Formal description}
-  \todo{A formal description of what the operation does and how it is used: required parameters, optional parameters, defaults, syntax and semantics}
-
+  The main menu contains a button to switch to the \emph{Tool selection} menu. When this button is clicked, the main menu disappears, and the \texttt{Tool selection} menu appears in its place.
+  
+  A button to change the colour of the drawing tool is also present. The canvas can be cleared by pressing the \texttt{Clear canvas} button.
+  
+  From the main menu, the user can switch to the \emph{Distributions} and \emph{Results} menus by clicking their respective buttons.
+  
+  The user can select the step size in a spinner. This step size is used for defining the protocol and immediately executing a mixing step.
+  
+  The \emph{Define protocol} menu can be accessed from the main menu by pressing the corresponding button.
+  
   \subsection*{Examples}
-  \todo{One or more examples of the use of the operation.}
+  The user changes the colour of the drawing tool to white by clicking the change colour button. Then, they increase the step size from 1 to 3.25 by clicking the `+' button a number of times. Finally, the user enters the \emph{Define protocol} menu by pressing its button.
 
   \subsection*{Possible errors}
-  \todo{A list of all possible errors for this operation and their causes}
+  None.
 
   \subsection*{Related operations}
-  \todo{References to, for example, operations to complete a task or logically related operations.}
+  \begin{itemize}
+    \item Section \ref{sec:selecttoolmenu}
+    \item Section \ref{sec:distmenu}
+    \item Section \ref{sec:resultsmenu}
+    \item Section \ref{sec:defprot}
+  \end{itemize}
+
+%-------------------------------------------------------------------------------------------------
+\section{Select Tool Menu}\label{sec:selecttoolmenu}
+  \subsection*{Functional description}
+  Using the \emph{Select Tool} menu, the user can change the colour, the shape, and the size of the drawing tool. 
+
+  \subsection*{Cautions and warnings}
+  When a large size is selected for the drawing tool, drawing might slow down slightly.
+
+  \subsection*{Formal description}
+  This menu can be used to change the colour of the drawing tool. This is achieved through a button that toggles the colour either from black to white or from white to black.
+  
+  Furthermore, this menu contains two buttons to change the shape of the drawing tool. Clicking the square button changes the drawing tool to a square. Clicking the circle button changes the drawing tool to a circle.
+  
+  The spinner in this menu can be used to change the size of the drawing tool. The minimum size of the drawing tool is 1, and the maximum size of the drawing tool is 50.
+  
+  The \texttt{Back} button can be used to return to the main menu.
+
+  \subsection*{Examples}
+  The user presses the change colour button to change the drawing colour to white. Then the user changes the shape of the drawing tool to a circle. Finally, the user changes the size of the tool to 15.
+
+  \subsection*{Possible errors}
+  None.
+
+  \subsection*{Related operations}
+  \begin{itemize}
+  \item Section \ref{sec:drawingarea}
+    \item Section \ref{sec:mainmenu}
+  \end{itemize}
+
+%-------------------------------------------------------------------------------------------------
+\section{Distributions Menu}\label{sec:distmenu}
+  \subsection*{Functional description}
+  The \emph{Distributions} menu is used to manage results. It can be used to save, load and remove results, and to export an image of the current results to disk.
+
+  \subsection*{Cautions and warnings}
+  \begin{itemize}
+    \item The load and remove buttons have reduced functionality if no results were saved.
+    \item The capacity of the local storage is limited. When it is full, results or other saved \projectname{} items must be removed, before saving is possible again. The user is notified of a full local storage. Note that the local storage's capacity can be exceeded even though there is enough free disk space, as each website can only save a certain amount of data in the local storage.
+  \end{itemize}
+  
+  \subsection*{Formal description}
+  The \emph{Distributions} menu can be used to save, load and remove results, and to export an image of the current results to disk. Pressing the \texttt{Save} button pops up a menu, in which the desired name can be entered. If that name already exists, the user can choose to overwrite that name, or choose a new name.
+  
+  Pressing the \texttt{Load} button causes a menu to appear, containing the names of all saved results. If there are no saved results, the user is notified of this fact. If there are more results than fit on the screen, scrollbars appear to allow the user to view all parts of list of saved results.
+  
+  The \texttt{Remove} button creates a pop-up panel containing the names of all saved results. Next to each of these names is a delete button that can be used to delete the result. Deleting a result cannot be undone. 
+  
+  The \texttt{Export Image} button allows the user to download an image of the current result. This generates a \emph{PNG} file that can be downloaded to the client's device using the browser's download functionality.
+  
+  The \texttt{Back} button can be used to return to the main menu.
+  
+  \subsection*{Examples}
+  The user saves the current result, then loads it by specifying the name that was used for saving. The result remains on the canvas, but might be pixelated slightly (see section \ref{sec:drawingarea}). Then the user removes the saved result by pressing the delete button next to the name of the saved result in the \emph{Remove} pop-up panel.
+
+  \subsection*{Possible errors}
+  None.
+
+  \subsection*{Related operations}
+  \begin{itemize}
+  \item Section \ref{sec:drawingarea}
+    \item Section \ref{sec:mainmenu}
+    \item Section \ref{sec:saveitem}
+    \item Section \ref{sec:overwriteitem}
+    \item Section \ref{sec:loaditempanel}
+    \item Section \ref{sec:removeitem}
+  \end{itemize}
+
+%-------------------------------------------------------------------------------------------------
+\section{Results Menu}\label{sec:resultsmenu}
+  \subsection*{Functional description}
+  The \emph{Results} menu can be used to manage results. Results can be saved, loaded or removed, and multiple results can be compared using graphs. 
+
+  \subsection*{Cautions and warnings}
+  \begin{itemize}
+    \item The \texttt{Load}, \texttt{Remove} and \texttt{Compare Performance} buttons have reduced functionality if no results were saved.
+    \item The capacity of the local storage is limited. When it is full, results or other saved \projectname{} items must be removed, before saving is possible again. The user is notified of a full local storage. Note that the local storage's capacity can be exceeded even though there is enough free disk space, as each website can only save a certain amount of data in the local storage.
+  \end{itemize}  
+
+  \subsection*{Formal description}
+  The \emph{Results} menu can be used to save, load, remove and compare results. Pressing the \texttt{Save} button pops up a menu, in which the desired name can be entered. If that name already exists, the user can choose to overwrite that name, or choose a new name.
+  
+  Pressing the \texttt{Load} button causes a menu to appear, containing the names of all saved results. If there are no saved results, the user is notified of this fact. If there are more results than fit on the screen, scrollbars appear to allow the user to view all parts of list of saved results.
+  
+  The \texttt{Remove} button creates a pop-up panel containing the names of all saved results. Next to each of these names is a delete button that can be used to delete the result. Deleting a result cannot be undone. 
+  
+  The \texttt{Compare Performance} button can be used to compare the performance of multiple runs. Pressing this button causes a pop-up panel to appear, in which the user can select results. The performance of all selected results are plotted in a graph once the user presses the \texttt{Compare} button.
+  
+  The \texttt{Back} button can be used to return to the main menu.
+  
+  \subsection*{Examples}
+  The user saves the current result, then loads it by specifying the name that was used for saving. This updates the canvas to the distribution that was used for the result, and loads the protocol used to generate this result. Then the user removes the saved result by pressing the delete button next to the name of the saved result in the \emph{Remove} pop-up panel.
+
+  \subsection*{Possible errors}
+  None.
+  
+  \subsection*{Related operations}
+  \begin{itemize}
+    \item Section \ref{sec:drawingarea}
+    \item Section \ref{sec:compareperf}
+    \item Section \ref{sec:mulperfgraph}
+  \end{itemize}
+
+%-------------------------------------------------------------------------------------------------
+\section{Define Protocol Menu}\label{sec:defprot}
+  \subsection*{Functional description}
+  The \emph{Define Protocol} menu is used to define protocols, view performance graphs, and open the \emph{Protocols} menu to manage protocols.
+
+  \subsection*{Cautions and warnings}
+  None.
+
+  \subsection*{Formal description}
+  The \texttt{Mix Now} button is used to execute a mixing run using the defined distribution and protocol. Once a mixing run has been executed, the performance graph of the run can be visualised using the \texttt{View Performance Graph} button.
+  
+  To define a protocol, the \texttt{Step Size} spinner can be used to change the size of the step. The \texttt{Number Of Steps} button can be used to change the number of iterations of the protocol. The \texttt{Clear Protocol} button can be used to reset the protocol to the empty protocol.
+  
+  To actually define the steps of the protocol, the user can drag the indicated parts of the geometry. This generates appropriate mixing steps.
+  
+  The \texttt{Protocols} button is used to change to the menu to manage protocols. The \texttt{Stop Defining Protocol} button is used to return to the main menu.
+
+  \subsection*{Examples}
+  %The user can go and get pizza. Then pet a cow. Then be crushed by the cow because the cow was annoyed. By the user petting the cow. The cow is called Karel. Karel is always happy. Except when the user goes and pets Karel. Karel normally spends the day eating grass. If Karel is not eating grass, Karel is probably sleeping. Karel does not do many other things.
+  The user sets the \texttt{Number Of Steps} spinner to 3 and the \texttt{Step Size} spinner to 1.75. Then the user drags the top wall of the selected rectangular geometry to the left. This generates a mixing step \texttt{-T[1.75]}. The user then presses the \texttt{Mix Now} button. After the mixing run has been executed, the user presses the \texttt{View Performance Graph} button. A graph is shown with four data points indicating the performance of the mixing run.
+  
+  \subsection*{Possible errors}
+  None.
+
+  \subsection*{Related operations}
+  \begin{itemize}
+    \item Section \ref{sec:drawingarea}
+    \item Section \ref{sec:mainmenu}
+    \item Section \ref{sec:protmenu}
+    \item Section \ref{sec:singperfgraph}
+  \end{itemize}
+
+%-------------------------------------------------------------------------------------------------
+\section{Protocols Menu}\label{sec:protmenu}
+  \subsection*{Functional description}
+  The \emph{Protocols} menu can be used to manage protocols. Protocols can be saved, loaded or removed.
+
+  \subsection*{Cautions and warnings}
+  \begin{itemize}
+    \item The \texttt{Load} and \texttt{Remove} buttons have reduced functionality if no protocols were saved.
+    \item The capacity of the local storage is limited. When it is full, protocols or other saved \projectname{} items must be removed, before saving is possible again. The user is notified of a full local storage. Note that the local storage's capacity can be exceeded even though there is enough free disk space, as each website can only save a certain amount of data in the local storage.
+  \end{itemize}  
+
+  \subsection*{Formal description}
+  The \emph{Protocols} menu can be used to save, load and remove protocols. Pressing the \texttt{Save} button pops up a menu, in which the desired name can be entered. If that name already exists, the user can choose to overwrite that name, or choose a new name.
+  
+  Pressing the \texttt{Load} button causes a menu to appear, containing the names of all saved protocols. If there are no saved protocols, the user is notified of this fact. If there are more protocols than fit on the screen, scrollbars appear to allow the user to view all parts of list of saved protocols.
+  
+  The \texttt{Remove} button creates a pop-up panel containing the names of all saved protocols. Next to each of these names is a delete button that can be used to delete the protocol. Deleting a protocol cannot be undone.
+  
+  The \texttt{Back} button can be used to return to the main menu.
+  
+  \subsection*{Examples}
+  The user saves the current protocol, then loads it by specifying the name that was used for saving. This loads the protocol into the \emph{Protocol} window. Then the user removes the saved protocol by pressing the delete button next to the name of the saved protocol in the \emph{Remove} pop-up panel.
+
+  \subsection*{Possible errors}
+  None.
+  
+  \subsection*{Related operations}
+    \begin{itemize}
+    \item Section \ref{sec:defprot}
+    \item Section \ref{sec:saveitem}
+    \item Section \ref{sec:overwriteitem}
+    \item Section \ref{sec:loaditempanel}
+    \item Section \ref{sec:removeitem}
+  \end{itemize}
 
 %-------------------------------------------------------------------------------------------------
 \section{Save Item Panel}
@@ -194,10 +294,10 @@ This chapter describes various parts of the \applicationname{}. For each referen
   \subsection*{Related operations}
   %References to, for example, operations to complete a task or logically related operations.
    \begin{itemize}
-   \item Section {sec:distmenu}
-   \item Section {sec:resultsmenu}
-   \item Section {sec:protmenu}
-   \item Section {sec:overwriteitem}
+   \item Section \ref{sec:distmenu}
+   \item Section \ref{sec:resultsmenu}
+   \item Section \ref{sec:protmenu}
+   \item Section \ref{sec:overwriteitem}
   \end{itemize}
 
 %-------------------------------------------------------------------------------------------------
@@ -236,10 +336,10 @@ This chapter describes various parts of the \applicationname{}. For each referen
   \subsection*{Related operations}
   %References to, for example, operations to complete a task or logically related operations.
    \begin{itemize}
-   \item Section {sec:distmenu}
-   \item Section {sec:resultsmenu}
-   \item Section {sec:protmenu}
-   \item Section {sec:saveitem}
+   \item Section \ref{sec:distmenu}
+   \item Section \ref{sec:resultsmenu}
+   \item Section \ref{sec:protmenu}
+   \item Section \ref{sec:saveitem}
   \end{itemize}
 
 %-------------------------------------------------------------------------------------------------
@@ -274,9 +374,9 @@ This chapter describes various parts of the \applicationname{}. For each referen
   \subsection*{Related operations}
   %References to, for example, operations to complete a task or logically related operations.
    \begin{itemize}
-   \item Section {sec:distmenu}
-   \item Section {sec:resultsmenu}
-   \item Section {sec:protmenu}
+   \item Section \ref{sec:distmenu}
+   \item Section \ref{sec:resultsmenu}
+   \item Section \ref{sec:protmenu}
   \end{itemize}
 
 %-------------------------------------------------------------------------------------------------
@@ -311,9 +411,9 @@ This chapter describes various parts of the \applicationname{}. For each referen
   \subsection*{Related operations}
   %References to, for example, operations to complete a task or logically related operations.
    \begin{itemize}
-   \item Section {sec:distmenu}
-   \item Section {sec:resultsmenu}
-   \item Section {sec:protmenu}
+   \item Section \ref{sec:distmenu}
+   \item Section \ref{sec:resultsmenu}
+   \item Section \ref{sec:protmenu}
   \end{itemize}
   
 %-------------------------------------------------------------------------------------------------
@@ -352,8 +452,8 @@ This chapter describes various parts of the \applicationname{}. For each referen
   \subsection*{Related operations}
   %References to, for example, operations to complete a task or logically related operations.
    \begin{itemize}
-   \item Section {sec:resultsmenu}
-   \item Section {sec:mulperfgraph}
+   \item Section \ref{sec:resultsmenu}
+   \item Section \ref{sec:mulperfgraph}
   \end{itemize}
 
 %-------------------------------------------------------------------------------------------------
