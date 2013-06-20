@@ -1,25 +1,22 @@
 \chapter{Software Problem Reports}
 \label{chap:problems}
 
-The following are all known bugs at the transfer phase.
+The following are all known bugs at the transfer phase. An bugs currently not solved are listed, but do not have a solution section unless the solution is known.
 
-\section{Popups}
+\section*{Popups}
 
 \subsection*{Issue}
-When a popup pops up, other buttons still appear clickable while they are not.
+When a popup appears, other buttons still appear clickable while they are not.
 
 \subsection*{Solution}
-When the popup pops up, there should be a darker overlay under the popup that covers the screen.
+When the popup appears, there should be a darker overlay under the popup that covers the screen.
 
-\section{Compare performance}
+\section*{Compare performance}
 
 \subsection*{Issue}
 When the local storage is full, the graph for comparing performance of multiple mixing runs fails to load.
 
-\subsection*{Solution}
-When the local storage is full, the graph should load normally.
-
-\section{Delete confirmation}
+\section*{Delete confirmation}
 
 \subsection*{Issue}
 When deleting files, no confirmation popup shows up before deleting. This is to prevent users from accidentally deleting files.
@@ -27,7 +24,7 @@ When deleting files, no confirmation popup shows up before deleting. This is to 
 \subsection*{Solution}
 When a file is to be deleted, a popup should show up to confirm the removal.
 
-\section{Full local storage}
+\section*{Full local storage}
 
 \subsection*{Issue}
 When saving something, no warning is given when the local storage is full.
@@ -35,31 +32,25 @@ When saving something, no warning is given when the local storage is full.
 \subsection*{Solution}
 If the local storage is full when saving, a warning should be given that the local storage is full.
 
-\section{Internet Explorer}
+\section*{Internet Explorer}
 
 \subsection*{Issue}
 In Internet Explorer, performance graphs fail to be drawn.
 
-\subsection*{Solution}
-Get the gwt-visualization.jar library to work for Internet Explorer.
-
-\section{Resizing}
+\section*{Resizing}
 
 \subsection*{Issue}
-If the application is resized to a size smaller than the canvas, the browser chrashes.
+If the application is resized to a size smaller than the canvas, the browser crashes.
 
-\subsection*{Solution}
-The application should resize properly.
-
-\section{Safari exporting}
+\section*{Safari exporting}
 
 \subsection*{Issue}
-In Safari, images cannot be exported properly.
+In iOS Safari, images cannot be exported properly.
 
 \subsection*{Solution}
-Exporting in Safari can be enabled by sending the to be downloaded file to the server, and downloading it from there.
+Exporting in Safari can be enabled by sending the file to be downloaded to the server, and downloading it from there.
 
-\section{Memory leak}
+\section*{Memory leak}
 
 \subsection*{Issue}
 The Fortran module allocates memory it doesn't de-allocate later. This causes the application to run out of memory after some uptime.
