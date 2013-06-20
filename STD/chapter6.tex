@@ -1,7 +1,7 @@
 \chapter{Software Problem Reports}
 \label{chap:problems}
 
-During the transfer phase, the following are all known bugs at the transfer phase:
+The following are all known bugs at the transfer phase.
 
 \section{Popups}
 
@@ -22,7 +22,7 @@ When the local storage is full, the graph should load normally.
 \section{Delete confirmation}
 
 \subsection*{Issue}
-When deleting files, no confirmation popup shows up before deleting.
+When deleting files, no confirmation popup shows up before deleting. This is to prevent users from accidentally deleting files.
 
 \subsection*{Solution}
 When a file is to be deleted, a popup should show up to confirm the removal.
@@ -41,7 +41,7 @@ If the local storage is full when saving, a warning should be given that the loc
 In Internet Explorer, performance graphs fail to be drawn.
 
 \subsection*{Solution}
-Performance graphs should be drawn in Internet Explorer like usual.\
+Get the gwt-visualization.jar library to work for Internet Explorer.
 
 \section{Resizing}
 
@@ -49,7 +49,7 @@ Performance graphs should be drawn in Internet Explorer like usual.\
 If the application is resized to a size smaller than the canvas, the browser chrashes.
 
 \subsection*{Solution}
-The browser should not chrash when resizing.
+The application should resize properly.
 
 \section{Safari exporting}
 
@@ -58,3 +58,11 @@ In Safari, images cannot be exported properly.
 
 \subsection*{Solution}
 Exporting in Safari can be enabled by sending the to be downloaded file to the server, and downloading it from there.
+
+\section{Memory leak}
+
+\subsection*{Issue}
+The Fortran module allocates memory it doesn't de-allocate later. This causes the application to run out of memory after some uptime.
+
+\subsection*{Solution}
+The Fortran module should de-allocate all its used memory.
