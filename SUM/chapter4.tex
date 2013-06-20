@@ -5,7 +5,7 @@ This chapter describes various parts of the \applicationname{}. For each referen
 \section{Cell Browser}
 \label{sec:cellBrows}
   \subsection*{Functional description}
-  The Cell Browser is the first menu encountered by the user. Using the first level of the Cell Browser, the user can select the desired geometry for mixing. Currently, available geometries are the \emph{Rectangle} and the \emph{Square}. When one of the possible choices has been selected, the second level of the Cell Browser appears. This allows the user to select the desired mixer for the selected geometry. Currently, only the \emph{Default} mixers are available for both the \emph{Rectangle} and the \emph{Square} geometries.
+  The Cell Browser is the first menu encountered by the user. Using the first menu level of the Cell Browser, the user can select the desired geometry for mixing. Currently, available geometries are the \emph{Rectangle} and the \emph{Square}. When one of the possible choices has been selected, the second menu level of the Cell Browser appears. This allows the user to select the desired mixer for the selected geometry. Currently, only the \emph{Default} mixers are available for both the \emph{Rectangle} and the \emph{Square} geometries.
  
   \subsection*{Cautions and warnings}
   Even though the \emph{Square} geometry has been implemented, its mixer has not. Upon trying to mix with this geometry, an error message is shown, informing the user that this mixer has not been implemented.
@@ -34,14 +34,14 @@ This chapter describes various parts of the \applicationname{}. For each referen
 \section{Drawing Area}
 \label{sec:drawingarea}
   \subsection*{Functional description}
-  The drawing area is used for drawing the initial concentration result. This is achieved by dragging over the canvas. Depending on the chosen colour and shape of the drawing tool, the result of fluids on the canvas changes accordingly.
+  The drawing area is used for drawing the initial concentration distribution. This is achieved by dragging over the canvas. Depending on the chosen colour and shape of the drawing tool, the distribution of fluids on the canvas changes accordingly.
   
-  When loading a saved result or a saved collection of results, the canvas is used to display the loaded result. After loading, everything that was on the canvas prior to loading is removed, and replaced by what was loaded. However, after the result has been loaded, the user can freely draw on the canvas again.
+  When loading a saved distribution or a saved collection of distributions, the canvas is used to display the loaded distribution. After loading, everything that was on the canvas prior to loading is removed, and replaced by what was loaded. However, after the distribution has been loaded, the user can freely draw on the canvas again.
   
   Lastly, the canvas is used for dragging the walls of the geometry.
   
   \subsection*{Cautions and warnings}
-  The resolution of the canvas depends on the screen resolution. This means that a higher screen resolution means the canvas contains more pixels, and the drawing appears sharper. However, the internal representation for the canvas is dependant on the resolution of the geometry. In the case of the \emph{Rectangle} geometry, this resolution is a fixed $400 \times 240$. When loading results, it is possible that the resulting result appears more pixelated than it was at its creation, but the underlying data structure is unchanged.
+  The resolution of the canvas depends on the screen resolution. This means that a higher screen resolution means the canvas contains more pixels, and the drawing appears sharper. However, the internal representation for the canvas is dependant on the resolution of the geometry. In the case of the \emph{Rectangle} geometry, this resolution is a fixed $400 \times 240$. When loading distributions, it is possible that the resulting distribution appears more pixelated than it was at its creation, but the underlying data structure is unchanged.
   
   \subsection*{Formal description}
   \begin{tabularx}{\textwidth}{XXX}
@@ -66,9 +66,9 @@ This chapter describes various parts of the \applicationname{}. For each referen
 %-------------------------------------------------------------------------------------------------
 \section{Main Menu}\label{sec:mainmenu}
   \subsection*{Functional description}
-  The main menu contains a button to switch to the \emph{Tool selection} menu. When this button is clicked, the main menu disappears, and the \texttt{Tool selection} menu appears in its place.
+  The main menu contains a button to switch to the \emph{Tool selection} menu. When this button is clicked, the main menu disappears, and the \emph{Tool selection} menu appears in its place.
   
-  A button to change the colour of the drawing tool is also present. The canvas can be cleared by pressing the \texttt{Clear canvas} button.
+  A button to change the colour of the drawing tool is also present. The canvas can be cleared by pressing the \emph{Clear canvas} button.
   
   From the main menu, the user can switch to the \emph{Distributions} and \emph{Results} menus by clicking their respective buttons.
   
@@ -84,17 +84,17 @@ This chapter describes various parts of the \applicationname{}. For each referen
     \toprule
     \emph{Operation} & \emph{Steps} & \emph{Results} \\
     \midrule
-    Open the \emph{Tool Selection} menu & Press the \texttt{Select Tool} button & The \emph{Tool Selection} menu is opened. \\
+    Open the \emph{Tool Selection} menu & Press the \emph{Select Tool} button & The \emph{Tool Selection} menu is opened. \\
     \midrule
     Change the colour of the drawing tool & Press the button containing black and white squares. & The colour of the tool changes from black to white or from white to black. \\
     \midrule
-    Open the \emph{Distribution} menu & Press the \texttt{Distribution} button & The \emph{Distribution} menu is opened. \\
+    Open the \emph{Distribution} menu & Press the \emph{Distribution} button & The \emph{Distribution} menu is opened. \\
     \midrule
-    Open the \emph{Results} menu & Press the \texttt{Select Tool} button & The \emph{Results} menu is opened. \\
+    Open the \emph{Results} menu & Press the \emph{Select Tool} button & The \emph{Results} menu is opened. \\
     \midrule
     Change the step size & Change the value in the spinner. & The size of new steps is changed. \\
     \midrule
-    Open the \emph{Define Protocol} menu & Press the \texttt{Define Protocol} button & The \emph{Define Protocol} menu is opened. \\
+    Open the \emph{Define Protocol} menu & Press the \emph{Define Protocol} button & The \emph{Define Protocol} menu is opened. \\
     \bottomrule
   \end{tabularx}
 
@@ -118,7 +118,7 @@ This chapter describes various parts of the \applicationname{}. For each referen
   
   The spinner in this menu can be used to change the size of the drawing tool. The minimum size of the drawing tool is 1, and the maximum size of the drawing tool is 50.
   
-  The \texttt{Back} button can be used to return to the main menu.
+  The \emph{Back} button can be used to return to the main menu.
 
   \subsection*{Cautions and warnings}
   When a large size is selected for the drawing tool, drawing might slow down slightly.
@@ -136,7 +136,7 @@ This chapter describes various parts of the \applicationname{}. For each referen
     \midrule
     Change the size of the drawing tool & Change the value of the spinner. & The size of the drawing tool changes accordingly. \\ 
     \midrule
-    Close this menu & Press the \texttt{Back} button. & The main menu reappears. \\
+    Close this menu & Press the \emph{Back} button. & The main menu reappears. \\
     \bottomrule
   \end{tabularx}
 
@@ -152,20 +152,20 @@ This chapter describes various parts of the \applicationname{}. For each referen
 %-------------------------------------------------------------------------------------------------
 \section{Distributions Menu}\label{sec:distmenu}
   \subsection*{Functional description}
-  The \emph{Distributions} menu can be used to save, load and remove results, and to export an image of the current results to disk. Pressing the \texttt{Save} button pops up a menu, in which the desired name can be entered. If that name already exists, the user can choose to overwrite that name, or choose a new name.
+  The \emph{Distributions} menu can be used to save, load and remove distributions, and to export an image of the current distribution to disk. Pressing the \emph{Save} button pops up a menu, in which the desired name can be entered. If that name already exists, the user can choose to overwrite that distribution, or choose a new name.
   
-  Pressing the \texttt{Load} button causes a menu to appear, containing the names of all saved results. If there are no saved results, the user is notified of this fact. If there are more results than fit on the screen, scrollbars appear to allow the user to view all parts of list of saved results.
+  Pressing the \emph{Load} button causes a menu to appear, containing the names of all saved distributions. If there are no saved distributions, the user is notified of this fact. If there are more distributions than fit on the screen, scrollbars appear to allow the user to view all parts of list of saved distributions.
   
-  The \texttt{Remove} button creates a pop-up panel containing the names of all saved results. Next to each of these names is a delete button that can be used to delete the result. Deleting a result cannot be undone. 
+  The \emph{Remove} button creates a pop-up panel containing the names of all saved distributions. Next to each of these names is a delete button that can be used to delete the distribution. Deleting a distribution cannot be undone. 
   
-  The \texttt{Export Image} button allows the user to download an image of the current result. This generates a \emph{PNG} file that can be downloaded to the client's device using the browser's download functionality.
+  The \emph{Export Image} button allows the user to download an image of the current distribution. This generates a \emph{PNG} file that can be downloaded to the client's device using the browser's download functionality.
   
-  The \texttt{Back} button can be used to return to the main menu.
+  The \emph{Back} button can be used to return to the main menu.
 
   \subsection*{Cautions and warnings}
   \begin{itemize}
-    \item The load and remove buttons have reduced functionality if no results were saved.
-    \item The capacity of the local storage is limited. When it is full, results or other saved \projectname{} items must be removed, before saving is possible again. The user is notified of a full local storage. Note that the local storage's capacity can be exceeded even though there is enough free disk space, as each website can only save a certain amount of data in the local storage.
+    \item It is not possible to load or remove distributions if no distributions were saved.
+    \item The capacity of the local storage is limited. When it is full, distributions or other saved \projectname{} items must be removed, before saving is possible again. The user is notified of a full local storage. Note that the local storage's capacity can be exceeded even though there is enough free disk space, as each website can only save a certain amount of data in the local storage.
   \end{itemize}
   
   \subsection*{Formal description}
@@ -173,15 +173,15 @@ This chapter describes various parts of the \applicationname{}. For each referen
     \toprule
     \emph{Operation} & \emph{Steps} & \emph{Results} \\
     \midrule
-    Save a distribution & Press the \texttt{Save} button. & The \emph{Save Item Panel} appears. \\
+    Save a distribution & Press the \emph{Save} button. & The \emph{Save Item Panel} appears. \\
     \midrule
-    Load a distribution & Press the \texttt{Load} button. & The \emph{Load Item Panel} appears. \\
+    Load a distribution & Press the \emph{Load} button. & The \emph{Load Item Panel} appears. \\
     \midrule
-    Remove a distribution & Press the \texttt{Remove} button. & The \emph{Remove Item Panel} appears. \\
+    Remove a distribution & Press the \emph{Remove} button. & The \emph{Remove Item Panel} appears. \\
     \midrule
-    Export an image of the distribution & Press the \texttt{Export Image} button. & A download prompt appears. \\
+    Export an image of the distribution & Press the \emph{Export Image} button. & A download prompt appears. \\
     \midrule
-    Close this menu & Press the \texttt{Back} button. & The main menu reappears. \\
+    Close this menu & Press the \emph{Back} button. & The main menu reappears. \\
     \bottomrule
   \end{tabularx}
 
@@ -201,19 +201,19 @@ This chapter describes various parts of the \applicationname{}. For each referen
 %-------------------------------------------------------------------------------------------------
 \section{Results Menu}\label{sec:resultsmenu}
   \subsection*{Functional description}
-  The \emph{Results} menu can be used to save, load, remove and compare results. Pressing the \texttt{Save} button pops up a menu, in which the desired name can be entered. If that name already exists, the user can choose to overwrite that name, or choose a new name.
+  The \emph{Results} menu can be used to save, load, remove and compare results. Pressing the \emph{Save} button pops up a menu, in which the desired name can be entered. If that name already exists, the user can choose to overwrite that result, or choose a new name.
   
-  Pressing the \texttt{Load} button causes a menu to appear, containing the names of all saved results. If there are no saved results, the user is notified of this fact. If there are more results than fit on the screen, scrollbars appear to allow the user to view all parts of list of saved results.
+  Pressing the \emph{Load} button causes a menu to appear, containing the names of all saved results. If there are no saved results, the user is notified of this fact. If there are more results than fit in the list, scrollbars appear to allow the user to view all parts of list of saved results.
   
-  The \texttt{Remove} button creates a pop-up panel containing the names of all saved results. Next to each of these names is a delete button that can be used to delete the result. Deleting a result cannot be undone. 
+  The \emph{Remove} button creates a pop-up panel containing the names of all saved results. Next to each of these names is a delete button that can be used to delete the result. Deleting a result cannot be undone. 
   
-  The \texttt{Compare Performance} button can be used to compare the performance of multiple runs. Pressing this button causes a pop-up panel to appear, in which the user can select results. The performance of all selected results are plotted in a graph once the user presses the \texttt{Compare} button.
+  The \emph{Compare Performance} button can be used to compare the performance of multiple runs. Pressing this button causes a pop-up panel to appear, in which the user can select results. The performance of all selected results are plotted in a graph once the user presses the \emph{Compare} button.
   
-  The \texttt{Back} button can be used to return to the main menu.
+  The \emph{Back} button can be used to return to the main menu.
 
   \subsection*{Cautions and warnings}
   \begin{itemize}
-    \item The \texttt{Load}, \texttt{Remove} and \texttt{Compare Performance} buttons have reduced functionality if no results were saved.
+    \item It is not possible to load or remove results if no results were saved.
     \item The capacity of the local storage is limited. When it is full, results or other saved \projectname{} items must be removed, before saving is possible again. The user is notified of a full local storage. Note that the local storage's capacity can be exceeded even though there is enough free disk space, as each website can only save a certain amount of data in the local storage.
   \end{itemize}  
 
@@ -222,15 +222,15 @@ This chapter describes various parts of the \applicationname{}. For each referen
     \toprule
     \emph{Operation} & \emph{Steps} & \emph{Results} \\
     \midrule
-    Save a result & Press the \texttt{Save} button. & The \emph{Save Item Panel} appears. \\
+    Save a result & Press the \emph{Save} button. & The \emph{Save Item Panel} appears. \\
     \midrule
-    Load a result & Press the \texttt{Load} button. & The \emph{Load Item Panel} appears. \\
+    Load a result & Press the \emph{Load} button. & The \emph{Load Item Panel} appears. \\
     \midrule
-    Remove a result & Press the \texttt{Remove} button. & The \emph{Remove Item Panel} appears. \\
+    Remove a result & Press the \emph{Remove} button. & The \emph{Remove Item Panel} appears. \\
     \midrule
-    Compare the performance of multiple runs & Press the \texttt{Compare Performance} button. & The \emph{Compare Multiple Graphs Panel} appears. \\
+    Compare the performance of multiple runs & Press the \emph{Compare Performance} button. & The \emph{Compare Multiple Graphs Panel} appears. \\
     \midrule
-    Close this menu & Press the \texttt{Back} button. & The main menu reappears. \\
+    Close this menu & Press the \emph{Back} button. & The main menu reappears. \\
     \bottomrule
   \end{tabularx}
 
@@ -247,13 +247,13 @@ This chapter describes various parts of the \applicationname{}. For each referen
 %-------------------------------------------------------------------------------------------------
 \section{Define Protocol Menu}\label{sec:defprot}
   \subsection*{Functional description}
-  The \texttt{Mix Now} button is used to execute a mixing run using the defined distribution and protocol. Once a mixing run has been executed, the performance graph of the run can be visualised using the \texttt{View Performance Graph} button.
+  The \emph{Mix Now} button is used to execute a mixing run using the defined distribution and protocol. Once a mixing run has been executed, the performance graph of the run can be visualised using the \emph{View Performance Graph} button.
   
-  To define a protocol, the \texttt{Step Size} spinner can be used to change the size of the step. The \texttt{Number Of Steps} button can be used to change the number of iterations of the protocol. The \texttt{Clear Protocol} button can be used to reset the protocol to the empty protocol.
+  To define a protocol, the \emph{Step Size} spinner can be used to change the size of the step. The \emph{Number Of Steps} button can be used to change the number of iterations of the protocol. The \emph{Clear Protocol} button can be used to reset the protocol to the empty protocol.
   
   To actually define the steps of the protocol, the user can drag the indicated parts of the geometry. This generates appropriate mixing steps.
   
-  The \texttt{Protocols} button is used to change to the menu to manage protocols. The \texttt{Stop Defining Protocol} button is used to return to the main menu.
+  The \emph{Protocols} button is used to change to the menu to manage protocols. The \emph{Stop Defining Protocol} button is used to return to the main menu.
 
   \subsection*{Cautions and warnings}
   None.
@@ -267,13 +267,13 @@ This chapter describes various parts of the \applicationname{}. For each referen
     \midrule
     Change the number of iterations & Enter a different value in the spinner. & The number of iterations of the protocol that is executed when the mixing run is executed changes accordingly. \\
     \midrule
-    View a graph of the current mixing run & Press the \texttt{View Performance Graph} button. & The \emph{View Single Graph Panel} appears. \\
+    View a graph of the current mixing run & Press the \emph{View Performance Graph} button. & The \emph{View Single Graph Panel} appears. \\
     \midrule
     Add a step to the protocol & Drag one of the geometry's walls to the left or right & A new step is added. \\
     \midrule
-    Close this menu & Press the \texttt{Stop Defining Protocol} button. & The main menu reappears. \\
+    Close this menu & Press the \emph{Stop Defining Protocol} button. & The main menu reappears. \\
     \midrule
-    Change to the \emph{Protocols} menu & Press the \texttt{Protocols} button. & The \emph{Protocols} menu appears. \\
+    Change to the \emph{Protocols} menu & Press the \emph{Protocols} button. & The \emph{Protocols} menu appears. \\
     \bottomrule
   \end{tabularx}
   
@@ -294,17 +294,17 @@ This chapter describes various parts of the \applicationname{}. For each referen
 %-------------------------------------------------------------------------------------------------
 \section{Protocols Menu}\label{sec:protmenu}
   \subsection*{Functional description}
-  The \emph{Protocols} menu can be used to save, load and remove protocols. Pressing the \texttt{Save} button pops up a menu, in which the desired name can be entered. If that name already exists, the user can choose to overwrite that name, or choose a new name.
+  The \emph{Protocols} menu can be used to save, load and remove protocols. Pressing the \emph{Save} button pops up a menu, in which the desired name can be entered. If that name already exists, the user can choose to overwrite that protocol, or choose a new name.
   
-  Pressing the \texttt{Load} button causes a menu to appear, containing the names of all saved protocols. If there are no saved protocols, the user is notified of this fact. If there are more protocols than fit on the screen, scrollbars appear to allow the user to view all parts of list of saved protocols.
+  Pressing the \emph{Load} button causes a menu to appear, containing the names of all saved protocols. If there are no saved protocols, the user is notified of this fact. If there are more protocols than fit on the screen, scrollbars appear to allow the user to view all parts of list of saved protocols.
   
-  The \texttt{Remove} button creates a pop-up panel containing the names of all saved protocols. Next to each of these names is a delete button that can be used to delete the protocol. Deleting a protocol cannot be undone.
+  The \emph{Remove} button creates a pop-up panel containing the names of all saved protocols. Next to each of these names is a delete button that can be used to delete the protocol. Deleting a protocol cannot be undone.
   
-  The \texttt{Back} button can be used to return to the main menu.
+  The \emph{Back} button can be used to return to the main menu.
 
   \subsection*{Cautions and warnings}
   \begin{itemize}
-    \item The \texttt{Load} and \texttt{Remove} buttons have reduced functionality if no protocols were saved.
+    \item It is not possible to load or remove protocols if no protocols were saved.
     \item The capacity of the local storage is limited. When it is full, protocols or other saved \projectname{} items must be removed, before saving is possible again. The user is notified of a full local storage. Note that the local storage's capacity can be exceeded even though there is enough free disk space, as each website can only save a certain amount of data in the local storage.
   \end{itemize}  
 
@@ -313,15 +313,15 @@ This chapter describes various parts of the \applicationname{}. For each referen
     \toprule
     \emph{Operation} & \emph{Steps} & \emph{Results} \\
     \midrule
-    Save a protocol & Press the \texttt{Save} button. & The \emph{Save Item Panel} appears. \\
+    Save a protocol & Press the \emph{Save} button. & The \emph{Save Item Panel} appears. \\
     \midrule
-    Load a protocol & Press the \texttt{Load} button. & The \emph{Load Item Panel} appears. \\
+    Load a protocol & Press the \emph{Load} button. & The \emph{Load Item Panel} appears. \\
     \midrule
-    Remove a protocol & Press the \texttt{Remove} button. & The \emph{Remove Item Panel} appears. \\
+    Remove a protocol & Press the \emph{Remove} button. & The \emph{Remove Item Panel} appears. \\
     \midrule
-    Export an image of the protocol & Press the \texttt{Export Image} button. & A download prompt appears. \\
+    Export an image of the protocol & Press the \emph{Export Image} button. & A download prompt appears. \\
     \midrule
-    Close this menu & Press the \texttt{Back} button. & The main menu reappears. \\
+    Close this menu & Press the \emph{Back} button. & The main menu reappears. \\
     \bottomrule
   \end{tabularx}
 
