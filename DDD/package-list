@@ -1,3 +1,5 @@
+io.ashton.fastpress.client
+io.ashton.fastpress.client.fast
 nl.tue.fingerpaint.client
 nl.tue.fingerpaint.client.gui
 nl.tue.fingerpaint.client.gui.animation
@@ -22,7 +24,7 @@ nl.tue.fingerpaint.shared.model
 nl.tue.fingerpaint.shared.serverdata
 nl.tue.fingerpaint.shared.simulator
 nl.tue.fingerpaint.shared.utils
+nl.tue.fingerpaint.suites
 nl.tue.fingerpaint.testenvironment
 nl.tue.multibrowsertest
 nl.tue.screenshotcomparator
-suites
