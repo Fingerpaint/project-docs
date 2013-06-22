@@ -1,0 +1,17 @@
+\documentclass[%
+		pathtobase=..,%
+		titlefull={Detailed Design Document},%
+		titleabbr=DDD,%
+		version=1.0]{fingerpaint}
+
+% To import the generated Javadoc
+\usepackage{pdfpages}
+
+\begin{document}
+
+\maketitle
+
+% include the Javadoc, see http://stackoverflow.com/a/2739710/962603
+\includepdf[pages={-}]{javadoc.pdf}
+
+\end{document}
