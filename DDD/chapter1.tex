@@ -1,0 +1,37 @@
+\chapter{Introduction}
+
+This chapter lists general information about this document.
+
+\section{Purpose}
+%The purpose of this particular DDD and its intended readership
+The Detailed Design Document (DDD) describes the implementation of the \applicationname{} on the most detailed level. Appendix \ref{chap:sourceListings} contains the generated documentation of the source code listings of the \applicationname{}.
+
+\section{Scope}
+%Scope of the software. Identifies the product by name, explains what the software will do
+The \applicationname{} is an application designed and developed by \projectauthor{} for prof.dr.ir. P.D. Anderson, at the Eindhoven University of Technology. The application serves as an educational tool for anyone who wants to gain a deeper understanding of the process of mixing in general, and in particular for students at the TU/e.
+
+\section{List of definitions and abbreviations}
+\subsection{Definitions}
+\begin{description}
+\item[Client:] Prof.dr.ir. P.D. Anderson.
+\end{description}
+
+\subsection{Abbreviations}
+\begin{tabular}{l|l}
+2IP35 & The Software Engineering Project \\
+ADD & Architectural Design Document \\
+ATP & Acceptance Test Plan \\
+DDD & Detailed Design Document \\
+ESA & European Space Agency \\
+SCMP & Software Configuration Management Plan \\
+SQAP & Software Quality Assurance Plan \\
+SRD   & Software Requirements Document \\
+TU/e  & Eindhoven University of Technology \\
+\end{tabular}
+
+\section{List of references}
+\bibliography{../ref}
+
+\section{Overview}
+%Short description of the rest of the DDD and how it is organized.
+Chapter \ref{chap:impStandConv} describes the implementation standards and conventions used. Descriptions of each of the components are given in chapter \ref{chap:componentDesc}. Chapter \ref{chap:buildProcedure} describes the build procedure of the application. This is not present in the ESA standard, but may be useful to future developers. Appendix \ref{chap:sourceListings} contains the generated documentations of the source code listings of the \applicationname{}. Finally, appendix \ref{chap:matrix} contains a matrix showing how each Software Requirement from the SRD \cite{srd} is linked to the components from chapter \ref{chap:componentDesc}.

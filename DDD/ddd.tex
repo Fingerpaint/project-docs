@@ -3,6 +3,8 @@
 		titlefull={Detailed Design Document},%
 		titleabbr=DDD,%
 		version=1.0]{fingerpaint}
+\externaldocument[ADD-]{\pathtobase{../project-docs/ADD/add}}
+\externaldocument[ATP-]{\pathtobase{../sep-docs/SVVP_AT/atp}}
 
 % To import the generated Javadoc
 \usepackage{pdfpages}
@@ -16,7 +18,26 @@
 
 \maketitle
 
-% include the Javadoc, see http://stackoverflow.com/a/2739710/962603
-\includepdf[pages={-}]{javadoc.pdf}
+\begin{abstract}
+This document contains a description fo the implementation details of the \applicationname. This project is part of the Software Engineering Project (2IP35) and is one of the assignments at Eindhoven University of Technology. The Detailed Design Document (DDD) is based on the ESA standard for software development, as set by the European Space Agency (ESA) \cite{esa}.
+\end{abstract}
+
+\tableofcontents
+
+\input{history.tex}
+
+\input{chapter1.tex}
+
+\input{chapter2.tex}
+
+\input{chapter3.tex}
+
+\input{chapter4.tex}
+
+\appendix
+
+\input{appendixA.tex}
+
+\input{appendixB.tex}
 
 \end{document}
